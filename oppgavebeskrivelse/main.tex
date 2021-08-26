@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[british]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{a4wide}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc, positioning}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{markdown}
+\usepackage[dateabbrev=false]{biblatex}
+\usepackage{placeins}
+
+
+\markdownSetup{pipeTables,tableCaptions}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\addbibresource{report.bib}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{green},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\hypersetup{
+    colorlinks=true,
+    frenchlinks=false,
+    bookmarksopen=true,
+    breaklinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black,
+    pdftitle=Project proposal,
+    pdfauthor={Tobias Eilertsen}
+}
+
+\lstdefinelanguage{kotlin}{
+  comment=[l]{//},
+  commentstyle={\color{gray}\ttfamily},
+  emph={delegate, filter, first, firstOrNull, forEach, lazy, map, mapNotNull, println, return@},
+  emphstyle={\color{OrangeRed}},
+  identifierstyle=\color{black},
+  keywords={abstract, actual, as, as?, break, by, class, companion, continue, data, do, dynamic, else, enum, expect, false, final, for, fun, get, if, import, in, interface, internal, is, null, object, override, package, private, public, return, set, super, suspend, this, throw, true, try, typealias, val, var, vararg, when, where, while,lateinit},
+  keywordstyle={\color{blue}\bfseries},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[s]{"""*}{*"""},
+  morekeywords={[2]{@Autowired, @RestController, @RequestMapping, @Bean, Array, Byte, Double, Float, Int, Integer, Iterable, Long, Runnable, Short, String, @Valid, @RequestBody,@PostMapping, @GetMapping, @DeleteMapping, @PutMapping}},
+  keywordstyle={[2]\color{BurntOrange}\bfseries},
+  morekeywords={[3]{accountService, account, window,id,accountRequest}},
+  keywordstyle={[3]{\color{DarkOrchid}\bfseries}},
+  morekeywords={[4]{AccountRequest, AccountResponse, AccountController,AccountService,AccountCreationRequest}},
+  keywordstyle={[4]{\color{Periwinkle}\textbf}},
+  sensitive=true,
+  stringstyle={\color{ForestGreen}\ttfamily},
+}
+\begin{document}
+
+\title{Project proposal}
+
+\author{Tobias Eilertsen}
+\maketitle
+
+
+\section*{supervisors}
+\begin{itemize}
+  \item Harald Soleim
+  \item Atle Geitung
+  \item Daniel Patel
+\end{itemize}
+\section*{Client}
+\begin{itemize}
+  \item Haukeland Universitetssykehus, medisinsk teknisk avdeling
+\end{itemize}
+
+\begin{abstract}
+  Before and during a surgery, it is important for medical personel to have a good understanding of the anatomy of a patient.
+  The goal of this project is to create a better way for medical personal to inspect 3D models, making surgeries easier and safer.
+\end{abstract}
+
+\newpage
+\section{introduction}
+
+
+\subsection{introduction}
+
+When a hospital recieves an injured patient that needs surgery, a CT scan is performed. The CT images are displayed as a 3D model on a computer that helps the medical personel prepare for surgery by visualising bone mass or other tissue. If a surgeon has a good understanding of a problem, it can be possible to perform a surgery that has less risk of complications or requires less resources.
+
+
+The problem with visualising the model in 2D a limited understanding of what the Bone/tissue actually looks like because of the lack of scale and depth. The solution to visualising the model is to view the model in AR or VR to give medical personel a good feel for what the problem actually looks like. 
+
+\section{ background }
+\subsection{ existing solutions}
+
+\subsubsection{existing VR viewers}
+
+There exists some alternatives to viewing a CT scan in VR, such as Medical Holodeck \cite{holodeck} which is made for surgeons to plan surgeries and education. Current solutions are difficult to use for people not used to Virtual Reality \emph{}
+
+An Augumented reality viewer called Dicom Director also exists, but is not approved for clinical use. \cite{dicomdirector}
+
+
+\subsubsection { 3D printing }
+
+An alternative to digital representation is to print the 3d model to inspect it physically \cite{virtualplanningand3dprinting}. This has many advantages, such as the surgeon being able to hold whatever he is operating on, measure the model, try out equipment etc. 
+The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross section or being able to change the model in any way.
+
+Another possible usecase for this project is getting a quick look at a model, and then deciding if a printed model is necessary, potentially saving resources.
+
+\subsubsection {2D viewer}
+
+There exists a wide range of computer programs to inspect CT images as 3D models, using the computer to interact with the model. 
+The current solution used by Helse Vest is materialise \cite{materialise}. Using a 2D viewer is fast and simple, but lacks the depth and scale of VR.
+
+
+
+
+\printbibliography
+
+\end{document}

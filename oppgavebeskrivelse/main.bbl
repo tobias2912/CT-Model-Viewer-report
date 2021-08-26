@@ -1,0 +1,136 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{dicomdirector}{misc}{}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{labeltitlesource}{title}
+      \field{title}{Dicom Director mixed reality DICOM viewer}
+      \field{urlday}{5}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.dicomdirector.com/for-surgeons/
+      \endverb
+      \verb{url}
+      \verb https://www.dicomdirector.com/for-surgeons/
+      \endverb
+    \endentry
+    \entry{materialise}{misc}{}
+      \list{language}{1}{%
+        {en}%
+      }
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labeltitlesource}{title}
+      \field{title}{Medical {3D} {Printing} {|} {3D} {Printing} {In} {Medical} {Field} {|} {Materialise} {Medical}}
+      \field{urlday}{5}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.materialise.com/en/medical
+      \endverb
+      \verb{url}
+      \verb https://www.materialise.com/en/medical
+      \endverb
+    \endentry
+    \entry{holodeck}{misc}{}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labeltitlesource}{title}
+      \field{title}{Medical Holodeck, VR DICOM viewer}
+      \field{urlday}{5}
+      \field{urlmonth}{4}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.medicalholodeck.com/en/
+      \endverb
+      \verb{url}
+      \verb https://www.medicalholodeck.com/en/
+      \endverb
+    \endentry
+    \entry{virtualplanningand3dprinting}{article}{}
+      \name{author}{6}{}{%
+        {{hash=958950c88662775a81b93c2049e730a4}{%
+           family={Mishra},
+           familyi={M\bibinitperiod},
+           given={Abhishek},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c8cccbb76c4e1f595999c8ecd9e00ecb}{%
+           family={Verma},
+           familyi={V\bibinitperiod},
+           given={Tarun},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4d2d26ee97595bd25df8d50a2569a86f}{%
+           family={Vaish},
+           familyi={V\bibinitperiod},
+           given={Abhishek},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2f9523e691a4abd02b0f6083a20998c9}{%
+           family={Vaish},
+           familyi={V\bibinitperiod},
+           given={Riya},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b0d2c5ac1dea4591a259dd9bc982aaa7}{%
+           family={Vaishya},
+           familyi={V\bibinitperiod},
+           given={Raju},
+           giveni={R\bibinitperiod}}}%
+        {{hash=cc03e28d11266bff071cc5d81c9a495c}{%
+           family={Maini},
+           familyi={M\bibinitperiod},
+           given={Lalit},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \strng{namehash}{e6fff098f015594d3b068f6d7419a289}
+      \strng{fullhash}{943ea19a23c2140844310fb4f70da1ec}
+      \strng{bibnamehash}{e6fff098f015594d3b068f6d7419a289}
+      \strng{authorbibnamehash}{e6fff098f015594d3b068f6d7419a289}
+      \strng{authornamehash}{e6fff098f015594d3b068f6d7419a289}
+      \strng{authorfullhash}{943ea19a23c2140844310fb4f70da1ec}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1008-1275}
+      \field{journaltitle}{Chinese Journal of Traumatology = Zhonghua Chuang Shang Za Zhi}
+      \field{month}{12}
+      \field{number}{6}
+      \field{title}{Virtual preoperative planning and {3D} printing are valuable for the management of complex orthopaedic trauma}
+      \field{volume}{22}
+      \field{year}{2019}
+      \field{pages}{350\bibrangedash 355}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1016/j.cjtee.2019.07.006
+      \endverb
+      \keyw{Adult,Fracture Dislocation,Fractures,Bone,Humans,Male,Operative Time,Orthopedic Procedures,Orthopedic Surgeons,Patient Care Planning,Printing,Three-Dimensional,Surveys and Questionnaires,Tomography,X-Ray Computed,Treatment Outcome,Virtual Reality,Wounds and Injuries,Young Adult,Bone fractures,Fracture dislocation,Three-dimensional printing,X-ray computed tomography}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
