@@ -19,7 +19,7 @@
 \usepackage{markdown}
 \usepackage[dateabbrev=false]{biblatex}
 \usepackage{placeins}
-
+\graphicspath{ {./images/} }
 
 \markdownSetup{pipeTables,tableCaptions}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -116,60 +116,68 @@ The problem with visualising the model in 2D a limited understanding of what the
 
 \subsection{ existing solutions}
 
-\subsubsection{existing VR viewers}
+% \subsubsection{existing VR viewers}
 
-There exists some alternatives to viewing a CT scan in VR, such as Medical Holodeck \cite{holodeck} which is made for surgeons to plan surgeries and education. Current solutions are difficult to use for people not used to Virtual Reality
+There exists several alternatives to viewing a CT scan in VR, such as Medical Holodeck \cite{holodeck} which is made for surgeons to plan surgeries and education. Current solutions are difficult to use for people not used to Virtual Reality \emph{cite needed}
 
-An Augumented reality viewer called Dicom Director also exists, but is not approved for clinical use. \cite{dicomdirector} All current solutions are also 
+An Augumented reality viewer called Dicom Director also exists, but is not approved for clinical use. \cite{dicomdirector} Most current solutions are also closed source premium services.
 
+A study in visualising Patient data with VR \cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical uderstanding compared to 2D images. The study did not investigate the efficiency of the planning phase (loading the model into the software took 1 hour), and it did not do a comparison to 3D printing.
 
 \subsubsection { 3D printing }
 
 An alternative to digital representation is to print the 3d model to inspect it physically \cite{virtualplanningand3dprinting}. This has many advantages, such as the surgeon being able to physically hold the bodypart, measure the model, try out equipment and practice with it.
-The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation.
+The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation of the fracture.
 
-A possible usecase for this project is taking a quick look at a model in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
+A possible future usecase for this project is taking a quick look at a model in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
 
 \subsubsection {2D viewer}
 
 There exists a wide range of computer programs to inspect CT images as 3D models, using the computer to interact with the model.
 The current solution used by Helse Vest is materialise \cite{materialise}. Using a 2D viewer is fast and simple, but lacks the depth and scale of VR.
 
+
 \section{Research Questions}
+VR has many potential benefits, and it is possible that the surgery planning process can use some of these. As the users are already looking at 3d models, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models. Therefore the possible research questions are as follows:
 
 Can VR technology improve surgery planning by making the process safer or more effective?
-can VR technology give some of the same benefits as 3D printing gives today?
+Can VR technology give some of the same benefits as 3D printing gives today at a lower cost?
 
-VR has many potential benefits, and it is possible that the surgery planning process can use some of these. As the users are already looking at 3d models, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models.
 
 \section{Expected Results}
-To test the theory, this thesis will include developing a VR/AR application and testing the application on relevant cases.
-The final application will be tested on medical personel to investigate the impact of the users understanding and the efficiency of the planning process. 
+To test the theory, this thesis will include developing a VR/AR application and doing qualitative testing on cases with relevant personel.
+The final application will be tested on medical personel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process. 
 
 \section{Literature and References}
 \begin{itemize}
 \item Mini invasiv behandling av brudd i hælbeinet ved hjelp av 3D printing:
 \begin{description}
-Norwegian presentation showing how 3d Printing is used to improve surgery planning
+\item Norwegian presentation showing how 3d Printing is used to improve surgery planning
+\end{description}
+
+
+\item Virtual preoperative planning and 3D printing are valuable for the management of complex orthopaedic trauma
+\begin{description}
+\item Article describing how 3D printing in planning can reduce surgical morbidity
+\end{description}
+
+
+\item A Virtual Reality Environment to Visualize Three-Dimensional Patient-Specific Models by a Mobile Head-Mounted Display
+\begin{description}
+\item Article testing the usability of viewing models in VR for surgeons
+\end{description}
+
+
+\item A collaborative virtual reality environment for liver surgery planning
+\begin{description}
+\item Article using VR specifically for liver surgery planning.
 \end{description}
 \end{itemize}
 
-
-\emph{Virtual preoperative planning and 3D printing are valuable for the management of complex orthopaedic trauma}\\
-Article describing how 3D printing in planning can reduce surgical morbidity
-
-
-\emph{A Virtual Reality Environment to Visualize Three-Dimensional Patient-Specific Models by a Mobile Head-Mounted Display}\\
-Article testing the usability of viewing models in VR for surgeons
-
-
-\emph{A collaborative virtual reality environment for liver surgery planning}\\
-Article using VR specifically for liver surgery planning.
-
 \section{Research Method}
-    Firstly, a prototypope Vr viewer will be created with the help of related open-source frameworks/software and guidance from medical personel.
-    
-    To answer the research question, it is necessary to somehow measure the performance of the final application. This thesis will use qualitative methods by interviewing related personel to investigate the performance including anatomical understanding, cooperation, and the effectiveness of the planning process. 
+Firstly, a prototypope Vr viewer will be created with the help of related open-source frameworks/software and guidance from medical personel.
+
+To answer the research question, it is necessary to somehow measure the performance of the final application. This thesis will use qualitative methods by interviewing related personel to investigate the performance including anatomical understanding, cooperation, and the effectiveness of the planning process. 
 
 \section{Thesis Outline}
 \begin{itemize}
@@ -224,34 +232,6 @@ Article using VR specifically for liver surgery planning.
 
 
 \section{Conclusions and Outlook}
-
-
-
-
-
-
-
-improve the surirgical planning process to make operations safer, more effective
-
-method: using vr to get an effect, pilot case study
-better understanding, more effecctive
-
-Ensure that your topic is relevant to your case???
-
-Focus on a small, manageable problem
-
-Establish your research question
-what is relation to topic
-"Preoperative fracture surgery using virtual reality"
-
-Find 1-2 text/professional books that handle the topic
-
-Find 3-10 research papers about the topic
-
-Read and analyze + write about them
-
-Ensure that the research question is relevant to your case
-
 
 \section{Literature and References}
 

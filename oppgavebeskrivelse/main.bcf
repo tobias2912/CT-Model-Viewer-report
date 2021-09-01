@@ -2346,8 +2346,9 @@
   <bcf:section number="0">
     <bcf:citekey order="1">holodeck</bcf:citekey>
     <bcf:citekey order="2">dicomdirector</bcf:citekey>
-    <bcf:citekey order="3">virtualplanningand3dprinting</bcf:citekey>
-    <bcf:citekey order="4">materialise</bcf:citekey>
+    <bcf:citekey order="3">vertemati_virtual_2019</bcf:citekey>
+    <bcf:citekey order="4">virtualplanningand3dprinting</bcf:citekey>
+    <bcf:citekey order="5">materialise</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
