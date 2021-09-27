@@ -19,7 +19,7 @@
 \usepackage{markdown}
 \usepackage[dateabbrev=false]{biblatex}
 \usepackage{placeins}
-\graphicspath{ {./images/} }
+\graphicspath{ {./images} }
 
 \markdownSetup{pipeTables,tableCaptions}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -123,9 +123,17 @@ Reality to give medical personnel a good feel for what the problem actually look
 
 \subsection{ existing solutions}
 
-There exists several alternatives to viewing a CT scan in VR, such as Medical Holodeck \cite{holodeck} which is made for surgeons to plan surgeries and education. Current solutions are difficult to use for people not used to Virtual Reality \emph{cite needed}
+\subsubsection{existing VR viewers}
+There exists several alternatives to viewing a medical data in VR, here are some of the alternatives.
 
-An Augumented reality viewer called Dicom Director also exists, but is not approved for clinical use. \cite{dicomdirector} Most current solutions are also closed source premium services.
+Medical Holodeck \cite{holodeck} is made for surgeons to plan surgeries and education.
+
+An Augumented reality viewer called Dicom Director also exists, but is not yet approved for clinical use. \cite{dicomdirector} 
+
+Most current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite needed}
+
+
+Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or plannning.
 
 A study in visualising Patient data with VR \cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical uderstanding compared to 2D images. The study did not investigate the efficiency of the planning phase (loading the model into the software took 1 hour), and it did not do a comparison to 3D printing.
 
@@ -145,7 +153,7 @@ The current solution used by Helse Vest is materialise \cite{materialise}. Using
 \section{Research Questions}
 VR has many potential benefits, and it is possible that the surgery planning
 process can use some of these. As the users are already looking at 3d models in
-2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models. Therefore the possible research questions are as follows:
+2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
 
 Can VR technology improve surgery planning by making the process safer or more effective?
 Can VR technology give some of the same benefits as 3D printing gives today at a lower cost?
@@ -240,7 +248,7 @@ by interviewing related personnel to investigate the performance including anato
 
 \section{Project Plan}
 
-\includegraphics{timeline}
+\includegraphics[width=\textwidth]{timeline.png}
 
 
 \section{Conclusions and Outlook}
