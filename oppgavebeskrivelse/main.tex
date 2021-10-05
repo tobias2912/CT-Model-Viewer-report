@@ -17,8 +17,11 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage{markdown}
-\usepackage[dateabbrev=false]{biblatex}
 \usepackage{placeins}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{report.bib}
+
 \graphicspath{ {./images} }
 
 \markdownSetup{pipeTables,tableCaptions}
@@ -26,7 +29,6 @@
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
-\addbibresource{report.bib}
 
 \lstset{frame=tb,
   language=Java,
@@ -97,10 +99,11 @@
 \end{itemize}
 
 \begin{abstract}
-  Before and during a surgery, it is important for medical personnel to have a
-    good understanding of the anatomy of a patient. A better understanding can
-    lead to a less invasive surgery with less risk of implications.
-  The goal of this project is to create a better way for medical personnel to inspect 3D models, making surgeries easier and safer.
+Before and during a surgery, it is important for medical personnel to have a
+good understanding of the anatomy of a patient. A better understanding can
+lead to a less invasive surgery with less risk of implications.
+The goal of this project is to create a better way for medical personnel to
+inspect 3d models, making surgeries easier and safer.
 \end{abstract}
 
 \newpage
@@ -109,26 +112,31 @@
 
 \subsection{introduction}
 
-When a hospital recieves an injured patient that needs surgery, a CT scan is
-performed. The CT images are displayed as a 3D model on a computer. This helps
-the medical personnel plan the surgery by visualising bone mass or other tissue. If a surgeon has a good understanding of a problem, it can be possible to perform a surgery that has less risk of complications or requires less resources.
+When a hospital recieves a injured patient that needs orthopedic surgery, a CT scan is
+often performed. The CT images are then displayed as a set of images or a 3D model on a computer. This helps
+the medical personnel plan the surgery by inspecting bone mass.
+If a surgeon has a good understanding of the anatomy related to the fracture,
+it is possible to perform a surgery that has less risk of complications or requires less resources.
 
 
-The problem with visualising the model in 2D the limited understanding of what
-the Bone/tissue actually looks like, because of the lack of scale and depth. A
+A problem with visualising the model in 2D the limited understanding of what
+the Bone actually looks like, because of the lack of scale and depth. A
 possible solution is visualising the model in Augumented Reality or Virtual
-Reality to give medical personnel a good feel for what the problem actually looks like. 
+Reality to give medical personnel a good feel for what the problem area actually looks like.
 
-\section{ background } 
+\section{ background }
 
 \subsection{ existing solutions}
 
 \subsubsection{existing VR viewers}
-There exists several alternatives to viewing a medical data in VR, here are some of the alternatives.
+There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
 
-Medical Holodeck \cite{holodeck} is made for surgeons to plan surgeries and education.
+Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} is made for surgeons to plan surgeries and education.
 
-An Augumented reality viewer called Dicom Director also exists, but is not yet approved for clinical use. \cite{dicomdirector} 
+An Augumented reality viewer called Dicom Director also exists, but is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
+
+Other similar solutions are Materialise\cite{materialise_medical_nodate} and
+Ceevra\cite{ceevra_inc_using_2019}.
 
 Most current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite needed}
 
@@ -139,7 +147,7 @@ A study in visualising Patient data with VR \cite{vertemati_virtual_2019} implem
 
 \subsubsection { 3D printing }
 
-An alternative to digital representation is to print the 3d model to inspect it physically \cite{virtualplanningand3dprinting}. This has many advantages, such as the surgeon being able to physically hold the bodypart, measure the model, try out equipment and practice with it.
+An alternative to digital representation is to print the 3d model to inspect it physically \cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the bodypart, measure the model, try out equipment and practice with it.
 The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation of the fracture.
 
 A possible future usecase for this project is taking a quick look at a model in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
@@ -162,9 +170,10 @@ Can VR technology give some of the same benefits as 3D printing gives today at a
 \section{Expected Results}
 To test the theory, this thesis will include developing a VR/AR application and
 doing qualitative testing on cases with relevant personnel.
-The final application will be tested on medical personnel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process. 
+The final application will be tested on medical personnel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process.
 
 \section{Literature and References}
+
 \begin{itemize}
 \item Mini invasiv behandling av brudd i hælbeinet ved hjelp av 3D printing:
 \begin{description}
@@ -180,7 +189,8 @@ The final application will be tested on medical personnel to investigate the imp
 
 \item A Virtual Reality Environment to Visualize Three-Dimensional Patient-Specific Models by a Mobile Head-Mounted Display
 \begin{description}
-\item Article testing the usability of viewing models in VR for surgeons
+\item Article testing the usability of viewing models in VR for surgeons and
+    interviewing participants.
 \end{description}
 
 
@@ -188,7 +198,15 @@ The final application will be tested on medical personnel to investigate the imp
 \begin{description}
 \item Article using VR specifically for liver surgery planning.
 \end{description}
+
+\item Using Virtual Reality (VR) Models for Preoperative Planning
+\begin{description}
+\item Quantitative study with randomized participants from surgical field
+    measuring the impact of VR in pre op phase based on surgery duration.
+\end{description}
 \end{itemize}
+
+
 
 \section{Research Method}
 Firstly, a prototype Vr viewer will be created with the help of related
@@ -196,12 +214,12 @@ open-source frameworks/software and guidance from medical personnel.
 
 To answer the research question, it is necessary to somehow measure the
 performance of the final application. This thesis will use qualitative methods
-by interviewing related personnel to investigate the performance including anatomical understanding, cooperation, and the effectiveness of the planning process. 
+by interviewing related personnel to investigate the performance including anatomical understanding, cooperation, and the effectiveness of the planning process.
 
 \section{Thesis Outline}
 \begin{itemize}
 
-\item Introduction(7-9 pages)
+\item Introduction (7-9 pages)
 
 \begin{description}
 \item short description of how vr can be used to plan surgery
@@ -226,13 +244,13 @@ by interviewing related personnel to investigate the performance including anato
 \item How the application is created and how final result will be measured
 \end{description}
 
-\item Implementation(10-15 pages) 
+\item Implementation(10-15 pages)
 
 \begin{description}
 \item how the final application is designed
 \end{description}
 
-\item Evaluation(10-12 pages)
+\item Evaluation (10-12 pages)
 
 \begin{description}
 \item results after final evaluation
@@ -250,8 +268,16 @@ by interviewing related personnel to investigate the performance including anato
 
 \includegraphics[width=\textwidth]{timeline.png}
 
-
 \section{Conclusions and Outlook}
+
+This report will hopefully answer some questions regarding the effect of Virtual Reality in
+surgeries, and bring more awareness and interest towards potential future uses
+of Virtual Reality. 
+
+To get an valid and interesting result it is necessary that the application is of a
+decent quality. The resulting application should be available for further
+development and study.
+
 
 \section{Literature and References}
 
