@@ -93,7 +93,7 @@
   \item Atle Geitung
   \item Daniel Patel
 \end{itemize}
-\section*{Client}
+\section*{Collaborator}
 \begin{itemize}
   \item Haukeland Universitetssykehus, medisinsk teknisk avdeling
 \end{itemize}
@@ -112,7 +112,7 @@ inspect 3d models, making surgeries easier and safer.
 
 \subsection{introduction}
 
-When a hospital recieves a injured patient that needs orthopedic surgery, a CT scan is
+When a hospital receives a injured patient that needs orthopedic surgery, a CT scan is
 often performed. The CT images are then displayed as a set of images or a 3D model on a computer. This helps
 the medical personnel plan the surgery by inspecting bone mass.
 If a surgeon has a good understanding of the anatomy related to the fracture,
@@ -120,15 +120,32 @@ it is possible to perform a surgery that has less risk of complications or requi
 
 
 A problem with visualising the model in 2D the limited understanding of what
-the Bone actually looks like, because of the lack of scale and depth. A
+the bone actually looks like, because of the lack of scale and depth. A
 possible solution is visualising the model in Augumented Reality or Virtual
 Reality to give medical personnel a good feel for what the problem area actually looks like.
 
-\section{ background }
+\subsection{Research Questions}
+VR has many potential benefits, and it is possible that the surgery planning
+process can use some of these. As the users are already looking at 3d models in
+2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
 
-\subsection{ existing solutions}
+How Can VR technology improve surgery planning by making the process safer or more effective?
+How Can VR technology give some of the same benefits as 3D printing gives today at a lower cost?
 
-\subsubsection{existing VR viewers}
+
+\subsection{Expected Results}
+The project should include a VR prototype of a standard where it is
+user friendly enough to test with non technical subjects and with functionality
+that is comparable to the usecases of a printed model.
+The prototype will be tested on medical personnel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process. 
+The application should be available for further development and/or study.
+
+The resulting report will include interviews and a conclusion describing what the
+performance of the VR viewer is compared to existing solutions, and whether VR is a
+valuable tool for surgery planning.  
+
+\subsection{Related works}
+
 There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
 
 Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} is made for surgeons to plan surgeries and education.
@@ -145,6 +162,11 @@ Some free general purpose VR viewers for 3D models also exist, but I have not fo
 
 A study in visualising Patient data with VR \cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical uderstanding compared to 2D images. The study did not investigate the efficiency of the planning phase (loading the model into the software took 1 hour), and it did not do a comparison to 3D printing.
 
+\section{ background }
+
+\subsection{ existing solutions}
+
+
 \subsubsection { 3D printing }
 
 An alternative to digital representation is to print the 3d model to inspect it physically \cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the bodypart, measure the model, try out equipment and practice with it.
@@ -157,29 +179,6 @@ A possible future usecase for this project is taking a quick look at a model in 
 There exists a wide range of computer programs to inspect CT images as 3D models, using the computer to interact with the model.
 The current solution used by Helse Vest is materialise \cite{materialise}. Using a 2D viewer is fast and simple, but lacks the depth and scale of VR.
 
-
-\section{Research Questions}
-VR has many potential benefits, and it is possible that the surgery planning
-process can use some of these. As the users are already looking at 3d models in
-2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
-
-Can VR technology improve surgery planning by making the process more effective
-or the surgery safer?
-Can VR technology give any of the same benefits as 3D printing gives today at a lower cost?
-
-
-\section{Expected Results}
-The project should include a VR prototype of a standard where it is
-user friendly enough to test with non technical subjects and with functionality
-that is comparable to the usecases of a printed model.
-The prototype will be tested on medical personnel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process. 
-The application should be available for further development and/or study.
-
-
-
-The resulting report will include interviews and a conclusion describing what the
-performance of the VR viewer is compared to existing solutions, and whether VR is a
-valuable tool for surgery planning.  
 
 \section{Literature and References}
 
@@ -285,7 +284,7 @@ on the same case.
 
 \section{Conclusions and Outlook}
 
-This report will hopefully answer some questions regarding the effect of Virtual Reality in
+This report will hopefully answer some questions regarding the usability of Virtual Reality in
 surgeries, and bring more awareness and interest towards potential future uses
 of Virtual Reality. 
 
