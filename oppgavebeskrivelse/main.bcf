@@ -2344,11 +2344,13 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">report.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">holodeck</bcf:citekey>
-    <bcf:citekey order="2">dicomdirector</bcf:citekey>
-    <bcf:citekey order="3">vertemati_virtual_2019</bcf:citekey>
-    <bcf:citekey order="4">virtualplanningand3dprinting</bcf:citekey>
-    <bcf:citekey order="5">materialise</bcf:citekey>
+    <bcf:citekey order="1">medical_holodeck_medicalholodeck_nodate</bcf:citekey>
+    <bcf:citekey order="2">dicomdirectorcom_surgeons_nodate</bcf:citekey>
+    <bcf:citekey order="3">materialise_medical_nodate</bcf:citekey>
+    <bcf:citekey order="4">ceevra_inc_using_2019</bcf:citekey>
+    <bcf:citekey order="5">vertemati_virtual_2019</bcf:citekey>
+    <bcf:citekey order="6">mishra_virtual_2019</bcf:citekey>
+    <bcf:citekey order="7">materialise</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

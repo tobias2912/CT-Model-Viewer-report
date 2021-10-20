@@ -19,15 +19,72 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{dicomdirector}{misc}{}
-      \field{sortinit}{D}
-      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+    \entry{ceevra_inc_using_2019}{report}{}
+      \name{author}{1}{}{%
+        {{hash=fd47b5432c46034ef7007c1206d85585}{%
+           family={{Ceevra, Inc.}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {clinicaltrials.gov}%
+      }
+      \strng{namehash}{fd47b5432c46034ef7007c1206d85585}
+      \strng{fullhash}{fd47b5432c46034ef7007c1206d85585}
+      \strng{bibnamehash}{fd47b5432c46034ef7007c1206d85585}
+      \strng{authorbibnamehash}{fd47b5432c46034ef7007c1206d85585}
+      \strng{authornamehash}{fd47b5432c46034ef7007c1206d85585}
+      \strng{authorfullhash}{fd47b5432c46034ef7007c1206d85585}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Dicom Director mixed reality DICOM viewer}
-      \field{urlday}{5}
-      \field{urlmonth}{4}
+      \field{abstract}{A prospective, randomized, controlled study designed to assess whether digital virtual reality (VR) models, created from existing CT scans and MRIs, provide surgeons with an improved understanding of their patients' anatomy, resulting in more efficient operations (robotic partial nephrectomy) and improved patient care.}
+      \field{month}{6}
+      \field{note}{submitted: November 1, 2017}
+      \field{number}{NCT03334344}
+      \field{title}{Using {Virtual} {Reality} ({VR}) {Models} for {Preoperative} {Planning}}
+      \field{type}{Clinical trial registration}
+      \field{urlday}{3}
+      \field{urlmonth}{10}
+      \field{urlyear}{2021}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://clinicaltrials.gov/ct2/show/NCT03334344
+      \endverb
+      \verb{url}
+      \verb https://clinicaltrials.gov/ct2/show/NCT03334344
+      \endverb
+    \endentry
+    \entry{dicomdirectorcom_surgeons_nodate}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=65426c309881541808baf727e8fea99e}{%
+           family={dicomdirector.com},
+           familyi={d\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en-US}%
+      }
+      \strng{namehash}{65426c309881541808baf727e8fea99e}
+      \strng{fullhash}{65426c309881541808baf727e8fea99e}
+      \strng{bibnamehash}{65426c309881541808baf727e8fea99e}
+      \strng{authorbibnamehash}{65426c309881541808baf727e8fea99e}
+      \strng{authornamehash}{65426c309881541808baf727e8fea99e}
+      \strng{authorfullhash}{65426c309881541808baf727e8fea99e}
+      \field{sortinit}{d}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{DICOM Solution For Surgeons Viewable on Augmented, Virtual Reality devices, or on any Device. Better Surgical Planning, patient prep and more}
+      \field{journaltitle}{DICOM Director}
+      \field{title}{Surgeons {|} {Solutions} {For} {DICOM} {Done} {Better}, {Faster} + {3D} on every device}
+      \field{urlday}{1}
+      \field{urlmonth}{9}
       \field{urlyear}{2021}
       \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/tei/Zotero/storage/2WJMN8JV/for-surgeons.html:text/html
+      \endverb
       \verb{urlraw}
       \verb https://www.dicomdirector.com/for-surgeons/
       \endverb
@@ -35,18 +92,71 @@
       \verb https://www.dicomdirector.com/for-surgeons/
       \endverb
     \endentry
-    \entry{materialise}{misc}{}
+    \entry{medical_holodeck_medicalholodeck_nodate}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f810dd25f36c98c85005118f1b51ee8a}{%
+           family={Holodeck},
+           familyi={H\bibinitperiod},
+           given={Medical},
+           giveni={M\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {en}%
       }
-      \field{sortinit}{M}
-      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \strng{namehash}{f810dd25f36c98c85005118f1b51ee8a}
+      \strng{fullhash}{f810dd25f36c98c85005118f1b51ee8a}
+      \strng{bibnamehash}{f810dd25f36c98c85005118f1b51ee8a}
+      \strng{authorbibnamehash}{f810dd25f36c98c85005118f1b51ee8a}
+      \strng{authornamehash}{f810dd25f36c98c85005118f1b51ee8a}
+      \strng{authorfullhash}{f810dd25f36c98c85005118f1b51ee8a}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{abstract}{DICOM Viewer, human anatomy lab and 3D anatomy models for teamwork in virtual reality (VR).}
+      \field{title}{Medicalholodeck. {The} {Virtual} {Reality} {Platform} for {Medical} {Teamwork}.}
+      \field{urlday}{1}
+      \field{urlmonth}{9}
+      \field{urlyear}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/tei/Zotero/storage/I8M2GC3Z/en.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.medicalholodeck.com/en/
+      \endverb
+      \verb{url}
+      \verb https://www.medicalholodeck.com/en/
+      \endverb
+    \endentry
+    \entry{materialise_medical_nodate}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=99c930e9b6050a4dea8e80c83874145e}{%
+           family={materialise},
+           familyi={m\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{99c930e9b6050a4dea8e80c83874145e}
+      \strng{fullhash}{99c930e9b6050a4dea8e80c83874145e}
+      \strng{bibnamehash}{99c930e9b6050a4dea8e80c83874145e}
+      \strng{authorbibnamehash}{99c930e9b6050a4dea8e80c83874145e}
+      \strng{authornamehash}{99c930e9b6050a4dea8e80c83874145e}
+      \strng{authorfullhash}{99c930e9b6050a4dea8e80c83874145e}
+      \field{sortinit}{m}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Premium medical 3D Printing and planning solutions. Complete 3D medical software \& services for healthcare professionals, engineers \& researchers. Better fitting implants, planning advanced clinical procedures; medical image-based planning and medical 3D printing technology is solving the most complex challenges.}
       \field{title}{Medical {3D} {Printing} {|} {3D} {Printing} {In} {Medical} {Field} {|} {Materialise} {Medical}}
-      \field{urlday}{5}
-      \field{urlmonth}{4}
+      \field{urlday}{1}
+      \field{urlmonth}{9}
       \field{urlyear}{2021}
       \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/tei/Zotero/storage/WPXIFYC3/medical.html:text/html
+      \endverb
       \verb{urlraw}
       \verb https://www.materialise.com/en/medical
       \endverb
@@ -54,23 +164,7 @@
       \verb https://www.materialise.com/en/medical
       \endverb
     \endentry
-    \entry{holodeck}{misc}{}
-      \field{sortinit}{M}
-      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
-      \field{labeltitlesource}{title}
-      \field{title}{Medical Holodeck, VR DICOM viewer}
-      \field{urlday}{5}
-      \field{urlmonth}{4}
-      \field{urlyear}{2021}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.medicalholodeck.com/en/
-      \endverb
-      \verb{url}
-      \verb https://www.medicalholodeck.com/en/
-      \endverb
-    \endentry
-    \entry{virtualplanningand3dprinting}{article}{}
+    \entry{mishra_virtual_2019}{article}{}
       \name{author}{6}{}{%
         {{hash=958950c88662775a81b93c2049e730a4}{%
            family={Mishra},
@@ -113,9 +207,10 @@
       \strng{authornamehash}{e6fff098f015594d3b068f6d7419a289}
       \strng{authorfullhash}{943ea19a23c2140844310fb4f70da1ec}
       \field{sortinit}{M}
-      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{abstract}{PURPOSE: The technology of 3D printing (3DP) exists for quite some time, but it is still not utilized to its full potential in the field of orthopaedics and traumatology, such as underestimating its worth in virtual preoperative planning (VPP) and designing various models, templates, and jigs. It can be a significant tool in the reduction of surgical morbidity and better surgical outcome avoiding various associated complications. METHODS: An observational study was done including 91 cases of complex trauma presented in our institution requiring operative fixation. Virtual preoperative planning and 3DP were used in the management of these fractures. Surgeons managing these cases were given a set of questionnaire and responses were recorded and assessed as a quantitative data. RESULTS: In all the 91 cases, where VPP and 3DP were used, the surgeons were satisfied with the outcome which they got intraoperatively and postoperatively. Surgical time was reduced, with a better outcome. Three dimensional models of complex fracture were helpful in understanding the anatomy and sketching out the plans for optimum reduction and fixation. The average score of the questionnaire was 4.5, out of a maximum of 6, suggesting a positive role of 3DP in orthopaedics. CONCLUSION: 3DP is useful in complex trauma management by accurate reduction and placement of implants, reduction of surgical time and with a better outcome. Although there is an initial learning curve to understand and execute the VPP and 3DP, these become easier with practice and experience.}
       \field{issn}{1008-1275}
       \field{journaltitle}{Chinese Journal of Traumatology = Zhonghua Chuang Shang Za Zhi}
       \field{month}{12}
@@ -128,9 +223,93 @@
       \verb{doi}
       \verb 10.1016/j.cjtee.2019.07.006
       \endverb
-      \keyw{Adult,Fracture Dislocation,Fractures,Bone,Humans,Male,Operative Time,Orthopedic Procedures,Orthopedic Surgeons,Patient Care Planning,Printing,Three-Dimensional,Surveys and Questionnaires,Tomography,X-Ray Computed,Treatment Outcome,Virtual Reality,Wounds and Injuries,Young Adult,Bone fractures,Fracture dislocation,Three-dimensional printing,X-ray computed tomography}
+      \verb{file}
+      \verb Full Text:/home/tei/Zotero/storage/TVQ3UZEY/Mishra et al. - 2019 - Virtual preoperative planning and 3D printing are .pdf:application/pdf
+      \endverb
+      \keyw{Adult,Bone fractures,Fracture dislocation,Fracture Dislocation,Fractures,Bone,Humans,Male,Operative Time,Orthopedic Procedures,Orthopedic Surgeons,Patient Care Planning,Printing,Three-Dimensional,Surveys and Questionnaires,Three-dimensional printing,Tomography,X-Ray Computed,Treatment Outcome,Virtual Reality,Wounds and Injuries,X-ray computed tomography,Young Adult}
+    \endentry
+    \entry{vertemati_virtual_2019}{article}{}
+      \name{author}{7}{}{%
+        {{hash=533b1d10e856a47519b4ce77ea58cbc1}{%
+           family={Vertemati},
+           familyi={V\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b04796e84c17d7cca8774ad1098072f1}{%
+           family={Cassin},
+           familyi={C\bibinitperiod},
+           given={Simone},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8cb0bc3c28d611eab0bedcf097ad9c97}{%
+           family={Rizzetto},
+           familyi={R\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+        {{hash=e389b8118592e2d940b0104fe12227a6}{%
+           family={Vanzulli},
+           familyi={V\bibinitperiod},
+           given={Angelo},
+           giveni={A\bibinitperiod}}}%
+        {{hash=638b6271e2b27f9edb01d94f477501e5}{%
+           family={Elli},
+           familyi={E\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a3e63cd0ea26f44d697e33a33106b4ed}{%
+           family={Sampogna},
+           familyi={S\bibinitperiod},
+           given={Gianluca},
+           giveni={G\bibinitperiod}}}%
+        {{hash=90b2f16726156322c208c5ff982e0344}{%
+           family={Gallieni},
+           familyi={G\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{9b278c5b0e9c49771b96ce892c4fd4a1}
+      \strng{fullhash}{549da5b83149df27913e4519c78f8322}
+      \strng{bibnamehash}{9b278c5b0e9c49771b96ce892c4fd4a1}
+      \strng{authorbibnamehash}{9b278c5b0e9c49771b96ce892c4fd4a1}
+      \strng{authornamehash}{9b278c5b0e9c49771b96ce892c4fd4a1}
+      \strng{authorfullhash}{549da5b83149df27913e4519c78f8322}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Introduction. With the availability of low-cost head-mounted displays (HMDs), virtual reality environments (VREs) are increasingly being used in medicine for teaching and clinical purposes. Our aim was to develop an interactive, user-friendly VRE for tridimensional visualization of patient-specific organs, establishing a workflow to transfer 3-dimensional (3D) models from imaging datasets to our immersive VRE. Materials and Methods. This original VRE model was built using open-source software and a mobile HMD, Samsung Gear VR. For its validation, we enrolled 33 volunteers: morphologists (n = 11), trainee surgeons (n = 15), and expert surgeons (n = 7). They tried our VRE and then filled in an original 5-point Likert-type scale 6-item questionnaire, considering the following parameters: ease of use, anatomy comprehension compared with 2D radiological imaging, explanation of anatomical variations, explanation of surgical procedures, preoperative planning, and experience of gastrointestinal/neurological disorders. Results in the 3 groups were statistically compared using analysis of variance. Results. Using cross-sectional medical imaging, the developed VRE allowed to visualize a 3D patient-specific abdominal scene in 1 hour. Overall, the 6 items were evaluated positively by all groups; only anatomy comprehension was statistically significant different among the 3 groups. Conclusions. Our approach, based on open-source software and mobile hardware, proved to be a valid and well-appreciated system to visualize 3D patient-specific models, paving the way for a potential new tool for teaching and preoperative planning.}
+      \field{issn}{1553-3506}
+      \field{journaltitle}{Surgical Innovation}
+      \field{month}{6}
+      \field{note}{Publisher: SAGE Publications Inc}
+      \field{number}{3}
+      \field{title}{A {Virtual} {Reality} {Environment} to {Visualize} {Three}-{Dimensional} {Patient}-{Specific} {Models} by a {Mobile} {Head}-{Mounted} {Display}}
+      \field{urlday}{1}
+      \field{urlmonth}{6}
+      \field{urlyear}{2021}
+      \field{volume}{26}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \field{pages}{359\bibrangedash 370}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1177/1553350618822860
+      \endverb
+      \verb{file}
+      \verb SAGE PDF Full Text:/home/tei/Zotero/storage/8NA4Y7TR/Vertemati et al. - 2019 - A Virtual Reality Environment to Visualize Three-D.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1177/1553350618822860
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1177/1553350618822860
+      \endverb
+      \keyw{anatomy,head-mounted display,mobile,training,virtual reality}
     \endentry
   \enddatalist
+  \missing{materialise}
 \endrefsection
 \endinput
 

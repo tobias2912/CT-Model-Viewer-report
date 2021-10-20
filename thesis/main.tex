@@ -117,25 +117,70 @@ First and foremost, I would like to thank ...
 % \acrfull{SE} is an engineering discipline that focuses on the development of high-quality software systems \cite{TsuiFrankF2011Eose}. ...
 
 \section{Context and Approach}
+When a hospital receives a injured patient that needs orthopedic surgery, a CT scan is
+often performed. The CT images are then displayed as a set of images or a 3D model on a computer. This helps
+the medical personnel plan the surgery by inspecting bone mass.
+If a surgeon has a good understanding of the anatomy related to the fracture,
+it is possible to perform a surgery that has less risk of complications or requires less resources.
 \section{Problem Description}
+A problem with visualising the model in 2D the limited understanding of what
+the bone actually looks like, because of the lack of scale and depth. A
+possible solution is visualising the model in Augmented Reality or Virtual
+Reality to give medical personnel a good feel for what the problem area actually looks like.
+
+VR has many potential benefits, and it is possible that the surgery planning
+process can use some of these. As the users are already looking at 3d models in
+2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
+
+How Can VR technology improve surgery planning by making the process safer or more effective?
+How Can VR technology give some of the same benefits as 3D printing gives today at a lower cost?
 \section{Methodology}
+
+The project should include a VR prototype of a standard where it is
+user friendly enough to test with non technical subjects and with functionality
+that is comparable to the use cases of a printed model.
+The prototype will be tested on medical personnel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process. 
+The application should be available for further development and/or study.
+
+Firstly, a prototype Vr viewer will be created with the help of related
+open-source frameworks/software and guidance from both orthopedic surgeons and
+developers with experience from medical technology.
+
+To answer the research question, it is necessary to measure the
+performance of the final application. This thesis will use qualitative methods
+by interviewing related personnel to investigate the performance including
+anatomical understanding, cooperation, and the effectiveness of the planning
+process.
+This will also be put in context to the existing solutions, possibly
+by doing a direct comparison by using a 3D model, printed model and VR viewer
+on the same case.
 \section{Contribution}
 \section{Outline}
 
 \chapter{Background} \label{Background}
 In this chapter, we will present some of the knowledge that our research is built upon. This theory is important to know in order understand the following chapters.
-...
 
-$<$ \textit{The following sections and subsections are just examples of how to structure the background} $>$
-\section{Model Driven Software Engineering}
+
+
+\subsection{ existing solutions}
+
+\subsubsection { 3D printing }
+
+An alternative to digital representation is to print the 3d model to inspect it physically \cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the bodypart, measure the model, try out equipment and practice with it.
+The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation of the fracture.
+
+A possible future use case for this project is taking a quick look at a model in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
+
+\subsubsection{2D viewer}
+
+There exists a wide range of computer programs to inspect CT images as 3D models, using the computer to interact with the model.
+The current solution used by Helse Vest is materialise \cite{materialise}. Using a 2D viewer is fast and simple, but lacks the depth and scale of VR.
+
+\section{VR}
 \subsection{Modeling languages}\label{ModelingLanguages}
 
-\section{Machine Learning} \label{Machine Learning}
+\section{orthopedic} \label{Machine Learning}
 \subsection{Supervised Learning}
-\subsection{Unsupervised Learning}
-\subsection{Reinforcement Learning}
-\subsubsection{Q-learnng} \label{Q-learning}
-
 
 
 \chapter{Design and Implementation} \label{Design and Implementation}
@@ -149,6 +194,21 @@ In this chapter the implementation of the algorithm will be explained. ...
 \chapter{Analysis and Assessment}\label{Analysis and Assessment}
 \chapter{Discussion} \label{Discussion}
 \chapter{Related Work} \label{Related Work}
+
+There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
+
+Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} is made for surgeons to plan surgeries and education.
+
+An Augmented reality viewer called Dicom Director also exists, but is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
+
+Other similar solutions are Materialise\cite{materialise_medical_nodate} and
+Ceevra\cite{ceevra_inc_using_2019}.
+
+Most current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite needed}
+
+Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning.
+
+A study in visualising Patient data with VR \cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase (loading the model into the software took 1 hour), and it did not do a comparison to 3D printing.
 \chapter{Conclusion} \label{Conclusion}
 \chapter{Further Work} \label{Further Work}
 
