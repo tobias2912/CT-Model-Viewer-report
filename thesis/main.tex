@@ -117,23 +117,18 @@ First and foremost, I would like to thank
 % \acrfull{SE} is an engineering discipline that focuses on the development of high-quality software systems \cite{TsuiFrankF2011Eose}. ...
 
 \section{Context and Approach}
-When a hospital receives a injured patient that needs orthopedic surgery, a CT scan is
-often performed. The CT images are then displayed as a set of images or a 3D model on a computer. This helps
-the medical personnel plan the surgery by inspecting bone mass.
+When a hospital receives a injured patient that is considered for orthopedic surgery, a CT scan is
+often performed. The data from the CT scan are then displayed as a set of 2D images or a 3D model on a computer. This helps the medical personnel plan the surgery by understanding what the fractured bone mass looks like.
 If a surgeon has a good understanding of the anatomy related to the fracture,
-it is possible to perform a surgery that has less risk of complications or requires less resources.
+the surgery has less risk of complications or could requires less resources.
 \section{Problem Description}
-A problem with visualising the model in 2D the limited understanding of what
-the bone actually looks like, because of the lack of scale and depth. A
-possible solution is visualising the model in Augmented Reality or Virtual
-Reality to give medical personnel a good feel for what the problem area actually looks like.
-
-VR has many potential benefits, and it is possible that the surgery planning
-process can use some of these. As the users are already looking at 3d models in
-2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
+A problem with visualising the model in 2D the limited understanding of what the bone actually looks like, because of the lack of scale and depth. This applies to both 2D images and 3D models rendered in 3D. 
+A possible solution is visualising the model in Augmented Reality or Virtual Reality to give medical personnel a good feel for what the problem area actually looks like.
+VR has many potential benefits, and it is possible that the surgery planning process can use some of these. As the users are already looking at 3d models in 2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
 
 How Can VR technology improve surgery planning by making the process safer or more effective?
 How Can VR technology give some of the same benefits as 3D printing gives today at a lower cost?
+
 \section{Methodology}
 
 The project should include a VR prototype of a standard where it is
@@ -161,7 +156,7 @@ on the same case.
 In this chapter, we will present some of the knowledge that our research is built upon. This theory is important to know in order understand the following chapters.
 
 
-\subsection{ existing solutions}
+\subsection{ Existing solutions}
 
 \subsubsection{ 3D printing }
 
@@ -171,7 +166,6 @@ The biggest drawback to 3D printing is that the printing process can take more t
 A possible future use case for this project is taking a quick look at a model in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
 
 \subsubsection{2D viewer}
-
 There exists a wide range of computer programs to inspect CT images as 3D models, using the computer to interact with the model.
 The current solution used by Helse Vest is materialise\cite{materialise}. Using a 2D viewer is fast and simple, but lacks the depth and scale of VR.
 
@@ -179,17 +173,25 @@ The current solution used by Helse Vest is materialise\cite{materialise}. Using 
 Virtual Reality is the use of VR technology to sense the users state and actions and augments sensory feedback to immerse the user in a 3D virtual enviroment\cite{virtual reality applications}.
 The Virtual enviroment is the computer generated objects that the user interacts with. The virtual enviroment will often mimic properties in the real world, such as shape, color or functionality.
 The enviroment is typically percieved by the user through a Head-mounted Display (HMD), sound and to some extent haptic feedback (vibration). The virtual reality system then ‘tricks’ the senses by displaying computer-generated stimuli that replace stimuli from the real world. With more specialized hardware other stimuli such as temperatue, smells and more is possible\cite{feelreal}.
-To allow for the virtual enviroment to seem realistic, it must respond to the users actions. Current commercial Virtual Reality headsets tracks the position and rotation of the users head and hands, and allows for button inputs\cite{quest}.
+To allow for the virtual enviroment to seem real, it must respond to the users actions. Current commercial Virtual Reality headsets tracks the users head and hands, and allows for button inputs\cite{quest}. Modern HMD's use 6 Degrees of Freedom (DOF), meaning that the user is tracked in three dimensional position and rotation\cite{6dof}. This is used by the VR application to simulate walking, picking up objects and more.
 
--used for entertainment and professional use
+\subsection{Proffesional usage of VR}
+While becoming more popular on mainstream entertainment, VR has been used in professional enviroments for a long time\cite{needed}. 
 
 \subsubsection{advantages and disadvangages}
-A disadvantage with wearing a HMD is fatigue, both physical fatigue caused by the weight or eye fatigue.
-Eye fatigue is caused by image imperfections\cite{visualcomfort}.
+A disadvantage with wearing a HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{motionSickness}.
+Eye fatigue is caused by image imperfections in the HMD\cite{visualcomfort}, and motion sickness is caused by sensory conflict.
+
+
+An advantage to VR is being able to simulate the something physically inaccessible, such as a planet in space, or the inside of a patients knee. For physically impaired users, this advantage is even more relevant.
+VR can also simulate things that would otherwise be dangerous, for example an untrained surgeon performing surgery alone.
+Other advantages comes from the fact that VR are more immersive than other mediums, making the user able to feel emotions including stress or fear. This makes it usable to prepare personell for stressful situations, such as police. The added immersion also makes teaching or training more motivating for the student.\cite{immersive VR}
+
 \section{Augmented Reality}
 
 
-\section{orthopedic} \label{Machine Learning}
+\section{orthopedic surgery} \label{Machine Learning}
+\subsection{history of medical imaging}
 
 
 
