@@ -33,7 +33,7 @@
 
 %BIB by Adrian
 \usepackage[backend=biber,style=numeric, urldate=long]{biblatex}
-% See the references.bib file. Most Bibtex bibliographies in Computer Science can be found from dblp.org 
+% See the references.bib file. Most Bibtex bibliographies in Computer Science can be found from dblp.org
 \addbibresource{report.bib}
 
 
@@ -122,7 +122,7 @@ often performed. The data from the CT scan are then displayed as a set of 2D ima
 If a surgeon has a good understanding of the anatomy related to the fracture,
 the surgery has less risk of complications or could requires less resources.
 \section{Problem Description}
-A problem with visualising the model in 2D the limited understanding of what the bone actually looks like, because of the lack of scale and depth. This applies to both 2D images and 3D models rendered in 3D. 
+A problem with visualising the model in 2D the limited understanding of what the bone actually looks like, because of the lack of scale and depth. This applies to both 2D images and 3D models rendered in 3D.
 A possible solution is visualising the model in Augmented Reality or Virtual Reality to give medical personnel a good feel for what the problem area actually looks like.
 VR has many potential benefits, and it is possible that the surgery planning process can use some of these. As the users are already looking at 3d models in 2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
 
@@ -134,10 +134,10 @@ How Can VR technology give some of the same benefits as 3D printing gives today 
 The project should include a VR prototype of a standard where it is
 user friendly enough to test with non technical subjects and with functionality
 that is comparable to the use cases of a printed model.
-The prototype will be tested on medical personnel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process. 
+The prototype will be tested on medical personnel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process.
 The application should be available for further development and/or study.
 
-Firstly, a prototype Vr viewer will be created with the help of related
+Firstly, a prototype VR viewer will be created with the help of related
 open-source frameworks/software and guidance from both orthopedic surgeons and
 developers with experience from medical technology.
 
@@ -158,19 +158,20 @@ In this chapter, we will present some of the knowledge that our research is buil
 \section{orthopedic surgery}
 
 Orthopedic surgery is surgery involving the muscoskeletal system. Cases range from trauma surgery, where injuries are caused by high impact forces to infections and tumors\cite{manual ortho}.
-This research is based around the treatment of fractures.?? 
 
-hva som er vanskelig
-hvordan de jobber/planlegger med ct og sånn
+Orthopedic surgeons do both elective and urgent surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery.
 
+This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools.
 
-\subsection{history of medical imaging}
-X-Ray
-CT scans
-CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{manual ortho}.
+\subsection{brief history of medical imaging}
+The first used imaging tool was the X-Ray, discovered in 1895. As the energy in the radiation is absorb at a different rate by tissue and bone, it is possible to create an image of bone. The image is displayed as a projection from the angle the X-ray was taken. During the first half of the 20th century other techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical Imaging was the CT scan (computed tomography).\cite{bradley_history_2008}
+CT scans (Computed Tomography) was invented during the 1970s. During a CT scan a X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. This overcomes the issue of the two-dimensional X-ray and creates detailed image data that can be visualized in any plane without superimposing the image with tissue above and below the selected layer. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{manual ortho}.
+MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. It has better accuracy compared to CT when measuring soft tissue and also avoids any radiation. 
+The imaging used for testing in this report is from CT scans done by Helse Vest.
+
 \subsubsection{ 3D printing }
 
-An alternative to digital representation is to print the 3d model to inspect it physically\cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the bodypart, measure the model, try out equipment and practice with it.
+An alternative to digital representation is to print the 3d model to inspect it physically\cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the model, measure the model, try out equipment and practice with it.
 The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation of the fracture.
 
 A possible future use case for this project is quickly inspecting a fracture in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
@@ -180,28 +181,29 @@ A possible future use case for this project is quickly inspecting a fracture in 
 % The current solution used by Helse Vest is materialise\cite{materialise_medical_nodate}. Using a 2D viewer is fast and simple, but lacks the depth and scale of VR.
 
 \section{Virtual Reality}
-Virtual Reality is the use of VR technology to sense the users state and actions and augments sensory feedback to immerse the user in a 3D virtual enviroment\cite{mihelj_virtual_2014}.
-The Virtual enviroment is the computer generated objects that the user interacts with. The virtual enviroment will often mimic properties in the real world, such as shape, color or functionality.
-The enviroment is typically percieved by the user through a Head-mounted Display (HMD), sound and to some extent haptic feedback (vibration). The virtual reality system then ‘tricks’ the senses by displaying computer-generated stimuli that replace stimuli from the real world. With more specialized hardware other stimuli such as temperatue, smells and more is possible\cite{noauthor_feelreal_nodate}.
-To allow for the virtual enviroment to seem real, it must respond to the users actions. Current commercial Virtual Reality headsets tracks the users head and hands, and allows for button inputs\cite{noauthor_oculus_nodate}. Modern HMD's use 6 Degrees of Freedom (DOF), meaning that the user is tracked in three dimensional position and rotation\cite{lang_introduction_2013}. This is used by the VR application to simulate walking, picking up objects and more.
+Virtual Reality is the use of VR technology to sense the users state and actions and augments sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
+The Virtual environment is the computer generated objects that the user interacts with. The virtual environment will often mimic properties in the real world, such as shape, color or functionality.
+The environment is typically perceived by the user through a Head-mounted Display (HMD), sound and to some extent haptic feedback (vibration). The virtual reality system then ‘tricks’ the senses by displaying computer-generated stimuli that replace stimuli from the real world. With more specialized hardware other stimuli such as temperature, smells and more is possible\cite{noauthor_feelreal_nodate}.
+To allow for the virtual environment to seem real, it must respond to the users actions. Current commercial Virtual Reality headsets tracks the users head and hands, and allows for button inputs\cite{noauthor_oculus_nodate}. Modern HMD's use 6 Degrees of Freedom (DOF), meaning that the user is tracked in three dimensional position and rotation\cite{lang_introduction_2013}. This is used by the VR application to simulate walking, picking up objects and more.
 
-\subsection{Proffesional usage of VR}
-While becoming more popular on mainstream entertainment, VR has been used in professional enviroments for a long time\cite{needed}. VR and AR is often used in the medical field for training or education becuase the real situation would be unpractical or dangerous\cite{freina_immersive_2015}.
+\subsection{Professional usage of VR}
+While becoming more popular on mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR is often used in the medical field for training or education because the real situation would be unpractical or dangerous\cite{freina_immersive_2015}.
 
-\subsection{advantages and disadvangages}
+\subsection{advantages and disadvantages}
 A disadvantage with wearing a HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
-Eye fatigue is caused by image imperfections in the HMD\cite{kooi_visual_2004}, and motion sickness is caused by sensory conflict. 
+Eye fatigue is caused by image imperfections in the HMD\cite{kooi_visual_2004}, and motion sickness is caused by sensory conflict.
 In a study on motion sickness, 59 \% of the subjects experienced motion sickness after a mean of 14 minutes, the remaining subjects did not experience any illness\cite{kooi_visual_2004}. According to a study on Motion sickness factors, it can be mitigated in several ways.
-Some effective measures are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual enviroment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}.
+Some effective measures are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}.
 
 An advantage to VR is being able to simulate the something physically out of reach, such as a planet in space, or the inside of a patients knee. For physically impaired users, this advantage is even more relevant.
 VR can also simulate things that would otherwise be dangerous, for example an untrained surgeon performing surgery alone.
-Other advantages comes from the fact that VR are more immersive than other mediums. This makes the user able to better feel stress or fear and makes it feasable to prepare personell for stressful situations, such as police.
+Other advantages comes from the fact that VR are more immersive than other mediums. This makes the user able to better feel stress or fear and makes it feasible to prepare personnel for stressful situations, such as police.
 The added immersion also makes teaching or training more motivating for the student.\cite{freina_immersive_2015}
 
 \subsection{Augmented Reality}
-Augmented Reality (AR) is a ugrade of VR where the real world is mixed with the virtual enviroment.
-AR is used in medical, industrial and military devices to show important information while the user opererates some other device in real life. Examples of this is a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while fying\cite{mihelj_virtual_2014}.
+Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants, some mobile apps use the camera to create a AR environment, and AR HMD's work similarly to VR HMD's, except that the viewing glass is transparent.
+AR HMDs is used in medical, industrial and military devices to show important information while the user operates some other device in real life. Examples of this is a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}.
+AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
 
 \chapter{Design and Implementation} \label{Design and Implementation}
