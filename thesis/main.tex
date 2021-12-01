@@ -159,20 +159,33 @@ In this chapter, we will present some of the knowledge that our research is buil
 
 Orthopedic surgery is surgery involving the muscoskeletal system. Cases range from trauma surgery, where injuries are caused by high impact forces to infections and tumors\cite{manual ortho}.
 
-Orthopedic surgeons do both elective and urgent surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery.
+Orthopedic surgeons do both elective(planned) and urgent surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery. 
+With any patient, a team of often 1-4 surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation is  examining the sources of the symptoms and the body as a whole. Medical imaging including ultrasound, CT and MRI gives the surgeons a detailed insight on bones or soft tissue structures.
 
 This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools.
 
-\subsection{brief history of medical imaging}
-The first used imaging tool was the X-Ray, discovered in 1895. As the energy in the radiation is absorb at a different rate by tissue and bone, it is possible to create an image of bone. The image is displayed as a projection from the angle the X-ray was taken. During the first half of the 20th century other techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical Imaging was the CT scan (computed tomography).\cite{bradley_history_2008}
-CT scans (Computed Tomography) was invented during the 1970s. During a CT scan a X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. This overcomes the issue of the two-dimensional X-ray and creates detailed image data that can be visualized in any plane without superimposing the image with tissue above and below the selected layer. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{manual ortho}.
+\subsection{Brief history of medical imaging}
+The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen}\cite{Suetens}. As the energy in the radiation is absorbed in a different rate by tissue and bone, it is possible to create an image of bone. The image is displayed as a projection from the angle the X-ray was taken. During the first half of the 20th century other techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical Imaging was the CT scan (computed tomography)\cite{bradley_history_2008}.
+CT scans (Computed Tomography) was invented during the 1970s. During a CT scan an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. This overcomes the issue of the two-dimensional X-ray and creates detailed image data that can be visualised in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{manual ortho}.
 MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. It has better accuracy compared to CT when measuring soft tissue and also avoids any radiation. 
+
 The imaging used for testing in this report is from CT scans done by Helse Vest.
+
+\subsection{Medical imaging visualisation}
+The output of both CT and MRI scans is a three-dimensional scan. This is often represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the x-Ray absorption at the point \emph{(x, y, z)}\cite{chougule}.
+Each pixel in a slice is actually representing a volume, so all the slices combined makes up volumetric data, or a three-dimensional point cloud\cite{chougule}. 
+The slice thickness of the slices can be below 1 mm, giving a high resolution scan where a single point is less than one cubic millimiter\cite{hamblen}. 
+
+image processing
+
+converting to mesh
+
+
 
 \subsubsection{ 3D printing }
 
 An alternative to digital representation is to print the 3d model to inspect it physically\cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the model, measure the model, try out equipment and practice with it.
-The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation of the fracture.
+The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation of the fracture.
 
 A possible future use case for this project is quickly inspecting a fracture in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
 
@@ -184,7 +197,7 @@ A possible future use case for this project is quickly inspecting a fracture in 
 Virtual Reality is the use of VR technology to sense the users state and actions and augments sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
 The Virtual environment is the computer generated objects that the user interacts with. The virtual environment will often mimic properties in the real world, such as shape, color or functionality.
 The environment is typically perceived by the user through a Head-mounted Display (HMD), sound and to some extent haptic feedback (vibration). The virtual reality system then ‘tricks’ the senses by displaying computer-generated stimuli that replace stimuli from the real world. With more specialized hardware other stimuli such as temperature, smells and more is possible\cite{noauthor_feelreal_nodate}.
-To allow for the virtual environment to seem real, it must respond to the users actions. Current commercial Virtual Reality headsets tracks the users head and hands, and allows for button inputs\cite{noauthor_oculus_nodate}. Modern HMD's use 6 Degrees of Freedom (DOF), meaning that the user is tracked in three dimensional position and rotation\cite{lang_introduction_2013}. This is used by the VR application to simulate walking, picking up objects and more.
+To allow for the virtual environment to seem real, it must respond to the users actions. Current commercial Virtual Reality headsets tracks the users head and hands, and allows for button inputs\cite{noauthor_oculus_nodate}. Modern HMD's use 6 Degrees of Freedom (DOF), meaning that the user is tracked in three-dimensional position and rotation\cite{lang_introduction_2013}. This is used by the VR application to simulate walking, picking up objects and more.
 
 \subsection{Professional usage of VR}
 While becoming more popular on mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR is often used in the medical field for training or education because the real situation would be unpractical or dangerous\cite{freina_immersive_2015}.
