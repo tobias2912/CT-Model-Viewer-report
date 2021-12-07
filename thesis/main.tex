@@ -124,7 +124,7 @@ the surgery has less risk of complications or could requires less resources.
 \section{Problem Description}
 A problem with visualising the model in 2D the limited understanding of what the bone actually looks like, because of the lack of scale and depth. This applies to both 2D images and 3D models rendered in 3D.
 A possible solution is visualising the model in Augmented Reality or Virtual Reality to give medical personnel a good feel for what the problem area actually looks like.
-VR has many potential benefits, and it is possible that the surgery planning process can use some of these. As the users are already looking at 3d models in 2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
+VR has many potential benefits, and it is possible that the surgery planning process can use some of these. As the users are already looking at 3D models in 2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
 
 How Can VR technology improve surgery planning by making the process safer or more effective?
 How Can VR technology give some of the same benefits as 3D printing gives today at a lower cost?
@@ -160,31 +160,30 @@ In this chapter, we will present some of the knowledge that our research is buil
 Orthopedic surgery is surgery involving the muscoskeletal system. Cases range from trauma surgery, where injuries are caused by high impact forces to infections and tumors\cite{manual ortho}.
 
 Orthopedic surgeons do both elective (planned) and urgent surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery. A team of usually two surgeons will plan the surgery together.
-With any patient, a team of often 1-4 surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation is  examining the sources of the symptoms and the body as a whole. Medical imaging including ultrasound, CT and MRI gives the surgeons a detailed insight on bones or soft tissue structures.
+With any patient, a surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation is  examining the sources of the symptoms and the body as a whole. Medical imaging including ultrasound, CT and MRI gives the surgeons a detailed insight on bones or soft tissue structures.
 
-This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools.
+This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools. 
 
 \subsection{Brief history of medical imaging}
-The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen}\cite{Suetens}. As the energy in the radiation is absorbed in a different rate by tissue and bone, it is possible to create an image of bone. The image is displayed as a projection from the angle the X-ray was taken. During the first half of the 20th century other techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical Imaging was the CT scan (computed tomography)\cite{bradley_history_2008}.
-CT scans (Computed Tomography) was invented during the 1970s. During a CT scan an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. This overcomes the issue of the two-dimensional X-ray and creates detailed image data that can be visualised in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{manual ortho}.
+The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed in a different rate by tissue and bone, it is possible to create an image of bone. The image is displayed as a projection from the angle the X-ray was taken. During the first half of the 20th century other techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical Imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
+CT scans (Computed Tomography) was invented during the 1970s. During a CT scan an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. This overcomes the issue of the two-dimensional X-ray and creates detailed image data that can be visualised in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{swiontkowski_manual_2013}.
 MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. It has better accuracy compared to CT when measuring soft tissue and also avoids any radiation. 
 
 The imaging used for testing in this report is from CT scans done by Helse Vest.
 
 \subsection{Medical imaging visualisation}
-The output of both CT and MRI scans is a three-dimensional scan. This is often represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the x-Ray absorption at the point \emph{(x, y, z)}\cite{chougule}.
-Each pixel in a slice is actually representing a volume, so all the slices combined makes up volumetric data, or a three-dimensional point cloud\cite{chougule}. 
-The slice thickness of the slices can be below 1 mm, giving a high resolution scan where a single point is less than one cubic millimiter\cite{hamblen}. 
+The output of both CT and MRI scans is a three-dimensional scan. This is often represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
+Each pixel in a slice is actually representing a volume, so all the slices combined makes up volumetric data, or a three-dimensional point cloud\cite{chougule_conversions_2013}. 
+The slice thickness of the slices can be below 1 mm, giving a high resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
 
-image processing
+To render the image on a screen, the volume needs to be projected to two dimensional space. The values in a single slice can be use to view the intersection at a certain slice number, or all slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
+The values are then converted to greyscale by mapping ranges of values to greyscale pixels.
 
-converting to mesh
-
-
+To render the scan as a full 3D model a specific volume rendering algorithm is needed. Rendering the model includes preprocessing of the volume, and classification to determine the type of issue based on voxel value. A simple approach is threshold, a binary classification where a mesh is created between all voxels that match the threshold value. A different threshold can be selected to represent different values, such as bone\cite{fishman_volume_2006}
 
 \subsubsection{ 3D printing }
 
-An alternative to digital representation is to print the 3d model to inspect it physically\cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the model, measure the model, try out equipment and practice with it.
+An alternative to digital representation is to print the 3D model to inspect it physically\cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the model, measure the model, try out equipment and practice with it.
 The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation of the fracture.
 
 A possible future use case for this project is quickly inspecting a fracture in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
