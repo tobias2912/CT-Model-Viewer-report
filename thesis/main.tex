@@ -171,7 +171,7 @@ MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a st
 
 The imaging used for testing in this report is from CT scans done by Helse Vest.
 
-\subsection{Medical imaging visualisation}
+\subsection{Visualisation of medical imaging}
 The output of both CT and MRI scans is a three-dimensional scan. This is often represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
 Each pixel in a slice is actually representing a volume, so all the slices combined makes up volumetric data, or a three-dimensional point cloud\cite{chougule_conversions_2013}. 
 The slice thickness of the slices can be below 1 mm, giving a high resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
@@ -201,39 +201,57 @@ To allow for the virtual environment to seem real, it must respond to the users 
 \subsection{Professional usage of VR}
 While becoming more popular on mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR is often used in the medical field for training or education because the real situation would be unpractical or dangerous\cite{freina_immersive_2015}.
 
-\subsection{advantages and disadvantages}
+\subsection{Advantages and disadvantages}
 A disadvantage with wearing a HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
 Eye fatigue is caused by image imperfections in the HMD\cite{kooi_visual_2004}, and motion sickness is caused by sensory conflict.
 In a study on motion sickness, 59 \% of the subjects experienced motion sickness after a mean of 14 minutes, the remaining subjects did not experience any illness\cite{kooi_visual_2004}. According to a study on Motion sickness factors, it can be mitigated in several ways.
-Some effective measures are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}.
 
 An advantage to VR is being able to simulate the something physically out of reach, such as a planet in space, or the inside of a patients knee. For physically impaired users, this advantage is even more relevant.
 VR can also simulate things that would otherwise be dangerous, for example an untrained surgeon performing surgery alone.
 Other advantages comes from the fact that VR are more immersive than other mediums. This makes the user able to better feel stress or fear and makes it feasible to prepare personnel for stressful situations, such as police.
 The added immersion also makes teaching or training more motivating for the student.\cite{freina_immersive_2015}
 
-\subsection{Augmented Reality}
+\subsection{Designing for VR}
+VR is fairly new to mainstream media, and as such there are few agreed upon standards unlike e.g. web development.
+Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware dependent and not relevant, so the most important measure in software is moving content. 
+
+\subsection{ Augmented Reality }
 Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants, some mobile apps use the camera to create a AR environment, and AR HMD's work similarly to VR HMD's, except that the viewing glass is transparent.
 AR HMDs is used in medical, industrial and military devices to show important information while the user operates some other device in real life. Examples of this is a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}.
 AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
 
-\chapter{Design and Implementation} \label{Design and Implementation}
+\chapter{Design and Implementation}\label{Design and Implementation}
 
-\section{Demonstration} \label{demonstration}
+\section{Demonstration}\label{demonstration}
+gameplay
 
 \section{Development method}
+agile
+difficult with test driven
 
-\section{Code structure} \label{CodeStructure}
 
+\section{Project overview}\label{CodeStructure}
 
-\chapter{Use cases} \label{Use Cases}
+\section{Design}
+design goals?
+designing for better understanding
+design similar to a VR viewer?
+
+\subsection{Designing for VR}
+ease of use
+tutorial
+easy controllers
+design for motion sickness
+\subsubsection{Multiplayer}
+
+\chapter{Use cases}\label{UseCases}
 
 \chapter{Analysis and Assessment}\label{Analysis and Assessment}
 
-\chapter{Discussion} \label{Discussion}
+\chapter{Discussion}\label{Discussion}
 
-\chapter{Related Work} \label{Related Work}
+\chapter{Related Work}\label{Related Work}
 
 There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
 
