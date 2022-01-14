@@ -167,13 +167,13 @@ This research is based on elective surgeries on trauma or fractures where the su
 \subsection{Brief history of medical imaging}
 The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed in a different rate by tissue and bone, it is possible to create an image of bone. The image is displayed as a projection from the angle the X-ray was taken. During the first half of the 20th century other techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical Imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
 CT scans (Computed Tomography) was invented during the 1970s. During a CT scan an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. This overcomes the issue of the two-dimensional X-ray and creates detailed image data that can be visualised in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{swiontkowski_manual_2013}.
-MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. It has better accuracy compared to CT when measuring soft tissue and also avoids any radiation. 
+MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. It has better accuracy compared to CT when measuring soft tissue and also avoids any radiation.
 
 The imaging used for testing in this report is from CT scans done by Helse Vest.
 
 \subsection{Visualisation of medical imaging}
 The output of both CT and MRI scans is a three-dimensional scan. This is often represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
-Each pixel in a slice is actually representing a volume, so all the slices combined makes up volumetric data, or a three-dimensional point cloud\cite{chougule_conversions_2013}. 
+Each pixel in a slice is actually representing a volume, so all the slices combined makes up volumetric data, or a three-dimensional point cloud\cite{chougule_conversions_2013}.
 The slice thickness of the slices can be below 1 mm, giving a high resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
 
 To render the image on a screen, the volume needs to be projected to two dimensional space. The values in a single slice can be use to view the intersection at a certain slice number, or all slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
@@ -226,24 +226,46 @@ AR has some uses not relevant for VR because it does not completely disconnect t
 \section{Demonstration}\label{demonstration}
 gameplay
 
-\section{Development method}
-agile
-difficult with test driven
+\section{Development methods}
 
+The application was developed by me in about 7 months. I have no medical expertise, and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and unity and VR development.
+
+\subsection{Iterative Development}
+The application was developed using iterative development and elements from design thinking and scrum.
+During most of the process, the team had biweekly meetings with a demonstration, sprint retrospect and sprint planning. Sprint retrospect was not as relevant as only one person is working full time on the project, but sprint planning was very a very valuable way of sharing interdisciplinary information and getting feedback from medical experts.
+The biweekly demo also served as user testing. The medical personnel in the team would try out the application and any new features, and give continuous feedback during testing. Optimally the test group should have been personnel outside the project, but this was limited by busy schedules and COVID restrictions.
+
+--difficulty with test driven?
 
 \section{Project overview}\label{CodeStructure}
 
 \section{Design}
-design goals?
-designing for better understanding
-design similar to a VR viewer?
 
-\subsection{Designing for VR}
+The goal of the application design is as follows:
+give a good understanding of what the fracture looks like (bruddlinje og mindre biter)
+Ease of use for non technial personell
+Be able to cooperate in smaller teams
+
+\subsection{Anatomical understanding}
+how to give the user a good understanding of a fracture
+
+\subsection{VR interface}
 ease of use
+design similar to a existing VR viewer?
 tutorial
 easy controllers
+-interactables
 design for motion sickness
-\subsubsection{Multiplayer}
+menu system
+
+\subsection{Multiplayer design}
+what should be synchronised for both user friendliness and efficient teamwork
+lobby/joining sessions
+
+\section{DICOM data visualisation}
+reading the dicom values
+
+\section{performance}
 
 \chapter{Use cases}\label{UseCases}
 
