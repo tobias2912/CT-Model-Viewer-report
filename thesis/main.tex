@@ -228,6 +228,7 @@ gameplay
 
 \section{Development methods}
 
+
 The application was developed by me in about 7 months. I have no medical expertise, and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and unity and VR development.
 
 \subsection{Iterative Development}
@@ -252,7 +253,7 @@ how to give the user a good understanding of a fracture
 \subsection{VR interface}
 ease of use
 design similar to a existing VR viewer?
-tutorial
+Tutorial
 easy controllers
 -interactables
 design for motion sickness
@@ -263,7 +264,11 @@ what should be synchronised for both user friendliness and efficient teamwork
 lobby/joining sessions
 
 \section{DICOM data visualisation}
-reading the dicom values
+I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{dicom}, where the scan is stored as several files each representing a slice. 
+The model is also split up into bone fragments. The files include 3D surface models as STL files where each file contains one bone. The STL files are created by (???) at Haukeland University Hospital.
+\subsection{displaying the parts}
+In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate in Unity all bone meshes are placed correctly relative to each other. [how the model is scaled]
+
 
 \section{performance}
 
