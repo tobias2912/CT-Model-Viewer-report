@@ -163,25 +163,43 @@ Orthopedic surgeons do both elective (planned) and urgent surgery. In elective s
 With any patient, a surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation is  examining the sources of the symptoms and the body as a whole. Medical imaging including ultrasound, CT and MRI gives the surgeons a detailed insight on bones or soft tissue structures.
 
 This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools. 
+\subsection{surgery types}
+--what makes sugery complicated
+--perkutant
+--ledd
+--viktig å reponere eksakt pga slitasje
+-- eks calaneus
 
 \subsection{Brief history of medical imaging}
 The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed in a different rate by tissue and bone, it is possible to create an image of bone. The image is displayed as a projection from the angle the X-ray was taken. During the first half of the 20th century other techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical Imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
 CT scans (Computed Tomography) was invented during the 1970s. During a CT scan an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. This overcomes the issue of the two-dimensional X-ray and creates detailed image data that can be visualised in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{swiontkowski_manual_2013}.
 MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. It has better accuracy compared to CT when measuring soft tissue and also avoids any radiation.
 
+
 The imaging used for testing in this report is from CT scans done by Helse Vest.
-
 \subsection{Visualisation of medical imaging}
-The output of both CT and MRI scans is a three-dimensional scan. This is often represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
-Each pixel in a slice is actually representing a volume, so all the slices combined makes up volumetric data, or a three-dimensional point cloud\cite{chougule_conversions_2013}.
-The slice thickness of the slices can be below 1 mm, giving a high resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
+TODO: bilde av slice/volum
 
-To render the image on a screen, the volume needs to be projected to two dimensional space. The values in a single slice can be use to view the intersection at a certain slice number, or all slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
-The values are then converted to greyscale by mapping ranges of values to greyscale pixels.
+The output of both CT and MRI scans is a three-dimensional scan. The output is typically represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
+Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud\cite{chougule_conversions_2013}.
+The slice thickness of a slice can be below 1 mm, giving a high-resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
 
-To render the scan as a full 3D model a specific volume rendering algorithm is needed. Rendering the model includes preprocessing of the volume, and classification to determine the type of issue based on voxel value. A simple approach is threshold, a binary classification where a mesh is created between all voxels that match the threshold value. A different threshold can be selected to represent different values, such as bone\cite{fishman_volume_2006}
+To render a 2D image on screen, the volume needs to be projected to two-dimensional space. The values in a single slice can be used to view the intersection at a specific slice number. A line of values along all the slices can be used to view the intersection at another plane.
+All slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
+The values are converted to greyscale by mapping ranges of values to greyscale pixels. This mapping function determines the brightness and contrast of the final image.
 
+A specific volume rendering algorithm is needed to render the scan as a 3D surface mesh. Rendering the model includes preprocessing the volume and classification to determine the type of tissue based on voxel value. A simple approach is thresholding, a binary classification where a polygon is created on any volume point that matches the threshold value. A different threshold can be selected to visualize different tissue densities, typically bone\cite{fishman_volume_2006}.
 \subsubsection{ 3D printing }
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/ctToPrint.png}}
+	\hfill
+  \caption{Humeral (upper arm) fracture}
+  \small
+    A fracture from initial scan to finished print. (A) preoperative X-ray; (B) 3D model; (C) 3D printed model.
+~\cite{mishra_virtual_2019}
+\end{figure}
 
 An alternative to digital representation is to print the 3D model to inspect it physically\cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the model, measure the model, try out equipment and practice with it.
 The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections or being able to alter the model in any way. Having a physical model in plastic also means it needs support structures, which can get in the way or create a inaccurate representation of the fracture.
@@ -223,20 +241,18 @@ AR has some uses not relevant for VR because it does not completely disconnect t
 
 \chapter{Design and Implementation}\label{Design and Implementation}
 
+The application was developed by me in about 7 months. I have no medical expertise, and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and unity and VR development.
+
 \section{Demonstration}\label{demonstration}
 gameplay
 
 \section{Development methods}
 
-
-The application was developed by me in about 7 months. I have no medical expertise, and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and unity and VR development.
-
 \subsection{Iterative Development}
 The application was developed using iterative development and elements from design thinking and scrum.
-During most of the process, the team had biweekly meetings with a demonstration, sprint retrospect and sprint planning. Sprint retrospect was not as relevant as only one person is working full time on the project, but sprint planning was very a very valuable way of sharing interdisciplinary information and getting feedback from medical experts.
-The biweekly demo also served as user testing. The medical personnel in the team would try out the application and any new features, and give continuous feedback during testing. Optimally the test group should have been personnel outside the project, but this was limited by busy schedules and COVID restrictions.
-
---difficulty with test driven?
+The team had biweekly meetings with a demonstration, sprint retrospect, and sprint planning. Sprint retrospect was not as relevant as only one person worked full time on the project. However, sprint planning was a valuable way of sharing interdisciplinary information and getting feedback from medical experts.
+The biweekly demo also served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give continuous feedback during testing. Optimally the test subjects should have been personnel outside the project, but busy schedules and COVID restrictions limited this.
+After the biweekly demo, I updated the sprint backlog with updated tasks prioritized by value.
 
 \section{Project overview}\label{CodeStructure}
 
@@ -244,43 +260,57 @@ The biweekly demo also served as user testing. The medical personnel in the team
 
 The goal of the application design is as follows:
 give a good understanding of what the fracture looks like (bruddlinje og mindre biter)
-Ease of use for non technial personell
+Ease of use for non technical personnel
 Be able to cooperate in smaller teams
 
 \subsection{Anatomical understanding}
-how to give the user a good understanding of a fracture
+--how to give the user a good understanding of a fracture
 
 \subsection{VR interface}
-ease of use
-design similar to a existing VR viewer?
-Tutorial
-easy controllers
+--ease of use
+--design similar to a existing VR viewer?
+--Tutorial
+--easy controllers
 -interactables
-design for motion sickness
-menu system
+--design for motion sickness
+--menu system
 
 \subsection{Multiplayer design}
-what should be synchronised for both user friendliness and efficient teamwork
-lobby/joining sessions
+The goal of the multiplayer feature is to allow two or more surgeons to cooperate effectively. Having one surgeon use a VR headset and another using a screen, is likely to make cooperation more cumbersome. The multiplayer component make the surgeons able to use the same tools while seeing exactly the same.
+Multiplayer should not make the application more difficult to use. All interactions should be similar to the normal experience, and cooperation should not require any extra steps, except from connecting to the multiplayer server. Any important information should be available to all players, and irrelevant information (another player opening a menu) should not be disturbing.
+
+--lobby/joining sessions
+
+\subsubsection{Mirror}
+The networking was built with Mirror, a downloadable Unity asset. Mirror is a high level networking API built on deprecated Unity networking \cite{Mirror}. Mirror has good support for creating a client/server pattern and common video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
 
 \section{DICOM data visualisation}
 I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{dicom}, where the scan is stored as several files each representing a slice. 
-The model is also split up into bone fragments. The files include 3D surface models as STL files where each file contains one bone. The STL files are created by (???) at Haukeland University Hospital.
-\subsection{displaying the parts}
-In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate in Unity all bone meshes are placed correctly relative to each other. [how the model is scaled]
+The model is also split up into bone fragments. The files include 3D surface models as STL files where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
+
+Using a cross section shader to visualize the CT slices. https://codeburst.io/unity-cross-section-shader-using-shader-graph-31c3fed0fa4f
+
+\subsection{Rendering bone fragments}
+In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
+--how the model is scaled
+
+\subsubsection{Separating bone fragments}
+--plugin for slicing meshes
+
+\subsection{Rendering intersection}
 
 
 \section{performance}
 
-\chapter{Use cases}\label{UseCases}
+\chapter{use cases}\label{usecases}
 
-\chapter{Analysis and Assessment}\label{Analysis and Assessment}
+\chapter{analysis and assessment}\label{analysis and assessment}
 
-\section{Tests}
+\section{tests}
 
 
-\subsection{Test 1}
-Date: 16 Jan. 2022
+\subsection{test 1}
+date: 16 jan. 2022
 This was the first test done with professional end users. The goal of the test was to figure out if any of the proposed usecases was relevant for the user. The test was performed by introducing the software, its potential usecases and a short introduction on how to use the VR controllers.
 As both surgeons are very experienced with reading 2D CT images, they agreed that using 3D and VR to improve the understanding of fractures were minimal.
 
