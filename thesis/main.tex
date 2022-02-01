@@ -290,6 +290,12 @@ The model is also split up into bone fragments. The files include 3D surface mod
 
 Using a cross section shader to visualize the CT slices. https://codeburst.io/unity-cross-section-shader-using-shader-graph-31c3fed0fa4f
 
+\subsubsection{Unity with custom files}
+--using addressable files for use with build doesnt work with android
+-- try to create a custom asset type for dicom files, not well documented
+-- rename to .bytes to be allowed to reference as text file. 
+and add references to files in inspector.
+
 \subsection{Rendering bone fragments}
 In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
 --how the model is scaled
