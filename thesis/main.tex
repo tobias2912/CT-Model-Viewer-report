@@ -231,7 +231,11 @@ The added immersion also makes teaching or training more motivating for the stud
 
 \subsection{Designing for VR}
 VR is fairly new to mainstream media, and as such there are few agreed upon standards unlike e.g. web development.
-Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware dependent and not relevant, so the most important measure in software is moving content. 
+Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware dependent and not relevant for this project, so the most important measure in software is moving content.
+\subsubsection{Unity}
+VR in Unity
+Xr
+In Unity, to develop for several XR platforms, the different controllers have a common interface for setting keybindings, called a XR controller. Almost all commercial VR controllers supports a index finger trigger, a joystick/trackpad with 2D directional input, a grip button and at least one extra button\cite{technologies_unity_nodate}.
 
 \subsection{ Augmented Reality }
 Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants, some mobile apps use the camera to create a AR environment, and AR HMD's work similarly to VR HMD's, except that the viewing glass is transparent.
@@ -268,12 +272,31 @@ Be able to cooperate in smaller teams
 
 \subsection{VR interface}
 --ease of use
---design similar to a existing VR viewer?
 --Tutorial
---easy controllers
 -interactables
---design for motion sickness
---menu system
+
+\subsubsection{keybindings}
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/controllers.png}}
+	\hfill
+  \caption{Keybindings on Quest controllers}
+  \small
+  This illustration is also used within the application. 
+\end{figure}
+
+The most common operations are bound to trigger and grip button, which is easily available on most controllers. The trigger mimics a mouse click in a pc, and so it is used for clicking buttons and using selected tools. The grip button mimics a real world grabbing gesture, and is used for grabbing a model part.
+The primary button is used for opening the menu.
+For ease of use the two controllers are mostly mirrored, with the exception of the joystick. The right joystick is used for scrolling through CT slices, similarly to how the scroll wheel is used in CT image viewers. The left joystick is used to rotate and scale the entire model, while keeping all the model parts correctly positioned.
+
+\subsubsection{menu system}
+The menu includes access to less frequent operations that does not have each own keybinding. The initial menu includes fast access to simple tools (e.g. measurement) and buttons to submenus. The sub-menu buttons are indicated by a icon. The menu screen appears in front of the user and hides the model to make sure it always is in the users field of view.
+The sub-menus are used when there is several options, and is used for selecting an implant type or loading a new dataset.
+
+\subsubsection{Motion sickness}
+The only relevant motion sickness factor for this project is the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room, and is always static.
+During multiplayer the model may move caused by another players input, and this may cause some amount of motion sickness if the model fills the user's field of view. This could potentially be solved by hiding the model when it is moving, but it could interfere with the multiplayer experience if the model suddenly disappears.
+
 
 \subsection{Multiplayer design}
 The goal of the multiplayer feature is to allow two or more surgeons to cooperate effectively. Having one surgeon use a VR headset and another using a screen, is likely to make cooperation more cumbersome. The multiplayer component make the surgeons able to use the same tools while seeing exactly the same.
@@ -282,13 +305,12 @@ Multiplayer should not make the application more difficult to use. All interacti
 --lobby/joining sessions
 
 \subsubsection{Mirror}
-The networking was built with Mirror, a downloadable Unity asset. Mirror is a high level networking API built on deprecated Unity networking \cite{Mirror}. Mirror has good support for creating a client/server pattern and common video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
+The networking was built with Mirror, a downloadable Unity asset. Mirror is a high level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and common video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
 
 \section{DICOM data visualisation}
-I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{dicom}, where the scan is stored as several files each representing a slice. 
+I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{noauthor_dicom_nodate}, where the scan is stored as several files each representing a slice. 
 The model is also split up into bone fragments. The files include 3D surface models as STL files where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
 
-Using a cross section shader to visualize the CT slices. https://codeburst.io/unity-cross-section-shader-using-shader-graph-31c3fed0fa4f
 
 \subsubsection{Unity with custom files}
 --using addressable files for use with build doesnt work with android
@@ -304,7 +326,10 @@ In STL files all vertices are stored coordinates relative to the center, so by i
 --plugin for slicing meshes
 
 \subsection{Rendering intersection}
+While rendering the selected slice as a image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
+This required to remove the part of the model above/under the intersection plane so it did not obscure the image. For this I used a Unity Assetstore shader to view the cross section of a mesh\cite{aldandarawy_unity_2019}. 
 
+This effect can be a bit disturbing as the entire model is not visible, so it is a toggle option shown in the CT image options.
 
 \section{performance}
 
