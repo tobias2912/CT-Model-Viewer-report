@@ -271,9 +271,15 @@ Be able to cooperate in smaller teams
 --how to give the user a good understanding of a fracture
 
 \subsection{VR interface}
---ease of use
---Tutorial
--interactables
+
+To make the VR application ease to use I focused on primarily two things: familiarity to current tools and a simple design. 
+Familiarity to current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR with small changes to it is recognizable to the user. Examples of this is navigating menus the same way one would navigate a popup menu with a pc mouse. 
+To allow new users with little VR experience to quickly start using the program all unnecessary interactions and information is removed. This is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
+
+subsubsection{Toturial}
+
+subsubsection{Interacting}
+Moving the interactable fracure components
 
 \subsubsection{keybindings}
 \begin{figure}[h!]
@@ -290,13 +296,18 @@ The primary button is used for opening the menu.
 For ease of use the two controllers are mostly mirrored, with the exception of the joystick. The right joystick is used for scrolling through CT slices, similarly to how the scroll wheel is used in CT image viewers. The left joystick is used to rotate and scale the entire model, while keeping all the model parts correctly positioned.
 
 \subsubsection{menu system}
-The menu includes access to less frequent operations that does not have each own keybinding. The initial menu includes fast access to simple tools (e.g. measurement) and buttons to submenus. The sub-menu buttons are indicated by a icon. The menu screen appears in front of the user and hides the model to make sure it always is in the users field of view.
+A menu system is implemented to allow the user to navigate less common operations, while not distracting from inspecting the model.
+When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means it appears as a physical screen. The model is hidden to make sure it always is in the users field of view. This avoids a common VR UX problem where some information is not visible to the user.
+The menu includes access to less frequent operations that does not have each own keybinding. The initial menu includes fast access to simple tools (e.g. measurement) and buttons to sub-menus. The buttons that lead to sub-menus are indicated by a hamburger menu icon.
+The menu layout consists of one or more vertical lists that are easily readable and clickable. Several columns of lists is used to separate buttons into categories. To keep the menu simple and consistent, no other interactions other than buttons are used. To exit the menu, a cross button from pc programs is used.
 The sub-menus are used when there is several options, and is used for selecting an implant type or loading a new dataset.
+
+\subsubsection{Audio}
+Audio is mostly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something.
 
 \subsubsection{Motion sickness}
 The only relevant motion sickness factor for this project is the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room, and is always static.
 During multiplayer the model may move caused by another players input, and this may cause some amount of motion sickness if the model fills the user's field of view. This could potentially be solved by hiding the model when it is moving, but it could interfere with the multiplayer experience if the model suddenly disappears.
-
 
 \subsection{Multiplayer design}
 The goal of the multiplayer feature is to allow two or more surgeons to cooperate effectively. Having one surgeon use a VR headset and another using a screen, is likely to make cooperation more cumbersome. The multiplayer component make the surgeons able to use the same tools while seeing exactly the same.
@@ -308,7 +319,7 @@ Multiplayer should not make the application more difficult to use. All interacti
 The networking was built with Mirror, a downloadable Unity asset. Mirror is a high level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and common video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
 
 \section{DICOM data visualisation}
-I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{noauthor_dicom_nodate}, where the scan is stored as several files each representing a slice. 
+I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{noauthor_dicom_nodate}, where the scan is stored as several files each representing a slice.
 The model is also split up into bone fragments. The files include 3D surface models as STL files where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
 
 
@@ -327,11 +338,18 @@ In STL files all vertices are stored coordinates relative to the center, so by i
 
 \subsection{Rendering intersection}
 While rendering the selected slice as a image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
-This required to remove the part of the model above/under the intersection plane so it did not obscure the image. For this I used a Unity Assetstore shader to view the cross section of a mesh\cite{aldandarawy_unity_2019}. 
+This required to remove the part of the model above/under the intersection plane so it did not obscure the image. For this I used a Unity Assetstore shader to view the cross section of a mesh\cite{aldandarawy_unity_2019}.
 
-This effect can be a bit disturbing as the entire model is not visible, so it is a toggle option shown in the CT image options.
+This effect can be a bit disturbing as the entire model is not visible. To allow showing the entire model, this effect is a toggle option shown in the CT image options, and defaults to showing the entire model as it easier to understand.
+
+\subsection{implants}
+The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of what the part looks like. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
+To improve the surgeons ability to line up screws and find what parts of the fracture is penetrated by the screw/object a outline is shown. This allows the user to see where a object is compared to any other parts, even if it is fully obscured by the model. This is achieved by using a shader with a depth texture\cite{shader depth}.
 
 \section{performance}
+-mesh count and simplification\
+-quest performance and other headsets performance
+-performance data
 
 \chapter{use cases}\label{usecases}
 
