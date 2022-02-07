@@ -229,13 +229,20 @@ VR can also simulate things that would otherwise be dangerous, for example an un
 Other advantages comes from the fact that VR are more immersive than other mediums. This makes the user able to better feel stress or fear and makes it feasible to prepare personnel for stressful situations, such as police.
 The added immersion also makes teaching or training more motivating for the student.\cite{freina_immersive_2015}
 
+\subsection{XR}
+basic XR
+mixed reality
+
 \subsection{Designing for VR}
 VR is fairly new to mainstream media, and as such there are few agreed upon standards unlike e.g. web development.
 Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware dependent and not relevant for this project, so the most important measure in software is moving content.
 \subsubsection{Unity}
-VR in Unity
-Xr
-In Unity, to develop for several XR platforms, the different controllers have a common interface for setting keybindings, called a XR controller. Almost all commercial VR controllers supports a index finger trigger, a joystick/trackpad with 2D directional input, a grip button and at least one extra button\cite{technologies_unity_nodate}.
+
+To develop this application, the game engine Unity is used\cite{unity}. Using a game engine speeds up the development as it includes systems needed, like rendering, animations and physics. Unity in particular is widely used for game development\cite{gameenginesonsteam} and is well documented online with a lot of community supported plugins.
+
+Unity has good support for different VR and XR platforms\cite{unityxr} including the OpenR standard widely used by VR headsets\cite{openxr}. This allows to create VR games with Unity handling most of the VR logic.
+
+To develop for several XR platforms, the different controllers have a common interface for setting keybindings, called a XR controller. Almost all commercial VR controllers supports a index finger trigger, a joystick/trackpad with 2D directional input, a grip button and at least one extra button\cite{technologies_unity_nodate}.
 
 \subsection{ Augmented Reality }
 Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants, some mobile apps use the camera to create a AR environment, and AR HMD's work similarly to VR HMD's, except that the viewing glass is transparent.
@@ -276,12 +283,17 @@ To make the VR application ease to use I focused on primarily two things: famili
 Familiarity to current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR with small changes to it is recognizable to the user. Examples of this is navigating menus the same way one would navigate a popup menu with a pc mouse. 
 To allow new users with little VR experience to quickly start using the program all unnecessary interactions and information is removed. This is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
-subsubsection{Toturial}
+\subsubsection{Learning process}
+A video game style toturial was considered, where the user would go through tasks with hints or descriptions of the features in the application. However this was not implemented as learning the application was quick in early testing. 
+To remind the user of the keybindings, the action a button is bound to  is displayed as text above the button. An image can optionally be displayed, showing the user the keybindings. This was implemented as users often forgot button controls in early testing.
 
-subsubsection{Interacting}
+\subsubsection{Interacting}
 Moving the interactable fracure components
 
+The most used part of the interface is moving the fracture parts to inspect them.
+
 \subsubsection{keybindings}
+
 \begin{figure}[h!]
     \centering
 	\subfloat[][]{\includegraphics[height=120pt]{images/controllers.png}}
