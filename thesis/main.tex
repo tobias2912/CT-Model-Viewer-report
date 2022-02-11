@@ -276,7 +276,7 @@ Ease of use for non technical personnel
 Be able to cooperate in smaller teams
 
 \subsection{Anatomical understanding}
-todo--how to give the user a good understanding of a fracture
+TODO: how to give the user a good understanding of a fracture
 
 \subsection{VR interface}
 
@@ -285,16 +285,16 @@ Familiarity to current tools means taking interactions from programs such as CT 
 To allow new users with little VR experience to quickly start using the program all unnecessary interactions and information is removed. This is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
 \subsubsection{Learning process}
-A video game style toturial was considered, where the user would go through tasks with hints or descriptions of the features in the application. However this was not implemented as learning the application was quick in early testing.
+A video game style tutorial was considered, where the user would go through tasks with hints or descriptions of the features in the application. However this was not implemented as learning the application was quick in early testing.
 To remind the user of the keybindings, the action a button is bound to  is displayed as text above the button. An image can optionally be displayed, showing the user the keybindings. This was implemented as users often forgot button controls in early testing.
 
 \subsubsection{Interacting}
-Moving the interactable fracure components
 
 The most used part of the interface is moving the fracture parts to inspect them. To make this easy and intuitive, it should mimic how users moves objects in real life.
 One issue is that the user might want to move either the entire model, or adjust a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part and the entire model is moved by other button inputs.
 
-The grab functionality is implemented using Unitys built in Interactable system for XR\cite{xrinteractiontoolkit}. This allows to easily set up grabbing, throwing etc. By default, the grab will move the center of the interactable. This is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
+The grab functionality is implemented using Unity's built in Interactable system for XR\cite{xrinteractiontoolkit}. This allows to easily set up grabbing, throwing etc. By default, the grab will move the center of the interactable. This is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
+
 TODO: what is the script
 
 
@@ -316,7 +316,9 @@ For ease of use the two controllers are mostly mirrored, with the exception of t
 \subsubsection{menu system}
 A menu system is implemented to allow the user to navigate less common operations, while not distracting from inspecting the model.
 When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means it appears as a physical screen. The model is hidden to make sure it always is in the users field of view. This avoids a common VR UX problem where some information is not visible to the user.
+
 The menu includes access to less frequent operations that does not have each own keybinding. The initial menu includes fast access to simple tools (e.g. measurement) and buttons to sub-menus. The buttons that lead to sub-menus are indicated by a hamburger menu icon.
+
 The menu layout consists of one or more vertical lists that are easily readable and clickable. Several columns of lists is used to separate buttons into categories. To keep the menu simple and consistent, no other interactions other than buttons are used. To exit the menu, a cross button from pc programs is used.
 The sub-menus are used when there is several options, and is used for selecting an implant type or loading a new dataset.
 
@@ -341,14 +343,22 @@ I received several anonymized CT scan files from Helse Vest to use as input data
 The model is also split up into bone fragments. The files include 3D surface models as STL files where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
 
 
-\subsubsection{Unity with custom files}
---using addressable files for use with build doesnt work with android
--- try to create a custom asset type for dicom files, not well documented
--- rename to .bytes to be allowed to reference as text file. 
-and add references to files in inspector.
+\subsection{Unity with custom files}
+
+To be able to read the DICOM files, the build produced by Unity needs access to the files. Unity has several built in solutions to this.
+The most common is the Resources functionality\cite{resourcesload_unity_nodate} that builds the application and includes all files in a `Resources' folder. Android projects are built in the standard APK format and also requires special file paths and also using the built-in web request to read files. This is not well documented especially for the Quest, so this method was scrapped.
+
+The easiest way of referencing files is usually setting a reference in the unity editor, and the file will be included in the build. This works great with common files like images, but Unity doesn't allow custom file types without 'hacking' the inspector and creating a custom file importer\cite{scriptedimporters_unity_nodate}, that has lacking documentation. The solution to this is rename all dicom files to {name}.bytes. This makes Unity handle the files as 'TextAsset' text files\cite{textassets_unity_nodate}. In the script I then open the files as text files and create a byte stream. The byte stream is then used for rendering.
+
+\subsection{Rendering CT image}
+To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022}. It is a open source library for parsing DICOM data and image rendering. 
+I use the byte stream for each of the DICOM files to create a Slice object for each of the files. The slice object allows reading the density value at position $(x, y)$ at that slice. To render an image, a Unity Texture object is created. Every pixel on the texture is set to the greyscale color correlating to the density value. To find the color in a position, calculate $(density-minDensity)/(maxDensity-minDensity)$. 
+
+TODO: double check formel
 
 \subsection{Rendering bone fragments}
 In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
+
 --how the model is scaled
 
 \subsubsection{Separating bone fragments}
