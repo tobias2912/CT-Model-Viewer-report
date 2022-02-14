@@ -280,6 +280,8 @@ TODO: how to give the user a good understanding of a fracture
 
 \subsection{VR interface}
 
+TODO: Overview image
+
 To make the VR application ease to use I focused on primarily two things: familiarity to current tools and a simple design.
 Familiarity to current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR with small changes to it is recognizable to the user. Examples of this is navigating menus the same way one would navigate a popup menu with a pc mouse. 
 To allow new users with little VR experience to quickly start using the program all unnecessary interactions and information is removed. This is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
@@ -293,12 +295,16 @@ To remind the user of the keybindings, the action a button is bound to  is displ
 The most used part of the interface is moving the fracture parts to inspect them. To make this easy and intuitive, it should mimic how users moves objects in real life.
 One issue is that the user might want to move either the entire model, or adjust a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part and the entire model is moved by other button inputs.
 
-The grab functionality is implemented using Unity's built in Interactable system for XR\cite{xrinteractiontoolkit}. This allows to easily set up grabbing, throwing etc. By default, the grab will move the center of the interactable. This is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
+The grab functionality is implemented using Unity's built in $Interactable$ system for XR\cite{noauthor_xr_nodate} development. This allows to easily set up grabbing, throwing etc. By default, the grab will move the center of the interactable. This is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
 
 TODO: what is the script
 
+\subsubsection{Separation mode}
+The grabbing functionality introduces a problem: If the user moves a model part, the CT scan will no longer represent what the model looks like. If the user is measuring distance between two model parts, it gives an invalid result if the parts are moved. 
+The solution to this is a separation mode. Moving any model part enters separation mode, and reverting to the original position exits separation mode. In separation mode, the CT images are hidden and measurements are hidden. To clearly display the current mode, a large button appears prompting the user to click the button to reset the model and once again view CT images.
 
-\subsubsection{keybindings}
+
+\subsubsection{Keybindings}
 
 \begin{figure}[h!]
     \centering
@@ -306,18 +312,18 @@ TODO: what is the script
 	\hfill
   \caption{Keybindings on Quest controllers}
   \small
-  This illustration is also used within the application. 
+  This illustration is also used within the application.
 \end{figure}
 
 The most common operations are bound to trigger and grip button, which is easily available on most controllers. The trigger mimics a mouse click in a pc, and so it is used for clicking buttons and using selected tools. The grip button mimics a real world grabbing gesture, and is used for grabbing a model part.
 The primary button is used for opening the menu.
 For ease of use the two controllers are mostly mirrored, with the exception of the joystick. The right joystick is used for scrolling through CT slices, similarly to how the scroll wheel is used in CT image viewers. The left joystick is used to rotate and scale the entire model, while keeping all the model parts correctly positioned.
 
-\subsubsection{menu system}
+\subsubsection{Menu system}
 A menu system is implemented to allow the user to navigate less common operations, while not distracting from inspecting the model.
 When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means it appears as a physical screen. The model is hidden to make sure it always is in the users field of view. This avoids a common VR UX problem where some information is not visible to the user.
 
-The menu includes access to less frequent operations that does not have each own keybinding. The initial menu includes fast access to simple tools (e.g. measurement) and buttons to sub-menus. The buttons that lead to sub-menus are indicated by a hamburger menu icon.
+The menu includes access to less frequent operations that does not have it's own keybinding. The initial menu includes fast access to simple tools (e.g. measurement) and buttons to sub-menus. The buttons that lead to sub-menus are indicated by a hamburger menu icon.
 
 The menu layout consists of one or more vertical lists that are easily readable and clickable. Several columns of lists is used to separate buttons into categories. To keep the menu simple and consistent, no other interactions other than buttons are used. To exit the menu, a cross button from pc programs is used.
 The sub-menus are used when there is several options, and is used for selecting an implant type or loading a new dataset.
@@ -343,18 +349,23 @@ I received several anonymized CT scan files from Helse Vest to use as input data
 The model is also split up into bone fragments. The files include 3D surface models as STL files where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
 
 
-\subsection{Unity with custom files}
+\subsection{Unity with custom file types}
 
 To be able to read the DICOM files, the build produced by Unity needs access to the files. Unity has several built in solutions to this.
 The most common is the Resources functionality\cite{resourcesload_unity_nodate} that builds the application and includes all files in a `Resources' folder. Android projects are built in the standard APK format and also requires special file paths and also using the built-in web request to read files. This is not well documented especially for the Quest, so this method was scrapped.
 
-The easiest way of referencing files is usually setting a reference in the unity editor, and the file will be included in the build. This works great with common files like images, but Unity doesn't allow custom file types without 'hacking' the inspector and creating a custom file importer\cite{scriptedimporters_unity_nodate}, that has lacking documentation. The solution to this is rename all dicom files to {name}.bytes. This makes Unity handle the files as 'TextAsset' text files\cite{textassets_unity_nodate}. In the script I then open the files as text files and create a byte stream. The byte stream is then used for rendering.
+The easiest way of referencing files is usually setting a reference in the unity editor, and the file will be included in the build. This works great with common files like images, but Unity doesn't allow custom file types without 'hacking' the Unity inspector and creating a custom file importer\cite{scriptedimporters_unity_nodate}, that has lacking documentation. The solution to this is rename all dicom files to {name}.bytes. This makes Unity handle the files as 'TextAsset' text files\cite{textassets_unity_nodate}. In the script I then open the files as text files and create a byte stream. The byte stream is then used for rendering.
 
 \subsection{Rendering CT image}
-To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022}. It is a open source library for parsing DICOM data and image rendering. 
-I use the byte stream for each of the DICOM files to create a Slice object for each of the files. The slice object allows reading the density value at position $(x, y)$ at that slice. To render an image, a Unity Texture object is created. Every pixel on the texture is set to the greyscale color correlating to the density value. To find the color in a position, calculate $(density-minDensity)/(maxDensity-minDensity)$. 
+TODO: cite dat253?
 
-TODO: double check formel
+To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022}. It is a open source library for parsing DICOM data and image rendering.
+I use the byte stream for each of the DICOM files to create a Slice object for each of the files. The slice object allows reading the density value at position $(x, y)$ at that slice. To render an image, a Unity Texture object is created for each slice.
+
+Every pixel on the texture is set to the greyscale color correlating to the density value. To find the color in a position, calculate $(density-minDensity)/(maxDensity-minDensity)$. If result is 1, it has maximum density and is set to white color.
+
+To translate between the selected height and the rendered CT image, the slice number is calculated. This is done by setting the height of the model, and reading the y position of the selection plane. The height percentage of the plane is rounded down to the closest slice number, and that slice is shown.
+
 
 \subsection{Rendering bone fragments}
 In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
@@ -362,7 +373,10 @@ In STL files all vertices are stored coordinates relative to the center, so by i
 --how the model is scaled
 
 \subsubsection{Separating bone fragments}
---plugin for slicing meshes
+Adding some form of manual splitting of meshes was considered. This would allow the user to further split the model pieces into separate pieces.
+TODO: finish
+
+An example open-source framework called Ezy-slice\cite{aryan} was tested.
 
 \subsection{Rendering intersection}
 While rendering the selected slice as a image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
@@ -370,11 +384,20 @@ This required to remove the part of the model above/under the intersection plane
 
 This effect can be a bit disturbing as the entire model is not visible. To allow showing the entire model, this effect is a toggle option shown in the CT image options, and defaults to showing the entire model as it easier to understand.
 
+TODO: image displaying transparent plane
+
+When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
+
 \subsection{implants}
 The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of what the part looks like. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
-To improve the surgeons ability to line up screws and find what parts of the fracture is penetrated by the screw/object a outline is shown. This allows the user to see where a object is compared to any other parts, even if it is fully obscured by the model. This is achieved by using a shader with a depth texture\cite{shader depth}.
+To improve the surgeons ability to line up screws and find what parts of the fracture is penetrated by the screw/object a outline is shown. This allows the user to see where a object is compared to any other parts, even if it is fully obscured by the model. This is achieved by shader using a depth buffer to only draw the outline when obscured by other meshes\cite{shader depth}.
 
 \section{performance}
+Some performance guidelines are outlined by the occulus developers for the Quest 1\cite{performance}.
+
+The recommended triangle count is between 350-500 triangles. The modes meshes can have a high vertex count and are reduced manually using Blender. This could potentially be automated, but this limit is a lot less relevant with a headset with dedicated Rendering.
+
+
 -mesh count and simplification\
 -quest performance and other headsets performance
 -performance data
