@@ -114,6 +114,7 @@ First and foremost, I would like to thank
 
 
 \chapter{Introduction}
+TODO: skrive om hvordan det kom til
 % \acrfull{SE} is an engineering discipline that focuses on the development of high-quality software systems \cite{TsuiFrankF2011Eose}. ...
 
 \section{Context and Approach}
@@ -265,15 +266,18 @@ The application was developed using iterative development and elements from desi
 The team had biweekly meetings with a demonstration, sprint retrospect, and sprint planning. Sprint retrospect was not as relevant as only one person worked full time on the project. However, sprint planning was a valuable way of sharing interdisciplinary information and getting feedback from medical experts.
 The biweekly demo also served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give continuous feedback during testing. Optimally the test subjects should have been personnel outside the project, but busy schedules and COVID restrictions limited this.
 After the biweekly demo, I updated the sprint backlog with updated tasks prioritized by value.
+TODO: skrive mer
 
 \section{Project overview}\label{CodeStructure}
 
 \section{Design}
 
+\subsection{Design goals}
+
 The goal of the application design is as follows:
 give a good understanding of what the fracture looks like (bruddlinje og mindre biter)
 Ease of use for non technical personnel
-Be able to cooperate in smaller teams
+Be able to cooperate in smaller teams - multiplayer
 
 \subsection{Anatomical understanding}
 TODO: how to give the user a good understanding of a fracture
@@ -282,8 +286,10 @@ TODO: how to give the user a good understanding of a fracture
 
 TODO: Overview image
 
+TODO: why
 To make the VR application ease to use I focused on primarily two things: familiarity to current tools and a simple design.
-Familiarity to current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR with small changes to it is recognizable to the user. Examples of this is navigating menus the same way one would navigate a popup menu with a pc mouse. 
+TODO: specify viewer
+Familiarity to current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR with small changes to it is recognizable to the user. Examples of this is navigating menus the same way one would navigate a popup menu with a pc mouse.
 To allow new users with little VR experience to quickly start using the program all unnecessary interactions and information is removed. This is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
 \subsubsection{Learning process}
@@ -292,14 +298,14 @@ To remind the user of the keybindings, the action a button is bound to  is displ
 
 \subsubsection{Grab interaction}
 
-The most used part of the interface is moving the fracture parts to inspect them. To make this easy and intuitive, it should mimic how users moves objects in real life.
-One issue is that the user might want to move either the entire model, or adjust a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part and the entire model is moved by other button inputs.
+The most used part of the interface is moving the fracture parts to inspect them. To make this easy to use, it should mimic how users moves objects in real life.
+One issue is that the user might want to move either the entire model, or move a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part. The entire model is then moved by other button inputs.
 
 The grab functionality is implemented using Unity's built in $Interactable$ system for XR\cite{noauthor_xr_nodate} development. This allows to easily set up grabbing, throwing etc. By default, the grab will move the center of the interactable. This is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
 
 TODO: what is the script
 
-TODO:  interactor single hover
+TODO: interactor single hover
 
 
 \subsubsection{Separation mode}
@@ -335,7 +341,7 @@ The sub-menus are used when there is several options, and is used for selecting 
 Audio is mostly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something.
 
 \subsubsection{Motion sickness}
-The only relevant motion sickness factor for this project is the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room, and is always static.
+The most relevant motion sickness factor for this project is the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room, and is always static. All HUD elements are also static, with few exceptions.
 During multiplayer the model may move caused by another players input, and this may cause some amount of motion sickness if the model fills the user's field of view. This could potentially be solved by hiding the model when it is moving, but it could interfere with the multiplayer experience if the model suddenly disappears.
 
 \subsection{Multiplayer design}
@@ -361,6 +367,7 @@ The easiest way of referencing files is usually setting a reference in the unity
 
 \subsection{Rendering CT image}
 TODO: cite dat253?
+TODO: begreper
 
 To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022}. It is a open source library for parsing DICOM data and image rendering.
 I use the byte stream for each of the DICOM files to create a Slice object for each of the files. The slice object allows reading the density value at position $(x, y)$ at that slice. To render an image, a Unity Texture object is created for each slice.
