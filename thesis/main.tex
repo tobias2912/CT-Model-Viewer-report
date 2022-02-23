@@ -117,15 +117,15 @@ First and foremost, I would like to thank
 TODO: skrive om hvordan det kom til
 % \acrfull{SE} is an engineering discipline that focuses on the development of high-quality software systems \cite{TsuiFrankF2011Eose}. ...
 
+
 \section{Context and Approach}
-When a hospital receives a injured patient that is considered for orthopedic surgery, a CT scan is
-often performed. The data from the CT scan are then displayed as a set of 2D images or a 3D model on a computer. This helps the medical personnel plan the surgery by understanding what the fractured bone mass looks like.
+A CT scan is often performed when a hospital receives an injured patient considered for orthopedic surgery. The CT scan is displayed as 2D images or a 3D model on a computer. The model helps the medical personnel plan the surgery by understanding the anatomy of the fracture.
 If a surgeon has a good understanding of the anatomy related to the fracture,
-the surgery has less risk of complications or could requires less resources.
+the surgery has less risk of complications or could require fewer resources.
 \section{Problem Description}
-A problem with visualising the model in 2D the limited understanding of what the bone actually looks like, because of the lack of scale and depth. This applies to both 2D images and 3D models rendered in 3D.
-A possible solution is visualising the model in Augmented Reality or Virtual Reality to give medical personnel a good feel for what the problem area actually looks like.
-VR has many potential benefits, and it is possible that the surgery planning process can use some of these. As the users are already looking at 3D models in 2d screens, visualising in VR could improve the surgeons overview and improve the patients safety. The entire planning process could also be more effective, by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
+Visualizing the model in 2D limits the understanding of the fracture because of the lack of scale and depth. The problem applies to both 2D images and 3D models rendered in 3D.
+A considered solution is visualizing the model in Augmented Reality or Virtual Reality to give medical personnel a good understanding of the problem area.
+VR has multiple potential benefits, and the surgery plannkkjing process can use some of these. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's overview and patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
 
 How Can VR technology improve surgery planning by making the process safer or more effective?
 How Can VR technology give some of the same benefits as 3D printing gives today at a lower cost?
@@ -133,49 +133,49 @@ How Can VR technology give some of the same benefits as 3D printing gives today 
 \section{Methodology}
 
 The project should include a VR prototype of a standard where it is
-user friendly enough to test with non technical subjects and with functionality
+user friendly enough to test with non-technical subjects and with functionality
 that is comparable to the use cases of a printed model.
-The prototype will be tested on medical personnel to investigate the impact on the users anatomical understanding, how it effects the surgery and the efficiency of the planning process.
-The application should be available for further development and/or study.
+The prototype is tested on medical personnel to measure any benefits on anatomical understanding and how it affects surgery planning and effectiveness.
+The application should be available for further development and study.
 
 Firstly, a prototype VR viewer will be created with the help of related
 open-source frameworks/software and guidance from both orthopedic surgeons and
-developers with experience from medical technology.
+developers with experience in medical technology.
 
-To answer the research question, it is necessary to measure the
+In order to answer the research question, it is necessary to measure the
 performance of the final application. This thesis will use qualitative methods
-by interviewing related personnel to investigate the performance including
+by interviewing related personnel to investigate the performance, including
 anatomical understanding, cooperation, and the effectiveness of the planning
 process.
-This will also be put in context to the existing solutions, possibly
-by doing a direct comparison by using a 3D model, printed model and VR viewer
+The performance will also be put in context to the existing solutions, possibly
+by making a direct comparison by using a 3D model, printed model, and VR viewer
 on the same case.
 \section{Contribution}
 \section{Outline}
 
 \chapter{Background}\label{Background}
-In this chapter, we will present some of the knowledge that our research is built upon. 
+This chapter will present some of the knowledge that our research is built upon. 
 
 \section{orthopedic surgery}
 
-Orthopedic surgery is surgery involving the muscoskeletal system. Cases range from trauma surgery, where injuries are caused by high impact forces to infections and tumors\cite{manual ortho}.
+Orthopedic surgery is surgery involving the musculoskeletal system. Cases range from trauma surgery, where high impact forces cause injuries to infections and tumors\cite{manual ortho}.
 
 Orthopedic surgeons do both elective (planned) and urgent surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery. A team of usually two surgeons will plan the surgery together.
-With any patient, a surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation is  examining the sources of the symptoms and the body as a whole. Medical imaging including ultrasound, CT and MRI gives the surgeons a detailed insight on bones or soft tissue structures.
+A surgeon will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Medical imaging, including ultrasound, CT, and MRI, gives the surgeons a detailed insight into bones or soft tissue structures.
 
 This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools.
 
 \subsection{surgery types}
---what makes sugery complicated
+--what makes surgery complicated
 --perkutant
 --ledd
 --viktig å reponere eksakt pga slitasje
 -- eks calaneus
 
 \subsection{Brief history of medical imaging}
-The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed in a different rate by tissue and bone, it is possible to create an image of bone. The image is displayed as a projection from the angle the X-ray was taken. During the first half of the 20th century other techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical Imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
-CT scans (Computed Tomography) was invented during the 1970s. During a CT scan an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. This overcomes the issue of the two-dimensional X-ray and creates detailed image data that can be visualised in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{swiontkowski_manual_2013}.
-MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. It has better accuracy compared to CT when measuring soft tissue and also avoids any radiation.
+The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed at a different rate by tissue and bone mass, it is possible to create an image of the bone. The image is displayed as a projection from the X-ray angle. During the first half of the 20th century, additional techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
+CT scans (Computed Tomography) were invented during the 1970s. During a CT scan, an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. CT scans overcome the two-dimensional X-ray limits and create detailed image data that can be visualized in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{swiontkowski_manual_2013}.
+MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. MRI has better accuracy than CT when measuring soft tissue and avoids radiation.
 
 
 The imaging used for testing in this report is from CT scans done by Helse Vest.
@@ -186,7 +186,7 @@ The output of both CT and MRI scans is a three-dimensional scan. The output is t
 Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud\cite{chougule_conversions_2013}.
 The slice thickness of a slice can be below 1 mm, giving a high-resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
 
-To render a 2D image on screen, the volume needs to be projected to two-dimensional space. The values in a single slice can be used to view the intersection at a specific slice number. A line of values along all the slices can be used to view the intersection at another plane.
+When rendering a 2D image, the volume must be projected to two-ddimensional space. The values in a single slice can be used to view the intersection at a specific slice number. A line of values along all the slices can be used to view the intersection at another plane.
 All slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
 The values are converted to greyscale by mapping ranges of values to greyscale pixels. This mapping function determines the brightness and contrast of the final image.
 
@@ -203,58 +203,63 @@ A specific volume rendering algorithm is needed to render the scan as a 3D surfa
 ~\cite{mishra_virtual_2019}
 \end{figure}
 
-An alternative to digital representation is to print the 3D model to inspect it physically\cite{mishra_virtual_2019}. This has many advantages, such as the surgeon being able to physically hold the model, measure the model, try out equipment and practice with it.
-The biggest drawback to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections or being able to alter the model in any way. A physical plastic model also needs support structures, that can lead to an inaccurate representation of the fracture, or get in the way of viewing the model.
+An alternative to digital representation is to print the 3D model to inspect it physically\cite{mishra_virtual_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
+The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections, or being able to alter the model in any way. A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model.
 
-A possible future use case for this project is quickly inspecting a fracture in VR, and then deciding if a printed model is necessary, potentially saving time and resources.
+A possible future use case for this project is quickly inspecting a fracture in VR and then deciding if a printed model is necessary, potentially saving time and resources.
 
 % \subsubsection{2D viewer}
 % There exists a wide range of computer programs to inspect CT images as 3D models, using the computer to interact with the model.
-% The current solution used by Helse Vest is materialise\cite{materialise_medical_nodate}. Using a 2D viewer is fast and simple, but lacks the depth and scale of VR.
+% The current solution used by Helse Vest is materialise\cite{materialise_medical_nodate}. Using a 2D viewer is fast and simple but lacks the depth and scale of VR.
 
 \section{Virtual Reality}
-Virtual Reality is the use of VR technology to sense the users state and actions and augments sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
-The Virtual environment is the computer generated objects that the user interacts with. The virtual environment will often mimic properties in the real world, such as shape, color or functionality.
-The environment is typically perceived by the user through a Head-mounted Display (HMD), sound and to some extent haptic feedback (vibration). The virtual reality system then ‘tricks’ the senses by displaying computer-generated stimuli that replace stimuli from the real world. With more specialized hardware other stimuli such as temperature, smells and more is possible\cite{noauthor_feelreal_nodate}.
-To allow for the virtual environment to seem real, it must respond to the users actions. Current commercial Virtual Reality headsets tracks the users head and hands, and allows for button inputs\cite{noauthor_oculus_nodate}. Modern HMD's use 6 Degrees of Freedom (DOF), meaning that the user is tracked in three-dimensional position and rotation\cite{lang_introduction_2013}. This is used by the VR application to simulate walking, picking up objects and more.
+Virtual Reality is the use of VR technology to sense the user's state and actions and augment sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
+
+The virtual reality system works by tricking the senses by displaying computer-generated stimuli that replace stimuli from the real world. The user typically perceives the virtual environment through a Head-mounted Display (HMD), sound, and haptic feedback (vibration). 
+The virtual environment is the computer-generated objects that the user interacts with. The virtual environment will often mimic properties in the real world, such as shape, color, or functionality.
+
+With more specialized hardware, additional stimuli such as temperature, smell, and more are possible\cite{noauthor_feelreal_nodate}.
+To make the virtual environment seem real, it must respond to the user's actions. Current commercial Virtual Reality headsets track the user's head and hands and allow for button inputs\cite{noauthor_oculus_nodate}. Modern HMDs use 6 Degrees of Freedom (DOF), which means the user is tracked in three-dimensional position and rotation\cite{lang_introduction_2013}. The tracking is used by the VR application to simulate walking, picking up objects, and more.
 
 \subsection{Professional usage of VR}
-While becoming more popular on mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR is often used in the medical field for training or education because the real situation would be unpractical or dangerous\cite{freina_immersive_2015}.
+While becoming more popular in mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
 
 \subsection{Advantages and disadvantages}
-A disadvantage with wearing a HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
-Eye fatigue is caused by image imperfections in the HMD\cite{kooi_visual_2004}, and motion sickness is caused by sensory conflict.
-In a study on motion sickness, 59 \% of the subjects experienced motion sickness after a mean of 14 minutes, the remaining subjects did not experience any illness\cite{kooi_visual_2004}. According to a study on Motion sickness factors, it can be mitigated in several ways.
+A disadvantage with wearing an HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
+Image imperfections cause eye fatigue in the HMD\cite{kooi_visual_2004}, and motion sickness is caused by sensory conflict.
+According to a study on motion sickness factors, 59 \% of the subjects experienced motion sickness after a mean of 14 minutes. The remaining subjects did not experience any illness\cite{kooi_visual_2004}. Motion sickness can be mitigated in several ways.
 
-An advantage to VR is being able to simulate the something physically out of reach, such as a planet in space, or the inside of a patients knee. For physically impaired users, this advantage is even more relevant.
-VR can also simulate things that would otherwise be dangerous, for example an untrained surgeon performing surgery alone.
-Other advantages comes from the fact that VR are more immersive than other mediums. This makes the user able to better feel stress or fear and makes it feasible to prepare personnel for stressful situations, such as police.
+
+A use-case of VR is simulating a subject physically out of reach, such as a planet in space or the inside of a patient's knee. For physically impaired users, this advantage is even more relevant.
+VR can also simulate things that would otherwise be dangerous, for example, an untrained surgeon performing surgery alone.
+Another advantage is that VR is more immersive than other mediums. The immersion makes the user feel more stress or fear and makes it feasible to prepare personnel for stressful situations, such as the police.
 The added immersion also makes teaching or training more motivating for the student.\cite{freina_immersive_2015}
 
 \subsection{ Augmented Reality }
-Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants, some mobile apps use the camera to create a AR environment, and AR HMD's work similarly to VR HMD's, except that the viewing glass is transparent.
-AR HMDs is used in medical, industrial and military devices to show important information while the user operates some other device in real life. Examples of this is a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}.
+Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants; some mobile apps use the camera to create an AR environment, and AR HMDs work similarly to VR HMDs, except that the viewing glass is transparent.
+AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}.
 AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
 \subsection{Designing for VR}
-VR is fairly new to mainstream media, and as such there are few agreed upon standards unlike e.g. web development.
-Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware dependent and not relevant for this project, so the most important measure in software is moving content.
+TODO: stuttering for motion sickness
+VR is relatively new to mainstream media, and as such, there are few agreed-upon standards, unlike e.g., web development.
+Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware-dependent and not relevant for this project, so moving content is the most relevant measure in this project.
 
 \subsection{Unity}
 
-To develop this application, the game engine Unity is used\cite{unity}. Using a game engine speeds up the development as it includes systems needed, like rendering, animations and physics. Unity in particular is widely used for game development\cite{gameenginesonsteam} and is well documented online with a lot of community supported plugins.
+The Unity game engine is used for developing the application\cite{unity}. Using a game engine speeds up the development as it includes systems needed, like rendering, animations, and physics. Unity is widely used for game development\cite{gameenginesonsteam} and is well documented online with a lot of community-supported plugins.
 
-Unity has good support for different VR and XR platforms\cite{unityxr} including the OpenXR standard widely used by VR headsets\cite{openxr}. This allows to create VR games with Unity handling most of the VR logic.
+Unity has good support for different VR and XR platforms\cite{unityxr} including the OpenXR standard widely used by VR headsets\cite{openxr}. This framework allows creating VR games with Unity handling most VR logic.
 
-Part of the Unity VR support is the XR interaction Toolkit (XRTK)\cite{xrinteractiontoolkit}. It is a high level framework for using XR interactions with unity events. The toolkit also includes components for selecting/grabbing, haptic feedback and UI interaction.
+Part of the Unity VR support is the XR interaction Toolkit (XRTK)\cite{xrinteractiontoolkit}. It is a high-level framework for using XR interactions with unity events. The toolkit also includes components for selecting/grabbing, haptic feedback, and UI interaction.
 
-To develop for several XR platforms, the different controllers have a common interface for setting keybindings, called a XR controller. Almost all commercial VR controllers supports a index finger trigger, a joystick/trackpad with 2D directional input, a grip button and at least one extra button\cite{technologies_unity_nodate}.
+To develop for several XR platforms, the different controllers have a mutual interface for setting keybindings, called an XR controller. Almost all commercial VR controllers support an index finger trigger, a joystick/trackpad with 2D directional input, a grip button, and at least one extra button\cite{technologies_unity_nodate}.
 
 
 
 \chapter{Design and Implementation}\label{Design and Implementation}
-
-The application was developed by me in about 7 months. I have no medical expertise, and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and unity and VR development.
+TODO: flytte?
+The application was developed by me in about 7 months. I have no medical experience and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and Unity, and VR development.
 
 \section{Demonstration}\label{demonstration}
 gameplay
@@ -287,21 +292,23 @@ TODO: how to give the user a good understanding of a fracture
 TODO: Overview image
 
 TODO: why
-To make the VR application ease to use I focused on primarily two things: familiarity to current tools and a simple design.
+To make the VR application easy to use, I focused primarily on familiarity with current tools and a simple design.
 TODO: specify viewer
-Familiarity to current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR with small changes to it is recognizable to the user. Examples of this is navigating menus the same way one would navigate a popup menu with a pc mouse.
-To allow new users with little VR experience to quickly start using the program all unnecessary interactions and information is removed. This is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
+Familiarity with current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR to make it recognizable to the user. An example of this is navigating menus the same way one would navigate a popup menu with a pc mouse.
+ All unnecessary interactions and information is removed to allow new users with little VR experience to start using the program quickly. The goal is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
 \subsubsection{Learning process}
-A video game style tutorial was considered, where the user would go through tasks with hints or descriptions of the features in the application. However this was not implemented as learning the application was quick in early testing.
-To remind the user of the keybindings, the action a button is bound to  is displayed as text above the button. An image can optionally be displayed, showing the user the keybindings. This was implemented as users often forgot button controls in early testing.
+A video game style tutorial was considered, where the user would go through tasks with hints or descriptions of the features in the application. However, this was not implemented as early testing revealed users were learning the controls quickly.
+
+Every button has a description displayed as text above the button to remind the user of the keybindings. An image can optionally be displayed, showing the user the keybindings. The hints were implemented as users repeatedly forgot button controls in testing.
 
 \subsubsection{Grab interaction}
 
-The most used part of the interface is moving the fracture parts to inspect them. To make this easy to use, it should mimic how users moves objects in real life.
-One issue is that the user might want to move either the entire model, or move a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part. The entire model is then moved by other button inputs.
+The most used part of the interface is moving the fracture parts to inspect them. The grab should mimic how users move objects in real life to make this easy to use.
+One issue is that the user might want to move either the entire model or move a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part. A joystick input moves the entire model.
 
-The grab functionality is implemented using Unity's built in $Interactable$ system for XR\cite{noauthor_xr_nodate} development. This allows to easily set up grabbing, throwing etc. By default, the grab will move the center of the interactable. This is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
+The grab functionality is implemented using Unity's built-in $Interactable$ system for XR\cite{noauthor_xr_nodate} development. This allows to set up grabbing, throwing, and more. 
+By default, the grab will move the center of the interactable to the user's hand. The built-in grab action is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
 
 TODO: what is the script
 
@@ -309,9 +316,8 @@ TODO: interactor single hover
 
 
 \subsubsection{Separation mode}
-The grabbing functionality introduces a problem: If the user moves a model part, the CT scan will no longer represent what the model looks like. If the user is measuring distance between two model parts, it gives an invalid result if the parts are moved. 
-The solution to this is a separation mode. Moving any model part enters separation mode, and reverting to the original position exits separation mode. In separation mode, the CT images are hidden and measurements are hidden. To clearly display the current mode, a large button appears prompting the user to click the button to reset the model and once again view CT images.
-
+The grabbing functionality introduces a problem: If the user moves a model part, the CT images will no longer be similar to the model displayed. Also, if the user is measuring the distance between two model parts, it gives an invalid result if the parts are moved. 
+The solution to this is a separation mode. Moving any model part enters separation mode and reverting to the original position exits separation mode. In separation mode, the CT images are hidden, and measurements are hidden. A large button appears to display the current mode, prompting the user to click the button to reset the model and once again view CT images.
 
 \subsubsection{Keybindings}
 
@@ -324,86 +330,86 @@ The solution to this is a separation mode. Moving any model part enters separati
   This illustration is also used within the application.
 \end{figure}
 
-The most common operations are bound to trigger and grip button, which is easily available on most controllers. The trigger mimics a mouse click in a pc, and so it is used for clicking buttons and using selected tools. The grip button mimics a real world grabbing gesture, and is used for grabbing a model part.
+The most common operations are bound to trigger and grip button, which is easily reachable on most controllers. The controller trigger mimics a mouse click on a pc, and so it is used for clicking buttons and using selected tools. The grip button mimics a real-world grabbing gesture and is used for grabbing a model part.
 The primary button is used for opening the menu.
-For ease of use the two controllers are mostly mirrored, with the exception of the joystick. The right joystick is used for scrolling through CT slices, similarly to how the scroll wheel is used in CT image viewers. The left joystick is used to rotate and scale the entire model, while keeping all the model parts correctly positioned.
+For ease of use, the two controllers are mostly mirrored, except for the joystick. The right joystick is used for scrolling through CT slices, similar to how the scroll wheel is used in CT image viewers. The left joystick rotates and scales the entire model while keeping all the model parts correctly positioned.
 
 \subsubsection{Menu system}
-A menu system is implemented to allow the user to navigate less common operations, while not distracting from inspecting the model.
-When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means it appears as a physical screen. The model is hidden to make sure it always is in the users field of view. This avoids a common VR UX problem where some information is not visible to the user.
+A menu system is implemented to allow the user to navigate less common operations while not distracting from inspecting the model.
+When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means the text appears as a physical screen. The model is temporarily hidden to ensure the menu is always in the user's field of view. Placing content at the center of the screen avoids a typical VR UX problem where some information is not visible to the user.
 
-The menu includes access to less frequent operations that does not have it's own keybinding. The initial menu includes fast access to simple tools (e.g. measurement) and buttons to sub-menus. The buttons that lead to sub-menus are indicated by a hamburger menu icon.
+The menu includes access to less frequent actions that do not require their own keybinding. The initial menu includes fast access to simple tools (e.g., measurement) and buttons to sub-menus. A hamburger menu icon suggests the button leads to a sub-menu.
 
-The menu layout consists of one or more vertical lists that are easily readable and clickable. Several columns of lists is used to separate buttons into categories. To keep the menu simple and consistent, no other interactions other than buttons are used. To exit the menu, a cross button from pc programs is used.
-The sub-menus are used when there is several options, and is used for selecting an implant type or loading a new dataset.
+The menu layout consists of one or more vertical lists of buttons. Several columns of lists are used to separate buttons into categories. To keep the menu simple and consistent, only buttons are used for interacting with the menu. The 'cross' button from pc programs is used for exiting the menu.
+The sub-menus are implemented when multiple options are present. It is used for selecting an implant type or loading a new dataset.
 
 \subsubsection{Audio}
-Audio is mostly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something.
+Audio is mainly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something.
 
 \subsubsection{Motion sickness}
-The most relevant motion sickness factor for this project is the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room, and is always static. All HUD elements are also static, with few exceptions.
-During multiplayer the model may move caused by another players input, and this may cause some amount of motion sickness if the model fills the user's field of view. This could potentially be solved by hiding the model when it is moving, but it could interfere with the multiplayer experience if the model suddenly disappears.
+The most relevant motion sickness factor for this project is the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room and is always static. All HUD elements are also static, with few exceptions.
+During multiplayer, the model may move caused by another player's input, which might cause some motion sickness if the model is viewed by the user. This could be solved by hiding the model when it moves, but it could interfere with the multiplayer experience if the model suddenly disappears.
 
 \subsection{Multiplayer design}
-The goal of the multiplayer feature is to allow two or more surgeons to cooperate effectively. Having one surgeon use a VR headset and another using a screen, is likely to make cooperation more cumbersome. The multiplayer component make the surgeons able to use the same tools while seeing exactly the same.
-Multiplayer should not make the application more difficult to use. All interactions should be similar to the normal experience, and cooperation should not require any extra steps, except from connecting to the multiplayer server. Any important information should be available to all players, and irrelevant information (another player opening a menu) should not be disturbing.
+The goal of the multiplayer feature is to allow two or more surgeons to cooperate effectively. Having one surgeon using a VR headset and another using a screen is likely interfering because the surgeons are seeing different models. The multiplayer component allows the surgeons to use the same tools while seeing the same model.
+Multiplayer should not make the application more difficult to use. All interactions should be similar to the usual experience, and cooperation should not require any extra steps, except connecting to the multiplayer server. Any important information should be available to all players, and irrelevant information (another player opening a menu) should not be disturbing.
 
 --lobby/joining sessions
 
 \subsubsection{Mirror}
-The networking was built with Mirror, a downloadable Unity asset. Mirror is a high level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and common video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
+The networking was built with Mirror, a downloadable Unity asset. Mirror is a high-level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and classic video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
 
 \section{DICOM data visualisation}
-I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{noauthor_dicom_nodate}, where the scan is stored as several files each representing a slice.
-The model is also split up into bone fragments. The files include 3D surface models as STL files where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
+I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{noauthor_dicom_nodate}, where the scan is stored as several files, each representing a slice.
+The model is also split up into bone fragments. The files include 3D surface models as STL files, where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
 
 
 \subsection{Unity with custom file types}
 
-To be able to read the DICOM files, the build produced by Unity needs access to the files. Unity has several built in solutions to this.
-The most common is the Resources functionality\cite{resourcesload_unity_nodate} that builds the application and includes all files in a `Resources' folder. Android projects are built in the standard APK format and also requires special file paths and also using the built-in web request to read files. This is not well documented especially for the Quest, so this method was scrapped.
+To be able to read the DICOM files, the build produced by Unity needs access to the files. Unity has several built-in solutions to this.
+The most common is the Resources functionality\cite{resourcesload_unity_nodate} that builds the application and includes all files in a `Resources' folder. Android projects are built in the standard APK format and also require special file paths and using the built-in web request to read files. This is not well documented, especially for the Quest, so this method was scrapped.
 
-The easiest way of referencing files is usually setting a reference in the unity editor, and the file will be included in the build. This works great with common files like images, but Unity doesn't allow custom file types without 'hacking' the Unity inspector and creating a custom file importer\cite{scriptedimporters_unity_nodate}, that has lacking documentation. The solution to this is rename all dicom files to {name}.bytes. This makes Unity handle the files as 'TextAsset' text files\cite{textassets_unity_nodate}. In the script I then open the files as text files and create a byte stream. The byte stream is then used for rendering.
+The easiest way of referencing files is usually setting a reference in the unity editor, and the file will be included in the build. This works great with common files like images, but Unity does not allow custom file types without 'hacking' the Unity inspector and creating a custom file importer\cite{scriptedimporters_unity_nodate}, that has lacking documentation. The solution to this is to rename all DICOM files to {name}.bytes. This makes Unity handle the files as 'TextAsset' text files\cite{textassets_unity_nodate}. I then open the files as text files and create a byte stream. The byte stream is then used for rendering with the DICOM library.
 
 \subsection{Rendering CT image}
 TODO: cite dat253?
 TODO: begreper
 
-To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022}. It is a open source library for parsing DICOM data and image rendering.
-I use the byte stream for each of the DICOM files to create a Slice object for each of the files. The slice object allows reading the density value at position $(x, y)$ at that slice. To render an image, a Unity Texture object is created for each slice.
+To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022}. It is an open-source library for parsing DICOM data and image rendering.
+I use the data the DICOM files to create a $Slice$ object for each of the files. The slice object implements reading the density value at position $(x, y)$ at that slice. a Unity Texture is created for each slice to render the image in Unity.
 
 Every pixel on the texture is set to the greyscale color correlating to the density value. To find the color in a position, calculate $(density-minDensity)/(maxDensity-minDensity)$. If result is 1, it has maximum density and is set to white color.
 
-To translate between the selected height and the rendered CT image, the slice number is calculated. This is done by setting the height of the model, and reading the y position of the selection plane. The height percentage of the plane is rounded down to the closest slice number, and that slice is shown.
-
+The slice number is calculated to convert between the selected height and the rendered CT image. This is done by getting the model's height and reading the y position of the selection plane. The height percentage of the plane is rounded down to the closest slice number, and that slice is shown.
 
 \subsection{Rendering bone fragments}
-In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
+In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate, the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
 
 --how the model is scaled
 
 \subsubsection{Separating bone fragments}
-Adding some form of manual splitting of meshes was considered. This would allow the user to further split the model pieces into separate pieces.
+Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further.
 TODO: finish
 
 An example open-source framework called Ezy-slice\cite{aryan} was tested.
 
 \subsection{Rendering intersection}
-While rendering the selected slice as a image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
-This required to remove the part of the model above/under the intersection plane so it did not obscure the image. For this I used a Unity Assetstore shader to view the cross section of a mesh\cite{aldandarawy_unity_2019}.
+While rendering the selected slice as an image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
+This required removing the part of the model above/under the intersection plane, so it did not obscure the image. For this, I used a Unity Assetstore shader to view the cross-section of a mesh\cite{aldandarawy_unity_2019}.
 
-This effect can be a bit disturbing as the entire model is not visible. To allow showing the entire model, this effect is a toggle option shown in the CT image options, and defaults to showing the entire model as it easier to understand.
+This effect can be disturbing as the entire model is not visible. To allow for rendering the entire model, this rendering is a made optional. The option defaults to showing the entire model because it is easier to understand.
+The toggle button is shown in the CT image options.
 
 TODO: image displaying transparent plane
 
 When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
 \subsection{implants}
-The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of what the part looks like. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
-To improve the surgeons ability to line up screws and find what parts of the fracture is penetrated by the screw/object a outline is shown. This allows the user to see where a object is compared to any other parts, even if it is fully obscured by the model. This is achieved by shader using a depth buffer to only draw the outline when obscured by other meshes\cite{shader depth}.
+The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
+To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{shader depth}.
 
 \section{performance}
-Some performance guidelines are outlined by the occulus developers for the Quest 1\cite{performance}.
+Some performance guidelines are outlined by the Occulus developers for the Quest 1\cite{performance}.
 
 The recommended triangle count is between 350-500 triangles. The modes meshes can have a high vertex count and are reduced manually using Blender. This could potentially be automated, but this limit is a lot less relevant with a headset with dedicated Rendering.
 
