@@ -114,7 +114,6 @@ First and foremost, I would like to thank
 
 
 \chapter{Introduction}
-TODO: skrive om hvordan det kom til
 This thesis is written as part of the University of Bergen and Western University of Applied Sciences master programme in software engineering.
 
 
@@ -165,22 +164,7 @@ A surgeon will diagnose the patient from the following features: history, clinic
 
 This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools.
 
-\subsection{surgery types}
---what makes surgery complicated
---perkutant
---ledd
---viktig å reponere eksakt pga slitasje
--- eks calaneus
-
-\subsection{Brief history of medical imaging}
-The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed at a different rate by tissue and bone mass, it is possible to create an image of the bone. The image is displayed as a projection from the X-ray angle. During the first half of the 20th century, additional techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
-CT scans (Computed Tomography) were invented during the 1970s. During a CT scan, an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. CT scans overcome the two-dimensional X-ray limits and create detailed image data that can be visualized in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{swiontkowski_manual_2013}.
-MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. MRI has better accuracy than CT when measuring soft tissue and avoids radiation.
-
-
-The imaging used for testing in this report is from CT scans done by Helse Vest.
 \subsection{Visualisation of medical imaging}
-TODO: bilde av slice/volum
 
 The output of both CT and MRI scans is a three-dimensional scan. The output is typically represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
 Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud\cite{chougule_conversions_2013}.
@@ -190,7 +174,6 @@ When rendering a 2D image, the volume must be projected to two-ddimensional spac
 All slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
 The values are converted to greyscale by mapping ranges of values to greyscale pixels. This mapping function determines the brightness and contrast of the final image.
 
-A specific volume rendering algorithm is needed to render the scan as a 3D surface mesh. Rendering the model includes preprocessing the volume and classification to determine the type of tissue based on voxel value. A simple approach is thresholding, a binary classification where a polygon is created on any volume point that matches the threshold value. A different threshold can be selected to visualize different tissue densities, typically bone\cite{fishman_volume_2006}.
 \subsubsection{ 3D printing }
 
 \begin{figure}[h!]
@@ -204,46 +187,12 @@ A specific volume rendering algorithm is needed to render the scan as a 3D surfa
 \end{figure}
 
 An alternative to digital representation is to print the 3D model to inspect it physically\cite{mishra_virtual_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
-The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections, or being able to alter the model in any way. A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model.
-
-A possible future use case for this project is quickly inspecting a fracture in VR and then deciding if a printed model is necessary, potentially saving time and resources.
 
 % \subsubsection{2D viewer}
 % There exists a wide range of computer programs to inspect CT images as 3D models, using the computer to interact with the model.
 % The current solution used by Helse Vest is materialise\cite{materialise_medical_nodate}. Using a 2D viewer is fast and simple but lacks the depth and scale of VR.
 
-\section{Virtual Reality}
-Virtual Reality is the use of VR technology to sense the user's state and actions and augment sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
 
-The virtual reality system works by tricking the senses by displaying computer-generated stimuli that replace stimuli from the real world. The user typically perceives the virtual environment through a Head-mounted Display (HMD), sound, and haptic feedback (vibration). 
-The virtual environment is the computer-generated objects that the user interacts with. The virtual environment will often mimic properties in the real world, such as shape, color, or functionality.
-
-With more specialized hardware, additional stimuli such as temperature, smell, and more are possible\cite{noauthor_feelreal_nodate}.
-To make the virtual environment seem real, it must respond to the user's actions. Current commercial Virtual Reality headsets track the user's head and hands and allow for button inputs\cite{noauthor_oculus_nodate}. Modern HMDs use 6 Degrees of Freedom (DOF), which means the user is tracked in three-dimensional position and rotation\cite{lang_introduction_2013}. The tracking is used by the VR application to simulate walking, picking up objects, and more.
-
-\subsection{Professional usage of VR}
-While becoming more popular in mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
-
-\subsection{Advantages and disadvantages}
-A disadvantage with wearing an HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
-Image imperfections cause eye fatigue in the HMD\cite{kooi_visual_2004}, and motion sickness is caused by sensory conflict.
-According to a study on motion sickness factors, 59 \% of the subjects experienced motion sickness after a mean of 14 minutes. The remaining subjects did not experience any illness\cite{kooi_visual_2004}. Motion sickness can be mitigated in several ways.
-
-
-A use-case of VR is simulating a subject physically out of reach, such as a planet in space or the inside of a patient's knee. For physically impaired users, this advantage is even more relevant.
-VR can also simulate things that would otherwise be dangerous, for example, an untrained surgeon performing surgery alone.
-Another advantage is that VR is more immersive than other mediums. The immersion makes the user feel more stress or fear and makes it feasible to prepare personnel for stressful situations, such as the police.
-The added immersion also makes teaching or training more motivating for the student.\cite{freina_immersive_2015}
-
-\subsection{ Augmented Reality }
-Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants; some mobile apps use the camera to create an AR environment, and AR HMDs work similarly to VR HMDs, except that the viewing glass is transparent.
-AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}.
-AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
-
-\subsection{Designing for VR}
-TODO: stuttering for motion sickness
-VR is relatively new to mainstream media, and as such, there are few agreed-upon standards, unlike e.g., web development.
-Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware-dependent and not relevant for this project, so moving content is the most relevant measure in this project.
 
 \subsection{Unity}
 
@@ -258,7 +207,6 @@ To develop for several XR platforms, the different controllers have a mutual int
 
 
 \chapter{Design and Implementation}\label{Design and Implementation}
-TODO: flytte?
 The application was developed by me in about 7 months. I have no medical experience and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and Unity, and VR development.
 
 \section{Demonstration}\label{demonstration}
@@ -271,7 +219,6 @@ The application was developed using iterative development and elements from desi
 The team had biweekly meetings with a demonstration, sprint retrospect, and sprint planning. Sprint retrospect was not as relevant as only one person worked full time on the project. However, sprint planning was a valuable way of sharing interdisciplinary information and getting feedback from medical experts.
 The biweekly demo also served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give continuous feedback during testing. Optimally the test subjects should have been personnel outside the project, but busy schedules and COVID restrictions limited this.
 After the biweekly demo, I updated the sprint backlog with updated tasks prioritized by value.
-TODO: skrive mer
 
 \section{Project overview}\label{CodeStructure}
 
@@ -284,16 +231,11 @@ give a good understanding of what the fracture looks like (bruddlinje og mindre 
 Ease of use for non technical personnel
 Be able to cooperate in smaller teams - multiplayer
 
-\subsection{Anatomical understanding}
-TODO: how to give the user a good understanding of a fracture
 
 \subsection{VR interface}
 
-TODO: Overview image
-
-TODO: why
 To make the VR application easy to use, I focused primarily on familiarity with current tools and a simple design.
-TODO: specify viewer
+
 Familiarity with current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR to make it recognizable to the user. An example of this is navigating menus the same way one would navigate a popup menu with a pc mouse.
  All unnecessary interactions and information is removed to allow new users with little VR experience to start using the program quickly. The goal is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
@@ -309,11 +251,6 @@ One issue is that the user might want to move either the entire model or move a 
 
 The grab functionality is implemented using Unity's built-in $Interactable$ system for XR\cite{noauthor_xr_nodate} development. This allows to set up grabbing, throwing, and more. 
 By default, the grab will move the center of the interactable to the user's hand. The built-in grab action is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
-
-TODO: what is the script
-
-TODO: interactor single hover
-
 
 \subsubsection{Separation mode}
 The grabbing functionality introduces a problem: If the user moves a model part, the CT images will no longer be similar to the model displayed. Also, if the user is measuring the distance between two model parts, it gives an invalid result if the parts are moved. 
@@ -331,20 +268,11 @@ The solution to this is a separation mode. Moving any model part enters separati
 \end{figure}
 
 The most common operations are bound to trigger and grip button, which is easily reachable on most controllers. The controller trigger mimics a mouse click on a pc, and so it is used for clicking buttons and using selected tools. The grip button mimics a real-world grabbing gesture and is used for grabbing a model part.
-The primary button is used for opening the menu.
-For ease of use, the two controllers are mostly mirrored, except for the joystick. The right joystick is used for scrolling through CT slices, similar to how the scroll wheel is used in CT image viewers. The left joystick rotates and scales the entire model while keeping all the model parts correctly positioned.
 
 \subsubsection{Menu system}
 A menu system is implemented to allow the user to navigate less common operations while not distracting from inspecting the model.
 When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means the text appears as a physical screen. The model is temporarily hidden to ensure the menu is always in the user's field of view. Placing content at the center of the screen avoids a typical VR UX problem where some information is not visible to the user.
 
-The menu includes access to less frequent actions that do not require their own keybinding. The initial menu includes fast access to simple tools (e.g., measurement) and buttons to sub-menus. A hamburger menu icon suggests the button leads to a sub-menu.
-
-The menu layout consists of one or more vertical lists of buttons. Several columns of lists are used to separate buttons into categories. To keep the menu simple and consistent, only buttons are used for interacting with the menu. The 'cross' button from pc programs is used for exiting the menu.
-The sub-menus are implemented when multiple options are present. It is used for selecting an implant type or loading a new dataset.
-
-\subsubsection{Audio}
-Audio is mainly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something.
 
 \subsubsection{Motion sickness}
 The most relevant motion sickness factor for this project is the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room and is always static. All HUD elements are also static, with few exceptions.
@@ -354,42 +282,27 @@ During multiplayer, the model may move caused by another player's input, which m
 The goal of the multiplayer feature is to allow two or more surgeons to cooperate effectively. Having one surgeon using a VR headset and another using a screen is likely interfering because the surgeons are seeing different models. The multiplayer component allows the surgeons to use the same tools while seeing the same model.
 Multiplayer should not make the application more difficult to use. All interactions should be similar to the usual experience, and cooperation should not require any extra steps, except connecting to the multiplayer server. Any important information should be available to all players, and irrelevant information (another player opening a menu) should not be disturbing.
 
---lobby/joining sessions
 
-\subsubsection{Mirror}
-The networking was built with Mirror, a downloadable Unity asset. Mirror is a high-level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and classic video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
 
 \section{DICOM data visualisation}
 I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{noauthor_dicom_nodate}, where the scan is stored as several files, each representing a slice.
 The model is also split up into bone fragments. The files include 3D surface models as STL files, where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
 
 
-\subsection{Unity with custom file types}
-
-To be able to read the DICOM files, the build produced by Unity needs access to the files. Unity has several built-in solutions to this.
-The most common is the Resources functionality\cite{resourcesload_unity_nodate} that builds the application and includes all files in a `Resources' folder. Android projects are built in the standard APK format and also require special file paths and using the built-in web request to read files. This is not well documented, especially for the Quest, so this method was scrapped.
-
-The easiest way of referencing files is usually setting a reference in the unity editor, and the file will be included in the build. This works great with common files like images, but Unity does not allow custom file types without 'hacking' the Unity inspector and creating a custom file importer\cite{scriptedimporters_unity_nodate}, that has lacking documentation. The solution to this is to rename all DICOM files to {name}.bytes. This makes Unity handle the files as 'TextAsset' text files\cite{textassets_unity_nodate}. I then open the files as text files and create a byte stream. The byte stream is then used for rendering with the DICOM library.
-
 \subsection{Rendering CT image}
-TODO: cite dat253?
-TODO: begreper
 
 To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022}. It is an open-source library for parsing DICOM data and image rendering.
 I use the data the DICOM files to create a $Slice$ object for each of the files. The slice object implements reading the density value at position $(x, y)$ at that slice. a Unity Texture is created for each slice to render the image in Unity.
 
 Every pixel on the texture is set to the greyscale color correlating to the density value. To find the color in a position, calculate $(density-minDensity)/(maxDensity-minDensity)$. If result is 1, it has maximum density and is set to white color.
 
-The slice number is calculated to convert between the selected height and the rendered CT image. This is done by getting the model's height and reading the y position of the selection plane. The height percentage of the plane is rounded down to the closest slice number, and that slice is shown.
 
 \subsection{Rendering bone fragments}
 In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate, the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
 
---how the model is scaled
 
 \subsubsection{Separating bone fragments}
 Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further.
-TODO: finish
 
 An example open-source framework called Ezy-slice\cite{aryan} was tested.
 
@@ -400,9 +313,6 @@ This required removing the part of the model above/under the intersection plane,
 This effect can be disturbing as the entire model is not visible. To allow for rendering the entire model, this rendering is a made optional. The option defaults to showing the entire model because it is easier to understand.
 The toggle button is shown in the CT image options.
 
-TODO: image displaying transparent plane
-
-When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
 \subsection{implants}
 The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
@@ -414,12 +324,6 @@ Some performance guidelines are outlined by the Occulus developers for the Quest
 The recommended triangle count is between 350k-500k triangles. The imported meshes can have a high vertex count and are reduced manually using Blender remeshing.
 This could be automated, but this limit would be irrelevant using a headset using a GPU for dedicated rendering.
 
-
--mesh count and simplification\
--quest performance and other headsets performance
--performance data
-
-\chapter{use cases}\label{usecases}
 
 \chapter{analysis and assessment}\label{analysis and assessment}
 
@@ -439,33 +343,6 @@ Orthopedic surgeon & 10+ years  & None                & Smaller parts and bone f
                    &            &                     &
 \end{tabular}
 \end{table}
-
-
-\chapter{Discussion}\label{Discussion}
-
-\chapter{Related Work}\label{Related Work}
-
-There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
-
-Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} is made for surgeons to plan surgeries and education.
-
-An Augmented reality viewer called Dicom Director also exists, but is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
-
-Other similar solutions are Materialise\cite{materialise_medical_nodate} and
-Ceevra\cite{ceevra_inc_using_2019}.
-
-Most current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite needed}
-
-Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning.
-
-A study in visualising Patient data with VR \cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase (loading the model into the software took 1 hour), and it did not do a comparison to 3D printing.
-
-\chapter{Conclusion} \label{Conclusion}
-
-\chapter{Further Work} \label{Further Work}
-
-\appendix
-\input{appendix/Code}
 
 
 %\bibliographystyle{splncs04}
