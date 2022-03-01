@@ -94,28 +94,26 @@ showspaces=false,
 showstringspaces=false,
 matchrangestart=t}
 
-%Title page
 \input{title_page.tex}
 \titlePage
 \pagebreak
 
 \section*{Abstract}
-% \acrlong{MDSE} is a ...
+During the planning of a surgery in orthopedics, the surgeons will use CT scans and sometimes 3D printing to analyze the fracture and help prepare for the surgery. By using Virtual Reality technology, the data can be visualized in 3D in a more immersive way, potentially improving the preparation phase by increasing the anatomical understanding or removing the need for 3D printing.
 
-\section*{Acknowledgements}
-First and foremost, I would like to thank
+% \section*{Acknowledgements}
+% First and foremost, I would like to thank
+
 \pagebreak
 \tableofcontents
 \listoffigures
-\listoftables
+% \listoftables
 
 % \printglossary[nonumberlist]
 % \printglossary[type=\acronymtype, nonumberlist]
 
-
 \chapter{Introduction}
-TODO: skrive om hvordan det kom til
-This thesis is written as part of the University of Bergen and Western University of Applied Sciences master programme in software engineering.
+This thesis is written as part of the University of Bergen and Western University of Applied Sciences master programme in software engineering. The project is a collaboration with Helse Vest IKT and orthopedic surgeons at Haukeland University Hospital.
 
 
 \section{Context and Approach}
@@ -125,10 +123,13 @@ the surgery has less risk of complications or could require fewer resources.
 \section{Problem Description}
 Visualizing the model in 2D limits the understanding of the fracture because of the lack of scale and depth. The problem applies to both 2D images and 3D models rendered in 3D.
 A considered solution is visualizing the model in Augmented Reality or Virtual Reality to give medical personnel a good understanding of the problem area.
-VR has multiple potential benefits, and the surgery plannkkjing process can use some of these. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's overview and patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
+VR has multiple potential benefits, and the surgery planning process can use some of these. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's overview and patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
 
-How Can VR technology improve surgery planning by making the process safer or more effective?
-How Can VR technology give some of the same benefits as 3D printing gives today at a lower cost?
+Can VR technology improve surgery planning by
+
+1: a better understanding giving a better success rate.
+
+2: using less resources or time compared to 3D printing with the same benefits
 
 \section{Methodology}
 
@@ -203,14 +204,11 @@ A specific volume rendering algorithm is needed to render the scan as a 3D surfa
 ~\cite{mishra_virtual_2019}
 \end{figure}
 
+
 An alternative to digital representation is to print the 3D model to inspect it physically\cite{mishra_virtual_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
 The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections, or being able to alter the model in any way. A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model.
 
 A possible future use case for this project is quickly inspecting a fracture in VR and then deciding if a printed model is necessary, potentially saving time and resources.
-
-% \subsubsection{2D viewer}
-% There exists a wide range of computer programs to inspect CT images as 3D models, using the computer to interact with the model.
-% The current solution used by Helse Vest is materialise\cite{materialise_medical_nodate}. Using a 2D viewer is fast and simple but lacks the depth and scale of VR.
 
 \section{Virtual Reality}
 Virtual Reality is the use of VR technology to sense the user's state and actions and augment sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
@@ -338,10 +336,36 @@ For ease of use, the two controllers are mostly mirrored, except for the joystic
 A menu system is implemented to allow the user to navigate less common operations while not distracting from inspecting the model.
 When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means the text appears as a physical screen. The model is temporarily hidden to ensure the menu is always in the user's field of view. Placing content at the center of the screen avoids a typical VR UX problem where some information is not visible to the user.
 
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/menu.png}}
+	\hfill
+  \caption{Menu screen}
+  \small
+  The main menu screen. The user is hovering one of the buttons.
+~\cite{mishra_virtual_2019}
+
+\end{figure}
 The menu includes access to less frequent actions that do not require their own keybinding. The initial menu includes fast access to simple tools (e.g., measurement) and buttons to sub-menus. A hamburger menu icon suggests the button leads to a sub-menu.
 
 The menu layout consists of one or more vertical lists of buttons. Several columns of lists are used to separate buttons into categories. To keep the menu simple and consistent, only buttons are used for interacting with the menu. The 'cross' button from pc programs is used for exiting the menu.
 The sub-menus are implemented when multiple options are present. It is used for selecting an implant type or loading a new dataset.
+
+\subsubsection{Measurements}
+Some important functionality available in desktop VR viewers should also be available here. This includes measurement of distance and measurement of angles.
+The measure tools works by selecting a start and an end point. The angle measurement additionally requires a middle point.
+After placing the first point, a preview of the measurement result is shown as a line to give feedback to the user of the current state.
+Using the outline shader mentioned before makes it possible to see the placed points even when obscured by the model, and the line between the points is always visible. This, combined with depth in VR makes it easy to understand where the points are placed and what the length and angle is.
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/measure.png}}
+	\hfill
+  \caption{Distance measurement}
+  \small
+  A distance measurement. The yellow hollow circle is inside the model, and the filled circle is in front of the model.
+~\cite{mishra_virtual_2019}
+\end{figure}
 
 \subsubsection{Audio}
 Audio is mainly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something.
@@ -379,6 +403,16 @@ To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oa
 I use the data the DICOM files to create a $Slice$ object for each of the files. The slice object implements reading the density value at position $(x, y)$ at that slice. a Unity Texture is created for each slice to render the image in Unity.
 
 Every pixel on the texture is set to the greyscale color correlating to the density value. To find the color in a position, calculate $(density-minDensity)/(maxDensity-minDensity)$. If result is 1, it has maximum density and is set to white color.
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/ctscan.png}}
+	\hfill
+  \caption{CT images}
+  \small
+  The user has moved the CT slice plane (transparent grey) to inspect the Tibia and Fibula (Shinbone/Calf Bone). The CT image on the right shows the CT scan of the two bones.
+~\cite{mishra_virtual_2019}
+\end{figure}
 
 The slice number is calculated to convert between the selected height and the rendered CT image. This is done by getting the model's height and reading the y position of the selection plane. The height percentage of the plane is rounded down to the closest slice number, and that slice is shown.
 
