@@ -117,9 +117,10 @@ This thesis is written as part of the University of Bergen and Western Universit
 
 
 \section{Context and Approach}
-A CT scan is often performed when a hospital receives an injured patient considered for orthopedic surgery. The CT scan is displayed as 2D images or a 3D model on a computer. The model helps the medical personnel plan the surgery by understanding the anatomy of the fracture.
+A CT scan is often performed when a hospital receives an injured patient considered for orthopedic surgery. The CT scan is displayed as 2D images or as a 3D model. The model allows the surgeons to better plan the surgery by understanding the anatomy of the fracture.
 If a surgeon has a good understanding of the anatomy related to the fracture,
 the surgery has less risk of complications or could require fewer resources.
+
 \section{Problem Description}
 Visualizing the model in 2D limits the understanding of the fracture because of the lack of scale and depth. The problem applies to both 2D images and 3D models rendered in 3D.
 A considered solution is visualizing the model in Augmented Reality or Virtual Reality to give medical personnel a good understanding of the problem area.
@@ -187,11 +188,12 @@ The output of both CT and MRI scans is a three-dimensional scan. The output is t
 Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud\cite{chougule_conversions_2013}.
 The slice thickness of a slice can be below 1 mm, giving a high-resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
 
-When rendering a 2D image, the volume must be projected to two-ddimensional space. The values in a single slice can be used to view the intersection at a specific slice number. A line of values along all the slices can be used to view the intersection at another plane.
+When rendering a 2D image, the volume must be projected to two-dimensional space. The values in a single slice can be used to view the intersection at a specific slice number. A line of values along all the slices can be used to view the intersection at another plane.
 All slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
 The values are converted to greyscale by mapping ranges of values to greyscale pixels. This mapping function determines the brightness and contrast of the final image.
 
 A specific volume rendering algorithm is needed to render the scan as a 3D surface mesh. Rendering the model includes preprocessing the volume and classification to determine the type of tissue based on voxel value. A simple approach is thresholding, a binary classification where a polygon is created on any volume point that matches the threshold value. A different threshold can be selected to visualize different tissue densities, typically bone\cite{fishman_volume_2006}.
+
 \subsubsection{ 3D printing }
 
 \begin{figure}[h!]
@@ -201,14 +203,14 @@ A specific volume rendering algorithm is needed to render the scan as a 3D surfa
   \caption{Humeral (upper arm) fracture}
   \small
     A fracture from initial scan to finished print. (A) preoperative X-ray; (B) 3D model; (C) 3D printed model.
-~\cite{mishra_virtual_2019}
+~Image from study on virtual preoperative planning~\cite{mishra_virtual_2019}
 \end{figure}
 
 
-An alternative to digital representation is to print the 3D model to inspect it physically\cite{mishra_virtual_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
-The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on the model, which in some cases is too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections, or being able to alter the model in any way. A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model.
+An alternative to digital representation is to print the model with a 3D printer. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
+The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on model size, materials and printer. This is in some cases too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections, or being able to alter the model in any way. A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model.
 
-A possible future use case for this project is quickly inspecting a fracture in VR and then deciding if a printed model is necessary, potentially saving time and resources.
+A possible use case for a VR viewer is inspecting a fracture in VR and then deciding if a printed model is necessary, to avoid spending time on an unnecessary printing process.
 
 \section{Virtual Reality}
 Virtual Reality is the use of VR technology to sense the user's state and actions and augment sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
@@ -239,9 +241,8 @@ AR HMDs are used in medical, industrial, and military devices to show critical i
 AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
 \subsection{Designing for VR}
-TODO: stuttering for motion sickness
 VR is relatively new to mainstream media, and as such, there are few agreed-upon standards, unlike e.g., web development.
-Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), latency between motion and the HMD, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware-dependent and not relevant for this project, so moving content is the most relevant measure in this project.
+Some effective measures to counter motion sickness and fatigue are reducing Field of View (FOV), varying latency between user input and display update, flickering, moving content in the virtual environment, using several stimuli (audio, haptics)\cite{chang_virtual_2020}. Some of these are hardware-dependent and not relevant for this project, so moving content is the most relevant measure in this project.
 
 \subsection{Unity}
 
@@ -264,12 +265,27 @@ gameplay
 
 \section{Development methods}
 
+\subsection{Research Method}
+The research question is solved by developing an application, and evaluating the application with respect to the research questions. Qualitative is used, because of a low test user amount.
+
+The largest part of the study is developing the application that fills the need of viewing CT data. This is accomplished by uncovering user needs with interviews and user testing. When the application meets minimum specifications, an evaluation if performed. 
+
+The evaluation at the end of the project aims to answer both research questions. The evaluation is done in the following way:
+The test users try the application on their own in a relevant scenario.
+The users respond to a semi-structured interview. The questions are specific towards both research questions.
+
+The responses are gathered and used to answer the questions.
+
 \subsection{Iterative Development}
-The application was developed using iterative development and elements from design thinking and scrum.
+TODO: illustrasjon
+The application is developed using iterative development and elements from design thinking and scrum.
+
+Scrum was used in order to cooperate effectively with the team. The team had regular meetings and this fits well with the sprints used in scrum.
 The team had biweekly meetings with a demonstration, sprint retrospect, and sprint planning. Sprint retrospect was not as relevant as only one person worked full time on the project. However, sprint planning was a valuable way of sharing interdisciplinary information and getting feedback from medical experts.
-The biweekly demo also served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give continuous feedback during testing. Optimally the test subjects should have been personnel outside the project, but busy schedules and COVID restrictions limited this.
 After the biweekly demo, I updated the sprint backlog with updated tasks prioritized by value.
-TODO: skrive mer
+
+design thinking:
+The biweekly demo also served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give continuous feedback during testing. Optimally the test subjects should have been personnel outside the project, but busy schedules and COVID restrictions limited this.
 
 \section{Project overview}\label{CodeStructure}
 
