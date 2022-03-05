@@ -278,14 +278,16 @@ The responses are gathered and used to answer the questions.
 
 \subsection{Iterative Development}
 TODO: illustrasjon
-The application is developed using iterative development and elements from design thinking and scrum.
 
-Scrum was used in order to cooperate effectively with the team. The team had regular meetings and this fits well with the sprints used in scrum.
-The team had biweekly meetings with a demonstration, sprint retrospect, and sprint planning. Sprint retrospect was not as relevant as only one person worked full time on the project. However, sprint planning was a valuable way of sharing interdisciplinary information and getting feedback from medical experts.
-After the biweekly demo, I updated the sprint backlog with updated tasks prioritized by value.
+The application is developed using iterative development and elements from Design Thinking and Scrum.
 
-design thinking:
-The biweekly demo also served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give continuous feedback during testing. Optimally the test subjects should have been personnel outside the project, but busy schedules and COVID restrictions limited this.
+Scrum was used to cooperate effectively with the team and increase the development speed. The team had regular meetings and this fits well with the sprints used in scrum and the surgeon on the team was a natural product owner.
+The team had regular biweekly meetings with a demonstration, sprint retrospective, and sprint planning. The Sprint meeting was a valuable way of sharing interdisciplinary information and getting feedback from medical experts. Sprint retrospective and daily scrum was not relevant as only one person worked full time on the project.
+After the biweekly demo, the sprint backlog was updated with tasks prioritized by value. The value is determined by the time needed to implement compared to how important the functionality is to the medical personnel. Any tasks or ideas remaining are stored in the product backlog and considered for the next sprint.
+The frequent Scrum demonstrations worked really well with VR development, as the different features are hard to understand without trying the application. Fast prototypes are important to cooperate efficiently when the product owner or test users have a limited understanding of the technology.
+
+Design thinking was loosely used because the medical domain and user needs was difficult to understand. I specifically used the ideate, prototype and test pattern to develop the application
+The application demos served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give feedback and ideas during testing. User testing would often lead to new ideas. Optimally the test subjects should have been personnel outside the project without any bias, but busy schedules and COVID restrictions limited this.
 
 \section{Project overview}\label{CodeStructure}
 
@@ -305,10 +307,9 @@ TODO: how to give the user a good understanding of a fracture
 
 TODO: Overview image
 
-TODO: why
-To make the VR application easy to use, I focused primarily on familiarity with current tools and a simple design.
-TODO: specify viewer
-Familiarity with current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR to make it recognizable to the user. An example of this is navigating menus the same way one would navigate a popup menu with a pc mouse.
+To make the VR interface easy to use, I focused primarily on familiarity with current tools and a simple design.
+I used MicroDICOM\cite{MicroDICOM} as a reference for a familiar tool.
+Familiarity with current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR to make it recognizable and consistent to the user. An example of this is navigating a menu in VR the same way one would navigate a menu with a pc mouse.
  All unnecessary interactions and information is removed to allow new users with little VR experience to start using the program quickly. The goal is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
 \subsubsection{Learning process}
@@ -318,7 +319,9 @@ Every button has a description displayed as text above the button to remind the 
 
 \subsubsection{Grab interaction}
 
-The most used part of the interface is moving the fracture parts to inspect them. The grab should mimic how users move objects in real life to make this easy to use.
+The most used part of the interface is moving the fracture parts to inspect or rearrange them. The grab should mimic how users move objects in real life to make this easy to use. When the user places the hand close to a model part, the color is tinted to highlight the model. When the grab button is pressed, the highlighted model part is picked up, and a short audio clip is played. 
+
+
 One issue is that the user might want to move either the entire model or move a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part. A joystick input moves the entire model.
 
 The grab functionality is implemented using Unity's built-in $Interactable$ system for XR\cite{noauthor_xr_nodate} development. This allows to set up grabbing, throwing, and more. 
