@@ -126,7 +126,7 @@ Visualizing the model in 2D limits the understanding of the fracture because of 
 A considered solution is visualizing the model in Augmented Reality or Virtual Reality to give medical personnel a good understanding of the problem area.
 VR has multiple potential benefits, and the surgery planning process can use some of these. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's overview and patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
 
-Can VR technology improve surgery planning by
+How can VR technology improve surgery planning by
 
 1: a better understanding giving a better success rate.
 
@@ -144,14 +144,18 @@ Firstly, a prototype VR viewer will be created with the help of related
 open-source frameworks/software and guidance from both orthopedic surgeons and
 developers with experience in medical technology.
 
-In order to answer the research question, it is necessary to measure the
-performance of the final application. This thesis will use qualitative methods
+In order to answer the research question, we will measure the
+usability of the final application. This thesis will use qualitative methods
 by interviewing related personnel to investigate the performance, including
 anatomical understanding, cooperation, and the effectiveness of the planning
 process.
 The performance will also be put in context to the existing solutions, possibly
 by making a direct comparison by using a 3D model, printed model, and VR viewer
 on the same case.
+
+\section{Related works}
+%TODO:
+
 \section{Contribution}
 \section{Outline}
 
@@ -464,11 +468,11 @@ TODO: image displaying transparent plane
 
 When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
-\subsection{implants}
+\subsection{Implants}
 The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
 To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{shader depth}.
 
-\section{performance}
+\section{Performance}
 Some performance guidelines are outlined by the Occulus developers for the Quest 1\cite{performance}.
 
 The recommended triangle count is between 350k-500k triangles. The imported meshes can have a high vertex count and are reduced manually using Blender remeshing.
@@ -479,11 +483,11 @@ This could be automated, but this limit would be irrelevant using a headset usin
 -quest performance and other headsets performance
 -performance data
 
-\chapter{use cases}\label{usecases}
+\chapter{Use cases}\label{usecases}
 
-\chapter{analysis and assessment}\label{analysis and assessment}
+\chapter{Analysis and assessment}\label{analysis and assessment}
 
-\section{tests}
+\section{Evaluations}
 
 
 \subsection{test 1}
