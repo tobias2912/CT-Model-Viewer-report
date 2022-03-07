@@ -181,8 +181,15 @@ MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a st
 
 
 The imaging used for testing in this report is from CT scans done by Helse Vest.
+
 \subsection{Visualisation of medical imaging}
-TODO: bilde av slice/volum
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/slices.png}}
+	\hfill
+  \caption{Transforming DICOM data into a polygon mesh}
+\end{figure}
 
 The output of both CT and MRI scans is a three-dimensional scan. The output is typically represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
 Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud\cite{chougule_conversions_2013}.
@@ -192,7 +199,7 @@ When rendering a 2D image, the volume must be projected to two-dimensional space
 All slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
 The values are converted to greyscale by mapping ranges of values to greyscale pixels. This mapping function determines the brightness and contrast of the final image.
 
-A specific volume rendering algorithm is needed to render the scan as a 3D surface mesh. Rendering the model includes preprocessing the volume and classification to determine the type of tissue based on voxel value. A simple approach is thresholding, a binary classification where a polygon is created on any volume point that matches the threshold value. A different threshold can be selected to visualize different tissue densities, typically bone\cite{fishman_volume_2006}.
+A specific algorithm is needed to render the scan as a 3D surface mesh. Rendering the model includes preprocessing the volume and classification to determine the type of tissue based on voxel value. A simple approach is thresholding, a binary classification where a polygon is created on any volume point that matches the threshold value. A different threshold can be selected to visualize tissue with different densities, typically bone\cite{fishman_volume_2006}.
 
 \subsubsection{ 3D printing }
 
@@ -525,4 +532,4 @@ A study in visualising Patient data with VR \cite{vertemati_virtual_2019} implem
 %\bibliography{references}
 \printbibliography
 
-\end{document}i
+\end{document}
