@@ -128,9 +128,8 @@ VR has multiple potential benefits, and the surgery planning process can use som
 
 How can VR technology improve surgery planning by
 
-1: a better understanding giving a better success rate.
-
-2: using less resources or time compared to 3D printing with the same benefits
+1: a better understanding leading to a better success rate.
+2: replacing 3D printing while using less resources or time.
 
 \section{Methodology}
 
@@ -154,7 +153,21 @@ by making a direct comparison by using a 3D model, printed model, and VR viewer
 on the same case.
 
 \section{Related works}
-%TODO:
+
+There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
+
+Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} is made for surgeons to plan surgeries and education.
+
+An Augmented reality viewer called Dicom Director also exists, but is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
+
+Other similar solutions are Materialise\cite{materialise_medical_nodate} and
+Ceevra\cite{ceevra_inc_using_2019}.
+
+Most current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite needed}
+
+Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning.
+
+A study in visualising Patient data with VR\cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase, and it did not consider 3D printing.
 
 \section{Contribution}
 \section{Outline}
@@ -220,6 +233,8 @@ A specific algorithm is needed to render the scan as a 3D surface mesh. Renderin
 
 An alternative to digital representation is to print the model with a 3D printer. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
 The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on model size, materials and printer. This is in some cases too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections, or being able to alter the model in any way. A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model.
+
+TODO: cost, resources?
 
 A possible use case for a VR viewer is inspecting a fracture in VR and then deciding if a printed model is necessary, to avoid spending time on an unnecessary printing process.
 
@@ -452,19 +467,26 @@ In STL files all vertices are stored coordinates relative to the center, so by i
 --how the model is scaled
 
 \subsubsection{Separating bone fragments}
-Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further.
+Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further. This functionality would also make it possible to use models that are not split into pieces beforehand.
 TODO: finish
 
 An example open-source framework called Ezy-slice\cite{aryan} was tested.
 
-\subsection{Rendering intersection}
+\subsection{Alternative CT visualisation}
 While rendering the selected slice as an image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
 This required removing the part of the model above/under the intersection plane, so it did not obscure the image. For this, I used a Unity Assetstore shader to view the cross-section of a mesh\cite{aldandarawy_unity_2019}.
 
 This effect can be disturbing as the entire model is not visible. To allow for rendering the entire model, this rendering is a made optional. The option defaults to showing the entire model because it is easier to understand.
 The toggle button is shown in the CT image options.
 
-TODO: image displaying transparent plane
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/intersection.png}}
+	\hfill
+  \caption{CT intersection}
+  \small
+  The selected CT slice is shown both in 2D and as a overlay on top of model. Notice that the upper part of the model is not rendered.
+\end{figure}
 
 When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
@@ -487,6 +509,7 @@ This could be automated, but this limit would be irrelevant using a headset usin
 
 \chapter{Analysis and assessment}\label{analysis and assessment}
 
+
 \section{Evaluations}
 
 
@@ -504,25 +527,15 @@ Orthopedic surgeon & 10+ years  & None                & Smaller parts and bone f
 \end{tabular}
 \end{table}
 
+\section{compared to previous tools}
+
+\section{compared to 3D printing}
+-price
+-time
+-equal to or better performance
 
 \chapter{Discussion}\label{Discussion}
 
-\chapter{Related Work}\label{Related Work}
-
-There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
-
-Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} is made for surgeons to plan surgeries and education.
-
-An Augmented reality viewer called Dicom Director also exists, but is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
-
-Other similar solutions are Materialise\cite{materialise_medical_nodate} and
-Ceevra\cite{ceevra_inc_using_2019}.
-
-Most current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite needed}
-
-Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning.
-
-A study in visualising Patient data with VR \cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase (loading the model into the software took 1 hour), and it did not do a comparison to 3D printing.
 
 \chapter{Conclusion} \label{Conclusion}
 
