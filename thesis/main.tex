@@ -129,6 +129,7 @@ VR has multiple potential benefits, and the surgery planning process can use som
 How can VR technology improve surgery planning by
 
 1: a better understanding leading to a better success rate.
+
 2: replacing 3D printing while using less resources or time.
 
 \section{Methodology}
@@ -250,6 +251,8 @@ To make the virtual environment seem real, it must respond to the user's actions
 \subsection{Professional usage of VR}
 While becoming more popular in mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
 
+TODO: finne kilde på remote surgery o.l.?
+
 \subsection{Advantages and disadvantages}
 A disadvantage with wearing an HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
 Image imperfections cause eye fatigue in the HMD\cite{kooi_visual_2004}, and motion sickness is caused by sensory conflict.
@@ -292,7 +295,7 @@ gameplay
 \section{Development methods}
 
 \subsection{Research Method}
-The research question is solved by developing an application, and evaluating the application with respect to the research questions. Qualitative is used, because of a low test user amount.
+The research question is solved by developing an application, and evaluating the application with respect to the research questions. Qualitative testing is used to evaluate the application, because of a low test user amount.
 
 The largest part of the study is developing the application that fills the need of viewing CT data. This is accomplished by uncovering user needs with interviews and user testing. When the application meets minimum specifications, an evaluation if performed. 
 
@@ -303,7 +306,14 @@ The users respond to a semi-structured interview. The questions are specific tow
 The responses are gathered and used to answer the questions.
 
 \subsection{Iterative Development}
-TODO: illustrasjon
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/agile.png}}
+	\hfill
+  \caption{Development method}
+  \small
+  Scrum sprints illustrated on the left, and user testing on the right.
+\end{figure}
 
 The application is developed using iterative development and elements from Design Thinking and Scrum.
 
@@ -345,17 +355,15 @@ Every button has a description displayed as text above the button to remind the 
 
 \subsubsection{Grab interaction}
 
-The most used part of the interface is moving the fracture parts to inspect or rearrange them. The grab should mimic how users move objects in real life to make this easy to use. When the user places the hand close to a model part, the color is tinted to highlight the model. When the grab button is pressed, the highlighted model part is picked up, and a short audio clip is played. 
-
+The most used part of the interface is moving the fracture parts to inspect or rearrange them. The grab should mimic how users move objects in real life to make this easy to use. When the user places the hand close to a model part, the color is tinted to highlight the model. When the grab button is pressed, the highlighted model part is picked up, and a short audio clip is played.
 
 One issue is that the user might want to move either the entire model or move a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part. A joystick input moves the entire model.
 
 The grab functionality is implemented using Unity's built-in $Interactable$ system for XR\cite{noauthor_xr_nodate} development. This allows to set up grabbing, throwing, and more. 
-By default, the grab will move the center of the interactable to the user's hand. The built-in grab action is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. To solve this, a script extending the interactable changes the position vectors 
+By default, the grab will move the center of the interactable to the user's hand. The built-in grab action is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. 
+To solve this, the interactable script is modified to keep the current position when grabbed, and then follow the relative motion of the hand.
 
-TODO: what is the script
-
-TODO: interactor single hover
+To allow for grabbing small objects or objects that are partly overlapping, what objects are selected is also modified. The default Unity XR behaviour is selecting a new object every frame, and this would lead to the user grabbing several objects simultaneously. To solve this, any interactable is highlighted when the users hand is within the collision box. It stays highlighted until the hand is outside of the collision box. The grab action is only allowed to select the hovered object, until the grab is released.
 
 
 \subsubsection{Separation mode}
@@ -422,7 +430,7 @@ During multiplayer, the model may move caused by another player's input, which m
 The goal of the multiplayer feature is to allow two or more surgeons to cooperate effectively. Having one surgeon using a VR headset and another using a screen is likely interfering because the surgeons are seeing different models. The multiplayer component allows the surgeons to use the same tools while seeing the same model.
 Multiplayer should not make the application more difficult to use. All interactions should be similar to the usual experience, and cooperation should not require any extra steps, except connecting to the multiplayer server. Any important information should be available to all players, and irrelevant information (another player opening a menu) should not be disturbing.
 
---lobby/joining sessions
+The multiplayer UI is a menu shown at startup. The user can select either to start a new session in which other users can join, or join an existing session. The sessions are hardcoded to always run on the same port and have no authentication, as this would take too much development time and give no value.
 
 \subsubsection{Mirror}
 The networking was built with Mirror, a downloadable Unity asset. Mirror is a high-level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and classic video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
