@@ -157,16 +157,26 @@ on the same case.
 
 There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
 
-Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} $Medical imaging XR$ is made for surgeons to plan surgeries and medical education.
+Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} $Medical imaging XR$ is made for surgeons to plan surgeries and medical education. Also includes a detailed data preset with layers for bone, muscle, soft tissue and more for educational purposes.
 
-An Augmented reality viewer called Dicom Director also exists, and is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
+An Augmented reality viewer called Dicom Director Intravision XR also exists. Supports DICOM data. Is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
 
-Other similar solutions are Materialise\cite{materialise_medical_nodate} and
+The body VR: anatomy Viewer\cite{the body}. Unreleased.
+
+Sentiar CommandEP is a AR tool made specifically for heart surgery. 
+
+ImmersiveView VR supports DICOM data volume rendering, and basic tools\cite{immersive}.
+
+MedicalImagingVR is a CT volume renderer that is free on the Steam Store\cite{}. It includes uploading DICOM data and showing slices and volumes.
+
+Precision XR is a XR platform for viewing data\cite{surgical theater}. Includes an microscope AR overlay intended for use during surgery. A proof of concept study describes how it was used with good effect in neurosurgery\cite{thejns}.
+
+Other similar solutions are Materialise\cite{materialise_medical_nodate}, DICOM CR\cite{dicomvr} and
 Ceevra\cite{ceevra_inc_using_2019}.
 
-Most current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite Håkon?}
+Current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite Håkon?}
 
-Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning. Importing DICOM data is also not supported.
+Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning tools. Importing DICOM data is also not supported.
 
 A study in visualising Patient data with VR\cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase, and it did not consider 3D printing.
 
@@ -251,6 +261,8 @@ To make the virtual environment seem real, it must respond to the user's actions
 \subsection{Professional usage of VR}
 While becoming more popular in mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
 
+An advantage of XR compared to mouse/keyboard devices is touch free interfaces with hand tracking, making it better for a sterile environment\cite{andrews}.
+
 TODO: finne kilde på remote surgery o.l.?
 
 \subsection{Advantages and disadvantages}
@@ -265,7 +277,7 @@ Another advantage is that VR is more immersive than other mediums. The immersion
 The added immersion also makes teaching or training more motivating for the student.\cite{freina_immersive_2015}
 
 \subsection{ Augmented Reality }
-Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants; some mobile apps use the camera to create an AR environment, and AR HMDs work similarly to VR HMDs, except that the viewing glass is transparent.
+Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants; some mobile apps use the camera to create an augmented environment shown in 2D, while AR HMDs typically work similarly to VR HMDs, except that the viewing glass is transparent.
 AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}.
 AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
