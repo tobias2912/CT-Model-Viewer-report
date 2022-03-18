@@ -338,6 +338,7 @@ Design thinking was loosely used because the medical domain and user needs was d
 The application demos served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give feedback and ideas during testing. User testing would often lead to new ideas. Optimally the test subjects should have been personnel outside the project without any bias, but busy schedules and COVID restrictions limited this.
 
 \section{Project overview}\label{CodeStructure}
+TODO: this
 
 \section{Design}
 
@@ -427,7 +428,7 @@ Using the outline shader mentioned before makes it possible to see the placed po
 	\hfill
   \caption{Distance measurement}
   \small
-  A distance measurement. The yellow hollow circle is inside the model, and the filled circle is in front of the model.
+  The yellow hollow circle is inside the model with outline rendered on top. The filled circle is in front of the model. Distance in mm also drawn on top.
 ~\cite{mishra_virtual_2019}
 \end{figure}
 
@@ -483,7 +484,7 @@ The slice number is calculated to convert between the selected height and the re
 \subsection{Rendering bone fragments}
 In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate, the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
 
---how the model is scaled
+Accurate scaling of the model is important, both to give a realistic view for the user and for tools like measurement and implants. The STL files used for input does not contain physical size data, but uses a convention where one unit corresponds to one mm. In Unity a single unit is rendered as one meter in VR. By scaling the Unity object so a model unit is 1/1000 of a Unity unit the sizes are percieved as true to life. When scaling the model, all measurements and implants are scaled simultaneously.
 
 \subsubsection{Separating bone fragments}
 Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further. This functionality would also make it possible to use models that are not split into pieces beforehand.
@@ -525,6 +526,7 @@ This could be automated, but this limit would be irrelevant using a headset usin
 -performance data
 
 \chapter{Use cases}\label{usecases}
+TODO: education, multiplayer
 
 \chapter{Analysis and assessment}\label{analysis and assessment}
 
