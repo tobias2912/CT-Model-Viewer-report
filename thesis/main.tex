@@ -100,6 +100,7 @@ matchrangestart=t}
 
 \section*{Abstract}
 During the planning of a surgery in orthopedics, the surgeons will use CT scans and sometimes 3D printing to analyze the fracture and help prepare for the surgery. By using Virtual Reality technology, the data can be visualized in 3D in a more immersive way, potentially improving the preparation phase by increasing the anatomical understanding or removing the need for 3D printing.
+TODO: fylle på mer
 
 % \section*{Acknowledgements}
 % First and foremost, I would like to thank
@@ -193,6 +194,8 @@ Orthopedic surgery is surgery involving the musculoskeletal system. Cases range 
 Orthopedic surgeons do both elective (planned) and urgent surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery. A team of usually two surgeons will plan the surgery together.
 A surgeon will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Medical imaging, including ultrasound, CT, and MRI, gives the surgeons a detailed insight into bones or soft tissue structures.
 
+TODO: ortoped arbeidsflyt og illustrasjon
+
 This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools.
 
 \subsection{surgery types}
@@ -200,7 +203,9 @@ This research is based on elective surgeries on trauma or fractures where the su
 --perkutant
 --ledd
 --viktig å reponere eksakt pga slitasje
--- eks calaneus
+
+TODO: internal fixation
+TODO: complicated calaneus and heel fractures
 
 \subsection{Brief history of medical imaging}
 The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed at a different rate by tissue and bone mass, it is possible to create an image of the bone. The image is displayed as a projection from the X-ray angle. During the first half of the 20th century, additional techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
@@ -245,7 +250,7 @@ A specific algorithm is needed to render the scan as a 3D surface mesh. Renderin
 An alternative to digital representation is to print the model with a 3D printer. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
 The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on model size, materials and printer. This is in some cases too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections, or being able to alter the model in any way. A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model.
 
-TODO: cost, resources?
+The cost of a 3D printer and material depends on printer type and sizes, but is typically low. Extrusion based plastic printers are commercially available at as low as 200\$, with very cheap materials. The cost of 3D printing in industry or medicine comes from personell, training and time usage\cite{shahrubudinn}.
 
 A possible use case for a VR viewer is inspecting a fracture in VR and then deciding if a printed model is necessary, to avoid spending time on an unnecessary printing process.
 
@@ -259,11 +264,12 @@ With more specialized hardware, additional stimuli such as temperature, smell, a
 To make the virtual environment seem real, it must respond to the user's actions. Current commercial Virtual Reality headsets track the user's head and hands and allow for button inputs\cite{noauthor_oculus_nodate}. Modern HMDs use 6 Degrees of Freedom (DOF), which means the user is tracked in three-dimensional position and rotation\cite{lang_introduction_2013}. The tracking is used by the VR application to simulate walking, picking up objects, and more.
 
 \subsection{Professional usage of VR}
-While becoming more popular in mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
-
+While becoming more popular in mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}.
 An advantage of XR compared to mouse/keyboard devices is touch free interfaces with hand tracking, making it better for a sterile environment\cite{andrews}.
 
-TODO: finne kilde på remote surgery o.l.?
+VR has been developed by the US Airforce since the 1980's for pilot interfaces\cite{mertz}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
+
+TODO: finne kilde på remote surgery o.l.
 
 \subsection{Advantages and disadvantages}
 A disadvantage with wearing an HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
@@ -278,7 +284,7 @@ The added immersion also makes teaching or training more motivating for the stud
 
 \subsection{ Augmented Reality }
 Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants; some mobile apps use the camera to create an augmented environment shown in 2D, while AR HMDs typically work similarly to VR HMDs, except that the viewing glass is transparent.
-AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}.
+AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}\cite{mertz}.
 AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
 \subsection{Designing for VR}
@@ -299,7 +305,7 @@ To develop for several XR platforms, the different controllers have a mutual int
 
 \chapter{Design and Implementation}\label{Design and Implementation}
 TODO: flytte?
-The application was developed by me in about 7 months. I have no medical experience and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and Unity, and VR development.
+The application was developed by me in about 7 months. The author had no medical experience and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and Unity, and VR development.
 
 \section{Demonstration}\label{demonstration}
 gameplay
@@ -307,35 +313,48 @@ gameplay
 \section{Development methods}
 
 \subsection{Research Method}
-The research question is solved by developing an application, and evaluating the application with respect to the research questions. Qualitative testing is used to evaluate the application, because of a low test user amount.
+The research question is answered by developing an application, and evaluating the application with respect to the research questions. Qualitative testing is used to evaluate the application, because of a low test user amount.
 
 The largest part of the study is developing the application that fills the need of viewing CT data. This is accomplished by uncovering user needs with interviews and user testing. When the application meets minimum specifications, an evaluation if performed. 
 
 The evaluation at the end of the project aims to answer both research questions. The evaluation is done in the following way:
-The test users try the application on their own in a relevant scenario.
+The project participants use the application on their own in a relevant scenario.
 The users respond to a semi-structured interview. The questions are specific towards both research questions.
 
 The responses are gathered and used to answer the questions.
 
 \subsection{Iterative Development}
+
 \begin{figure}[h!]
     \centering
 	\subfloat[][]{\includegraphics[height=120pt]{images/agile.png}}
 	\hfill
   \caption{Development method}
   \small
-  Scrum sprints illustrated on the left, and user testing on the right.
+  weekly sprints illustrated on the left, and user testing on the right.
 \end{figure}
 
 The application is developed using iterative development and elements from Design Thinking and Scrum.
 
+% why scrum
 Scrum was used to cooperate effectively with the team and increase the development speed. The team had regular meetings and this fits well with the sprints used in scrum and the surgeon on the team was a natural product owner.
-The team had regular biweekly meetings with a demonstration, sprint retrospective, and sprint planning. The Sprint meeting was a valuable way of sharing interdisciplinary information and getting feedback from medical experts. Sprint retrospective and daily scrum was not relevant as only one person worked full time on the project.
-After the biweekly demo, the sprint backlog was updated with tasks prioritized by value. The value is determined by the time needed to implement compared to how important the functionality is to the medical personnel. Any tasks or ideas remaining are stored in the product backlog and considered for the next sprint.
+
+% structure
+The team had regular biweekly meetings with a demonstration and sprint planning. The sprint meeting was a valuable way of sharing interdisciplinary information and getting feedback from medical experts. Sprint retrospective and daily scrum was not relevant as only one person worked full time on the project.
+After the demonstration, the sprint backlog was updated with tasks prioritized by value. The value is determined by the time needed to implement compared to how important the functionality is to the product owner. The top tasks that fit within two weeks are added to the sprint backlog, and the remaining are stored in the product backlog and considered for the next sprint.
+During the next two weeks as many tasks as possible was implemented and demonstrated in the next meeting.
+
+
+% conclusion
 The frequent Scrum demonstrations worked really well with VR development, as the different features are hard to understand without trying the application. Fast prototypes are important to cooperate efficiently when the product owner or test users have a limited understanding of the technology.
 
-Design thinking was loosely used because the medical domain and user needs was difficult to understand. I specifically used the ideate, prototype and test pattern to develop the application
+
+% design thinking
+Design thinking was used because both the medical domain and user needs was difficult to understand. Design Thinking helps understanding a unfamiliar domain. I specifically used the ideate, prototype and test pattern to develop the application.
 The application demos served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give feedback and ideas during testing. User testing would often lead to new ideas. Optimally the test subjects should have been personnel outside the project without any bias, but busy schedules and COVID restrictions limited this.
+
+% testing
+A more in-depth user testing was done twice in the project. This included testing the application with orthopedic surgeons to gain more insight on user experience and user needs. Optimally this would be done frequently at the end of sprints, but was not possible. The tests are described in detail in a later chapter.
 
 \section{Project overview}\label{CodeStructure}
 TODO: this
@@ -368,6 +387,7 @@ Every button has a description displayed as text above the button to remind the 
 
 \subsubsection{Grab interaction}
 
+TODO: internal fixation
 The most used part of the interface is moving the fracture parts to inspect or rearrange them. The grab should mimic how users move objects in real life to make this easy to use. When the user places the hand close to a model part, the color is tinted to highlight the model. When the grab button is pressed, the highlighted model part is picked up, and a short audio clip is played.
 
 One issue is that the user might want to move either the entire model or move a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part. A joystick input moves the entire model.
@@ -450,7 +470,7 @@ The networking was built with Mirror, a downloadable Unity asset. Mirror is a hi
 
 \section{DICOM data visualisation}
 I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{noauthor_dicom_nodate}, where the scan is stored as several files, each representing a slice.
-The model is also split up into bone fragments. The files include 3D surface models as STL files, where each file contains one bone. The STL files are created by (radiograf ???) at Haukeland University Hospital.
+The model is also split up into separate bone fragments by radiologists at Haukeland University Hospital. The files include 3D surface models as STL files, where each file contains one bone.
 
 
 \subsection{Unity with custom file types}
@@ -511,11 +531,12 @@ The toggle button is shown in the CT image options.
 When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
 \subsection{Implants}
+TODO: bilde
 The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
 To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{shader depth}.
 
 \section{Performance}
-Some performance guidelines are outlined by the Occulus developers for the Quest 1\cite{performance}.
+Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation\cite{performance}.
 
 The recommended triangle count is between 350k-500k triangles. The imported meshes can have a high vertex count and are reduced manually using Blender remeshing.
 This could be automated, but this limit would be irrelevant using a headset using a GPU for dedicated rendering.
