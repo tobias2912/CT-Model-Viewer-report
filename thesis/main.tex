@@ -100,7 +100,7 @@ matchrangestart=t}
 
 \section*{Abstract}
 During the planning of a surgery in orthopedics, the surgeons will use CT scans and sometimes 3D printing to analyze the fracture and help prepare for the surgery. By using Virtual Reality technology, the data can be visualized in 3D in a more immersive way, potentially improving the preparation phase by increasing the anatomical understanding or removing the need for 3D printing.
-TODO: fylle på mer
+TODO: skrive om ortoped arbeidsprosess
 
 % \section*{Acknowledgements}
 % First and foremost, I would like to thank
@@ -114,8 +114,7 @@ TODO: fylle på mer
 % \printglossary[type=\acronymtype, nonumberlist]
 
 \chapter{Introduction}
-This thesis is written as part of the University of Bergen and Western University of Applied Sciences master programme in software engineering. The project is a collaboration with Helse Vest IKT and orthopedic surgeons at Haukeland University Hospital.
-
+This thesis is written as part of the University of Bergen and Western University of Applied Sciences master programme in software engineering. The project is a collaboration with Helse Vest IKT, HVL department of computer science and orthopedic surgeons at Haukeland University Hospital.
 
 \section{Context and Approach}
 A CT scan is often performed when a hospital receives an injured patient considered for orthopedic surgery. The CT scan is displayed as 2D images or as a 3D model. The model allows the surgeons to better plan the surgery by understanding the anatomy of the fracture.
@@ -125,7 +124,9 @@ the surgery has less risk of complications or could require fewer resources.
 \section{Problem Description}
 Visualizing the model in 2D limits the understanding of the fracture because of the lack of scale and depth. The problem applies to both 2D images and 3D models rendered in 3D.
 A considered solution is visualizing the model in Augmented Reality or Virtual Reality to give medical personnel a good understanding of the problem area.
-VR has multiple potential benefits, and the surgery planning process can use some of these. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's overview and patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models, especially in cases with limited time. Therefore the possible research questions are as follows:
+VR has multiple potential benefits, and the surgery planning process can benefit from this. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's fracture understanding and also patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models, especially in cases with limited time.
+% A possible use case for a VR viewer is inspecting a fracture in VR and then deciding if a printed model is necessary, to avoid spending time on an unnecessary printing process.
+Therefore the possible research questions are as follows:
 
 How can VR technology improve surgery planning by
 
@@ -135,19 +136,17 @@ How can VR technology improve surgery planning by
 
 \section{Methodology}
 
-The project should include a VR prototype of a standard where it is
-user friendly enough to test with non-technical subjects and with functionality
-that is comparable to the use cases of a printed model.
+The project includes a VR prototype of a standard viewer that is user friendly enough to test with non-technical subjects and with functionality that covers the use cases of a printed model.
 The prototype is tested on medical personnel to measure any benefits on anatomical understanding and how it affects surgery planning and effectiveness.
-The application should be available for further development and study.
+The application will be available for further development and study.
 
 Firstly, a prototype VR viewer will be created with the help of related
 open-source frameworks/software and guidance from both orthopedic surgeons and
 developers with experience in medical technology.
 
-In order to answer the research question, we will measure the
-usability of the final application. This thesis will use qualitative methods
-by interviewing related personnel to investigate the performance, including
+In order to answer the research question, we have measured the
+usability of the final application. This thesis has used qualitative methods
+by interviewing related personnel to evaluate the planning improvements, including
 anatomical understanding, cooperation, and the effectiveness of the planning
 process.
 The performance will also be put in context to the existing solutions, possibly
@@ -155,7 +154,7 @@ by making a direct comparison by using a 3D model, printed model, and VR viewer
 on the same case.
 
 \section{Related works}
-
+TODO: skrive om alt
 There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
 
 Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} $Medical imaging XR$ is made for surgeons to plan surgeries and medical education. Also includes a detailed data preset with layers for bone, muscle, soft tissue and more for educational purposes.
@@ -172,7 +171,7 @@ MedicalImagingVR is a CT volume renderer that is free on the Steam Store\cite{}.
 
 Precision XR is a XR platform for viewing data\cite{surgical theater}. Includes an microscope AR overlay intended for use during surgery. A proof of concept study describes how it was used with good effect in neurosurgery\cite{thejns}.
 
-Other similar solutions are Materialise\cite{materialise_medical_nodate}, DICOM CR\cite{dicomvr} and
+Other similar solutions are Materialise\cite{materialise_medical_nodate}, DICOM VR\cite{noauth vr} and
 Ceevra\cite{ceevra_inc_using_2019}.
 
 Current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite Håkon?}
@@ -187,16 +186,25 @@ A study in visualising Patient data with VR\cite{vertemati_virtual_2019} impleme
 \chapter{Background}\label{Background}
 This chapter will present some of the knowledge that our research is built upon. 
 
-\section{orthopedic surgery}
+\section{Orthopedic surgery}
 
-Orthopedic surgery is surgery involving the musculoskeletal system. Cases range from trauma surgery, where high impact forces cause injuries to infections and tumors\cite{manual ortho}.
+Orthopedic surgery is surgery involving the musculoskeletal system. Cases range from trauma surgery, where high impact forces cause injuries to infections and tumors\cite{swiontkowski_manual_2013}.
 
 Orthopedic surgeons do both elective (planned) and urgent surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery. A team of usually two surgeons will plan the surgery together.
-A surgeon will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Medical imaging, including ultrasound, CT, and MRI, gives the surgeons a detailed insight into bones or soft tissue structures.
+The surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Medical imaging, including ultrasound, CT, and MRI, gives the surgeons a detailed insight into bones or soft tissue structures\cite{swiontkowski_manual_2013}.
 
-TODO: ortoped arbeidsflyt og illustrasjon
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/arbeidsflyt.png}}
+	\hfill
+  \caption{Workflow of how medical imaging is used}
+  \small
+\end{figure}
 
-This research is based on elective surgeries on trauma or fractures where the surgeons plan out the surgery with different tools.
+%workflow
+When deemed necessary by the surgeon, a 3D printed model of the fracture is created. This can improve the surgeons understanding of the fracture, or allow the surgeon to adjust and practice with implants. The medical imaging and 3D printing is done by radiologists at the hospital.
+
+This research was based on elective surgeries on trauma or fractures where the surgeons plan out the surgery using different tools.
 
 \subsection{surgery types}
 --what makes surgery complicated
@@ -247,14 +255,18 @@ A specific algorithm is needed to render the scan as a 3D surface mesh. Renderin
 \end{figure}
 
 
-An alternative to digital representation is to print the model with a 3D printer. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
-The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on model size, materials and printer. This is in some cases too long. Another drawback is not having any digital tools such as transparency, displaying cross-sections, or being able to alter the model in any way. A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model.
+An alternative to digital representation is to print the model with a 3D printer. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model. A 3D model can help increase accuracy when performing a procedure\cite{shahrubudin_overview_2019}.
+The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours depending on model size, materials and printer. The waiting time is, in some cases, too long. 
+Another drawback is not having any digital tools such as transparency control, displaying cross-sections, or being able to alter the model after it is printed. 
+A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model. The support structure issue is particularly obvious in a fracture with many small bone fragments. A similar problem is not being able to print any fractures on the inside of volumes.
 
-The cost of a 3D printer and material depends on printer type and sizes, but is typically low. Extrusion based plastic printers are commercially available at as low as 200\$, with very cheap materials. The cost of 3D printing in industry or medicine comes from personell, training and time usage\cite{shahrubudinn}.
+%cost of 3D printing
+The cost of a 3D printer and material depends on printer type and sizes, but is typically low. Extrusion based plastic printers are commercially available at as low as 200\$, with very cheap materials. The cost of 3D printing in industry or medicine comes from personnel, training and time usage\cite{shahrubudin_overview_2019}.
 
-A possible use case for a VR viewer is inspecting a fracture in VR and then deciding if a printed model is necessary, to avoid spending time on an unnecessary printing process.
 
-\section{Virtual Reality}
+\section{Extended Reality}
+Extended Reality (XR) \enquote{is devices capable of overlaying digital information onto the physical world or incorporating aspects of the physical world into virtual scenes}\cite{extended reality in medical}.
+XR is typically split into Virtual Reality (VR) and Augmented Reality (AR).
 Virtual Reality is the use of VR technology to sense the user's state and actions and augment sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
 
 The virtual reality system works by tricking the senses by displaying computer-generated stimuli that replace stimuli from the real world. The user typically perceives the virtual environment through a Head-mounted Display (HMD), sound, and haptic feedback (vibration). 
@@ -263,13 +275,18 @@ The virtual environment is the computer-generated objects that the user interact
 With more specialized hardware, additional stimuli such as temperature, smell, and more are possible\cite{noauthor_feelreal_nodate}.
 To make the virtual environment seem real, it must respond to the user's actions. Current commercial Virtual Reality headsets track the user's head and hands and allow for button inputs\cite{noauthor_oculus_nodate}. Modern HMDs use 6 Degrees of Freedom (DOF), which means the user is tracked in three-dimensional position and rotation\cite{lang_introduction_2013}. The tracking is used by the VR application to simulate walking, picking up objects, and more.
 
-\subsection{Professional usage of VR}
-While becoming more popular in mainstream entertainment, VR has been used in professional environments for a long time\cite{needed}.
-An advantage of XR compared to mouse/keyboard devices is touch free interfaces with hand tracking, making it better for a sterile environment\cite{andrews}.
+\subsection{ Augmented Reality }
+Augmented Reality or Mixed Reality is an addition to VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants; some mobile apps use the camera to create an augmented environment shown in 2D, while AR HMDs typically work similarly to VR HMDs, except that the viewing glass is transparent.
+AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}\cite{mertz}.
+AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
-VR has been developed by the US Airforce since the 1980's for pilot interfaces\cite{mertz}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
+\subsection{Professional usage of XR}
+While becoming more popular in mainstream entertainment, XR has been used in professional environments for many years.
+An advantage of XR compared to mouse/keyboard devices is touch free interfaces with hand tracking, making it better for a sterile environment\cite{andrews_extended_2019}.
 
-TODO: finne kilde på remote surgery o.l.
+VR has been developed by the US Airforce since the 1980's for pilot interfaces\cite{mertz_virtual_2019}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
+VR is used in cardiology and neurology for monitoring, and is emerging in other medical fields such as rehabilitation and training\cite{mohd}.
+VR is used in cardiology and neurology for monitoring, and is emerging in other medical fields such as rehabilitation and training\cite{mohd}.
 
 \subsection{Advantages and disadvantages}
 A disadvantage with wearing an HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
@@ -277,15 +294,11 @@ Image imperfections cause eye fatigue in the HMD\cite{kooi_visual_2004}, and mot
 According to a study on motion sickness factors, 59 \% of the subjects experienced motion sickness after a mean of 14 minutes. The remaining subjects did not experience any illness\cite{kooi_visual_2004}. Motion sickness can be mitigated in several ways.
 
 
-A use-case of VR is simulating a subject physically out of reach, such as a planet in space or the inside of a patient's knee. For physically impaired users, this advantage is even more relevant.
-VR can also simulate things that would otherwise be dangerous, for example, an untrained surgeon performing surgery alone.
+A use-case of XR is simulating a subject physically out of reach, such as a planet in space or the inside of a patient's knee. For physically impaired users, this advantage is even more relevant.
+XR can also simulate situations that would otherwise be dangerous, for example, an untrained surgeon performing surgery alone.
 Another advantage is that VR is more immersive than other mediums. The immersion makes the user feel more stress or fear and makes it feasible to prepare personnel for stressful situations, such as the police.
 The added immersion also makes teaching or training more motivating for the student.\cite{freina_immersive_2015}
 
-\subsection{ Augmented Reality }
-Augmented Reality (AR) or Mixed Reality is an upgrade of VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants; some mobile apps use the camera to create an augmented environment shown in 2D, while AR HMDs typically work similarly to VR HMDs, except that the viewing glass is transparent.
-AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}\cite{mertz}.
-AR has some uses not relevant for VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
 \subsection{Designing for VR}
 VR is relatively new to mainstream media, and as such, there are few agreed-upon standards, unlike e.g., web development.
@@ -293,19 +306,17 @@ Some effective measures to counter motion sickness and fatigue are reducing Fiel
 
 \subsection{Unity}
 
-The Unity game engine is used for developing the application\cite{unity}. Using a game engine speeds up the development as it includes systems needed, like rendering, animations, and physics. Unity is widely used for game development\cite{gameenginesonsteam} and is well documented online with a lot of community-supported plugins.
+The Unity game engine is used for developing the application\cite{technologies_unity_nodate}. Using a game engine speeds up the development as it includes systems needed, like rendering, animations, and physics. Unity is widely used for game development\cite{doucet_game_2021} and is well documented online with a lot of community-supported plugins.
 
-Unity has good support for different VR and XR platforms\cite{unityxr} including the OpenXR standard widely used by VR headsets\cite{openxr}. This framework allows creating VR games with Unity handling most VR logic.
+Unity has good support for different VR and XR platforms\cite{technologies_unity_nodate-3} including the OpenXR standard widely used by VR headsets\cite{noauthor_openxr_2016}. This framework allows creating VR games with Unity handling most VR logic.
 
-Part of the Unity VR support is the XR interaction Toolkit (XRTK)\cite{xrinteractiontoolkit}. It is a high-level framework for using XR interactions with unity events. The toolkit also includes components for selecting/grabbing, haptic feedback, and UI interaction.
+Part of the Unity VR support is the XR interaction Toolkit (XRTK)\cite{noauthor_xr_nodate}. It is a high-level framework for using XR interactions with unity events. The toolkit also includes components for selecting/grabbing, haptic feedback, and UI interaction.
 
 To develop for several XR platforms, the different controllers have a mutual interface for setting keybindings, called an XR controller. Almost all commercial VR controllers support an index finger trigger, a joystick/trackpad with 2D directional input, a grip button, and at least one extra button\cite{technologies_unity_nodate}.
 
 
-
 \chapter{Design and Implementation}\label{Design and Implementation}
-TODO: flytte?
-The application was developed by me in about 7 months. The author had no medical experience and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and Unity, and VR development.
+The application was developed by the author in 6 months. The author had no medical experience and was supported by staff at Helse vest with guidance and expertise on orthopedics, medical imaging and Unity, and VR development.
 
 \section{Demonstration}\label{demonstration}
 gameplay
@@ -313,11 +324,11 @@ gameplay
 \section{Development methods}
 
 \subsection{Research Method}
-The research question is answered by developing an application, and evaluating the application with respect to the research questions. Qualitative testing is used to evaluate the application, because of a low test user amount.
+The research question was answered by developing an application, and evaluating the application with respect to the research questions. Qualitative testing was used to evaluate the application.
 
-The largest part of the study is developing the application that fills the need of viewing CT data. This is accomplished by uncovering user needs with interviews and user testing. When the application meets minimum specifications, an evaluation if performed. 
+The largest part of the study was developing the application that fills the need of viewing CT data. This was accomplished by uncovering user needs with interviews and testing the application on users. When the application met minimum specifications, an evaluation was performed. 
 
-The evaluation at the end of the project aims to answer both research questions. The evaluation is done in the following way:
+The evaluation at the end of the project aims to answer both research questions. The evaluation was done in the following way:
 The project participants use the application on their own in a relevant scenario.
 The users respond to a semi-structured interview. The questions are specific towards both research questions.
 
@@ -334,7 +345,7 @@ The responses are gathered and used to answer the questions.
   weekly sprints illustrated on the left, and user testing on the right.
 \end{figure}
 
-The application is developed using iterative development and elements from Design Thinking and Scrum.
+The application is developed using iterative development and elements from Design Thinking.
 
 % why scrum
 Scrum was used to cooperate effectively with the team and increase the development speed. The team had regular meetings and this fits well with the sprints used in scrum and the surgeon on the team was a natural product owner.
@@ -361,12 +372,13 @@ TODO: this
 
 \section{Design}
 
-\subsection{Design goals}
+% \subsection{Design goals}
 
-The goal of the application design is as follows:
-give a good understanding of what the fracture looks like (bruddlinje og mindre biter)
-Ease of use for non technical personnel
-Be able to cooperate in smaller teams - multiplayer
+The final product is a VR viewer for viewing STL files and DICOM data. A VR solution was selected for faster development and better hardware availability compared to AR, while the AR advantages were not relevant for the planning phase.
+The solution uses the STL files and DICOM data already produced at the hospital, and requires no extra data other than what is used for 3D printing.
+
+The primary goals for the UX design is ease of use for non-technical users, as current VR solutions at Haukland Hospital are cumbersome programs.
+A secondary goal is making users understand the fracture as good as possible, and facilitate for planning the surgery.
 
 \subsection{Anatomical understanding}
 TODO: how to give the user a good understanding of a fracture
@@ -376,7 +388,7 @@ TODO: how to give the user a good understanding of a fracture
 TODO: Overview image
 
 To make the VR interface easy to use, I focused primarily on familiarity with current tools and a simple design.
-I used MicroDICOM\cite{MicroDICOM} as a reference for a familiar tool.
+I used MicroDICOM\cite{noauthor_dicom_nodate} as a reference for a familiar tool.
 Familiarity with current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR to make it recognizable and consistent to the user. An example of this is navigating a menu in VR the same way one would navigate a menu with a pc mouse.
  All unnecessary interactions and information is removed to allow new users with little VR experience to start using the program quickly. The goal is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
@@ -510,7 +522,7 @@ Accurate scaling of the model is important, both to give a realistic view for th
 Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further. This functionality would also make it possible to use models that are not split into pieces beforehand.
 TODO: finish
 
-An example open-source framework called Ezy-slice\cite{aryan} was tested.
+An example open-source framework called Ezy-slice\cite{arayan_davidarayanezy-slice_2022} was tested.
 
 \subsection{Alternative CT visualisation}
 While rendering the selected slice as an image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
@@ -533,10 +545,10 @@ When overlaying the slice texture onto the intersection plane, the image will co
 \subsection{Implants}
 TODO: bilde
 The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
-To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{shader depth}.
+To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{technologies_unity_nodate-1}.
 
 \section{Performance}
-Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation\cite{performance}.
+Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation\cite{noauthor_oculus_nodate}.
 
 The recommended triangle count is between 350k-500k triangles. The imported meshes can have a high vertex count and are reduced manually using Blender remeshing.
 This could be automated, but this limit would be irrelevant using a headset using a GPU for dedicated rendering.
