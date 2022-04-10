@@ -342,22 +342,22 @@ The responses are gathered and used to answer the questions.
 	\hfill
   \caption{Development method}
   \small
-  weekly sprints illustrated on the left, and user testing on the right.
+  weekly iterations illustrated on the left, and user testing on the right.
 \end{figure}
 
 The application is developed using iterative development and elements from Design Thinking.
 
-% why scrum
-Scrum was used to cooperate effectively with the team and increase the development speed. The team had regular meetings and this fits well with the sprints used in scrum and the surgeon on the team was a natural product owner.
+% why iterative
+Iterative development was used to cooperate effectively with the team and increase the development speed. The team had regular meetings and this fits well with the iterative cycles. The cycles facilitated frequent feedback from the surgeons. The feedback could then be implemented and tested the next meeting.
 
 % structure
-The team had regular biweekly meetings with a demonstration and sprint planning. The sprint meeting was a valuable way of sharing interdisciplinary information and getting feedback from medical experts. Sprint retrospective and daily scrum was not relevant as only one person worked full time on the project.
-After the demonstration, the sprint backlog was updated with tasks prioritized by value. The value is determined by the time needed to implement compared to how important the functionality is to the product owner. The top tasks that fit within two weeks are added to the sprint backlog, and the remaining are stored in the product backlog and considered for the next sprint.
+The team had regular biweekly meetings with a demonstration and next iteration planning. The meeting was a valuable way of sharing interdisciplinary information and getting feedback from medical experts. Scrum elements such as Sprint retrospective and daily scrum was not relevant as only one person worked full time on the project.
+After the demonstration, the backlog was updated with tasks prioritized by value. The value is determined by the time needed to implement compared to how important the functionality is to the product owner. The top tasks that fit within two weeks are added to the backlog, and the remaining are stored in the product backlog and considered for the next cycle.
 During the next two weeks as many tasks as possible was implemented and demonstrated in the next meeting.
 
 
 % conclusion
-The frequent Scrum demonstrations worked really well with VR development, as the different features are hard to understand without trying the application. Fast prototypes are important to cooperate efficiently when the product owner or test users have a limited understanding of the technology.
+The frequent meeting demonstrations worked really well with VR development, as the different features are hard to understand without trying the application. Fast prototypes are important to cooperate efficiently when the product owner or test users have a limited understanding of the technology.
 
 
 % design thinking
@@ -365,7 +365,7 @@ Design thinking was used because both the medical domain and user needs was diff
 The application demos served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give feedback and ideas during testing. User testing would often lead to new ideas. Optimally the test subjects should have been personnel outside the project without any bias, but busy schedules and COVID restrictions limited this.
 
 % testing
-A more in-depth user testing was done twice in the project. This included testing the application with orthopedic surgeons to gain more insight on user experience and user needs. Optimally this would be done frequently at the end of sprints, but was not possible. The tests are described in detail in a later chapter.
+A more in-depth user testing was done twice in the project. This included testing the application with orthopedic surgeons to gain more insight on user experience and user needs. Optimally this would be done frequently at the end of iterations, but was not possible. The tests are described in detail in a later chapter.
 
 \section{Project overview}\label{CodeStructure}
 TODO: this
@@ -410,6 +410,8 @@ To solve this, the interactable script is modified to keep the current position 
 
 To allow for grabbing small objects or objects that are partly overlapping, what objects are selected is also modified. The default Unity XR behaviour is selecting a new object every frame, and this would lead to the user grabbing several objects simultaneously. To solve this, any interactable is highlighted when the users hand is within the collision box. It stays highlighted until the hand is outside of the collision box. The grab action is only allowed to select the hovered object, until the grab is released.
 
+Using Occulus hand tracking\cite{hand tracking} could be beneficial, but is currently not recommended for high degrees of precision. Future versions of hand tracking or Hololens hand tracking could improve the interact experience in the future.
+
 
 \subsubsection{Separation mode}
 The grabbing functionality introduces a problem: If the user moves a model part, the CT images will no longer be similar to the model displayed. Also, if the user is measuring the distance between two model parts, it gives an invalid result if the parts are moved. 
@@ -449,10 +451,10 @@ The menu layout consists of one or more vertical lists of buttons. Several colum
 The sub-menus are implemented when multiple options are present. It is used for selecting an implant type or loading a new dataset.
 
 \subsubsection{Measurements}
-Some important functionality available in desktop VR viewers should also be available here. This includes measurement of distance and measurement of angles.
+The most important functionality available in desktop CT viewers should also be available in the VR viewer. This includes measurement of distance and measurement of angles.
 The measure tools works by selecting a start and an end point. The angle measurement additionally requires a middle point.
 After placing the first point, a preview of the measurement result is shown as a line to give feedback to the user of the current state.
-Using the outline shader mentioned before makes it possible to see the placed points even when obscured by the model, and the line between the points is always visible. This, combined with depth in VR makes it easy to understand where the points are placed and what the length and angle is.
+Using the outline shader mentioned previously makes it possible to see the placed points even when obscured by the model, and the line between the points is always visible. This, combined with depth in VR makes it easy to understand where the points are placed and what the length and angle is.
 
 \begin{figure}[h!]
     \centering
@@ -465,17 +467,20 @@ Using the outline shader mentioned before makes it possible to see the placed po
 \end{figure}
 
 \subsubsection{Audio}
-Audio is mainly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something.
+Audio is mainly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something. Audio is also used for feedback on the measurement tools. Audio in VR increases presence and investment and reduces distractions\cite{audioVR}.
 
 \subsubsection{Motion sickness}
-The most relevant motion sickness factor for this project is the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room and is always static. All HUD elements are also static, with few exceptions.
+The most relevant motion sickness factor for this project was the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room and is always static. All HUD elements are also static, with few exceptions.
 During multiplayer, the model may move caused by another player's input, which might cause some motion sickness if the model is viewed by the user. This could be solved by hiding the model when it moves, but it could interfere with the multiplayer experience if the model suddenly disappears.
 
 \subsection{Multiplayer design}
-The goal of the multiplayer feature is to allow two or more surgeons to cooperate effectively. Having one surgeon using a VR headset and another using a screen is likely interfering because the surgeons are seeing different models. The multiplayer component allows the surgeons to use the same tools while seeing the same model.
-Multiplayer should not make the application more difficult to use. All interactions should be similar to the usual experience, and cooperation should not require any extra steps, except connecting to the multiplayer server. Any important information should be available to all players, and irrelevant information (another player opening a menu) should not be disturbing.
+The goal of the multiplayer feature was to allow two or more surgeons to cooperate effectively. Having one surgeon using a VR headset and another using a screen is likely interfering because the surgeons are seeing different models. The multiplayer component allows the surgeons to use the same tools while seeing the same model, and should increase communication and cooperation.
+Multiplayer should not make the application more difficult to use. All interactions should be similar to the usual experience, and cooperation should not require any extra steps, except connecting to the multiplayer server. Any important information should be available to all players, and irrelevant information (another player opening a menu) should not disturb users.
 
-The multiplayer UI is a menu shown at startup. The user can select either to start a new session in which other users can join, or join an existing session. The sessions are hardcoded to always run on the same port and have no authentication, as this would take too much development time and give no value.
+The multiplayer UI is a menu shown at startup. The user can select either to start a new session in which other users can join, or join an existing session. The sessions are hard-coded to always run on the same network port and have no authentication, as this would take too much development time and give no value. The server is also hosted by the user starting the session instead of a dedicated server, for easier development.
+
+%how it works
+All model part positions and any movable parts are synchronized between players, so any interactions is visible for all users. The position is continuously shared whenever a user is grabbing a model. Other users' controllers are also visible in order to communicate and point at locations.
 
 \subsubsection{Mirror}
 The networking was built with Mirror, a downloadable Unity asset. Mirror is a high-level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and classic video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
@@ -493,8 +498,6 @@ The most common is the Resources functionality\cite{resourcesload_unity_nodate} 
 The easiest way of referencing files is usually setting a reference in the unity editor, and the file will be included in the build. This works great with common files like images, but Unity does not allow custom file types without 'hacking' the Unity inspector and creating a custom file importer\cite{scriptedimporters_unity_nodate}, that has lacking documentation. The solution to this is to rename all DICOM files to {name}.bytes. This makes Unity handle the files as 'TextAsset' text files\cite{textassets_unity_nodate}. I then open the files as text files and create a byte stream. The byte stream is then used for rendering with the DICOM library.
 
 \subsection{Rendering CT image}
-TODO: cite dat253?
-TODO: begreper
 
 To render CT images from the DICOM data, I used the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022}. It is an open-source library for parsing DICOM data and image rendering.
 I use the data the DICOM files to create a $Slice$ object for each of the files. The slice object implements reading the density value at position $(x, y)$ at that slice. a Unity Texture is created for each slice to render the image in Unity.
@@ -543,14 +546,14 @@ The toggle button is shown in the CT image options.
 When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
 \subsection{Implants}
-TODO: bilde
+TODO:bilde
 The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
 To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{technologies_unity_nodate-1}.
 
 \section{Performance}
 Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation\cite{noauthor_oculus_nodate}.
 
-The recommended triangle count is between 350k-500k triangles. The imported meshes can have a high vertex count and are reduced manually using Blender remeshing.
+The recommended triangle count is between 350k-500k triangles\cite{noauthor_oculus_nodate}. The imported meshes can have a high vertex count and are reduced manually using Blender remeshing.
 This could be automated, but this limit would be irrelevant using a headset using a GPU for dedicated rendering.
 
 
