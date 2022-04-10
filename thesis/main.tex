@@ -154,31 +154,42 @@ by making a direct comparison by using a 3D model, printed model, and VR viewer
 on the same case.
 
 \section{Related works}
-TODO: skrive om alt
-There currently exists several alternatives to viewing medical data in VR, here are some of the alternatives:
 
-Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} $Medical imaging XR$ is made for surgeons to plan surgeries and medical education. Also includes a detailed data preset with layers for bone, muscle, soft tissue and more for educational purposes.
+Several other variants of VR viewers already exists. Common functionality for most solutions are viewing DICOM files as models, and a basic VR interface for interacting. 
+The solutions differ in visualizing the model as a solid mesh or as a volume. ImmersiveView VR \cite{immersive} and MedicalImagingVR\cite{} renders the scan as a transparent volume. Most solutions also includes a standard 2D plane rendering for viewing slices.
+Some solutions like medical holodeck\cite{medical_holodeck_medicalholodeck_nodate} offer a detailed visualization with anatomical layers like muscle and bone, but is created manually with a custom dataset and can not be used for viewing a specific fracture.
+Some solutions are also created specifically for other areas than orthopedics like Sentiar CommandEP for heart surgery.
+Early AR solutions exist intended for use during surgery, including surgical theater\cite{} intended for neurosurgery\cite{thejns}.
+Other generic solutions are...
 
-An Augmented reality viewer called Dicom Director Intravision XR also exists. Supports DICOM data. Is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
+%what is different
+This solution differs itself by vizualising the model split up into separate pieces and allowing users to adjust the model in order to plan for internal fixation. 
+No other open-source solutions are found specifically for viewing DICOM data in VR.
 
-The body VR: anatomy Viewer\cite{the body}. Unreleased.
 
-Sentiar CommandEP is a AR tool made specifically for heart surgery. 
 
-ImmersiveView VR supports DICOM data volume rendering, and basic tools\cite{immersive}.
+% Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} $Medical imaging XR$ is made for surgeons to plan surgeries and medical education. Also includes a detailed data preset with layers for bone, muscle, soft tissue and more for educational purposes.
 
-MedicalImagingVR is a CT volume renderer that is free on the Steam Store\cite{}. It includes uploading DICOM data and showing slices and volumes.
+% An Augmented reality viewer called Dicom Director Intravision XR also exists. Supports DICOM data. Is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
 
-Precision XR is a XR platform for viewing data\cite{surgical theater}. Includes an microscope AR overlay intended for use during surgery. A proof of concept study describes how it was used with good effect in neurosurgery\cite{thejns}.
+% The body VR: anatomy Viewer\cite{the body}. Unreleased.
 
-Other similar solutions are Materialise\cite{materialise_medical_nodate}, DICOM VR\cite{noauth vr} and
-Ceevra\cite{ceevra_inc_using_2019}.
+% Sentiar CommandEP is a AR tool made specifically for heart surgery. 
 
-Current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite Håkon?}
+% ImmersiveView VR supports DICOM data volume rendering, and basic tools\cite{immersive}.
 
-Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning tools. Importing DICOM data is also not supported.
+% MedicalImagingVR is a CT volume renderer that is free on the Steam Store\cite{}. It includes uploading DICOM data and showing slices and volumes.
 
-A study in visualising Patient data with VR\cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase, and it did not consider 3D printing.
+% Precision XR is a XR platform for viewing data\cite{surgical theater}. Includes an microscope AR overlay intended for use during surgery. A proof of concept study describes how it was used with good effect in neurosurgery\cite{thejns}.
+
+% Other similar solutions are Materialise\cite{materialise_medical_nodate}, DICOM VR\cite{noauth vr} and
+% Ceevra\cite{ceevra_inc_using_2019}.
+
+% Current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite Håkon?}
+
+% Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning tools. Importing DICOM data is also not supported.
+
+% A study in visualising Patient data with VR\cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase, and it did not consider 3D printing.
 
 \section{Contribution}
 \section{Outline}
@@ -523,7 +534,6 @@ Accurate scaling of the model is important, both to give a realistic view for th
 
 \subsubsection{Separating bone fragments}
 Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further. This functionality would also make it possible to use models that are not split into pieces beforehand.
-TODO: finish
 
 An example open-source framework called Ezy-slice\cite{arayan_davidarayanezy-slice_2022} was tested.
 
@@ -553,16 +563,10 @@ To improve the surgeon's ability to line up screws and find what parts of the fr
 \section{Performance}
 Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation\cite{noauthor_oculus_nodate}.
 
-The recommended triangle count is between 350k-500k triangles\cite{noauthor_oculus_nodate}. The imported meshes can have a high vertex count and are reduced manually using Blender remeshing.
-This could be automated, but this limit would be irrelevant using a headset using a GPU for dedicated rendering.
+The recommended triangle count is between 350k and 500k triangles\cite{noauthor_oculus_nodate}. The imported meshes can have a high vertex count and are reduced manually using remeshing in MeshLab\cite{meshlab} to bring the total to under 500k. The reduced quality is barely noticable when viewed in the resolution of the Quest HMD.
+The mesh simplification could be automated, but this limit would be irrelevant if using a headset with a modern GPU for dedicated rendering.
 
-
--mesh count and simplification\
--quest performance and other headsets performance
--performance data
-
-\chapter{Use cases}\label{usecases}
-TODO: education, multiplayer
+TODO: performance data?
 
 \chapter{Analysis and assessment}\label{analysis and assessment}
 
