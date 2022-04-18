@@ -99,8 +99,14 @@ matchrangestart=t}
 \pagebreak
 
 \section*{Abstract}
-During the planning of a surgery in orthopedics, the surgeons will use CT scans and sometimes 3D printing to analyze the fracture and help prepare for the surgery. By using Virtual Reality technology, the data can be visualized in 3D in a more immersive way, potentially improving the preparation phase by increasing the anatomical understanding or removing the need for 3D printing.
-TODO: skrive om ortoped arbeidsprosess
+
+During the planning of a orthopedic surgery, the surgeons use CT images and at times 3D printing to analyze the fracture and help prepare for the surgery.
+%problem
+Visualising three-dimensional data as 2D images limits how the data is comprehended, and 3D printing has drawbacks related to the printing process such as printing time and need for support structures.
+
+With Virtual Reality technology, the data can be visualized in 3D using real-life scale with a perception of depth and distances. The improved visualisation can potentially improve the preparation phase by increasing the anatomical understanding or removing the need for 3d printing.
+A prototype VR application for viewing CT scans was created with assistance from surgeons at Haukland hospital.
+TODO: evaluation
 
 % \section*{Acknowledgements}
 % First and foremost, I would like to thank
@@ -137,59 +143,31 @@ How can VR technology improve surgery planning by
 \section{Methodology}
 
 The project includes a VR prototype of a standard viewer that is user friendly enough to test with non-technical subjects and with functionality that covers the use cases of a printed model.
-The prototype is tested on medical personnel to measure any benefits on anatomical understanding and how it affects surgery planning and effectiveness.
-The application will be available for further development and study.
+The prototype is tested on medical personnel to measure any benefits on anatomical understanding and how it affects surgery planning and effectiveness. The application will be available for further development and study.
 
-Firstly, a prototype VR viewer will be created with the help of related
-open-source frameworks/software and guidance from both orthopedic surgeons and
-developers with experience in medical technology.
+Firstly, a prototype VR viewer will be created with the help of related open-source frameworks/software and guidance from both orthopedic surgeons and developers with experience in medical technology.
 
-In order to answer the research question, we have measured the
-usability of the final application. This thesis has used qualitative methods
-by interviewing related personnel to evaluate the planning improvements, including
-anatomical understanding, cooperation, and the effectiveness of the planning
-process.
-The performance will also be put in context to the existing solutions, possibly
-by making a direct comparison by using a 3D model, printed model, and VR viewer
+In order to answer the research question, we have measured the usability of the final application. This thesis has used qualitative methods
+by interviewing related personnel to evaluate the planning improvements, including anatomical understanding, cooperation, and the effectiveness of the planning process.
+The performance will also be put in context to the existing solutions, possibly by making a direct comparison by using a 3D model, printed model, and VR viewer
 on the same case.
 
 \section{Related works}
 
-Several other variants of VR viewers already exists. Common functionality for most solutions are viewing DICOM files as models, and a basic VR interface for interacting. 
-The solutions differ in visualizing the model as a solid mesh or as a volume. ImmersiveView VR \cite{immersive} and MedicalImagingVR\cite{} renders the scan as a transparent volume. Most solutions also includes a standard 2D plane rendering for viewing slices.
-Some solutions like medical holodeck\cite{medical_holodeck_medicalholodeck_nodate} offer a detailed visualization with anatomical layers like muscle and bone, but is created manually with a custom dataset and can not be used for viewing a specific fracture.
-Some solutions are also created specifically for other areas than orthopedics like Sentiar CommandEP for heart surgery.
-Early AR solutions exist intended for use during surgery, including surgical theater\cite{} intended for neurosurgery\cite{thejns}.
-Other generic solutions are...
+Several other variants of VR viewers already exists. Common functionality for most solutions includes viewing DICOM files as 3D models, and a basic VR interface for inspecting the model and viewing the DICOM images. The applications found are typically part of some enterprise application including other medical imaging tools. No solutions found are open-source or free.
+%visualizing
+The existing solutions differ in visualizing the model as a solid mesh or as a volume. ImmersiveView VR\cite{noauthor_immersiveview_nodate} and MedicalImagingVR\cite{noauthor_medicalimagingvr_nodate} renders the scan as a transparent volume. Most solutions also includes a standard 2D plane rendering for viewing slices.
+Some solutions like medical holodeck\cite{medical_holodeck_medicalholodeck_nodate} $Medical imaging XR$ offer a detailed visualization with anatomical layers like muscle and bone, but is created manually with a custom dataset and can not be used for viewing a specific fracture.
+Some solutions are also created specifically for other areas than orthopedics like Sentiar CommandEP\cite{noauthor_commandep_nodate} for heart surgery.
+Early AR solutions exist intended for use during surgery, including surgical theater\cite{noauthor_virtual_nodate} intended for neurosurgery\cite{anthony_patient-specific_2021}.
+Other similar solutions are \emph{The body VR: anatomy Viewer}\cite{noauthor_body_nodate}, DICOM VR\cite{noauthor_dicom_nodate-1}, Ceevra\cite{ceevra_inc_using_2019} and Dicom Director Intravision XR\cite{dicomdirectorcom_surgeons_nodate}.
 
 %what is different
-This solution differs itself by vizualising the model split up into separate pieces and allowing users to adjust the model in order to plan for internal fixation. 
+The application developed in this project differs itself by vizualising the model split up into separate pieces and allowing users to adjust the model in order to plan for internal fixation.
 No other open-source solutions are found specifically for viewing DICOM data in VR.
 
-
-
-% Medical Holodeck~\cite{medical_holodeck_medicalholodeck_nodate} $Medical imaging XR$ is made for surgeons to plan surgeries and medical education. Also includes a detailed data preset with layers for bone, muscle, soft tissue and more for educational purposes.
-
-% An Augmented reality viewer called Dicom Director Intravision XR also exists. Supports DICOM data. Is not yet approved for clinical use.\cite{dicomdirectorcom_surgeons_nodate}
-
-% The body VR: anatomy Viewer\cite{the body}. Unreleased.
-
-% Sentiar CommandEP is a AR tool made specifically for heart surgery. 
-
-% ImmersiveView VR supports DICOM data volume rendering, and basic tools\cite{immersive}.
-
-% MedicalImagingVR is a CT volume renderer that is free on the Steam Store\cite{}. It includes uploading DICOM data and showing slices and volumes.
-
-% Precision XR is a XR platform for viewing data\cite{surgical theater}. Includes an microscope AR overlay intended for use during surgery. A proof of concept study describes how it was used with good effect in neurosurgery\cite{thejns}.
-
-% Other similar solutions are Materialise\cite{materialise_medical_nodate}, DICOM VR\cite{noauth vr} and
-% Ceevra\cite{ceevra_inc_using_2019}.
-
-% Current solutions are closed source premium services targeted at enterprise/medical institutions. Many of them are not yet approved for clinical use, and current solutions are difficult to use for people not used to Virtual Reality \emph{cite Håkon?}
-
-% Some free general purpose VR viewers for 3D models also exist, but I have not found any with features related to medical use, collaboration or planning tools. Importing DICOM data is also not supported.
-
-% A study in visualising Patient data with VR\cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase, and it did not consider 3D printing.
+% similar studies
+A 2019 study in visualising Patient data with VR\cite{vertemati_virtual_2019} implemented a VR viewer for DICOM data and tried to measure anatomical understanding compared to 2D images. The study did not investigate the efficiency of the planning phase, and it did not consider 3D printing.
 
 \section{Contribution}
 \section{Outline}
@@ -298,6 +276,7 @@ An advantage of XR compared to mouse/keyboard devices is touch free interfaces w
 VR has been developed by the US Airforce since the 1980's for pilot interfaces\cite{mertz_virtual_2019}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
 VR is used in cardiology and neurology for monitoring, and is emerging in other medical fields such as rehabilitation and training\cite{mohd}.
 VR is used in cardiology and neurology for monitoring, and is emerging in other medical fields such as rehabilitation and training\cite{mohd}.
+TODO: mer om medisin?
 
 \subsection{Advantages and disadvantages}
 A disadvantage with wearing an HMD is fatigue, both physical fatigue caused by the weight or eye fatigue and motion sickness\cite{merhi_motion_2007}.
@@ -531,6 +510,7 @@ The slice number is calculated to convert between the selected height and the re
 In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate, the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
 
 Accurate scaling of the model is important, both to give a realistic view for the user and for tools like measurement and implants. The STL files used for input does not contain physical size data, but uses a convention where one unit corresponds to one mm. In Unity a single unit is rendered as one meter in VR. By scaling the Unity object so a model unit is 1/1000 of a Unity unit the sizes are percieved as true to life. When scaling the model, all measurements and implants are scaled simultaneously.
+Being able to view life-sized models could make the planning closer to the surgery and make tools more familiar to the user.
 
 \subsubsection{Separating bone fragments}
 Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further. This functionality would also make it possible to use models that are not split into pieces beforehand.
@@ -556,7 +536,7 @@ The toggle button is shown in the CT image options.
 When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
 \subsection{Implants}
-TODO:bilde
+TODO: bilde
 The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
 To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{technologies_unity_nodate-1}.
 
@@ -574,9 +554,16 @@ TODO: performance data?
 \section{Evaluations}
 
 
-\subsection{test 1}
-date: 16 jan. 2022
-This was the first test done with professional end users. The goal of the test was to figure out if any of the proposed usecases was relevant for the user. The test was performed by introducing the software, its potential usecases and a short introduction on how to use the VR controllers.
+\subsection{Test nr. 1}
+date: 16 Jan. 2022
+
+This was the first test done with professional end users. Before this test only the surgeon on the team had proposed what functionality was needed in the product.
+%approach
+The goal of the test was to figure out if any of the proposed use cases and features was relevant for other users. 
+The intended use cases was also described. At this point the intended use cases was simply increasing the understanding compared to traditional slice visualisation.
+The test was performed by a short introduction on the application and a introduction on how to use the VR controllers. Afterwards each surgeon would have 5 to 10 minutes to try out all features at their own pace. The HMD was mirrored to a screen to observe the user. Minimal guidance was given during the testing, except for any breaking bugs or clarifying questions.
+
+%feedback
 As both surgeons are very experienced with reading 2D CT images, they agreed that using 3D and VR to improve the understanding of fractures were minimal.
 
 \begin{table}[ht]
@@ -588,17 +575,18 @@ Orthopedic surgeon & 10+ years  & None                & Smaller parts and bone f
 \end{tabular}
 \end{table}
 
-\section{compared to previous tools}
-
-\section{compared to 3D printing}
--price
--time
--equal to or better performance
 
 \chapter{Discussion}\label{Discussion}
 
 
 \chapter{Conclusion} \label{Conclusion}
+
+\section{Compared to previous tools}
+
+\section{Compared to 3D printing}
+-price
+-time
+-equal to or better performance
 
 \chapter{Further Work} \label{Further Work}
 
