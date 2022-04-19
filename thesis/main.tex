@@ -180,7 +180,11 @@ This chapter will present some of the knowledge that our research is built upon.
 Orthopedic surgery is surgery involving the musculoskeletal system. Cases range from trauma surgery, where high impact forces cause injuries to infections and tumors\cite{swiontkowski_manual_2013}.
 
 Orthopedic surgeons do both elective (planned) and urgent surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery. A team of usually two surgeons will plan the surgery together.
-The surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Medical imaging, including ultrasound, CT, and MRI, gives the surgeons a detailed insight into bones or soft tissue structures\cite{swiontkowski_manual_2013}.
+The surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Medical imaging, including X-ray, ultrasound, CT, and MRI, gives the surgeons a detailed insight into bones or soft tissue structures\cite{swiontkowski_manual_2013}.
+%how medical imaging is used in workflow
+Medical imaging is used to locate the fracture or the number of fractures, and tell the surgeon information about anatomy such as fracture line and type of fracture. It can also show bone condition, if any joints are involved and swelling of soft tissue. All this helps comfirm the diagnosis, study the fracture and plan the treatment\cite{ebnezar_textbook_2016}.
+%types of medical imaging
+The different imaging types have different advantages, a CT scan is better for smaller hairline fractures and skull, pelvis, spine fractures. MRI can aditionally detect soft tissue and ligament injuries. XR is an older but simpler and cheaper technique\cite{ebnezar_textbook_2016}.
 
 \begin{figure}[h!]
     \centering
@@ -190,19 +194,27 @@ The surgeons will diagnose the patient from the following features: history, cli
   \small
 \end{figure}
 
-%workflow
-When deemed necessary by the surgeon, a 3D printed model of the fracture is created. This can improve the surgeons understanding of the fracture, or allow the surgeon to adjust and practice with implants. The medical imaging and 3D printing is done by radiologists at the hospital.
+%workflow printing
+When deemed necessary by the surgeon, a 3D printed model of the fracture is created. The 3D print requires a previous three-dimensional scan such as a CT. This can improve the surgeons understanding of the fracture, or allow the surgeon to adjust and practice with implants. The medical imaging and 3D printing is done by radiologists at the hospital.
 
 This research was based on elective surgeries on trauma or fractures where the surgeons plan out the surgery using different tools.
 
-\subsection{surgery types}
---what makes surgery complicated
---perkutant
---ledd
---viktig å reponere eksakt pga slitasje
+\subsection{Orthopedic methods}
+% --what makes surgery complicated
+% --perkutant(gjennom huden)
+% --ledd
+% --viktig å reponere eksakt pga slitasje
 
-TODO: internal fixation
-TODO: complicated calaneus and heel fractures
+Fracture treatment in orthopedics can be divided into several methods outlined in Textbook of Orthopedics\cite{ebnezar}.
+Nonoperative methods include straps, slings or casts. No treatment also suffices in some cases.
+These methods have no infection risk or surgical risk.
+With operative methods the fracture needs to be fixed internally by implants.
+Implants includes screws, nails and plates and are made from steel, titanium or plastics.
+Operative is useful for anatomic reduction or is multiple fractures are present.
+Treatment of fractures by external fixation is also possible. A external metallic frame is connected to the bone with pins.
+
+
+TODO: complicated calaneus and heel fractures?
 
 \subsection{Brief history of medical imaging}
 The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed at a different rate by tissue and bone mass, it is possible to create an image of the bone. The image is displayed as a projection from the X-ray angle. During the first half of the 20th century, additional techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. A big leap in medical imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
@@ -274,8 +286,8 @@ While becoming more popular in mainstream entertainment, XR has been used in pro
 An advantage of XR compared to mouse/keyboard devices is touch free interfaces with hand tracking, making it better for a sterile environment\cite{andrews_extended_2019}.
 
 VR has been developed by the US Airforce since the 1980's for pilot interfaces\cite{mertz_virtual_2019}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous\cite{freina_immersive_2015}.
-VR is used in cardiology and neurology for monitoring, and is emerging in other medical fields such as rehabilitation and training\cite{mohd}.
-VR is used in cardiology and neurology for monitoring, and is emerging in other medical fields such as rehabilitation and training\cite{mohd}.
+VR is used in cardiology and neurology for monitoring, and is emerging in other medical fields such as rehabilitation and training\cite{javaid_virtual_2020}.
+VR is used in cardiology and neurology for monitoring, and is emerging in other medical fields such as rehabilitation and training\cite{javaid_virtual_2020}.
 TODO: mer om medisin?
 
 \subsection{Advantages and disadvantages}
@@ -392,7 +404,7 @@ Every button has a description displayed as text above the button to remind the 
 TODO: internal fixation
 The most used part of the interface is moving the fracture parts to inspect or rearrange them. The grab should mimic how users move objects in real life to make this easy to use. When the user places the hand close to a model part, the color is tinted to highlight the model. When the grab button is pressed, the highlighted model part is picked up, and a short audio clip is played.
 
-One issue is that the user might want to move either the entire model or move a part of the model. Including both could introduce mode issues\cite{nngroup}, so the grab interaction always picks up a model part. A joystick input moves the entire model.
+One issue is that the user might want to move either the entire model or move a part of the model. Including both could introduce mode issues\cite{experience_modes_nodate}, so the grab interaction always picks up a model part. A joystick input moves the entire model.
 
 The grab functionality is implemented using Unity's built-in $Interactable$ system for XR\cite{noauthor_xr_nodate} development. This allows to set up grabbing, throwing, and more. 
 By default, the grab will move the center of the interactable to the user's hand. The built-in grab action is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. 
@@ -400,7 +412,7 @@ To solve this, the interactable script is modified to keep the current position 
 
 To allow for grabbing small objects or objects that are partly overlapping, what objects are selected is also modified. The default Unity XR behaviour is selecting a new object every frame, and this would lead to the user grabbing several objects simultaneously. To solve this, any interactable is highlighted when the users hand is within the collision box. It stays highlighted until the hand is outside of the collision box. The grab action is only allowed to select the hovered object, until the grab is released.
 
-Using Occulus hand tracking\cite{hand tracking} could be beneficial, but is currently not recommended for high degrees of precision. Future versions of hand tracking or Hololens hand tracking could improve the interact experience in the future.
+Using Occulus hand tracking\cite{noauthor_set_nodate} could be beneficial, but is currently not recommended for high degrees of precision. Future versions of hand tracking or Hololens hand tracking could improve the interact experience in the future.
 
 
 \subsubsection{Separation mode}
@@ -457,7 +469,7 @@ Using the outline shader mentioned previously makes it possible to see the place
 \end{figure}
 
 \subsubsection{Audio}
-Audio is mainly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something. Audio is also used for feedback on the measurement tools. Audio in VR increases presence and investment and reduces distractions\cite{audioVR}.
+Audio is mainly used for interaction feedback. If the user successfully picks up a model part, a sound is played to indicate the user is holding something. Audio is also used for feedback on the measurement tools. Audio in VR increases presence and investment and reduces distractions\cite{}.
 
 \subsubsection{Motion sickness}
 The most relevant motion sickness factor for this project was the use of motion and static content. The only moving content is the fracture model, which only moves because of player input. The environment is designed like an office room and is always static. All HUD elements are also static, with few exceptions.
@@ -543,7 +555,7 @@ To improve the surgeon's ability to line up screws and find what parts of the fr
 \section{Performance}
 Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation\cite{noauthor_oculus_nodate}.
 
-The recommended triangle count is between 350k and 500k triangles\cite{noauthor_oculus_nodate}. The imported meshes can have a high vertex count and are reduced manually using remeshing in MeshLab\cite{meshlab} to bring the total to under 500k. The reduced quality is barely noticable when viewed in the resolution of the Quest HMD.
+The recommended triangle count is between 350k and 500k triangles\cite{noauthor_oculus_nodate}. The imported meshes can have a high vertex count and are reduced manually using remeshing in MeshLab\cite{cignoni_meshlab_2008} to bring the total to under 500k. The reduced quality is barely noticable when viewed in the resolution of the Quest HMD.
 The mesh simplification could be automated, but this limit would be irrelevant if using a headset with a modern GPU for dedicated rendering.
 
 TODO: performance data?
