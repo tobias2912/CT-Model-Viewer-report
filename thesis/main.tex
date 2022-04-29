@@ -104,7 +104,7 @@ During orthopedic surgery planning, the surgeons use CT images and 3D printing t
 Visualising three-dimensional data as 2D images limits how the data is comprehended. 3D printing has drawbacks related to the printing process, such as printing time and the need for support structures.
 
 With Virtual Reality technology, the data can be visualized in 3D using a real-life scale to perceive depth and distances better. The improved visualisation can improve the preparation phase by increasing the anatomical understanding or removing the need for 3d printing.
-A prototype VR application for viewing CT scans was created with assistance from surgeons at Haukland hospital.
+A prototype VR application for viewing CT scans was created with assistance from surgeons at Haukland University Hospital.
 TODO: evaluation
 
 % \section*{Acknowledgements}
@@ -124,12 +124,12 @@ This thesis is written as part of the University of Bergen and Western Universit
 \section{Context and Approach}
 A Computed Tomography (CT) scan is often performed when a hospital receives an injured patient considered for orthopedic surgery. The CT scan is displayed as 2D images or as a 3D model. The model allows the surgeons to better plan the surgery by understanding the anatomy of the fracture.
 If a surgeon has a good understanding of the anatomy and better plans the surgery,
-the surgery has less risk of complications or could require fewer resources.
+the surgery has less risk of complications and could give a better result.
 
 \section{Problem Description}
 Visualizing the model in 2D limits the understanding of the fracture because of the lack of scale and depth. The problem applies to both 2D images and 3D models rendered in 3D.
 A considered solution is visualizing the model in Augmented Reality (AR) or Virtual Reality (VR) to give medical personnel a good understanding of the problem area.
-VR has multiple potential benefits, and the surgery planning process can benefit from this. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's fracture understanding and by this ensure patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models, especially in cases with limited time.
+VR has multiple potential benefits, and the surgery planning process can benefit from this. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's fracture understanding and by this ensure patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models.
 % A possible use case for a VR viewer is inspecting a fracture in VR and then deciding if a printed model is necessary to avoid spending time on an unnecessary printing process.
 Therefore the possible research questions are as follows:
 
@@ -178,13 +178,16 @@ This chapter will present some of the knowledge that our research is built upon.
 
 Orthopedic surgery is surgery involving the musculoskeletal system. Cases range from trauma surgery, where high impact forces cause injuries to infections and tumors\cite{swiontkowski_manual_2013}.
 
-Orthopedic surgeons do both elective (planned) and emergency surgery. In elective surgery, the surgeons will have days or weeks to plan out the surgery. A team of usually two surgeons will plan the surgery together.
+Orthopedic surgeons do both elective (planned) and emergency surgery. Surgery includes prosthesis surgery, tumors and infections.
+In elective surgery, the surgeons will have days or weeks to plan out the surgery. A team of usually two surgeons will plan the surgery together.
 The surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Medical imaging, including X-ray, ultrasound, CT, and Magnetic Resonance Imaging (MRI), gives the surgeons a detailed insight into bones or soft tissue structures\cite{swiontkowski_manual_2013}.
 %how medical imaging is used in workflow
 Medical imaging is used to locate the fracture or the number of fractures and inform the surgeon on the anatomy, such as fracture line and fracture type. 
 The data can also show bone condition if any joints are involved and swelling of soft tissue. All this information helps confirm the diagnosis, study the fracture and plan the treatment\cite{ebnezar_textbook_2016}.
 %types of medical imaging
-The different imaging types have different advantages. A CT scan is better for more minor hairline fractures and skull, pelvis, spine fractures. MRI can additionally detect soft tissue and ligament injuries. X-Ray is an older, but simpler and cheaper technique\cite{ebnezar_textbook_2016}.
+The different imaging types have different uses and advantages.
+X-ray is always the first choice as it simpler and cheaper\cite{ebnezar_textbook_2016}.
+A CT scan is used to get better information in complicated fractures. MRI can additionally detect soft tissue and ligament injuries.
 
 \begin{figure}[h!]
     \centering
@@ -197,7 +200,7 @@ The different imaging types have different advantages. A CT scan is better for m
 %workflow printing
 When deemed necessary by the surgeon, a 3D printed model of the fracture is created. The 3D print requires a previous three-dimensional scan such as a CT. The model can improve the surgeon's understanding of the fracture, and allow the surgeon to adjust and practice with implants. The medical imaging and 3D printing is done by radiologists at the hospital.
 
-This research was based on elective surgeries on trauma or fractures where the surgeons plan out the surgery using different tools.
+This project was based on elective surgery planning in a complicated fracture.
 
 \subsection{Orthopedic methods}
 % --what makes surgery complicated
@@ -206,13 +209,13 @@ This research was based on elective surgeries on trauma or fractures where the s
 % --viktig å reponere eksakt pga slitasje
 
 Fracture treatment in orthopedics can be divided into several methods outlined in Textbook of Orthopedics\cite{ebnezar_textbook_2016}.
-Nonoperative methods include straps, slings or casts. No treatment also suffices in some cases.
+Nonoperative methods include straps, slings or casts.
 Nonoperative methods have no infection risk or surgical risk.
 %internal fixation
-When using operative methods, the fracture needs to be fixed internally by implants.
+When surgery is decided, the fracture needs to be fixed internally by implants.
 Internal Fixation means to internally set and stabilize bones\cite{ebnezar_textbook_2016}.
 Implants include screws, nails, and plates made from steel, titanium, or plastics.
-Operative methods are used for anatomic reduction or if multiple fractures are present.
+Operative methods are used for anatomic reduction.
 Treatment of fractures by external fixation is also possible. External fixation means a metallic frame is connected to the bone with pins.
 
 % TODO: complicated calaneus and heel fractures?
@@ -220,13 +223,14 @@ Treatment of fractures by external fixation is also possible. External fixation 
 \subsection{Brief history of medical imaging}
 The first used imaging tool was the X-Ray, discovered in 1895\cite{hamblen_outline_2010}\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed at a different rate by tissue and bone mass, it is possible to create an image of the bone. The image is displayed as a projection from the X-ray angle. During the first half of the 20th century, additional techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. Often X-ray from several angles is required to view the fracture without being obscured by other bone masses\cite{ebnezar_textbook_2016}.
 %CT scans
-A big leap in medical imaging was the CT scan (computed tomography)\cite{bradley_history_2008}
-CT scans (Computed Tomography) were invented during the 1970s. During a CT scan, an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. CT scans overcome the two-dimensional X-ray limits and create detailed image data that can be visualized in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. The higher resolution is in complex cases preferred over X-ray to evaluate intra-articular fractures (crossing a joint) or locate smaller fractures\cite{ebnezar_textbook_2016}
-CT scans can eliminate the need for repeated imaging in the case of a trauma patient, unlike X-ray\cite{swiontkowski_manual_2013}.
+
+A big leap in medical imaging was the CT scan (computed tomography)\cite{bradley_history_2008}.
+CT scans (Computed Tomography) were invented during the 1970s. During a CT scan, an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. CT scans overcome the two-dimensional X-ray limits and create detailed image data that can be visualized in any plane without superimposing the image with tissue above and below the selected layer\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation\cite{bradley_history_2008}. The higher resolution is in complex cases preferred over X-ray to evaluate intra-articular fractures (crossing a joint) or locate smaller fractures\cite{ebnezar_textbook_2016}.
+CT scans can eliminate the need for repeated imaging in the case of a trauma patient\cite{swiontkowski_manual_2013}.
 MRI (Magnetic Resonance Imaging) was also developed during the 70s. It uses a strong magnetic field and radio signal frequencies to scan. MRI has comparable accuracy to CT but can also view soft tissue. MRI also avoids radiation\cite{swiontkowski_manual_2013}.
 
 
-The imaging used for testing in this report is from CT scans done by Helse Vest.
+The imaging used for testing in this report is from CT scans done by Radiological department of Haukeland University Hospital.
 
 \subsection{Visualisation of medical imaging}
 
@@ -236,6 +240,8 @@ The imaging used for testing in this report is from CT scans done by Helse Vest.
 	\hfill
   \caption{Transforming DICOM data into a polygon mesh}
 \end{figure}
+
+ %TODO: DICom explain
 
 The output of both CT and MRI scans is a three-dimensional scan. The output is typically represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
 Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud\cite{chougule_conversions_2013}.
@@ -259,6 +265,7 @@ A specific algorithm is needed to render the scan as a 3D surface mesh. Renderin
 ~Image from study on virtual preoperative planning~\cite{mishra_virtual_2019}
 \end{figure}
 
+% TODO: STL Files
 
 An alternative to digital representation is to print the model with a 3D printer. A 3D model can help increase accuracy when performing a procedure\cite{shahrubudin_overview_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
 The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours, depending on model size, materials, and printer. The waiting time is, in some cases, too long. 
@@ -309,20 +316,27 @@ The added immersion also makes teaching or training more motivating for the stud
 
 
 \subsection{Designing for VR}
+%TODO: forklare UX
 VR is relatively new to mainstream media, and as such, there are few agreed-upon standards, unlike e.g., web development.
 Some practical measures to counter motion sickness and fatigue are reducing Field of View (FOV), varying latency between user input and display update, flickering, moving content in the virtual environment, and using several stimuli (audio, haptics)\cite{chang_virtual_2020}. 
 Some of these are hardware-dependent and not relevant for this project, so moving content is the most relevant measure in this project.
 
-\subsection{Unity}
+\subsection{Game Engine}
+A game engine is a framework specifically used for developing games\cite{gameengine}. Several third party game engines are available, the most popular being Unity and Unreal Engine.
+Using a game engine speeds up the development as it includes systems needed, like rendering, animations, and physics.
 
-The Unity game engine is used for developing the application\cite{technologies_unity_nodate}. Using a game engine speeds up the development as it includes systems needed, like rendering, animations, and physics. Unity is widely used for game development\cite{doucet_game_2021} and is well documented online with a lot of community-supported plugins.
-
-Unity has good support for different VR and XR platforms\cite{technologies_unity_nodate-3} including the OpenXR standard widely used by VR headsets\cite{noauthor_openxr_2016}. This framework allows creating VR games with Unity handling most VR logic.
+%why unity
+The Unity game engine\cite{technologies_unity_nodate} was used for developing the application. Unity is widely used for game development\cite{doucet_game_2021} and is well documented online with a lot of community-supported plugins. The author also had previous experience with Unity development.
+Unity has good support for different VR and XR platforms\cite{technologies_unity_nodate-3} including the OpenXR standard widely used by commercial VR headsets\cite{noauthor_openxr_2016}. OpenXR allows creating VR games with Unity handling most VR logic.
 
 Part of the Unity VR support is the XR interaction Toolkit (XRTK)\cite{noauthor_xr_nodate}. It is a high-level framework for using XR interactions with unity events. The toolkit also includes components for selecting/grabbing, haptic feedback, and button interaction.
 
 To develop for several XR platforms, the different controllers have a mutual interface for setting keybindings, called an XR controller. Almost all commercial VR controllers support an index finger trigger, a joystick/trackpad with 2D directional input, a grip button, and at least one extra button\cite{technologies_unity_nodate}.
 
+\subsubsection{Entity Component System}
+Development in unity is based around the Entity Component System\cite{entitycomponent}. An entity is every object populating the game. The base class for all entities is the GameObject. Every model, player and menu is a GameObject.
+
+Components attaches to one or more Entities to define the behaviour. Entities can have several components. Components can provide game logic, movement, user input and much more. Components are scripted in C# and the .NET framework.
 
 \chapter{Design and Implementation}\label{Design and Implementation}
 The author developed the application in 6 months. The author had no medical experience and was supported by staff at Helse vest with guidance and expertise in orthopedics, medical imaging and Unity, and VR development.
@@ -333,13 +347,13 @@ gameplay
 \section{Development methods}
 
 \subsection{Research Method}
-The research question was answered by developing an application and evaluating the application regarding the research questions. Qualitative testing was used to evaluate the application.
+The research question was answered by evaluating the VR application regarding the research questions. A mixed testing method was used to evaluate the application.
 
-The most significant part of the study was developing the application that fills the need for viewing CT data. This was accomplished by uncovering user needs with interviews and testing the application on users. When the application met minimum specifications, an evaluation was performed. 
+The most significant part of the study was developing the application that fills the need for viewing CT data. This was accomplished by uncovering user needs with interviews and testing the application on users. When the application met minimum specifications, an evaluation was performed.
 
 The evaluation at the end of the project aims to answer both research questions. The evaluation was done in the following way:
 The project participants use the application on their own in a relevant scenario.
-The users respond to a semi-structured interview. The questions are specific to both research questions.
+The users respond to a System Usability Scale form and a semi-structured interview. The questions are specific to the research questions.
 
 The responses are gathered and used to answer the questions.
 
@@ -370,17 +384,13 @@ The frequent meeting demonstrations worked really well with VR development, as t
 
 
 % design thinking
-Design thinking was used because both the medical domain and user needs were challenging to understand. Design Thinking helps to understand an unfamiliar domain. I specifically used the ideate, prototype, and test pattern to develop the application.
+Design thinking elements was used because both the medical domain and user needs were challenging to understand. Specifically the empathise, define and ideate stages was used. Frequent prototyping would be too time consuming too be relevant. Design Thinking helps to understand an unfamiliar domain and what the needs of the users are.
 The application demos served as smaller user testing sessions. The medical personnel in the team would try out the application and any new features and give feedback and ideas during testing. User testing would often lead to new ideas. Optimally the test subjects should have been personnel outside the project without any bias, but busy schedules and COVID restrictions limited this.
 
 % testing
 A more in-depth user testing was done twice in the project. This included testing the application with orthopedic surgeons to gain more insight into user experience and user needs. Optimally this would be done frequently at the end of iterations, but the test users were unavailable. The tests are described in detail in a later chapter.
 
 \section{Project overview}\label{CodeStructure}
-% TODO: this
-- several scan packages
-- singleton game controller
-- 
 
 \section{Design}
 
@@ -389,11 +399,8 @@ A more in-depth user testing was done twice in the project. This included testin
 The final product is a VR viewer for viewing STL files and DICOM data. A VR solution was selected for faster development and better hardware availability than AR, while the AR advantages were not relevant for the planning phase.
 The solution uses the STL files and DICOM data already produced at the hospital and requires no extra data other than what is used for 3D printing.
 
-The primary goal for the UX design is ease of use for non-technical users, as current VR solutions at Haukland Hospital are cumbersome programs.
+The primary goal for the UX design is ease of use for non-technical users, as current VR solutions at Haukland University Hospital are cumbersome programs.
 A secondary goal is to make users understand the fracture well and facilitate planning the surgery.
-
-% \subsection{Anatomical understanding}
-% TODO: how to give the user a good understanding of a fracture
 
 \subsection{VR interface}
 
@@ -403,6 +410,23 @@ To make the VR interface easy to use, I focused primarily on familiarity with cu
 I used MicroDICOM\cite{noauthor_dicom_nodate} as a reference for a familiar tool.
 Familiarity with current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR to make it recognizable and consistent to the user. An example of this is navigating a menu in VR the same way one would navigate a menu with a pc mouse.
  All unnecessary interactions and information is removed to allow new users with little VR experience to start using the program quickly. The goal is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
+
+\subsubsection{Architecture}
+The architecture of the Unity application is based around a singleton 'GameController' module. The GameController manages important states and contains references to the other modules. The modules have different responsibilities like multiplayer or menu interaction and communicates through the GameController. This solution is easy to extend and prevents a lot of cross-references between components.
+A module typically consists of a GameObject with the same name, and one or more components attached to the GameObject. If necessary the GameObject has children with more components, such as the model container having a child for every model part.
+
+
+The components related to the model have several instances and are drawn as one-to-many relations in the figure. This allows to swap between models while keeping info on positions and implants.
+The modules are visualized in figure~\ref{structure}.
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=160pt]{images/structure.png}}
+	\hfill
+  \caption{Unity project modules}\label{structure}
+  \small
+
+\end{figure}
 
 \subsubsection{Learning process}
 A video game style tutorial was considered, where the user would go through tasks with hints or descriptions of the features in the application. However, this was not implemented as early testing revealed users were learning the controls quickly.
@@ -450,6 +474,7 @@ For ease of use, the two controllers are mostly mirrored, except for the joystic
 A menu system is implemented to allow the user to navigate less common operations while not distracting from inspecting the model.
 When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means the text appears as a physical screen. The model is temporarily hidden to ensure the menu is always in the user's field of view. Placing content at the center of the screen avoids a typical VR UX problem where some information is not visible to the user.
 
+
 \begin{figure}[h!]
     \centering
 	\subfloat[][]{\includegraphics[height=120pt]{images/menu.png}}
@@ -463,6 +488,8 @@ The menu includes access to less frequent actions that do not require their own 
 
 The menu layout consists of one or more vertical lists of buttons. Several columns of lists are used to separate buttons into categories. To keep the menu simple and consistent, only buttons are used for interacting with the menu. The 'cross' button from pc programs is used for exiting the menu.
 The sub-menus are implemented when multiple options are present. It is used for selecting an implant type or loading a new dataset.
+
+TODO: trigger dual functionality?
 
 \subsubsection{Measurements}
 The most important functionality available in desktop CT viewers should also be available in the VR viewer. This includes measurement of distance and measurement of angles.
