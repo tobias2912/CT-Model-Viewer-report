@@ -194,6 +194,7 @@ A CT scan is used to get better information in complicated fractures. MRI can ad
 	\subfloat[][]{\includegraphics[height=90pt]{images/arbeidsflyt.png}}
 	\hfill
   \caption{Workflow of how medical imaging is used}
+  \label{flow}
   \small
 \end{figure}
 
@@ -234,15 +235,6 @@ The imaging used for testing in this report is from CT scans done by Radiologica
 
 \subsection{Visualisation of medical imaging}
 
-\begin{figure}[h!]
-    \centering
-	\subfloat[][]{\includegraphics[height=120pt]{images/slices.png}}
-	\hfill
-  \caption{Transforming DICOM data into a polygon mesh}
-\end{figure}
-
- %TODO: DICom explain
-
 The output of both CT and MRI scans is a three-dimensional scan. The output is typically represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
 Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud\cite{chougule_conversions_2013}.
 The slice thickness of a slice can be below 1 mm, giving a high-resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
@@ -253,7 +245,30 @@ The values are converted to greyscale by mapping ranges of values to greyscale p
 
 A specific algorithm is needed to render the scan as a 3D surface mesh. Rendering the model includes preprocessing the volume and classification to determine the type of tissue based on voxel value. A simple approach is thresholding, a binary classification where a polygon is created on any volume point that matches the threshold value. A different threshold can be selected to visualize tissue with different densities, typically bone\cite{fishman_volume_2006}.
 
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/slices.png}}
+	\hfill
+  \caption{Transforming DICOM data into a polygon mesh}
+  \label{dicom}
+\end{figure}
+
+\subsubsection{Data formats}
+
+The output of most medical imaging is standardized with the Digital Imaging and Communications in Medicine (DICOM) format\cite{noauthor_dicom_nodate}. The DICOM format includes metadata and pixel data. CT scans are saved as several files, where each file represents one slice in the scan.
+
+If the data is represented as a 3D mesh, several formats can be used. The Wavefront Object file format (.obj)\cite{obj} is a standard format for objects defined by polygons and surfaces. 3D mesh formats such as .obj differs from DICOM by not storing volume data. This means that any density data is deleted when converting from DICOM.
+Another mesh format is the Stereo lithography file (STL)\cite{stl}. The STL standard is created specifically for 3D printing. STL includes polygon info similar to .obj files.
+
+
 \subsubsection{ 3D printing }
+
+
+
+An alternative to digital representation is to print the model with a 3D printer. A 3D model can help increase accuracy when performing a procedure\cite{shahrubudin_overview_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
+The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours, depending on model size, materials, and printer. The waiting time is, in some cases, too long. 
+Another drawback is not having any digital tools such as transparency control, displaying cross-sections, or being able to alter the model after it is printed. 
+A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model. The support structure issue is especially obvious in a fracture with many small bone fragments. A similar problem is not being able to print any fractures on the inside of volumes.
 
 \begin{figure}[h!]
     \centering
@@ -264,14 +279,6 @@ A specific algorithm is needed to render the scan as a 3D surface mesh. Renderin
     A fracture from initial scan to finished print. (A) preoperative X-ray; (B) 3D model; (C) 3D printed model.
 ~Image from study on virtual preoperative planning~\cite{mishra_virtual_2019}
 \end{figure}
-
-% TODO: STL Files
-
-An alternative to digital representation is to print the model with a 3D printer. A 3D model can help increase accuracy when performing a procedure\cite{shahrubudin_overview_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
-The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours, depending on model size, materials, and printer. The waiting time is, in some cases, too long. 
-Another drawback is not having any digital tools such as transparency control, displaying cross-sections, or being able to alter the model after it is printed. 
-A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model. The support structure issue is especially obvious in a fracture with many small bone fragments. A similar problem is not being able to print any fractures on the inside of volumes.
-
 %cost of 3D printing
 The cost of a 3D printer and material depends on printer type and size requirements but is typically low. Extrusion-based plastic printers are commercially available at as low as 200 USD/ 1800 NOK, with very cheap materials. The cost of 3D printing in industry or medicine comes from personnel, training, and time usage\cite{shahrubudin_overview_2019}.
 
@@ -407,7 +414,7 @@ A secondary goal is to make users understand the fracture well and facilitate pl
 % TODO: Overview image
 
 To make the VR interface easy to use, I focused primarily on familiarity with current tools and a simple design.
-I used MicroDICOM\cite{noauthor_dicom_nodate} as a reference for a familiar tool.
+I used MicroDICOM\cite{noauthor_dicom_nodate-1} as a reference for a familiar tool.
 Familiarity with current tools means taking interactions from programs such as CT viewers and adopting the same interactions to VR to make it recognizable and consistent to the user. An example of this is navigating a menu in VR the same way one would navigate a menu with a pc mouse.
  All unnecessary interactions and information is removed to allow new users with little VR experience to start using the program quickly. The goal is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
@@ -527,7 +534,7 @@ All model part positions and any movable parts are synchronized between players,
 The networking was built with Mirror, a downloadable Unity asset. Mirror is a high-level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and classic video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
 
 \section{DICOM data visualisation}
-I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages\cite{noauthor_dicom_nodate}, where the scan is stored as several files, each representing a slice.
+I received several anonymized CT scan files from Helse Vest to use as input data. The CT scans are sent as DICOM packages, where the scan is stored as several files, each representing a slice.
 The model is also split up into separate bone fragments by radiologists at Haukeland University Hospital. The files include 3D surface models as STL files, where each file contains one bone.
 
 
@@ -567,7 +574,7 @@ Being able to view life-sized models could make the planning closer to the surge
 \subsubsection{Separating bone fragments}
 Adding some form of manual splitting of meshes was considered. This would allow the user to split the model pieces into separate pieces further. This functionality would also make it possible to use models that are not split into pieces beforehand.
 
-An example open-source framework called Ezy-slice\cite{arayan_davidarayanezy-slice_2022} was tested.
+An example open-source framework called Ezy-slice\cite{arayan_davidarayanezy-slice_2022} was tested. This was later abandoned as the model was manually segmented at Haukeland University Hospital.
 
 \subsection{Alternative CT visualisation}
 While rendering the selected slice as an image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
