@@ -237,7 +237,7 @@ The imaging used for testing in this report is from CT scans done by Radiologica
 
 The output of both CT and MRI scans is a three-dimensional scan. The output is typically represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}\cite{chougule_conversions_2013}.
 Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud\cite{chougule_conversions_2013}.
-The slice thickness of a slice can be below 1 mm, giving a high-resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}.
+The slice thickness of a slice can be below 1 mm, giving a high-resolution scan where a single point is less than one cubic millimeter\cite{hamblen_outline_2010}. Figure \ref{dicom} shows the workflow of converting from slices to voxels and further to a mesh model.
 
 When rendering a 2D image, the volume must be projected to two-dimensional space. The values in a single slice can be used to view the intersection at a specific slice number. A line of values along all the slices can be used to view the intersection at another plane.
 All slices can be combined to show either the average or the maximum intensity\cite{fishman_volume_2006}.
@@ -249,7 +249,7 @@ A specific algorithm is needed to render the scan as a 3D surface mesh. Renderin
     \centering
 	\subfloat[][]{\includegraphics[height=120pt]{images/slices.png}}
 	\hfill
-  \caption{Transforming DICOM data into a polygon mesh}
+  \caption{DICOM data conversion to a polygon mesh}
   \label{dicom}
 \end{figure}
 
@@ -257,15 +257,15 @@ A specific algorithm is needed to render the scan as a 3D surface mesh. Renderin
 
 The output of most medical imaging is standardized with the Digital Imaging and Communications in Medicine (DICOM) format\cite{noauthor_dicom_nodate}. The DICOM format includes metadata and pixel data. CT scans are saved as several files, where each file represents one slice in the scan.
 
-If the data is represented as a 3D mesh, several formats can be used. The Wavefront Object file format (.obj)\cite{obj} is a standard format for objects defined by polygons and surfaces. 3D mesh formats such as .obj differs from DICOM by not storing volume data. This means that any density data is deleted when converting from DICOM.
-Another mesh format is the Stereo lithography file (STL)\cite{stl}. The STL standard is created specifically for 3D printing. STL includes polygon info similar to .obj files.
-
+%obj and stl
+If the data is represented as a 3D mesh, several formats can be used. The Wavefront Object file format (OBJ)\cite{obj} is a standard format for objects defined by polygons and surfaces. 3D mesh formats such as OBJ differs from DICOM by not storing volume data. Any density data is deleted when converting from DICOM to OBJ.
+Another mesh format is the Stereo lithography file (STL)\cite{stl}. The STL standard is created specifically for 3D printing. STL includes polygon info similar to OBJ files.
 
 \subsubsection{ 3D printing }
 
 
 
-An alternative to digital representation is to print the model with a 3D printer. A 3D model can help increase accuracy when performing a procedure\cite{shahrubudin_overview_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
+An alternative to digital representation is to print the model with a 3D printer, illustrated in figure \ref{3dprint}. A 3D model can help increase accuracy when performing a procedure\cite{shahrubudin_overview_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
 The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours, depending on model size, materials, and printer. The waiting time is, in some cases, too long. 
 Another drawback is not having any digital tools such as transparency control, displaying cross-sections, or being able to alter the model after it is printed. 
 A physical plastic model also needs support structures that can lead to an inaccurate representation of the fracture or get in the way of viewing the model. The support structure issue is especially obvious in a fracture with many small bone fragments. A similar problem is not being able to print any fractures on the inside of volumes.
@@ -275,6 +275,7 @@ A physical plastic model also needs support structures that can lead to an inacc
 	\subfloat[][]{\includegraphics[height=120pt]{images/ctToPrint.png}}
 	\hfill
   \caption{Humeral (upper arm) fracture}
+  \label{3dprint}
   \small
     A fracture from initial scan to finished print. (A) preoperative X-ray; (B) 3D model; (C) 3D printed model.
 ~Image from study on virtual preoperative planning~\cite{mishra_virtual_2019}
@@ -371,14 +372,15 @@ The responses are gathered and used to answer the questions.
 	\subfloat[][]{\includegraphics[height=130pt]{images/agile.png}}
 	\hfill
   \caption{Development method}
+  \label{agile}
   \small
   weekly iterations illustrated on the left, and user testing on the right.
 \end{figure}
 
 The application is developed using iterative development and elements from Design Thinking.
 
-% why iterative
-Iterative development was used to cooperate effectively with the team and increase the development speed. The team had regular meetings, and this fits well with the iterative cycles. The cycles facilitated frequent feedback from the surgeons. The feedback could then be implemented and tested at the next meeting.
+% Why iterative
+Iterative development was used to cooperate effectively with the team and increase the development speed. The team had regular meetings, and this fits well with the iterative cycles (figure \ref{agile}). The cycles facilitated frequent feedback from the surgeons. The feedback could then be implemented and tested at the next meeting.
 
 % structure
 The team had regular biweekly meetings with a demonstration and next iteration planning. The meeting was a valuable way of sharing interdisciplinary information and getting feedback from medical experts. Scrum elements such as Sprint retrospective and daily scrum were not relevant as only one person worked full time on the project.
@@ -419,12 +421,11 @@ Familiarity with current tools means taking interactions from programs such as C
  All unnecessary interactions and information is removed to allow new users with little VR experience to start using the program quickly. The goal is to make the experience less overwhelming and lower the skill required to use the viewer effectively.
 
 \subsubsection{Architecture}
-The architecture of the Unity application is based around a singleton 'GameController' module. The GameController manages important states and contains references to the other modules. The modules have different responsibilities like multiplayer or menu interaction and communicates through the GameController. This solution is easy to extend and prevents a lot of cross-references between components.
+The architecture of the Unity application is based around a singleton 'GameController' module. The GameController manages important states and contains references to the other modules, shown in figure~\ref{structure}. The modules have different responsibilities like multiplayer or menu interaction and communicates through the GameController. This solution is easy to extend and prevents a lot of cross-references between components.
 A module typically consists of a GameObject with the same name, and one or more components attached to the GameObject. If necessary the GameObject has children with more components, such as the model container having a child for every model part.
 
 
 The components related to the model have several instances and are drawn as one-to-many relations in the figure. This allows to swap between models while keeping info on positions and implants.
-The modules are visualized in figure~\ref{structure}.
 
 \begin{figure}[h!]
     \centering
@@ -463,12 +464,13 @@ The grabbing functionality introduces a problem: If the user moves a model part,
 The solution to this is a separation mode. Moving any model part enters separation mode and reverting to the original position exits separation mode. In separation mode, the CT images are hidden, and measurements are hidden. A large button appears to display the current mode, prompting the user to click the button to reset the model and once again view CT images.
 
 \subsubsection{Keybindings}
+Controller keybindings shown in figure \ref{controllers} was set to make the controllers intuitive and easy to use. This configuration seemed to work well in testing.
 
 \begin{figure}[h!]
     \centering
 	\subfloat[][]{\includegraphics[height=120pt]{images/controllers.png}}
 	\hfill
-  \caption{Keybindings on Quest controllers}
+	\caption{Keybindings on Quest controllers}\label{controllers}
   \small
   This illustration is also used within the application.
 \end{figure}
@@ -478,7 +480,7 @@ The primary button is used for opening the menu.
 For ease of use, the two controllers are mostly mirrored, except for the joystick. The right joystick is used for scrolling through CT slices, similar to how the scroll wheel is used in CT image viewers. The left joystick rotates and scales the entire model while keeping all the model parts correctly positioned.
 
 \subsubsection{Menu system}
-A menu system is implemented to allow the user to navigate less common operations while not distracting from inspecting the model.
+A menu system is implemented to allow the user to navigate less common operations. The different operations are shown in~\ref{menu}.
 When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means the text appears as a physical screen. The model is temporarily hidden to ensure the menu is always in the user's field of view. Placing content at the center of the screen avoids a typical VR UX problem where some information is not visible to the user.
 
 
@@ -486,9 +488,9 @@ When the menu button is pressed, the menu screen appears in front of the user. I
     \centering
 	\subfloat[][]{\includegraphics[height=120pt]{images/menu.png}}
 	\hfill
-  \caption{Menu screen}
+	\caption{Menu screen}\label{menu}
   \small
-  The main menu interface. The user is hovering one of the buttons.
+  The main menu interface. The user is pointing at one of the buttons.
 \end{figure}
 
 The menu includes access to less frequent actions that do not require their own keybinding. The initial menu includes fast access to simple tools (e.g., measurement) and buttons to sub-menus. A hamburger menu icon suggests the button leads to a sub-menu.
@@ -499,7 +501,7 @@ The sub-menus are implemented when multiple options are present. It is used for 
 TODO: trigger dual functionality?
 
 \subsubsection{Measurements}
-The most important functionality available in desktop CT viewers should also be available in the VR viewer. This includes measurement of distance and measurement of angles.
+The most important functionality available in desktop CT viewers should also be available in the VR viewer. This includes measurement of distance and measurement of angles. Figure \ref{measure} shows a distance measurement.
 The measure tools works by selecting a start and an end point. The angle measurement additionally requires a middle point.
 After placing the first point, a preview of the measurement result is shown as a line to give feedback to the user of the current state.
 Using the outline shader mentioned previously makes it possible to see the placed points even when obscured by the model, and the line between the points is always visible. This, combined with depth in VR makes it easy to understand where the points are placed and what the length and angle is.
@@ -508,7 +510,7 @@ Using the outline shader mentioned previously makes it possible to see the place
     \centering
 	\subfloat[][]{\includegraphics[height=120pt]{images/measure.png}}
 	\hfill
-  \caption{Distance measurement}
+	\caption{Distance measurement}\label{measure}
   \small
   The yellow hollow circle is inside the model with outline rendered on top. The filled circle is in front of the model. Distance in mm also drawn on top.
 ~\cite{mishra_virtual_2019}
@@ -547,28 +549,31 @@ The easiest way of referencing files is usually setting a reference in the unity
 
 \subsection{Rendering CT image}
 
+The user can view CT slices in 2D while simultaneously viewing the model as illustrated in figure \ref{ctscan}. This is done because of two reasons: to bridge the gap going from traditional 2D images to VR and retain the density data lost when converting to a mesh model. An additional benefit is the use case of practicing reading CT images while viewing the corresponding model.
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/ctscan.png}}
+	\hfill
+	\caption{CT image}\label{ctscan}
+  \small
+
+  The user has moved the CT slice plane (transparent grey) to inspect the Tibia and Fibula (Shinbone/Calf Bone). The CT image on the right shows the CT scan of the two bones.
+~\cite{mishra_virtual_2019}
+\end{figure}
 To render CT images from the DICOM data, the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022} is used. It is an open-source library for parsing DICOM data and image rendering.
 The data from the DICOM files are used to create a $Slice$ object for each of the files. The slice object implements reading the density value at position $(x, y)$ at that slice. A Unity Texture is created for each slice to render the image in Unity.
 
 Every pixel on the texture is set to the greyscale color correlating to the density value. To find the color in a position, calculate $(density-minDensity)/(maxDensity-minDensity)$.
 If result is 1, it has maximum density and is set to white color.
 
-\begin{figure}[h!]
-    \centering
-	\subfloat[][]{\includegraphics[height=120pt]{images/ctscan.png}}
-	\hfill
-  \caption{CT images}
-  \small
-  The user has moved the CT slice plane (transparent grey) to inspect the Tibia and Fibula (Shinbone/Calf Bone). The CT image on the right shows the CT scan of the two bones.
-~\cite{mishra_virtual_2019}
-\end{figure}
 
 The slice number is calculated to convert between the selected height and the rendered CT image. This is done by getting the model's height and reading the y position of the selection plane. The height percentage of the plane is rounded down to the closest slice number, and that slice is shown.
 
 \subsection{Rendering bone fragments}
 In STL files all vertices are stored coordinates relative to the center, so by inserting all STL files at the same world space coordinate, the bone fragments will be placed correctly relative to each other. The STL files are exported to .obj files using blender and rendered with Unity.
 
-Accurate scaling of the model is important, both to give a realistic view for the user and for tools like measurement and implants. The STL files used for input does not contain physical size data, but uses a convention where one unit corresponds to one mm. In Unity a single unit is rendered as one meter in VR. By scaling the Unity object so a model unit is 1/1000 of a Unity unit the sizes are percieved as true to life. When scaling the model, all measurements and implants are scaled simultaneously.
+Accurate scaling of the model is important, both to give a realistic view for the user and for tools like measurement and implants. The STL files used for input does not contain physical size data, but uses a convention where one unit corresponds to one mm. In Unity a single unit is rendered as one meter in VR. By scaling the Unity object so a model unit is 1/1000 of a Unity unit the sizes are perceived as true to life. When scaling the model, all measurements and implants are scaled simultaneously.
 Being able to view life-sized models could make the planning closer to the surgery and make tools more familiar to the user.
 
 \subsubsection{Separating bone fragments}
