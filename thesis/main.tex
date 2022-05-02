@@ -144,7 +144,7 @@ How can VR technology improve surgery planning by
 The project includes a VR prototype of a standard viewer that is user-friendly enough to test with non-technical persons and with functionality that covers the use cases of a printed model.
 The prototype is tested on medical personnel to evaluate any benefits on anatomical understanding and how it affects surgery planning and effectiveness. The application will be available for further development and study.
 
-Firstly, a prototype VR viewer will be created with the help of related open-source frameworks/software and guidance from both orthopedic surgeons and developers with experience in medical technology.
+Firstly, a prototype VR viewer will be created with the help of VR frameworks and guidance from both orthopedic surgeons and developers with experience in medical technology.
 
 In order to answer the research question, we have evaluate the usability of the final application. This thesis has used qualitative methods
 by interviewing related personnel to evaluate the planning improvements, including anatomical understanding, cooperation, and the effectiveness of the planning process.
@@ -264,7 +264,6 @@ Another mesh format is the Stereo lithography file (STL)\cite{stl}. The STL stan
 \subsubsection{ 3D printing }
 
 
-
 An alternative to digital representation is to print the model with a 3D printer, illustrated in figure \ref{3dprint}. A 3D model can help increase accuracy when performing a procedure\cite{shahrubudin_overview_2019}. 3D printing has many advantages, such as the surgeon physically holding the model, measuring the model, trying out equipment, and practicing with the model.
 The most significant disadvantage to 3D printing is that the printing process can take more than 24 hours, depending on model size, materials, and printer. The waiting time is, in some cases, too long. 
 Another drawback is not having any digital tools such as transparency control, displaying cross-sections, or being able to alter the model after it is printed. 
@@ -285,6 +284,9 @@ The cost of a 3D printer and material depends on printer type and size requireme
 
 
 \section{Extended Reality}
+
+% TODO: bilde av ar og vr???
+
 Extended Reality (XR) \enquote{is devices capable of overlaying digital information onto the physical world or incorporating aspects of the physical world into virtual scenes}\cite{andrews_extended_2019}.
 XR is typically split into Virtual Reality (VR) and Augmented Reality (AR).
 Virtual Reality is the use of VR technology to sense the user's state and actions and augment sensory feedback to immerse the user in a 3D virtual environment\cite{mihelj_virtual_2014}.
@@ -296,8 +298,11 @@ The virtual environment is the computer-generated objects that the user interact
 With more specialized hardware, additional stimuli such as temperature, smell, and more are possible\cite{noauthor_feelreal_nodate}.
 To make the virtual environment seem real, it must respond to the user's actions. Current commercial Virtual Reality headsets track the user's head and hands and allow for button inputs\cite{noauthor_oculus_nodate}. Modern HMDs use 6 Degrees of Freedom (DOF), which means the user is tracked in three-dimensional position and rotation\cite{lang_introduction_2013}. The tracking is used by the VR application to simulate walking, picking up objects, and more.
 
-\subsection{ Augmented Reality }
-Augmented Reality or Mixed Reality is an addition to VR where the real world is mixed with the virtual environment\cite{hackett_three-dimensional_2016}. AR comes in different variants; some mobile apps use the camera to create an augmented environment shown in 2D. More expensive AR HMDs work similarly to VR HMDs, except for the transparent viewing glass.
+\subsection{Augmented Reality}
+Augmented Reality and Mixed Reality (MR) is an addition to VR where the real world is viewed together with the digital environment\cite{hackett_three-dimensional_2016}. Several definitions exists, according to Intel\cite{vrandmr} AR is a digital overlay onto the real world while MR means interacting with both digital and real elements.
+For simplicity this thesis will use the term Augmented Reality to describe devices showing both a virtual and a real environment.
+
+AR comes in different variants; some mobile apps use the camera to create an augmented environment shown in 2D. More expensive AR HMDs work similarly to VR HMDs, except for the transparent viewing glass. Mixed Reality devices primarily exists as expensive HMDs, such as the Hololens\cite{hololens}.
 AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying\cite{mihelj_virtual_2014}\cite{mertz_virtual_2019}.
 AR has some uses not relevant to VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light\cite{hackett_three-dimensional_2016} and drastically higher cost\cite{medical_holodeck_medicalholodeck_nodate}.
 
@@ -380,10 +385,12 @@ The responses are gathered and used to answer the questions.
 The application is developed using iterative development and elements from Design Thinking.
 
 % Why iterative
-Iterative development was used to cooperate effectively with the team and increase the development speed. The team had regular meetings, and this fits well with the iterative cycles (figure \ref{agile}). The cycles facilitated frequent feedback from the surgeons. The feedback could then be implemented and tested at the next meeting.
+Iterative development was used to cooperate effectively with the team and increase the development speed. The team had regular meetings, and this fits well with the iterative cycles (figure \ref{agile}). The cycles facilitated frequent feedback from the domain experts. The feedback could then be implemented and tested at the next meeting.
 
-% structure
-The team had regular biweekly meetings with a demonstration and next iteration planning. The meeting was a valuable way of sharing interdisciplinary information and getting feedback from medical experts. Scrum elements such as Sprint retrospective and daily scrum were not relevant as only one person worked full time on the project.
+TODO: bilde av early prototype?
+
+% cycle structure
+The team had regular biweekly meetings with a demonstration and next iteration planning. The meeting was a valuable way of sharing interdisciplinary information and getting feedback from domain experts. Scrum elements such as Sprint retrospective and daily scrum were not relevant as only one person worked full time on the project.
 After the demonstration, the backlog was updated with tasks prioritized by value. The value is determined by the time needed to implement compared to how important the functionality is to the product owner. The top tasks that fit within two weeks are added to the backlog, and the remaining are stored in the product backlog and considered for the next cycle.
 During the next two weeks, as many tasks as possible were implemented and demonstrated in the next meeting.
 
@@ -410,6 +417,14 @@ The solution uses the STL files and DICOM data already produced at the hospital 
 
 The primary goal for the UX design is ease of use for non-technical users, as current VR solutions at Haukland University Hospital are cumbersome programs.
 A secondary goal is to make users understand the fracture well and facilitate planning the surgery.
+
+\subsection{Hardware}
+The VR devices used for this development and testing was the Oculus Quest 1 and Quest 2\cite{noauthor_oculus_nodate}. The hardware was selected out of availability reasons and the practicality of having a standalone device.
+The Quest 1 and 2 are very popular consumer standalone VR headsets. When in standalone mode, the headset uses integrated graphics and is battery powered.
+There are other headsets with better displays and motion tracking, but the Quest devices are sufficient.
+
+%how it worked
+Testing in standalone mode at different locations was very convenient, but it had a drawback as the project needed to be tailored to run on a low performance android device. This led to problems with both high resolution data and different bugs related to the android build.
 
 \subsection{VR interface}
 
@@ -581,18 +596,19 @@ Adding some form of manual splitting of meshes was considered. This would allow 
 
 An example open-source framework called Ezy-slice\cite{arayan_davidarayanezy-slice_2022} was tested. This was later abandoned as the model was manually segmented at Haukeland University Hospital.
 
-\subsection{Alternative CT visualisation}
-While rendering the selected slice as an image gave some understanding, there was still a disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect with the model.
+\subsection{Alternative slice visualisation}
+While rendering the selected slice alongside the model was useful, there was still a some disconnect between the model and the CT image. To improve upon this, I rendered the CT image at the exact position where it would intersect the model (figure \ref{intersection}). Now the user sees both the model and the CT data simultaneously.
+
 This required removing the part of the model above/under the intersection plane, so it did not obscure the image. For this, I used a Unity Assetstore shader to view the cross-section of a mesh\cite{aldandarawy_unity_2019}.
 
-This effect can be disturbing as the entire model is not visible. To allow for standard rendering, intersection rendering is made optional. The option defaults to showing the entire model because it is easier to understand.
+This effect can be disturbing as the entire model is not visible and the image can obscure objects behind. To allow for standard rendering, intersection rendering is made optional. The option defaults to showing the entire model because it is easier to understand.
 The toggle button is shown in the CT image options.
 
 \begin{figure}[h!]
     \centering
 	\subfloat[][]{\includegraphics[height=120pt]{images/intersection.png}}
 	\hfill
-  \caption{CT intersection}
+	\caption{CT intersection}\label{intersection}
   \small
   The selected CT slice is shown both in 2D and as a overlay on top of model. Notice that the upper part of the model is not rendered.
 \end{figure}
@@ -600,13 +616,13 @@ The toggle button is shown in the CT image options.
 When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
 \subsection{Implants}
-TODO: bilde
+% TODO: bilde
 The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
 To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{technologies_unity_nodate-1}.
 \section{Performance}
 Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation\cite{noauthor_oculus_nodate}.
 
-The recommended triangle count is between 350k and 500k triangles\cite{noauthor_oculus_nodate}. The imported meshes can have a high vertex count and are reduced manually using remeshing in MeshLab\cite{cignoni_meshlab_2008} to bring the total to under 500k. The reduced quality is barely noticable when viewed in the resolution of the Quest HMD.
+The recommended triangle count is between 350k and 500k triangles\cite{noauthor_performance_nodate}. The imported meshes can have a high vertex count and are reduced manually using remeshing in MeshLab\cite{cignoni_meshlab_2008} to bring the total to under 500k. The reduced quality is barely noticable when viewed in the resolution of the Quest HMD.
 The mesh simplification could be automated, but this limit would be irrelevant if using a headset with a modern GPU for dedicated rendering.
 
 TODO: performance data?
