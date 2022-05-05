@@ -329,9 +329,10 @@ The added immersion also makes teaching or training more motivating for the stud
 
 
 \subsection{Designing for VR}
-%TODO: forklare UX
-VR is relatively new to mainstream media, and as such, there are few agreed-upon standards, unlike e.g., web development.
-Some practical measures to counter motion sickness and fatigue are reducing Field of View (FOV), varying latency between user input and display update, flickering, moving content in the virtual environment, and using several stimuli (audio, haptics)\cite{chang_virtual_2020}. 
+VR is relatively new in mainstream media, and as such, there are few agreed-upon standards for designing the User Experience (UX).
+Common VR tips from game designers\cite{vrdesign, vrdesignadobe} are immersing the user in a enviroment with real life interactions instead of just text. Other tips include keeping the user comfortable by keeping the user in control of movement, avoiding bright colors and placing objects at a appropriate height.
+
+Some practical measures to counter motion sickness and fatigue are reducing Field of View (FOV), varying latency between user input and display update, flickering, moving content in the virtual environment, and using several stimuli (audio, haptic feedback)\cite{chang_virtual_2020}. 
 Some of these are hardware-dependent and not relevant for this project, so moving content is the most relevant measure in this project.
 
 \subsection{Game Engine}
@@ -494,6 +495,7 @@ The most common operations are bound to trigger and grip button, which is easily
 The primary button is used for opening the menu.
 For ease of use, the two controllers are mostly mirrored, except for the joystick. The right joystick is used for scrolling through CT slices, similar to how the scroll wheel is used in CT image viewers. The left joystick rotates and scales the entire model while keeping all the model parts correctly positioned.
 
+The trigger button is also used for menu selection for consistency with other VR apps. This introduces conflicting keybindings with the $use\ tool$ button. This is solved by only performing one of the actions based on the context. If a menu is open or a button is hovered, a menu click is performed. Otherwise, $use\ tool$ is performed. This workaround simplifies the controls by using less buttons.
 \subsubsection{Menu system}
 A menu system is implemented to allow the user to navigate less common operations. The different operations are shown in~\ref{menu}.
 When the menu button is pressed, the menu screen appears in front of the user. It is shown in world space, which means the text appears as a physical screen. The model is temporarily hidden to ensure the menu is always in the user's field of view. Placing content at the center of the screen avoids a typical VR UX problem where some information is not visible to the user.
@@ -513,7 +515,6 @@ The menu includes access to less frequent actions that do not require their own 
 The menu layout consists of one or more vertical lists of buttons. Several columns of lists are used to separate buttons into categories. To keep the menu simple and consistent, only buttons are used for interacting with the menu. The 'cross' button from pc programs is used for exiting the menu.
 The sub-menus are implemented when multiple options are present. It is used for selecting an implant type or loading a new dataset.
 
-TODO: trigger dual functionality?
 
 \subsubsection{Measurements}
 The most important functionality available in desktop CT viewers should also be available in the VR viewer. This includes measurement of distance and measurement of angles. Figure \ref{measure} shows a distance measurement.
@@ -542,10 +543,19 @@ During multiplayer, the model may move caused by another player's input, which m
 The goal of the multiplayer feature was to allow two or more surgeons to cooperate effectively. Having one surgeon using a VR headset and another using a screen is likely interfering because the surgeons are seeing different models. The multiplayer component allows the surgeons to use the same tools while seeing the same model, and should increase communication and cooperation.
 Multiplayer should not make the application more difficult to use. All interactions should be similar to the usual experience, and cooperation should not require any extra steps, except connecting to the multiplayer server. Any important information should be available to all players, and irrelevant information (another player opening a menu) should not disturb users.
 
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=200pt]{images/multiplayer.png}}
+	\hfill
+	\caption{Multiplayer}\label{multiplayer}
+  \small
+  Image showing a session with another user with white controllers.
+\end{figure}
+
 The multiplayer interface is a menu shown at startup. The user can select either to start a new session in which other users can join, or join an existing session. The sessions are hard-coded to always run on the same network port and have no authentication, as this would take too much development time and give no value. The server is also hosted by the user starting the session instead of a dedicated server, for easier development.
 
 %how it works
-All model part positions and any movable parts are synchronized between players, so any interactions is visible for all users. The position is continuously shared whenever a user is grabbing a model. Other users' controllers are also visible in order to communicate and point at locations.
+All model part positions and any movable parts are synchronized between players, so any interactions is visible for all users. The position is continuously shared whenever a user is grabbing a model. As shown in figure \ref{multiplayer} other users' controllers are also visible in order to communicate and point at locations.
 
 \subsubsection{Mirror}
 The networking was built with Mirror, a downloadable Unity asset. Mirror is a high-level networking API built on deprecated Unity networking\cite{noauthor_mirror_nodate}. Mirror has good support for creating a client/server pattern and classic video game related operations such as spawning in players at the start of the game and synchronizing objects across all clients.
