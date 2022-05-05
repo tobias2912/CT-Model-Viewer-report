@@ -455,13 +455,29 @@ The components related to the model have several instances and are drawn as one-
 \subsubsection{Learning process}
 A video game style tutorial was considered, where the user would go through tasks with hints or descriptions of the features in the application. However, this was not implemented as early testing revealed users were learning the controls quickly.
 
-Every button has a description displayed as text above the button to remind the user of the keybindings. An image can optionally be displayed, showing the user the keybindings. The hints were implemented as users repeatedly forgot button controls in testing.
+Every button has a description displayed as text above the button to remind the user of the keybindings as in figure \ref{hints}. An image can optionally be displayed, showing the user the keybindings. The hints were implemented as users repeatedly forgot button controls in testing.
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=160pt]{images/buttonhints.png}}
+	\hfill
+  \caption{Controller hints}\label{hints}
+  \small
+\end{figure}
 
 \subsubsection{Grab interaction}
 
 The most used part of the user interface is moving fracture parts to inspect or rearrange them. Rearranging could be important for fixation planning.
 The grab should mimic how users move objects in real life to make this easy to use. When the user places the hand close to a model part, the color is tinted to highlight the model. When the grab button is pressed, the highlighted model part is picked up, and a short audio clip is played.
 
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=160pt]{images/grabinteraction.png}}
+	\hfill
+  \caption{Grabbing an object}\label{grabbing}
+  \small
+  Notice how the model part close to the controller is focused with a darker color.
+\end{figure}
 
 One issue is whether the user wants to move either the entire model or move a part of the model when grabbing. Including both could introduce mode issues\cite{experience_modes_nodate}, so the grab can only have one use.
 It was decided that the grab interaction always picks up a model part. A joystick input moves the entire model, which is less precise than grabbing.
@@ -470,7 +486,7 @@ The grab functionality is implemented using Unity's built-in $Interactable$ syst
 By default, the grab will move the center of the interactable to the user's hand. The built-in grab action is cumbersome when precisely adjusting larger objects, as moving the interactable a small distance requires repositioning it from wherever the center is. 
 To solve this, the interactable script is modified to keep the current position when grabbed and then follow the relative motion of the hand.
 
-To allow for grabbing small objects or objects that are partly overlapping, what objects are selected are also modified. The default Unity XR behavior is selecting a new object in every frame, and this would lead to the user grabbing several objects simultaneously. To solve this, any interactable is highlighted when the users hand is within the collision box. It stays highlighted until the hand is outside of the collision box. The grab action is only allowed to select the hovered object, until the grab is released.
+To allow for grabbing small objects or objects that are partly overlapping, what objects are selected are also modified. The default Unity XR behavior is selecting a new object in every frame, and this would lead to the user grabbing several objects simultaneously. To solve this, any interactable is highlighted when the users hand is within the collision box, as in figure \ref{grabbing}. It stays highlighted until the hand is outside of the collision box. The grab action is only allowed to select the hovered object, until the grab is released.
 
 Using Occulus hand tracking\cite{noauthor_set_nodate} could be beneficial, but is currently not recommended for high degrees of precision. Future versions of hand tracking or Hololens hand tracking could improve the interact experience in the future.
 
@@ -578,12 +594,12 @@ The user can view CT slices in 2D while simultaneously viewing the model as illu
 
 \begin{figure}[h!]
     \centering
-	\subfloat[][]{\includegraphics[height=120pt]{images/ctscan.png}}
+	\subfloat[][]{\includegraphics[height=120pt]{images/ctscan.jpg}}
 	\hfill
 	\caption{CT image}\label{ctscan}
   \small
 
-  The user has moved the CT slice plane (transparent grey) to inspect the Tibia and Fibula (Shinbone/Calf Bone). The CT image on the right shows the CT scan of the two bones.
+  The user is moving the CT slice plane (transparent grey) up and down to inspect the Tibia and Fibula (Shinbone/Calf Bone). The CT image shows the CT scan of the two bones.
 ~\cite{mishra_virtual_2019}
 \end{figure}
 To render CT images from the DICOM data, the .NET library \emph{Fellow Oak DICOM}\cite{noauthor_fellow_2022} is used. It is an open-source library for parsing DICOM data and image rendering.
@@ -626,9 +642,29 @@ The toggle button is shown in the CT image options.
 When overlaying the slice texture onto the intersection plane, the image will completely obscure the model when looking down at the image. This removes the point of overlaying the CT image, so the picture is created as partially transparent. When the texture is created, the grey value is used as input for calculating the transparency of the pixel. This results in most of the outside of the image being completely transparent.
 
 \subsection{Implants}
-% TODO: bilde
-The menu has a sub-menu for choosing what implant to add to the scene. It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
-To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{technologies_unity_nodate-1}.
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/implants.png}}
+	\hfill
+	\caption{Implants}\label{implants}
+  \small
+  Picture showing 4 implants placed on and inside the fracture. Outline makes it easy to understand the excact position.
+\end{figure}
+
+The menu has a sub-menu for choosing what implant to add to the scene (figure \ref{implantsmenu}). It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
+
+To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown as in figure \ref{implants}. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes\cite{technologies_unity_nodate-1}.
+
+\begin{figure}[h!]
+    \centering
+	\subfloat[][]{\includegraphics[height=120pt]{images/implantmenu.png}}
+	\hfill
+	\caption{Implants menu}\label{implantsmenu}
+  \small
+  The menu used for selecting implants, with a side by side preview.
+\end{figure}
+
 \section{Performance}
 Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation\cite{noauthor_oculus_nodate}.
 
