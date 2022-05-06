@@ -260,8 +260,8 @@ A specific algorithm is needed to render the scan as a 3D surface mesh. Renderin
 The output of most medical imaging is standardized with the Digital Imaging and Communications in Medicine (DICOM) format~\cite{noauthor_dicom_nodate}. The DICOM format includes metadata and pixel data. CT scans are saved as several files, where each file represents one slice in the scan.
 
 %obj and stl
-If the data is represented as a 3D mesh, several formats can be used. The Wavefront Object file format (OBJ)~\cite{obj} is a standard format for objects defined by polygons and surfaces. 3D mesh formats such as OBJ differs from DICOM by not storing volume data. Any density data is deleted when converting from DICOM to OBJ.
-Another mesh format is the Stereo lithography file (STL)~\cite{stl}. The STL standard is created specifically for 3D printing. STL includes polygon info similar to OBJ files.
+If the data is represented as a 3D mesh, several formats can be used. The Wavefront Object file format (OBJ)~\cite{obj_wavefront_nodate} is a standard format for objects defined by polygons and surfaces. 3D mesh formats such as OBJ differs from DICOM by not storing volume data. Any density data is deleted when converting from DICOM to OBJ.
+Another mesh format is the Stereo lithography file (STL)~\cite{noauthor_stl_2019}. The STL standard is created specifically for 3D printing. STL includes polygon info similar to OBJ files.
 
 \subsubsection{ 3D printing }
 
@@ -302,10 +302,10 @@ With more specialized hardware, additional stimuli such as temperature, smell, a
 To make the virtual environment seem real, it must respond to the user's actions. Current commercial Virtual Reality headsets track the user's head and hands and allow for button inputs~\cite{noauthor_oculus_nodate}. Modern HMDs use 6 Degrees of Freedom (DOF), which means the user is tracked in three-dimensional position and rotation~\cite{lang_introduction_2013}. The tracking is used by the VR application to simulate walking, picking up objects, and more.
 
 \subsection{Augmented and Mixed Reality}
-Augmented Reality and Mixed Reality (MR) is an addition to VR where the real world is viewed together with the digital environment~\cite{hackett_three-dimensional_2016}. Several definitions exists, according to Intel~\cite{vrandmr} AR is a digital overlay onto the real world while MR means interacting with both digital and real elements.
+Augmented Reality and Mixed Reality (MR) is an addition to VR where the real world is viewed together with the digital environment~\cite{hackett_three-dimensional_2016}. Several definitions exists, according to Intel~\cite{intel_virtual_nodate} AR is a digital overlay onto the real world while MR means interacting with both digital and real elements.
 For simplicity this thesis will use the term Augmented Reality to describe devices showing both a virtual and a real environment.
 
-AR comes in different variants; some mobile apps use the camera to create an augmented environment shown in 2D. More expensive AR HMDs work similarly to VR HMDs, except for the transparent viewing glass. Mixed Reality devices primarily exists as expensive HMDs, such as the Hololens~\cite{hololens}.
+AR comes in different variants; some mobile apps use the camera to create an augmented environment shown in 2D. More expensive AR HMDs work similarly to VR HMDs, except for the transparent viewing glass. Mixed Reality devices primarily exists as expensive HMDs, such as the Hololens~\cite{hololens_microsoft_nodate}.
 AR HMDs are used in medical, industrial, and military devices to show critical information while users operate devices or perform a job in real life. Examples of this are a surgeon viewing medical information during a surgery or a pilot viewing a Heads Up Display while flying~\cite{mihelj_virtual_2014}~\cite{mertz_virtual_2019}.
 AR has some uses not relevant to VR because it does not completely disconnect the user from the real world, but has some disadvantages such as reduced field of view compared to VR, poor visibility in bright light~\cite{hackett_three-dimensional_2016} and drastically higher cost~\cite{medical_holodeck_medicalholodeck_nodate}.
 
@@ -328,18 +328,18 @@ According to a study on motion sickness factors, 59 \% of the subjects experienc
 A use-case of XR is simulating a subject physically out of reach, such as a planet in space or the inside of a patient's knee. For physically impaired users, this advantage is even more relevant.
 XR can also simulate situations that would otherwise be dangerous, for example, an untrained surgeon performing surgery alone.
 Another advantage is that VR is more immersive than other mediums. The immersion makes the user feel more stress or fear and makes it feasible to prepare personnel for stressful situations, such as the police.
-The added immersion also makes teaching or training more motivating for the student~\cite{freina_immersive_2015} while improving learning outcomes~\cite{cynthia}.
+The added immersion also makes teaching or training more motivating for the student~\cite{freina_immersive_2015} while improving learning outcomes~\cite{cynthia_l_foronda_virtual_nodate}.
 
 
 \subsection{Designing for VR}
 VR is relatively new in mainstream media, and as such, there are few agreed-upon standards for designing the User Experience (UX).
-Common VR tips from game designers~\cite{vrdesign, vrdesignadobe} are immersing the user in a enviroment with real life interactions instead of just text. Other tips include keeping the user comfortable by keeping the user in control of movement, avoiding bright colors and placing objects at a appropriate height.
+Common VR tips from game designers~\cite{vrdesign_best_nodate}~\cite{vrdesignadobe_virtual_nodate} are immersing the user in a enviroment with real life interactions instead of just text. Other tips include keeping the user comfortable by keeping the user in control of movement, avoiding bright colors and placing objects at a appropriate height.
 
 Some practical measures to counter motion sickness and fatigue are reducing Field of View (FOV), varying latency between user input and display update, flickering, moving content in the virtual environment, and using several stimuli (audio, haptic feedback)~\cite{chang_virtual_2020}. 
 Some of these are hardware-dependent and not relevant for this project, so moving content is the most relevant measure in this project.
 
 \subsection{Game Engine}
-A game engine is a framework specifically used for developing games~\cite{gameengine}. Several third party game engines are available, the most popular being Unity and Unreal Engine.
+A game engine is a framework specifically used for developing games~\cite{gameengine_what_nodate}. Several third party game engines are available, the most popular being Unity and Unreal Engine.
 Using a game engine speeds up the development as it includes systems needed, like rendering, animations, and physics.
 
 %why unity
@@ -351,7 +351,7 @@ Part of the Unity VR support is the XR interaction Toolkit (XRTK)~\cite{noauthor
 To develop for several XR platforms, the different controllers have a mutual interface for setting keybindings, called an XR controller. Almost all commercial VR controllers support an index finger trigger, a joystick/trackpad with 2D directional input, a grip button, and at least one extra button~\cite{technologies_unity_nodate}.
 
 \subsubsection{Entity Component System}
-Development in unity is based around the Entity Component System~\cite{entitycomponent}. An entity is every object populating the game. The base class for all entities is the GameObject. Every model, player and menu is a GameObject.
+Development in unity is based around the Entity Component System~\cite{entitycomponent_entities_nodate}. An entity is every object populating the game. The base class for all entities is the GameObject. Every model, player and menu is a GameObject.
 
 Components attaches to one or more Entities to define the behaviour. Entities can have several components. Components can provide game logic, movement, user input and much more. Components are scripted in C\# and the .NET framework.
 
@@ -378,7 +378,7 @@ The responses are gathered and used to answer the questions.
 
 \begin{figure}[h!]
     \centering
-	\subfloat[][]{\includegraphics[height=130pt]{images/agile.png}}
+  \makebox[\textwidth][c]{\includegraphics[width=1.3\textwidth]{images/agile.png}}%
 	\hfill
   \caption{Development method}
   \label{agile}
@@ -685,54 +685,90 @@ The mesh simplification could be automated, but this limit would be irrelevant i
 
 TODO: performance data?
 
-\chapter{Analysis and assessment}\label{analysis and assessment}
+\chapter{Result}\label{result}
 
-Two user tests were performed during the project to evaluate the application and try to answer the research questions. In this chapter both tests are described.
+Two user tests were performed during the project to evaluate the application and try to answer the research questions. In this chapter both tests and the results are described.
 
-\section{Evaluations}
+\section{User tests}
 
 \subsection{Participants}
-Two surgeons
--few participants
--previous experience
 
+The application was tested on two orthopedic surgeons currently working at Haukland University Hospital.
+%experience
+Both surgeons had more than 10 years of experience in orthopedics and claims to be very proficient at reading CT images and recognizing fractures.
+Both participants had limited experience with any virtual reality, rating their familiarity at 3 out of 10.
 
-\subsection{Test nr. 1}
-date: 16 Jan. 2022
+Having only two participants means it is difficult to fully conclude any of the research questions. The semi-structured interview does however provide a lot of insight on the research question.
+
+\subsection{First test}
+Date: 16 Jan. 2022
 
 This was the first test done with professional end users. Previous to this test only the surgeon on the team had proposed what functionality was needed in the product.
+
+The goal was to figure out if any of the proposed use cases and implemented features was relevant for other end users, and if any additional requirements are relevant.
 %approach
-The goal of the test was to figure out if any of the proposed use cases and features was relevant for other users. 
-The intended use cases was also described. At this point the intended use cases was simply increasing the understanding compared to traditional slice visualisation.
-The test was performed by a short introduction on the application and a introduction on how to use the VR controllers. Afterwards each surgeon would have 5 to 10 minutes to try out all features at their own pace. The HMD was mirrored to a screen to observe the user. Minimal guidance was given during the testing, except for any breaking bugs or clarifying questions.
+The intended use cases was described to the participants. At this point the intended use cases was simply increasing the understanding compared to traditional slice visualisation.
+The test was performed by a short introduction on the application and an introduction on how to use the VR controllers. Afterwards each surgeon would have 5 to 10 minutes to try out all features at their own pace. The HMD was mirrored to a screen to observe what the user was doing. Minimal guidance was given during the testing, except for any breaking bugs or clarifying questions.
 
+\subsubsection{Test results}
+%observations
+The participants struggled with the controls for the first two minutes. Especially understanding what buttons to press and how to pick up model parts. After the initial struggle, the participants easily interacted with the program.
+The application had no way of moving the entire model closer to the player, and relied instead on the "reset view" button on the Quest. It was hard to find and use this button for the user.
+
+%kommentarer fra enkelte
+The model is missing data on bone density, because all bones look the same. The density is relevant because only solid bones can be drilled into. The model is also lacking some info on bone mass because bone with density below a density threshold could have been ignoring when making the model.
+
+% TODO: reponere på engelsk
+The model pieces are large and smaller pieces can not be moved individually. Smaller pieces should be movable in order to plan out the surgery.
+
+%general feedback
+Both surgeons agreed that using VR to understand the fractures was an insignificant improvement from 2D and 3D models.
+The reason stated was that both surgeons are very experienced with reading 2D CT images, and can easily recognize a familiar fracture on CT images, often without any 3D model. Both suggest a use case for training or education where CT imaging is harder to read.
+
+\subsection{Second Test}
+Date: 5 May 2022
+
+Between the first and second test the application was improved based on the previous results. A similar fracture to the first test was split up into much smaller individual pieces to allow for movement. Other miscellaneous changes was added to improve the user experience.
+
+The approach on this test was similar, except for a more structured evaluation. After the participants finished testing a semi-structured interview including System Usability Scale questions was done.
+
+System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was used to get quantitative data to be able to compare between versions or make conclusions on the usability. The SUS results are however not reliable with only two participants.
+
+\subsubsection{Test results}
+%observasjoner
+As the surgeons had tried an earlier version, they very quickly got used to the controls, even with 4 months between tests. Manipulating the model seems easy and requires no guidance. When rotating the model, one participant tried to rotate on another axis, but only z-axis rotation is supported.
+
+%enkelte kommentarer
+One participant mentioned using controllers to manipulate tilt and rotation is easier using VR compared to computers.
+A participant said moving model parts in order to plan out surgery is seldom relevant as bones are often moved very short distances. This is because bones are attached to soft tissue and moving them is very restricted.
+Also the surgeon almost always knows where fracture parts are supposed to be, and does not need to plan the movements. There is however exceptions to this.
+
+Measurement tools are useful, as they are also used in traditional programs and missing them would be a disadvantage.
 %feedback
-Both surgeons agreed that using VR to understand the fractures was an insignificant improvement.
-The reason stated was that both surgeons are very experienced with reading 2D CT images, 
 
-\begin{table}[ht]
-\begin{tabular}{p{0.15\linewidth} |p{0.15\linewidth} |p{0.15\linewidth} | p{0.5\linewidth}}
-Occupation         & Experience & proficiency with VR & comments                                                                                                                                \\hline
-Orthopedic surgeon & 10+ years  & None                & The density of bone is important to know parts are solid enough for drilling. Also, some parts below the density threshold are missing. \\
-Orthopedic surgeon & 10+ years  & None                & Smaller parts and bone fragments should be moveable to "reponere" bruddet.                                                              \\
-                   &            &                     &
-\end{tabular}
-\end{table}
+The general feedback is that the benefit from visualising in VR is pretty insignificant in almost all cases, as the information gained from 2D images and 3D models is sufficient.
+This is mainly due to experience and how easy it is for surgeons to recognize a familiar fracture. Often the surgeon has performed the same type of surgery 100+ times and just needs to recognize the type of fracture. Additionally the process of creating the 3D model makes the benefit less significant.
+
+%SUS result
+The result from the SUS questions was 56 point out of 100. This indicates a less than average application usability~\cite{system_usability_scale_sus_system_2013}, but the sample size is too small to conclude anything.
+
+\subsection{Discussion}
+As the only participants are expert surgeons, the user tests may not have targeted the most relevant end users: less experienced surgeons. This result describes what experienced surgeons that are very familiar with current CT tools think of VR. Testing users in training was not done due to time constraints, but would be interesting.
+
+\subsubsection{Compared to other tools}
+Compared to 2D images, the application definitely does have an advantage. However compared to the existing tools available at the hospitals with 3D renders, there is less benefit in using VR.
+Possible benefits are related to controller manipulation or depth perception. Depth is probably not useful for experienced surgeons. Controllers could be beneficial for complex planning of surgeries, because of the easy 3D manipulation.
+
+\subsubsection{Compared to 3D printing}
+It seems clear from the surgeons that VR does not have significant advantages over printing in terms of understanding or planning. VR can however have some value if it gives a similar benefit at a lower cost. It is established that VR can be cheaper in terms of time and personnel.
+
+\chapter{Conclusion}
 
 
-\chapter{Discussion}\label{Discussion}
-
-
-\chapter{Conclusion} \label{Conclusion}
-
-\section{Compared to previous tools}
-
-\section{Compared to 3D printing}
--price
--time
--equal to or better performance
 
 \chapter{Further Work} \label{Further Work}
+-develop as an educational program
+-more testing
 
 \appendix
 \input{appendix/Code}
