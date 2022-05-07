@@ -134,7 +134,7 @@ A considered solution is visualizing the model in Augmented Reality (AR) or Virt
 %motivation and benefits
 VR has multiple potential benefits, and the surgery planning process can benefit from this. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's fracture understanding and by this ensure patient safety. The entire planning process could also be more effective by removing or reducing the need for 3D printed models.
 
-\subsection{Research question}
+\subsection{Research questions}
 The problem description leads us to the following research question and sub-questions.
 
 How can VR technology improve orthopedic surgery planning?
@@ -216,17 +216,18 @@ This project was based on elective surgery planning in a complicated fracture.
 Fracture treatment in orthopedics can be divided into several methods outlined in Textbook of Orthopedics~\cite{ebnezar_textbook_2016}.
 Nonoperative methods include straps, slings or casts.
 Nonoperative methods have no infection risk or surgical risk.
+
 %internal fixation
-When surgery is decided, the fracture needs to be fixed internally by implants.
+Operative methods are used for anatomic reduction. Reduction is how bones are set in close proximity after a fracture, and is important for proper healing~\cite{verywell}.
+When surgery is decided, the fracture is typically fixed internally by implants.
 Internal Fixation means to internally set and stabilize bones~\cite{ebnezar_textbook_2016}.
 Implants include screws, nails, and plates made from steel, titanium, or plastics.
-Operative methods are used for anatomic reduction.
 Treatment of fractures by external fixation is also possible. External fixation means a metallic frame is connected to the bone with pins.
 
 \subsection{Brief history of medical imaging}
 The first used imaging tool was the X-Ray, discovered in 1895~\cite{hamblen_outline_2010}~\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed at a different rate by tissue and bone mass, it is possible to create an image of the bone. The image is displayed as a projection from the X-ray angle. During the first half of the 20th century, additional techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. Often X-ray from several angles is required to view the fracture without being obscured by other bone masses~\cite{ebnezar_textbook_2016}.
-%CT scans
 
+%CT scans
 A big leap in medical imaging was the CT scan (computed tomography)~\cite{bradley_history_2008}.
 CT scans (Computed Tomography) were invented during the 1970s. During a CT scan, an X-ray tube is rotated around the tissue, scanning from all angles while detecting the absorption/reflection of the tissue. CT scans overcome the two-dimensional X-ray limits and create detailed image data that can be visualized in any plane without superimposing the image with tissue above and below the selected layer~\cite{hamblen_outline_2010}. The detail of a CT scan depends on the hardware used, as well as the trade-off where higher resolution gives the patient higher radiation~\cite{bradley_history_2008}. The higher resolution is in complex cases preferred over X-ray to evaluate intra-articular fractures (crossing a joint) or locate smaller fractures~\cite{ebnezar_textbook_2016}.
 CT scans can eliminate the need for repeated imaging in the case of a trauma patient~\cite{swiontkowski_manual_2013}.
@@ -237,15 +238,26 @@ The imaging used for testing in this report is from CT scans done by Radiologica
 
 \subsection{Visualisation of medical imaging}
 
+
 The output of both CT and MRI scans is a three-dimensional scan. The output is typically represented as slices, where a slice is a 2D picture repeating along an angle. The pixel at coordinate \emph{(x, y)} at slice number \emph{z} represent the absorption at the point \emph{(x, y, z)}~\cite{chougule_conversions_2013}.
 Each pixel in a slice represents a voxel in a volume, and all the slices combined make up volumetric data or a three-dimensional point cloud~\cite{chougule_conversions_2013}.
 The slice thickness of a slice can be below 1 mm, giving a high-resolution scan where a single point is less than one cubic millimeter~\cite{hamblen_outline_2010}. Figure \ref{dicom} shows the workflow of converting from slices to voxels and further to a mesh model.
+
+\begin{figure}[h!]
+    \centering
+  \makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{images/materialise.png}}%
+	\hfill
+	\caption{Screenshot of Materialise application \cite{materialise_medical_nodate}}
+  \label{mat}
+\end{figure}
 
 When rendering a 2D image, the volume must be projected to two-dimensional space. The values in a single slice can be used to view the intersection at a specific slice number. A line of values along all the slices can be used to view the intersection at another plane.
 All slices can be combined to show either the average or the maximum intensity~\cite{fishman_volume_2006}.
 The values are converted to greyscale by mapping ranges of values to greyscale pixels. This mapping function determines the brightness and contrast of the final image.
 
 A specific algorithm is needed to render the scan as a 3D surface mesh. Rendering the model includes preprocessing the volume and classification to determine the type of tissue based on voxel value. A simple approach is thresholding, a binary classification where a polygon is created on any volume point that matches the threshold value. A different threshold can be selected to visualize tissue with different densities, typically bone~\cite{fishman_volume_2006}.
+
+Figure \ref{mat} shows the application Materialise used at Haukland University Hospital. Both CT slices from different angles and a rendered model is shown side by side.
 
 \begin{figure}[h!]
     \centering
@@ -285,7 +297,6 @@ A physical plastic model also needs support structures that can lead to an inacc
 %cost of 3D printing
 The cost of a 3D printer and material depends on printer type and size requirements but is typically low. Extrusion-based plastic printers are commercially available at as low as 200 USD/ 1800 NOK, with very cheap materials. The cost of 3D printing in industry or medicine comes from personnel, training, and time usage~\cite{shahrubudin_overview_2019}.
 
-
 \section{Extended Reality}
 
 % TODO: bilde av ar og vr???
@@ -324,12 +335,10 @@ A disadvantage with wearing an HMD is fatigue, both physical fatigue caused by t
 Image imperfections cause eye fatigue in the HMD~\cite{kooi_visual_2004}, and motion sickness is caused by sensory conflict.
 According to a study on motion sickness factors, 59 \% of the subjects experienced motion sickness after 14 minutes on average. The remaining subjects did not experience any illness~\cite{kooi_visual_2004}. However, Motion sickness can be mitigated in several ways described later.
 
-
 A use-case of XR is simulating a subject physically out of reach, such as a planet in space or the inside of a patient's knee. For physically impaired users, this advantage is even more relevant.
 XR can also simulate situations that would otherwise be dangerous, for example, an untrained surgeon performing surgery alone.
 Another advantage is that VR is more immersive than other mediums. The immersion makes the user feel more stress or fear and makes it feasible to prepare personnel for stressful situations, such as the police.
 The added immersion also makes teaching or training more motivating for the student~\cite{freina_immersive_2015} while improving learning outcomes~\cite{cynthia_l_foronda_virtual_nodate}.
-
 
 \subsection{Designing for VR}
 VR is relatively new in mainstream media, and as such, there are few agreed-upon standards for designing the User Experience (UX).
@@ -346,12 +355,12 @@ Using a game engine speeds up the development as it includes systems needed, lik
 The Unity game engine~\cite{technologies_unity_nodate} was used for developing the application. Unity is widely used for game development~\cite{doucet_game_2021} and is well documented online with a lot of community-supported plugins. The author also had previous experience with Unity development.
 Unity has good support for different VR and XR platforms~\cite{technologies_unity_nodate-3} including the OpenXR standard widely used by commercial VR headsets~\cite{noauthor_openxr_2016}. OpenXR allows creating VR games with Unity handling most VR logic.
 
-Part of the Unity VR support is the XR interaction Toolkit (XRTK)~\cite{noauthor_xr_nodate}. It is a high-level framework for using XR interactions with unity events. The toolkit also includes components for selecting/grabbing, haptic feedback, and button interaction.
+Part of the Unity VR support is the XR interaction Toolkit (XRTK)~\cite{noauthor_xr_nodate}. It is a high-level framework for using XR interactions with Unity events. The toolkit also includes components for selecting/grabbing, haptic feedback, and button interaction.
 
 To develop for several XR platforms, the different controllers have a mutual interface for setting keybindings, called an XR controller. Almost all commercial VR controllers support an index finger trigger, a joystick/trackpad with 2D directional input, a grip button, and at least one extra button~\cite{technologies_unity_nodate}.
 
 \subsubsection{Entity Component System}
-Development in unity is based around the Entity Component System~\cite{entitycomponent_entities_nodate}. An entity is every object populating the game. The base class for all entities is the GameObject. Every model, player and menu is a GameObject.
+Development in Unity is based around the Entity Component System~\cite{entitycomponent_entities_nodate}. An entity is every object populating the game. The base class for all entities is the GameObject. Every model, player and menu is a GameObject.
 
 Components attaches to one or more Entities to define the behaviour. Entities can have several components. Components can provide game logic, movement, user input and much more. Components are scripted in C\# and the .NET framework.
 
@@ -680,14 +689,15 @@ To improve the surgeon's ability to line up screws and find what parts of the fr
 \section{Performance}
 Performance guidelines for Occulus Quest hardware are outlined by the Occulus developers for the Quest 1 in the documentation~\cite{noauthor_oculus_nodate}.
 
-The recommended triangle count is between 350k and 500k triangles~\cite{noauthor_performance_nodate}. The imported meshes can have a high vertex count and are reduced manually using remeshing in MeshLab~\cite{cignoni_meshlab_2008} to bring the total to under 500k. The reduced quality is barely noticable when viewed in the resolution of the Quest HMD.
+The recommended triangle count is between 350k and 500k triangles~\cite{noauthor_performance_nodate}. The imported meshes can have a high vertex count and are reduced manually using remeshing in MeshLab~\cite{cignoni_meshlab_2008} to bring the total to under 500k. The reduced quality is barely noticeable when viewed in the resolution of the Quest HMD.
 The mesh simplification could be automated, but this limit would be irrelevant if using a headset with a modern GPU for dedicated rendering.
 
 TODO: performance data?
 
-\chapter{Result}\label{result}
 
-Two user tests were performed during the project to evaluate the application and try to answer the research questions. In this chapter both tests and the results are described.
+\chapter{Result}
+
+Two user tests were performed during the project to evaluate the application and try to answer the research questions. In this chapter, both tests and the results are described.
 
 \section{User tests}
 
@@ -695,80 +705,103 @@ Two user tests were performed during the project to evaluate the application and
 
 The application was tested on two orthopedic surgeons currently working at Haukland University Hospital.
 %experience
-Both surgeons had more than 10 years of experience in orthopedics and claims to be very proficient at reading CT images and recognizing fractures.
+Both surgeons had more than ten years of experience in orthopedics and claimed to be very proficient at reading CT images and recognizing fractures.
 Both participants had limited experience with any virtual reality, rating their familiarity at 3 out of 10.
 
-Having only two participants means it is difficult to fully conclude any of the research questions. The semi-structured interview does however provide a lot of insight on the research question.
+Having only two participants means it is difficult to conclude any of the research questions fully. However, the semi-structured interview does provide considerable insight into the research question.
 
 \subsection{First test}
 Date: 16 Jan. 2022
 
-This was the first test done with professional end users. Previous to this test only the surgeon on the team had proposed what functionality was needed in the product.
+This was the first test done with professional end-users. Previous to this test, only the surgeon on the team had proposed what functionality was needed in the product.
 
-The goal was to figure out if any of the proposed use cases and implemented features was relevant for other end users, and if any additional requirements are relevant.
+The goal was to determine if any of the proposed use cases and implemented features were relevant for other end users and if any additional requirements were relevant.
 %approach
-The intended use cases was described to the participants. At this point the intended use cases was simply increasing the understanding compared to traditional slice visualisation.
-The test was performed by a short introduction on the application and an introduction on how to use the VR controllers. Afterwards each surgeon would have 5 to 10 minutes to try out all features at their own pace. The HMD was mirrored to a screen to observe what the user was doing. Minimal guidance was given during the testing, except for any breaking bugs or clarifying questions.
+The intended use cases were described to the participants. At this point, the intended use case was improving the understanding compared to traditional slice visualisation.
+Testing was performed by introducing the application and explaining how to use the VR controllers. Afterward, each surgeon would have 5 to 10 minutes to try out all features at their own pace. The HMD was mirrored to a screen to observe what the user was doing. Minimal guidance was given during the testing, except for clarifying questions on bugs or limitations.
 
 \subsubsection{Test results}
 %observations
-The participants struggled with the controls for the first two minutes. Especially understanding what buttons to press and how to pick up model parts. After the initial struggle, the participants easily interacted with the program.
-The application had no way of moving the entire model closer to the player, and relied instead on the "reset view" button on the Quest. It was hard to find and use this button for the user.
+The participants struggled with the controls for the first two minutes, especially understanding what buttons to press and how to pick up model parts. After the initial struggle, the participants easily interacted with the program.
+The application had no way of moving the entire model closer to the player and relied instead on the "reset view" button on the Quest. It was hard to find and use this button for the user.
 
 %kommentarer fra enkelte
-The model is missing data on bone density, because all bones look the same. The density is relevant because only solid bones can be drilled into. The model is also lacking some info on bone mass because bone with density below a density threshold could have been ignoring when making the model.
+After testing the application, the participants gave feedback on the functionality.
+The model is missing data on bone density because all bones look the same. The density is relevant because only solid bones can be drilled into. The model is also lacking some info on bone mass because bone with density below a density threshold could have been ignoring when making the model.
 
-% TODO: reponere på engelsk
-The model pieces are large and smaller pieces can not be moved individually. Smaller pieces should be movable in order to plan out the surgery.
+The model pieces are large and smaller pieces can not be moved individually. Smaller pieces should be movable in order to perform the reduction.
 
 %general feedback
-Both surgeons agreed that using VR to understand the fractures was an insignificant improvement from 2D and 3D models.
-The reason stated was that both surgeons are very experienced with reading 2D CT images, and can easily recognize a familiar fracture on CT images, often without any 3D model. Both suggest a use case for training or education where CT imaging is harder to read.
+Both surgeons agreed that using VR to understand the fractures was a minor improvement from 2D and 3D models.
+The reason stated was that both surgeons are very experienced with reading 2D CT images and can easily recognize a familiar fracture on CT images, often without any 3D model. Both suggest a use case for training or education where CT imaging is harder to read.
 
 \subsection{Second Test}
 Date: 5 May 2022
 
-Between the first and second test the application was improved based on the previous results. A similar fracture to the first test was split up into much smaller individual pieces to allow for movement. Other miscellaneous changes was added to improve the user experience.
+Between the first and second test the application was improved based on the previous results. A similar fracture to the first test was split up into much smaller individual pieces to allow for movement. Other miscellaneous changes were added to improve the user experience.
 
-The approach on this test was similar, except for a more structured evaluation. After the participants finished testing a semi-structured interview including System Usability Scale questions was done.
+The approach to this test was similar, except for a more structured evaluation. After the participants finished testing, a semi-structured interview, including System Usability Scale questions, was done.
 
-System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was used to get quantitative data to be able to compare between versions or make conclusions on the usability. The SUS results are however not reliable with only two participants.
+System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was used to get quantitative data to be able to compare between versions or make conclusions on the usability. The SUS results are, however not reliable with only two participants.
 
 \subsubsection{Test results}
 %observasjoner
-As the surgeons had tried an earlier version, they very quickly got used to the controls, even with 4 months between tests. Manipulating the model seems easy and requires no guidance. When rotating the model, one participant tried to rotate on another axis, but only z-axis rotation is supported.
+As the surgeons had tried an earlier version, they quickly got used to the controls, even with four months between tests. Manipulating the model seems easy and requires no guidance. When rotating the model, one participant tried to rotate on another axis, but only z-axis rotation is supported.
+% TODO: 3d printing
 
 %enkelte kommentarer
-One participant mentioned using controllers to manipulate tilt and rotation is easier using VR compared to computers.
-A participant said moving model parts in order to plan out surgery is seldom relevant as bones are often moved very short distances. This is because bones are attached to soft tissue and moving them is very restricted.
-Also the surgeon almost always knows where fracture parts are supposed to be, and does not need to plan the movements. There is however exceptions to this.
+One participant mentioned that using controllers to manipulate tilt and rotation is easier using VR compared to computers.
+A participant said moving model parts for planning surgery is seldom relevant as bones are often moved very short distances. Bones are attached to soft tissue, and moving them is very restricted.
+Also the surgeon almost always knows where fracture parts are supposed to be, and does not need to plan the movements. There is however, exceptions to this.
 
-Measurement tools are useful, as they are also used in traditional programs and missing them would be a disadvantage.
+Measurement tools are helpful, as they are also used in traditional programs, and missing them would be a disadvantage.
 %feedback
 
 The general feedback is that the benefit from visualising in VR is pretty insignificant in almost all cases, as the information gained from 2D images and 3D models is sufficient.
-This is mainly due to experience and how easy it is for surgeons to recognize a familiar fracture. Often the surgeon has performed the same type of surgery 100+ times and just needs to recognize the type of fracture. Additionally the process of creating the 3D model makes the benefit less significant.
+This is mainly due to experience and how easy it is for surgeons to recognize a familiar fracture. Often the surgeon has performed the same type of surgery 100+ times and only needs to recognize the type of fracture. Additionally, creating the required 3D model makes the benefit less significant.
 
 %SUS result
-The result from the SUS questions was 56 point out of 100. This indicates a less than average application usability~\cite{system_usability_scale_sus_system_2013}, but the sample size is too small to conclude anything.
+The result from the SUS questions was 56 points out of 100. The score indicates a less than average application usability~\cite{system_usability_scale_sus_system_2013}, but the sample size is too small to conclude anything.
+
 
 \subsection{Discussion}
-As the only participants are expert surgeons, the user tests may not have targeted the most relevant end users: less experienced surgeons. This result describes what experienced surgeons that are very familiar with current CT tools think of VR. Testing users in training was not done due to time constraints, but would be interesting.
+%Testing
+As the only participants are expert surgeons, the user tests may not have targeted the most relevant end-users: less experienced surgeons. This result describes what experienced surgeons that are very familiar with current CT tools think of VR. Testing users with less experience or in training was not done due to time constraints but would be interesting.
+
+%general benefits
+VR has documented benefits in learning and education. The benefits could apply to surgery preparation but need more testing to conclude anything.
 
 \subsubsection{Compared to other tools}
-Compared to 2D images, the application definitely does have an advantage. However compared to the existing tools available at the hospitals with 3D renders, there is less benefit in using VR.
-Possible benefits are related to controller manipulation or depth perception. Depth is probably not useful for experienced surgeons. Controllers could be beneficial for complex planning of surgeries, because of the easy 3D manipulation.
+
+Compared to using 2D images, the application definitely does have an advantage. However, compared to the existing tools available at the hospitals, such as 3D images in Materialise, there is less benefit in using VR.
+Possible benefits are related to controller manipulation or depth perception. Depth is probably not useful for experienced surgeons. Controllers could be beneficial for complex planning of surgeries because of the easy 3D manipulation.
 
 \subsubsection{Compared to 3D printing}
-It seems clear from the surgeons that VR does not have significant advantages over printing in terms of understanding or planning. VR can however have some value if it gives a similar benefit at a lower cost. It is established that VR can be cheaper in terms of time and personnel.
+%istedet for VR?
+It seems clear from the surgeons that VR does not have significant advantages compared to printing in terms of understanding or planning. VR can, however, be valuable if it gives a similar benefit at a lower cost. It is established that VR can be cheaper in terms of time and personnel. This makes it likely that VR can be a reasonable alternative.
+
+%TODO: 3d printing benefits
+%kan VR være bedre?
+VR has a lot of benefits over 3D printing in terms of digital tools and visualization.
+These tools already exist in current 2D tools, and surgeons would always use 2D tools in addition to printing.
+For VR to be a better alternative, it would need some benefit that is also not present in 2D applications. According to testing, the VR tools did not have any significant advantage over the 2D tools.
+Controller manipulation seemed to be the best advantage but did not have many practical use cases, according to interviews.
+
 
 \chapter{Conclusion}
+Given the results described earlier from testing, we try to answer the proposed research question by looking at the two sub-questions:
+
+\section{How can VR improve surgery planning}
+With experienced surgeons as the target group, there was no indication of VR itself improving the quality of the planning and improving the outcome of the surgery. 
+
+\section{How can VR replace 3D printing}
+It is established that VR is a technology that requires fewer resources compared to 3D printing. In the context of surgery planning, it seems VR can give the same advantages as 3D printing, making it a feasible alternative. However, as both have unique advantages, VR can not be considered a complete replacement.
 
 
+\chapter{Further Work}
+This project would require more testing for it to be reliable. Testing should include a higher sample size and broader demography of specializations, ages, and experience.
 
-\chapter{Further Work} \label{Further Work}
--develop as an educational program
--more testing
+As previously suggested, a likely relevant target group for a similar project would be surgeons in training, undergoing education, or with less experience. This could possibly include educational tools tailored for training.
 
 \appendix
 \input{appendix/Code}
