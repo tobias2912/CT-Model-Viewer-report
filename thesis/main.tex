@@ -109,8 +109,12 @@ A VR application for viewing CT scans was created with assistance from surgeons 
 The VR application is tested in order to evaluate how it affects the surgery planning.
 Medical professionals have tried the VR applications and participated in semi-structured interviews.
 
-% \section*{Acknowledgements}
-% First and foremost, I would like to thank
+\section*{Acknowledgements}
+First and foremost, I would like to thank my supervisors Harald Soleim and Atle Geitung at Western Norway University of Applied Sciences for guidance on planning, structure and writing throughout the project. They are both very knowledgable and thorough in their work and their help is greatly appreciated.
+
+The external domain experts at Haukland University Hospital Knut Fjeldsgaard and Rolf Arne Haakonsen have helped with understanding the domain of Orthopedics and medical imaging respectively. They have helped shaping the problem description and use cases for the project. Without this guidance the project would not be possible. Knut has also helped with test planning, recruiting participants and interpreting and discussing the results.
+
+Other helpful people at Helse Vest are Håkon Garfors and Thomas Larsen for facilitating the project with relevant connections and help getting the project started. Grete Oline Hole has provided very useful insight on the background of the project and relevant studies and writing guidance.
 
 \pagebreak
 \tableofcontents
@@ -715,21 +719,23 @@ Date: 16 Jan. 2022
 
 This was the first test done with professional end-users. Previous to this test, only the surgeon on the team had proposed what functionality was needed in the product.
 
-The goal was to determine if any of the proposed use cases and implemented features were relevant for other end users and if any additional requirements were relevant.
+The goal was to determine if any of the proposed use cases and implemented features were relevant for end users and if any additional requirements was needed.
 %approach
-The intended use cases were described to the participants. At this point, the intended use case was improving the understanding compared to traditional slice visualisation.
+
+Before the test, the intended use cases were described to the participants. The intended use case was improving the understanding compared to traditional slice visualisation given a complex fracture.
 Testing was performed by introducing the application and explaining how to use the VR controllers. Afterward, each surgeon would have 5 to 10 minutes to try out all features at their own pace. The HMD was mirrored to a screen to observe what the user was doing. Minimal guidance was given during the testing, except for clarifying questions on bugs or limitations.
 
-\subsubsection{Test results}
+\subsubsection{Results}
 %observations
 The participants struggled with the controls for the first two minutes, especially understanding what buttons to press and how to pick up model parts. After the initial struggle, the participants easily interacted with the program.
-The application had no way of moving the entire model closer to the player and relied instead on the "reset view" button on the Quest. It was hard to find and use this button for the user.
+
+The application had no way of moving the entire model closer to the player and relied instead on the $Reset\ View$ button integrated on the Quest. It was hard to find and use this button for the user.
 
 %kommentarer fra enkelte
 After testing the application, the participants gave feedback on the functionality.
 The model is missing data on bone density because all bones look the same. The density is relevant because only solid bones can be drilled into. The model is also lacking some info on bone mass because bone with density below a density threshold could have been ignoring when making the model.
 
-The model pieces are large and smaller pieces can not be moved individually. Smaller pieces should be movable in order to perform the reduction.
+The model pieces were in large segments and so smaller fracture parts could not be moved individually. Smaller pieces should have been movable in order to perform reduction on the fracture.
 
 %general feedback
 Both surgeons agreed that using VR to understand the fractures was a minor improvement from 2D and 3D models.
@@ -738,13 +744,16 @@ The reason stated was that both surgeons are very experienced with reading 2D CT
 \subsection{Second Test}
 Date: 5 May 2022
 
-Between the first and second test the application was improved based on the previous results. A similar fracture to the first test was split up into much smaller individual pieces to allow for movement. Other miscellaneous changes were added to improve the user experience.
+Between the first and second test the application was improved based on the previous results. 
+A similar fracture to the first test was split up into three times as many smaller individual pieces to allow for reduction planning. 
+Implants was also further developed.
+Other miscellaneous changes were added to improve the user experience.
 
 The approach to this test was similar, except for a more structured evaluation. After the participants finished testing, a semi-structured interview, including System Usability Scale questions, was done.
 
 System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was used to get quantitative data to be able to compare between versions or make conclusions on the usability. The SUS results are, however not reliable with only two participants.
 
-\subsubsection{Test results}
+\subsubsection{Results}
 %observasjoner
 As the surgeons had tried an earlier version, they quickly got used to the controls, even with four months between tests. Manipulating the model seems easy and requires no guidance. When rotating the model, one participant tried to rotate on another axis, but only z-axis rotation is supported.
 % TODO: 3d printing
