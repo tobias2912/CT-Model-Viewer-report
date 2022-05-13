@@ -709,18 +709,18 @@ The mesh simplification could be automated, but this limit would be irrelevant i
 TODO: performance data?
 
 
-\chapter{Result}
+\chapter{Results and Discussion}
 
 Two user tests were performed during the project to evaluate the application and try to answer the research questions. In this chapter, both tests and the results are described.
 
-\section{User tests}
+\section{Evaluation}
 
 \subsection{Participants}
 
 The application was tested on two orthopedic surgeons currently working at Haukland University Hospital.
 %experience
 Both surgeons had more than ten years of experience in orthopedics and claimed to be very proficient at reading CT images and recognizing fractures.
-Both participants had limited experience with any virtual reality, rating their familiarity at 3 out of 10.
+Both participants had limited experience with any virtual reality, rating their own experience at 3 out of 10.
 
 Having only two participants means it is difficult to conclude any of the research questions fully. However, the semi-structured interview does provide considerable insight into the research question.
 
@@ -765,13 +765,20 @@ System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was u
 
 \subsubsection{Results}
 %observasjoner
-As the surgeons had tried an earlier version, they quickly got used to the controls, even with four months between tests. Manipulating the model seems easy and requires no guidance. When rotating the model, one participant tried to rotate on another axis, but only z-axis rotation is supported.
-% TODO: 3d printing
+As the surgeons had tried an earlier version, they quickly got used to the controls, even with four months between tests. 
+Manipulating the model seems easy and requires no guidance. The functionality that is available in other programs, such as scaling/zoom, rotation and CT images was familiar and easy to use.
+
+Some of the application design did not work out as expected.
+When rotating the model, one participant tried to rotate on another axis, but only z-axis rotation is supported. Viewing the model from the z-axis (top down view) is common in other viewers.
+The application had no way of resetting the model position, sometimes causing the user to reach into a wall or furniture. There is also no way of picking up a model physically out of reach.
+
+% TODO: sammenlignet med 3d printing
 
 %enkelte kommentarer
-One participant mentioned that using controllers to manipulate tilt and rotation is easier using VR compared to computers.
+One participant mentioned that using controllers to manipulate tilt and rotation is easier with VR controllers compared to mouse/keyboard. This is relevant for planning with implants.
+
 A participant said moving model parts for planning surgery is seldom relevant as bones are often moved very short distances. Bones are attached to soft tissue, and moving them is very restricted.
-Also the surgeon almost always knows where fracture parts are supposed to be, and does not need to plan the movements. There is however, exceptions to this.
+Also the surgeon almost always knows where fracture parts are supposed to be, and does not need to plan the movements. There is however, exceptions to this with specific complicated fractures.
 
 Measurement tools are helpful, as they are also used in traditional programs, and missing them would be a disadvantage.
 %feedback
@@ -779,13 +786,25 @@ Measurement tools are helpful, as they are also used in traditional programs, an
 The general feedback is that the benefit from visualising in VR is pretty insignificant in almost all cases, as the information gained from 2D images and 3D models is sufficient.
 This is mainly due to experience and how easy it is for surgeons to recognize a familiar fracture. Often the surgeon has performed the same type of surgery 100+ times and only needs to recognize the type of fracture. Additionally, creating the required 3D model makes the benefit less significant.
 
+%Knut feedback
+Some of the interview results are from the surgeon on the team that was included in the development process. He could be biased on how easy the software is to use or on how useful it is, but is still included for sake of discussion.
+%TODO: knut sine meninger
+
+
 %SUS result
-The result from the SUS questions was 56 points out of 100. The score indicates a less than average application usability~\cite{system_usability_scale_sus_system_2013}, but the sample size is too small to conclude anything.
+The result from the SUS questions was 56 points out of 100. The sample size is too small to conclude anything, but the result can still be a topic of discussion. The questions used and average scores are available in the appendix.
 
 
-\subsection{Discussion}
+\section{Discussion}
+%Final application
+TODO: final state of application
+TODO: ting som burde endres
+
 %Testing
 As the only participants are expert surgeons, the user tests may not have targeted the most relevant end-users: less experienced surgeons. This result describes what experienced surgeons that are very familiar with current CT tools think of VR. Testing users with less experience or in training was not done due to time constraints but would be interesting.
+
+%SUS synsing
+The SUS score of 56 indicates a less than average application usability, which is 68~\cite{system_usability_scale_sus_system_2013}. The low usability score is probably skewed by scepticism towards the use-case and not just the user experience of the application itself. The question \emph{I want to use the application often} had a score of 1/5 because of what tools they already use are sufficient, and not the applications usability. This questions does imply that the application is not very useful.
 
 %general benefits
 VR has documented benefits in learning and education. The benefits could apply to surgery preparation but need more testing to conclude anything.
@@ -808,7 +827,7 @@ Controller manipulation seemed to be the best advantage but did not have many pr
 
 
 \chapter{Conclusion}
-Given the results described earlier from testing, we try to answer the proposed research question by looking at the two sub-questions:
+Given the evaluation results described earlier, we try to answer the proposed research question by looking at the two sub-questions:
 
 \section{How can VR improve surgery planning}
 With experienced surgeons as the target group, there was no indication of VR itself improving the quality of the planning and improving the outcome of the surgery. 
@@ -821,6 +840,14 @@ It is established that VR is a technology that requires fewer resources compared
 This project would require more testing for it to be reliable. Testing should include a higher sample size and broader demography of specializations, ages, and experience.
 
 As previously suggested, a likely relevant target group for a similar project would be surgeons in training, undergoing education, or with less experience. This could possibly include educational tools tailored for training.
+
+\section{Other fields}
+There are many other medical fields beside orthopedics that use scan data for diagnosis and planning.
+CT, MRI, PET and ultrasound can all produce image slices and 3D models, and these could be visualized with a very similar application, especially anything using the standard DICOM format.
+Examples are neurosurgery or cardiovascular surgery that typically use MRI scans instead of CT, and also require some planning in advance.
+
+\section{Education}
+
 
 \appendix
 \input{appendix/Code}
