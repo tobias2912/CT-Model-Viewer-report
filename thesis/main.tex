@@ -103,7 +103,7 @@ During orthopedic surgery planning, the surgeons use CT images and 3D printing t
 %problem
 Visualising three-dimensional data as 2D images limits how the data is comprehended. 3D printing has drawbacks related to the printing process, such as printing time and the need for support structures.
 
-With Virtual Reality technology, the data can be visualized in 3D using a real-life scale to perceive depth and distances better. The improved visualisation can improve the preparation phase by increasing the anatomical understanding or removing the need for 3d printing.
+With Virtual Reality technology, the data can be visualized in 3D using a real-life scale to perceive depth and distances better. The improved visualisation can improve the preparation phase by increasing the anatomical understanding or removing the need for 3D printing.
 A VR application for viewing CT scans was created with assistance from surgeons at Haukland University Hospital.
 
 The VR application is tested in order to evaluate how it affects the surgery planning.
@@ -261,7 +261,7 @@ The slice thickness of a slice can be below 1 mm, giving a high-resolution scan 
   \makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{images/materialise.png}}%
 	\hfill
 	\caption{Screenshot of Materialise application \cite{materialise_medical_nodate}}
-  \label{mat}
+ \label{mat}
 \end{figure}
 
 When rendering a 2D image, the volume must be projected to two-dimensional space. The values in a single slice can be used to view the intersection at a specific slice number. A line of values along all the slices can be used to view the intersection at another plane.
@@ -336,7 +336,7 @@ AR has some uses not relevant to VR because it does not completely disconnect th
 
 \subsection{Professional usage of XR}
 While becoming more popular in mainstream entertainment, XR has been used in professional environments for many years.
-An advantage of XR compared to mouse/keyboard devices is touch-free interfaces with hand tracking, making it better for a sterile environment~\cite{andrews_extended_2019}.
+An advantage of XR compared to mouse and keyboard devices is touch-free interfaces with hand tracking, making it better for a sterile environment~\cite{andrews_extended_2019}.
 
 VR has been developed by the US Airforce since the 1980s for pilot interfaces~\cite{mertz_virtual_2019}. VR and AR are often used in the medical field for training or education because the actual situation would be unpractical or dangerous~\cite{freina_immersive_2015}.
 VR is used in cardiology and neurology for monitoring and is emerging in other medical fields such as rehabilitation and training~\cite{javaid_virtual_2020}.
@@ -422,7 +422,7 @@ After the demonstration, the backlog was updated with tasks prioritized by value
 During the next two weeks, as many tasks as possible were implemented and demonstrated in the next meeting.
 
 % conclusion
-The frequent meeting demonstrations worked really well with VR development, as the different features are hard to understand without trying the application. Fast prototypes are essential to cooperate efficiently when the product owner or test users have a limited understanding of the technology.
+The frequent meeting demonstrations worked really well with VR development, as the different features are hard to understand without trying the application. Fast iterations are essential to cooperate efficiently when the product owner or test users have a limited understanding of the technology.
 
 % design thinking
 Design thinking elements was used because both the medical domain and user needs were challenging to understand. Specifically the empathise, define and ideate stages was used. Frequent prototyping would be too time consuming too be relevant. Design Thinking helps to understand an unfamiliar domain and what the needs of the users are.
@@ -445,9 +445,18 @@ A secondary goal is to make users understand the fracture well and facilitate pl
 
 \subsection{Hardware}
 The VR devices used for this development and testing was the Oculus Quest 1 and Quest 2~\cite{noauthor_oculus_nodate}. The hardware was selected out of availability reasons and the practicality of having a standalone device.
-The Quest 1 and 2 are very popular consumer standalone VR headsets. When in standalone mode, the headset uses integrated graphics and is battery powered.
+The Quest 1 and 2 are very popular consumer standalone VR headsets. When in standalone mode, the headset uses integrated graphics and is battery powered. The standalone mode performance is far inferior to a headset connected to a powerful computer, as can be seen in figure~\ref{comp} the Quest struggles with dense geometry, textures and post-processing effects.
 There are other headsets with better displays and motion tracking, but the Quest devices are sufficient.
 
+\begin{figure}[h!]
+    \centering
+
+  \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{images/comparison.png}}%
+	\hfill
+	\caption{The video game \emph{Apex Legends} running on a desktop computer compared to Quest 1 in standalone mode~\cite{tyriel_wood_-_vr_tech_oculus_2019}.}\label{comp}
+  \small
+
+\end{figure}
 %how it worked
 Testing in standalone mode at different locations was very convenient, but it had a drawback as the project needed to be tailored to run on a low performance android device. This led to problems with both high resolution data and different bugs related to the android build.
 
@@ -464,8 +473,7 @@ Familiarity with current tools means taking interactions from programs such as C
 The architecture of the Unity application is based around a singleton 'GameController' module. The GameController manages important states and contains references to the other modules, shown in figure~\ref{structure}. The modules have different responsibilities like multiplayer or menu interaction and communicates through the GameController. This solution is easy to extend and prevents a lot of cross-references between components.
 %gameobjects
 A module typically consists of a GameObject with the same name, and one or more components attached to the GameObject. In some cases the GameObject has several GameObjects as children.
-As an example the Model Container has a child for every part of the model. This is indicated by one to many relationships in the figure \ref{structure}.
-
+As an example the Model Container has a child for every part of the model. This is indicated by one to many relationships in the figure~\ref{structure}.
 
 The components related to the model have several instances and are drawn as one-to-many relations in the figure. This allows to swap between models while keeping info on positions and implants.
 
@@ -743,13 +751,15 @@ The application had no way of moving the entire model closer to the player and r
 
 %kommentarer fra enkelte
 After testing the application, the participants gave feedback on the functionality.
-The model is missing data on bone density because all bones look the same. The density is relevant because only solid bones can be drilled into. The model is also lacking some info on bone mass because bone with density below a density threshold could have been ignoring when making the model.
+The model is missing data on bone density and all bones appear equal even if they have different densities. The bone density is relevant because only solid bones can be drilled into. The model is also lacking some info on bone mass because bone with density below a density threshold could have been ignoring when making the model.
 
 The model pieces were in large segments and so smaller fracture parts could not be moved individually. Smaller pieces should have been movable in order to perform reduction on the fracture.
 
 %general feedback
 Both surgeons agreed that using VR to understand the fractures was a minor improvement from 2D and 3D models.
 The reason stated was that both surgeons are very experienced with reading 2D CT images and can easily recognize a familiar fracture on CT images, often without any 3D model. Both suggest a use case for training or education where CT imaging is harder to read.
+
+%TODO: bilde av forskjellen mellom testene?
 
 \subsection{Second Test}
 Date: 5 May 2022
@@ -772,73 +782,99 @@ Some of the application design did not work out as expected.
 When rotating the model, one participant tried to rotate on another axis, but only z-axis rotation is supported. Viewing the model from the z-axis (top down view) is common in other viewers.
 The application had no way of resetting the model position, sometimes causing the user to reach into a wall or furniture. There is also no way of picking up a model physically out of reach.
 
-% TODO: sammenlignet med 3d printing
 
 %enkelte kommentarer
-One participant mentioned that using controllers to manipulate tilt and rotation is easier with VR controllers compared to mouse/keyboard. This is relevant for planning with implants.
+One participant mentioned that using controllers to manipulate tilt and rotation is easier with VR controllers compared to mouse and keyboard. This is relevant for planning with implants.
 
 A participant said moving model parts for planning surgery is seldom relevant as bones are often moved very short distances. Bones are attached to soft tissue, and moving them is very restricted.
 Also the surgeon almost always knows where fracture parts are supposed to be, and does not need to plan the movements. There is however, exceptions to this with specific complicated fractures.
 
 Measurement tools are helpful, as they are also used in traditional programs, and missing them would be a disadvantage.
-%feedback
 
+%feedback
 The general feedback is that the benefit from visualising in VR is pretty insignificant in almost all cases, as the information gained from 2D images and 3D models is sufficient.
 This is mainly due to experience and how easy it is for surgeons to recognize a familiar fracture. Often the surgeon has performed the same type of surgery 100+ times and only needs to recognize the type of fracture. Additionally, creating the required 3D model makes the benefit less significant.
+The slight improvement in visualisation may not be worth creating images for 3D rendering and using a HMD to view the model in VR.
+
+% TODO: sammenlignet med 3d printing
+A participant said when comparing to 3D printing that he rarely requested prints, of the same reasons mentioned earlier: When viewing CT images he very often recognizes a familiar fracture. 
 
 %Knut feedback
 Some of the interview results are from the surgeon on the team that was included in the development process. He could be biased on how easy the software is to use or on how useful it is, but is still included for sake of discussion.
 %TODO: knut sine meninger
 
-
 %SUS result
-The result from the SUS questions was 56 points out of 100. The sample size is too small to conclude anything, but the result can still be a topic of discussion. The questions used and average scores are available in the appendix.
-
+The result from the SUS questions was 58.75 points out of 100. The sample size is too small to conclude anything, but the result can still be a topic of discussion. The questions used and average scores are available in the appendix.
 
 \section{Discussion}
-%Final application
-TODO: final state of application
-TODO: ting som burde endres
 
+\subsection{VR development}
+
+The application had two design goals of being easy to use and give a good fracture understanding.
+There are some user experience errors apparent in testing that should be improved for better user interaction. The following points are identified as the most critical improvements.
+
+The most important is handling Interactable objects physically out of reach. Some VR games use a ''force grab'' mechanic where grabbing a distant object moves it towards the users hand, which could have solved the issue.
+% TODO: alle andre errors
+
+A repeating issue is being able to move the model. This includes adjusting the height to adjust for a sitting or standing position, or moving the model closer or further away if the user moves in real life. A similar issue is moving the model on other axis, to view from other angles. This feature would be nice to have as well as it is a source of frustration for some.
+This issue does not have an obvious solution, as grabbing is reserved for another action and there is no available joystick controls to use. A proposed solution is using a modal solution and use grabbing in conjunction with a button press, but this increases complexity for users. Another could be automatic distance from user and automatic height based on user height, but moving objects without user interaction is considered bad practice. A final suggestion is a UI similar to the menu system to control movement.
+
+
+
+%hardware
+As development and testing was done on a particular headset, hardware choice and limitations could have an impact on results. The Quest 2 is a fairly recent headset released in 2020~\cite{noauthor_oculus_nodate}, but is a cheap consumer headset with lower specifications than more expensive alternatives. This primarily affected how well the application could render large datasets without lagging.
+Testing could potentially have compared headsets with different resolutions and performance to find if this causes a worse user experience.
+Virtual Reality and Augmented Reality is fields with a lot of development, and future hardware will probably make VR or AR an even better alternative.
+
+\subsection{Evaluations}
 %Testing
 As the only participants are expert surgeons, the user tests may not have targeted the most relevant end-users: less experienced surgeons. This result describes what experienced surgeons that are very familiar with current CT tools think of VR. Testing users with less experience or in training was not done due to time constraints but would be interesting.
 
 %SUS synsing
-The SUS score of 56 indicates a less than average application usability, which is 68~\cite{system_usability_scale_sus_system_2013}. The low usability score is probably skewed by scepticism towards the use-case and not just the user experience of the application itself. The question \emph{I want to use the application often} had a score of 1/5 because of what tools they already use are sufficient, and not the applications usability. This questions does imply that the application is not very useful.
+The SUS score of 59 indicates a less than average application usability, which is 68~\cite{system_usability_scale_sus_system_2013}. The low usability score is probably skewed by scepticism towards the use-case and not just the user experience of the application itself. The question \emph{I want to use the application often} had a score of 1/5 because of what tools they already use are sufficient, and not the applications usability. This questions does however imply that the application is not very useful for experienced surgeons.
 
 %general benefits
-VR has documented benefits in learning and education. The benefits could apply to surgery preparation but need more testing to conclude anything.
+VR has documented benefits in learning and education. The benefits could apply when using the application for less experienced end users, or in training.
 
-\subsubsection{Compared to other tools}
+%Compared to existing tools
 
-Compared to using 2D images, the application definitely does have an advantage. However, compared to the existing tools available at the hospitals, such as 3D images in Materialise, there is less benefit in using VR.
-Possible benefits are related to controller manipulation or depth perception. Depth is probably not useful for experienced surgeons. Controllers could be beneficial for complex planning of surgeries because of the easy 3D manipulation.
+Comparing the VR viewer to the existing 2D and 3D tool used at Haukland University Hospital called Materialise, there are definitely advantages.
 
-\subsubsection{Compared to 3D printing}
-%istedet for VR?
-It seems clear from the surgeons that VR does not have significant advantages compared to printing in terms of understanding or planning. VR can, however, be valuable if it gives a similar benefit at a lower cost. It is established that VR can be cheaper in terms of time and personnel. This makes it likely that VR can be a reasonable alternative.
+Possible benefits are related to controller manipulation and depth perception. Rendering with depth is likely not useful for experienced surgeons, but is promising for less experienced surgeons.
+Controllers could be beneficial for complex planning of surgeries because of the easy 3D manipulation.
 
-%TODO: 3d printing benefits
-%kan VR være bedre?
-VR has a lot of benefits over 3D printing in terms of digital tools and visualization.
-These tools already exist in current 2D tools, and surgeons would always use 2D tools in addition to printing.
-For VR to be a better alternative, it would need some benefit that is also not present in 2D applications. According to testing, the VR tools did not have any significant advantage over the 2D tools.
+%sammenligne med 2d og printing
+VR has some obvious benefits over 3D printing such as digital tools and more complex visualization.
+However an important question is whether to compare VR to just 3D printing or printing in addition to 2D tools. As 2D tools are often used together with 3D printing, VR should be compared to both. Some advantages to VR like transparency or cross sections is also available in 2D applications.
+
+Tools like measurement already exist in current 2D tools. The similar tools in VR gives few benefits except for better controller manipulation when placing or moving objects.
 Controller manipulation seemed to be the best advantage but did not have many practical use cases, according to interviews.
+Implants have some advantages when digital, such as 'screwing' in a screw, and then resetting the model. Implants can also be adjusted and manipulated digitally without having a physical model.
 
+3D printing has some advantages hard to recreate in VR. The first is physical touch, which controllers can not reproduce. Another is accurately using tools or implants with the model, which can be simulated, but with a lower precision than real life.
+
+%remote
+VR has the advantage of remote usage or remote cooperation, which is very limited with physical prints. This has however not been tested in this project.
+
+%konklusjon applikasjon
+The final application is overall working well and mostly accomplishes the first design goal of being easy to use. The other goal of giving users a good understanding of the fracture is partly met, VR gives some benefits to visualisation, but it is a small increase compared to existing tools.
+The test participants does not believe it helps much in surgery planning. It has advantages over 3D printing, but the participants rarely uses printing anyways. It has a lot of potential in complex fractures where printing is limited and the fracture is hard to understand, but these kind of cases are rare.
 
 \chapter{Conclusion}
 Given the evaluation results described earlier, we try to answer the proposed research question by looking at the two sub-questions:
 
-\section{How can VR improve surgery planning}
-With experienced surgeons as the target group, there was no indication of VR itself improving the quality of the planning and improving the outcome of the surgery. 
+% How can VR improve surgery planning
 
-\section{How can VR replace 3D printing}
+With experienced surgeons as the target group, there was no indication of VR itself improving the quality of the planning and improving the outcome of the surgery.
+
+% How can VR replace 3D printing
 It is established that VR is a technology that requires fewer resources compared to 3D printing. In the context of surgery planning, it seems VR can give the same advantages as 3D printing, making it a feasible alternative. However, as both have unique advantages, VR can not be considered a complete replacement.
 
 
 \chapter{Further Work}
 This project would require more testing for it to be reliable. Testing should include a higher sample size and broader demography of specializations, ages, and experience.
 
+\section{Educational Tool}
 As previously suggested, a likely relevant target group for a similar project would be surgeons in training, undergoing education, or with less experience. This could possibly include educational tools tailored for training.
 
 \section{Other fields}
@@ -852,7 +888,29 @@ Examples are neurosurgery or cardiovascular surgery that typically use MRI scans
 \appendix
 \input{appendix/Code}
 
+\begin{figure}[h!]
+    \centering
+  \makebox[\textwidth][c]{\includegraphics[width=1.3\textwidth]{images/sus.png}}%
+	\hfill
+	\caption{SUS scores}\label{sus}
+  \small
+\end{figure}
 
+\begin{figure}[h!]
+    \centering
+  \makebox[\textwidth][c]{\includegraphics[width=1.3\textwidth]{images/intervju1.png}}%
+	\hfill
+	\caption{Interview notes from evaluation}\label{implants}
+  \small
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+  \makebox[\textwidth][c]{\includegraphics[width=1.3\textwidth]{images/intervju.png}}%
+	\hfill
+	\caption{Interview notes from evaluation}\label{notes}
+  \small
+\end{figure}
 %\bibliographystyle{splncs04}
 %\bibliography{references}
 \printbibliography
