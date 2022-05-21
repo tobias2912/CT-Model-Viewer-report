@@ -735,7 +735,7 @@ Having only two participants means it is difficult to conclude any of the resear
 \subsection{First test}
 Date: 16 Jan. 2022
 
-This was the first test done with professional end-users. Previous to this test, only the surgeon on the team had proposed what functionality was needed in the product.
+This was the first test done with professional orthopedic surgeons. Previous to this test, only the surgeon on the team had proposed what functionality was needed in the product.
 
 The goal was to determine if any of the proposed use cases and implemented features were relevant for end users and if any additional requirements was needed.
 %approach
@@ -763,6 +763,8 @@ The reason stated was that both surgeons are very experienced with reading 2D CT
 
 \subsection{Second Test}
 Date: 5 May 2022
+
+This test was done with the orthopedic surgeons from the first test. 
 
 Between the first and second test the application was improved based on the previous results. 
 A similar fracture to the first test was split up into three times as many smaller individual pieces to allow for reduction planning. 
@@ -796,12 +798,60 @@ The general feedback is that the benefit from visualising in VR is pretty insign
 This is mainly due to experience and how easy it is for surgeons to recognize a familiar fracture. Often the surgeon has performed the same type of surgery 100+ times and only needs to recognize the type of fracture. Additionally, creating the required 3D model makes the benefit less significant.
 The slight improvement in visualisation may not be worth creating images for 3D rendering and using a HMD to view the model in VR.
 
-% TODO: sammenlignet med 3d printing
+%TODO: sammenlignet med 3d printing
 A participant said when comparing to 3D printing that he rarely requested prints, of the same reasons mentioned earlier: When viewing CT images he very often recognizes a familiar fracture. 
 
 %Knut feedback
 Some of the interview results are from the surgeon on the team that was included in the development process. He could be biased on how easy the software is to use or on how useful it is, but is still included for sake of discussion.
-%TODO: knut sine meninger
+
+TODO: knut interview
+
+\subsection{Radiograph testing}
+
+The application was tested on radiograph students on HVL to explore any education benefits. The students had completed 2 years of the radiograph bachelor and had some experience with interpreting CT images and had been using VR for anatomy education.
+The existing VR program they used was an anatomy model and did not include any CT images or fractures.
+It was also tested on professors in the radiograph study.
+The testing was performed in a similar way, but with education and CT image interpretation as a goal.
+
+%student feedback
+The students had no trouble with using the application or VR in general. They discovered controls and features without any additional guidance. They also gave feedback on the application being very easy to use and intuitive.
+
+The students agreed the tool was a good educational tool for learning CT image interpretation, especially early in the study programme.
+One participant said viewing the height of the selected CT slice made it easier to understand the image.
+
+One student mentioned moving the fracture parts was useful to understand what a fracture looks like.
+
+A suggestion was to use labeling for the CT images, as used in existing tools. The labeling could show bone names or other points of interest. It could also be shown on both model and the images.
+
+An educational tool should preferably include other body parts and include soft tissue data. Especially heart or brain is difficult to understand.
+
+
+% testing av professorer
+The professors interviewed teaches in different courses at the radiography bachelor, and all have a radiograph or radiology background. 
+
+
+
+
+Litt vr
+Utdanning med anatomi
+Studenter bruker lite tid på CT bilder og er ikke så veldig flinke på å tolke
+Transparent hadde vært bedre
+Inlkudert i utdanning hvis større database
+Målet er bedre forståelse får CT alene, VR kan gjøre de bedre
+Veldig lettvint å bruke
+Kanskje en ekstra ting man ikke har tid til
+—-----
+Har tilsvarende funksjonalitet, men ikke like bra som i VR
+Ortopeder liker det de kan
+Model og slices Supplerer hverandre
+Ct skills avhenger av praksis, de har ofte ikke tid i praksis
+Verdifullt
+De bruker vr i anatomi / friske muskler
+Patalogi = skader
+Fint å bruke vr for å se på skader
+Bedre når studentene venner seg til det
+
+\subsubsection{Results}
 
 %SUS result
 The result from the SUS questions was 58.75 points out of 100. The sample size is too small to conclude anything, but the result can still be a topic of discussion. The questions used and average scores are available in the appendix.
@@ -814,11 +864,11 @@ The application had two design goals of being easy to use and give a good fractu
 There are some user experience errors apparent in testing that should be improved for better user interaction. The following points are identified as the most critical improvements.
 
 The most important is handling Interactable objects physically out of reach. Some VR games use a ''force grab'' mechanic where grabbing a distant object moves it towards the users hand, which could have solved the issue.
-% TODO: alle andre errors
 
 A repeating issue is being able to move the model. This includes adjusting the height to adjust for a sitting or standing position, or moving the model closer or further away if the user moves in real life. A similar issue is moving the model on other axis, to view from other angles. This feature would be nice to have as well as it is a source of frustration for some.
 This issue does not have an obvious solution, as grabbing is reserved for another action and there is no available joystick controls to use. A proposed solution is using a modal solution and use grabbing in conjunction with a button press, but this increases complexity for users. Another could be automatic distance from user and automatic height based on user height, but moving objects without user interaction is considered bad practice. A final suggestion is a UI similar to the menu system to control movement.
 
+TODO: flytte målepunkter
 
 
 %hardware
