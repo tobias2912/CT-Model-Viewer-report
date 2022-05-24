@@ -99,15 +99,17 @@ matchrangestart=t}
 \pagebreak
 
 \section*{Abstract}
-During orthopedic surgery planning, the surgeons use CT images and 3D printing to analyze the fracture and help prepare for the surgery.
+During orthopedic surgery planning, the surgeons use Computed Tomography (CT) images and 3D printing to analyze the fracture and help prepare for the surgery.
 %problem
 Visualising three-dimensional data as 2D images limits how the data is comprehended. 3D printing has drawbacks related to the printing process, such as printing time and the need for support structures.
 
 With Virtual Reality technology, the data can be visualized in 3D using a real-life scale to perceive depth and distances better. The improved visualisation can improve the preparation phase by increasing the anatomical understanding or removing the need for 3D printing.
-A VR application for viewing CT scans was created with assistance from surgeons at Haukland University Hospital.
 
-The VR application is tested in order to evaluate how it affects the surgery planning.
-Medical professionals have tried the VR applications and participated in semi-structured interviews.
+A VR application for viewing CT scans was created with assistance from orthopedic surgeons at Haukland University Hospital and domain experts in radiology.
+
+The VR application is tested in order to evaluate how it affects the surgery planning and CT image interpretation.
+Medical professionals in Orthopedics and radiology have tried the VR applications and participated in semi-structured interviews.
+Based on feedback during testing, the project is also tested as an educational tool. Radiography students have participated in user tests to explore this use case.
 
 \section*{Acknowledgements}
 First and foremost, I would like to thank my supervisors Harald Soleim and Atle Geitung at Western Norway University of Applied Sciences for guidance on planning, structure and writing throughout the project. They are both very knowledgable and thorough in their work and their help is greatly appreciated.
@@ -137,28 +139,30 @@ Printed models helps neurosurgeons practice~\cite{shahrubudin_overview_2019} and
 Medical imaging plays a big role in surgery planning, and the visualization of data affects how it is interpreted~\cite{bradley_history_2008}.
 
 %VR
-Of the different visualization methods used, Virtual Reality (VR) is among the newest technologies. It is starting to be applied more in several fields, including medicine. VR also has some unique benefits discussed later.
+Of the different visualization methods used, Virtual Reality (VR) is among the newest technologies. It is starting to be applied more in several fields, including medicine. VR also has some unique benefits discussed later. 
+The approach to this project is exploring how VR can benefit in interpreting CT images and better the anatomy understanding of medical personnel.
 
 
 \section{Problem Description}
-Visualizing the model in 2D limits the understanding of the fracture because of the lack of scale and depth. The problem applies to both 2D images and 3D models.
-A considered solution is visualizing the model in Augmented Reality (AR) or Virtual Reality (VR) to give medical personnel a good understanding of the problem area.
+Visualizing the imaging data in 2D limits how the images are interpreted because of the lack of scale and depth. The problem applies to both 2D images and 3D models shown on monitors.
+The suggested solution is visualizing the model in Augmented Reality (AR) or Virtual Reality (VR) to give medical personnel a good understanding of the problem area.
 %motivation and benefits
 VR has multiple potential benefits, and the surgery planning process can benefit from this. As the users are already looking at 3D models on 2D screens, visualizing in VR could improve the surgeon's fracture understanding and by this ensure patient safety.
 The entire planning process could also be more effective by removing or reducing the need for 3D printed models.
 
+The potential data visualization could also benefit in training or education. VR can be used to improve a less experienced person to better learn CT image interpretation.
+
 \subsection{Research questions}
-The problem description leads us to the following research question and sub-questions.
+The problem description leads us to the following research questions:
 
 How can VR technology improve orthopedic surgery planning?
 
-\begin{itemize}
-	\item Can VR give a better preparation for surgery?
-	\item Can VR replace 3D printing while using fewer resources or less time?
-\end{itemize}
+% \begin{itemize}
+% 	\item How can VR give a better preparation for surgery?
+% 	\item How can VR replace 3D printing while using fewer resources or less time?
+% \end{itemize}
 
-% 1: Will better understanding lead to a better success rate?
-% 2: can VR replace 3D printing while using fewer resources or less time?
+How can VR improve CT interpretation skills for less experienced personnel?
 
 \section{Methodology}
 
@@ -168,7 +172,7 @@ The application is tested on medical personnel to evaluate any benefits on anato
 Firstly, a application VR viewer will be created with the help of VR frameworks and guidance from both orthopedic surgeons and developers with experience in medical technology.
 
 In order to answer the research question, we have evaluate the usability of the final application. This thesis has used qualitative methods
-by interviewing related personnel to evaluate the planning improvements, including anatomical understanding, cooperation, and the effectiveness of the planning process.
+by interviewing related personnel to evaluate the planning improvements, including anatomical understanding, cooperation, and the effectiveness of the planning process. Students or inexperienced personnel will also be interviewed with regards to  TODO: 
 The functionality will also be compared to the existing solutions, possibly by making a direct comparison by using a 3D model, printed model, and VR viewer
 on the same case.
 
@@ -201,9 +205,9 @@ Orthopedic surgery is surgery involving the musculoskeletal system. Cases range 
 
 Orthopedic surgeons do both elective (planned) and emergency surgery. Surgery includes prosthesis surgery, tumors and infections.
 In elective surgery, the surgeons will have days or weeks to plan out the surgery. A team of usually two surgeons will plan the surgery together.
-The surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Medical imaging, including X-ray, ultrasound, CT, and Magnetic Resonance Imaging (MRI), gives the surgeons a detailed insight into bones or soft tissue structures~\cite{swiontkowski_manual_2013}.
+The surgeons will diagnose the patient from the following features: history, clinical examination, medical imaging, and any special investigations. History includes the patient's complaint and any previous injuries. Clinical investigation means examining the sources of the symptoms and the body as a whole. Radiology and medical imaging such as X-ray, ultrasound, CT, and Magnetic Resonance Imaging (MRI), gives the surgeons a detailed insight into bones or soft tissue structures~\cite{swiontkowski_manual_2013}.
 %how medical imaging is used in workflow
-Medical imaging is used to locate the fracture or the number of fractures and inform the surgeon on the anatomy, such as fracture line and fracture type. 
+Medical imaging is used to locate the fracture or the number of fractures and inform the surgeon on the anatomy, such as fracture line and fracture type.
 The data can also show bone condition if any joints are involved and swelling of soft tissue. All this information helps confirm the diagnosis, study the fracture and plan the treatment~\cite{ebnezar_textbook_2016}.
 %types of medical imaging
 The different imaging types have different uses and advantages.
@@ -237,7 +241,9 @@ Internal Fixation means to internally set and stabilize bones~\cite{ebnezar_text
 Implants include screws, nails, and plates made from steel, titanium, or plastics.
 Treatment of fractures by external fixation is also possible. External fixation means a metallic frame is connected to the bone with pins.
 
-\subsection{Brief history of medical imaging}
+\subsection{Radiology}
+Radiology is the use of medical imaging to diagnose and treat disease. A radiologist is a doctor interpreting images, while the technicans performing the imaging are radiographers~\cite{swiontkowski_manual_2013}.
+
 The first used imaging tool was the X-Ray, discovered in 1895~\cite{hamblen_outline_2010}~\cite{suetens_fundamentals_2017}. As the energy in the radiation is absorbed at a different rate by tissue and bone mass, it is possible to create an image of the bone. The image is displayed as a projection from the X-ray angle. During the first half of the 20th century, additional techniques with several X-Rays allowed to isolate a slice of bone without over- and underlying tissue. Often X-ray from several angles is required to view the fracture without being obscured by other bone masses~\cite{ebnezar_textbook_2016}.
 
 %CT scans
@@ -299,7 +305,6 @@ A physical plastic model also needs support structures that can lead to an inacc
 
 \begin{figure}[h!]
     \centering
-	% \subfloat[][]{\includegraphics[height=120pt]{images/ctToPrint.png}} 
   \makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{images/ctToPrint.png}}%
 	\hfill
   \caption{Humeral (upper arm) fracture}
@@ -528,9 +533,19 @@ The default Unity XR behavior is selecting a new object in every frame, and this
 Using Occulus hand tracking~\cite{noauthor_set_nodate} could be beneficial, but is currently not recommended for high degrees of precision. Future versions of hand tracking or Hololens hand tracking could improve the interact experience in the future.
 
 
-\subsubsection{Separation mode}
-The grabbing functionality introduces a problem: If the user moves a model part, the CT images will no longer be similar to the model displayed. Also, if the user is measuring the distance between two model parts, it gives an invalid result if the parts are moved. 
-The solution to this is a separation mode. Moving any model part enters separation mode and reverting to the original position exits separation mode. In separation mode, the CT images are hidden, and measurements are hidden. A large button appears to display the current mode, prompting the user to click the button to reset the model and once again view CT images.
+\begin{figure}[h!]
+    \centering
+  \makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{images/flow.png}}%
+	\hfill
+	\caption{User flow}\label{flow}
+  \small
+  How the user changes moves between different states
+\end{figure}
+
+\subsubsection{Modal design}
+The grabbing functionality introduces a problem: If the user moves a model part, the CT images will no longer be similar to the model displayed. Also, if the user is measuring the distance between two model parts, it gives an invalid result if the parts are moved.
+
+The solution to this is a separation mode and a measurement mode. This is a modal design where the possible actions are dependent on the state of the application. The user can either move model parts around or view CT data and measurements. Moving any model part enters separation mode and reverting to the original position enters measurement mode. In separation mode, the CT images are hidden, and measurements are hidden. A large button appears to display the current mode, prompting the user to click the button to reset the model and once again view CT images and measurements.
 
 \subsubsection{Keybindings}
 Controller keybindings shown in figure \ref{controllers} was set to make the controllers intuitive and easy to use. This configuration seemed to work well in testing.
@@ -759,15 +774,23 @@ The model pieces were in large segments and so smaller fracture parts could not 
 Both surgeons agreed that using VR to understand the fractures was a minor improvement from 2D and 3D models.
 The reason stated was that both surgeons are very experienced with reading 2D CT images and can easily recognize a familiar fracture on CT images, often without any 3D model. Both suggest a use case for training or education where CT imaging is harder to read.
 
-%TODO: bilde av forskjellen mellom testene?
+
+\begin{figure}[h!]
+    \centering
+  \makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{images/test1and2.png}}%
+	\hfill
+	\caption{First and second test comparison}\label{test}
+  \small
+  visualisation changes on second test. The fracture part is split into several pieces and colors are less saturated.
+\end{figure}
 
 \subsection{Second Test}
 Date: 5 May 2022
 
-This test was done with the orthopedic surgeons from the first test. 
+This test was done with the orthopedic surgeons from the first test.
 
-Between the first and second test the application was improved based on the previous results. 
-A similar fracture to the first test was split up into three times as many smaller individual pieces to allow for reduction planning. 
+Between the first and second test the application was improved based on the previous results (Figure~\ref{test}).
+A similar fracture to the first test was split up into three times as many smaller individual pieces to allow for reduction planning.
 Implants was also further developed.
 Other miscellaneous changes were added to improve the user experience.
 
@@ -784,6 +807,7 @@ Some of the application design did not work out as expected.
 When rotating the model, one participant tried to rotate on another axis, but only z-axis rotation is supported. Viewing the model from the z-axis (top down view) is common in other viewers.
 The application had no way of resetting the model position, sometimes causing the user to reach into a wall or furniture. There is also no way of picking up a model physically out of reach.
 
+When using the measurement tool the user is expected to place new points to reset the previous measurement. One user tried moving the measurement points similarly to the grabbable objects, which resulted in some confusion.
 
 %enkelte kommentarer
 One participant mentioned that using controllers to manipulate tilt and rotation is easier with VR controllers compared to mouse and keyboard. This is relevant for planning with implants.
@@ -807,8 +831,9 @@ Some of the interview results are from the surgeon on the team that was included
 TODO: knut interview
 
 \subsection{Radiograph testing}
+Date: 16 - 20 May 2022
 
-The application was tested on radiograph students on HVL to explore any education benefits. The students had completed 2 years of the radiograph bachelor and had some experience with interpreting CT images and had been using VR for anatomy education.
+The application was tested on radiograph students on HVL to explore any education benefits. The students had completed 2 years of the radiograph bachelor and had some experience with interpreting CT images and had been using VR for anatomy education. The VR program used at HVL is called 3D Organon~\cite{organon}.
 The existing VR program they used was an anatomy model and did not include any CT images or fractures.
 It was also tested on professors in the radiograph study.
 The testing was performed in a similar way, but with education and CT image interpretation as a goal.
@@ -828,33 +853,26 @@ An educational tool should preferably include other body parts and include soft 
 
 % testing av professorer
 The professors interviewed teaches in different courses at the radiography bachelor, and all have a radiograph or radiology background. 
+All participants has previously used similar VR tools at HVL.
 
+They agreed students lack some skills in interpreting CT images. This is caused by a lack of training during the courses and in practice at hospitals. Using a tool that helps with understanding CT images would be valuable. 
 
+The existing VR tool they use at HVL does not contain CT images or fractures, so this application would substitute it well.
 
+Similarly to the students, the professors required little to no guidance. Every participant said the application was easy to use or similar.
 
-Litt vr
-Utdanning med anatomi
-Studenter bruker lite tid på CT bilder og er ikke så veldig flinke på å tolke
-Transparent hadde vært bedre
-Inlkudert i utdanning hvis større database
-Målet er bedre forståelse får CT alene, VR kan gjøre de bedre
-Veldig lettvint å bruke
-Kanskje en ekstra ting man ikke har tid til
-—-----
-Har tilsvarende funksjonalitet, men ikke like bra som i VR
-Ortopeder liker det de kan
-Model og slices Supplerer hverandre
-Ct skills avhenger av praksis, de har ofte ikke tid i praksis
-Verdifullt
-De bruker vr i anatomi / friske muskler
-Patalogi = skader
-Fint å bruke vr for å se på skader
-Bedre når studentene venner seg til det
+A participant said viewing the model and images side by side supplements each other, and is valuable for teaching students. Similar tools with a side by side view already exists, but VR makes it even better.
+
+All participants mentioned a larger selection of data should be available, and one mentioned other scan types to include muscle or lungs. The larger dataset should preferably include the entire body.
+
+On the question \emph{Should this be used in education?} one participant answered it has value but could be difficult to choose what is should replace, and they may not have any time available. Another said it fits in with existing use of VR, and will be even better as VR becomes more common and the students gets accustom to the technology.
 
 \subsubsection{Results}
 
 %SUS result
 The result from the SUS questions was 58.75 points out of 100. The sample size is too small to conclude anything, but the result can still be a topic of discussion. The questions used and average scores are available in the appendix.
+
+TODO: oppdatere SUS med nye resultater
 
 \section{Discussion}
 
@@ -868,7 +886,9 @@ The most important is handling Interactable objects physically out of reach. Som
 A repeating issue is being able to move the model. This includes adjusting the height to adjust for a sitting or standing position, or moving the model closer or further away if the user moves in real life. A similar issue is moving the model on other axis, to view from other angles. This feature would be nice to have as well as it is a source of frustration for some.
 This issue does not have an obvious solution, as grabbing is reserved for another action and there is no available joystick controls to use. A proposed solution is using a modal solution and use grabbing in conjunction with a button press, but this increases complexity for users. Another could be automatic distance from user and automatic height based on user height, but moving objects without user interaction is considered bad practice. A final suggestion is a UI similar to the menu system to control movement.
 
-TODO: flytte målepunkter
+Measurement worked fine for the users that understood the usage, which gave good feedback on being able to accuretly measure distance on several axis. The interface is differs itself from the rest of application because it uses button clicks and could have been reworked to a grab interaction.
+
+Transparency was a much requested feature during testing. The reason was split, it could have used to show density or it could simply be used to view soft tissue layered on top of bone. It would definitely have been a nice feature, was had some technical limitations described previously. Had it been planned feature at the project start, the application could have used DICOM data to generate transparent volume data. Potential issues would be both performance and data segmentation, so the opaque models seems like a reasonable solution.
 
 
 %hardware
@@ -877,17 +897,16 @@ Testing could potentially have compared headsets with different resolutions and 
 Virtual Reality and Augmented Reality is fields with a lot of development, and future hardware will probably make VR or AR an even better alternative.
 
 \subsection{Evaluations}
-%Testing
-As the only participants are expert surgeons, the user tests may not have targeted the most relevant end-users: less experienced surgeons. This result describes what experienced surgeons that are very familiar with current CT tools think of VR. Testing users with less experience or in training was not done due to time constraints but would be interesting.
+%Testing orthopedic
+This result on the surgery use case describes what experienced surgeons that are very familiar with current tools think of VR. They have little VR experience and do not use VR regularly. One can assume this increases scepticism compared to students using VR almost daily.
 
 %SUS synsing
-The SUS score of 59 indicates a less than average application usability, which is 68~\cite{system_usability_scale_sus_system_2013}. The low usability score is probably skewed by scepticism towards the use-case and not just the user experience of the application itself. The question \emph{I want to use the application often} had a score of 1/5 because of what tools they already use are sufficient, and not the applications usability. This questions does however imply that the application is not very useful for experienced surgeons.
+The SUS score from surgeon testing of 59 indicates a less than average application usability, which is 68~\cite{system_usability_scale_sus_system_2013}. The low usability score is probably skewed by scepticism towards the use-case and not just the user experience of the application itself. The question \emph{I want to use the application often} had a score of 1/5 because of what tools they already use are sufficient, and not the applications usability. This questions does however imply that the application is not very useful for experienced surgeons.
 
 %general benefits
 VR has documented benefits in learning and education. The benefits could apply when using the application for less experienced end users, or in training.
 
 %Compared to existing tools
-
 Comparing the VR viewer to the existing 2D and 3D tool used at Haukland University Hospital called Materialise, there are definitely advantages.
 
 Possible benefits are related to controller manipulation and depth perception. Rendering with depth is likely not useful for experienced surgeons, but is promising for less experienced surgeons.
@@ -905,6 +924,11 @@ Implants have some advantages when digital, such as 'screwing' in a screw, and t
 
 %remote
 VR has the advantage of remote usage or remote cooperation, which is very limited with physical prints. This has however not been tested in this project.
+
+%education
+The response from the educational point of view was very good. They already use similar VR tools, so the barrier to picking up such a tool is fairly low.
+As the educational purpose was not the original use case for the project, it is not designed with any teaching tools in mind. There is, however, very few features requested that would be specific for educational purpose. The only example is labeling of body parts. 
+Using such a tool in education is very promising, and during this project the radiography department has been very interested in its uses.
 
 %konklusjon applikasjon
 The final application is overall working well and mostly accomplishes the first design goal of being easy to use. The other goal of giving users a good understanding of the fracture is partly met, VR gives some benefits to visualisation, but it is a small increase compared to existing tools.
@@ -925,12 +949,14 @@ It is established that VR is a technology that requires fewer resources compared
 This project would require more testing for it to be reliable. Testing should include a higher sample size and broader demography of specializations, ages, and experience.
 
 \section{Educational Tool}
-As previously suggested, a likely relevant target group for a similar project would be surgeons in training, undergoing education, or with less experience. This could possibly include educational tools tailored for training.
+As this project was tested as a educational tool with fairly good results, this could be developed further. The application does not contain any tools directed towards teaching. This use case probably has some potential not fulfilled by this application.
 
 \section{Other fields}
-There are many other medical fields beside orthopedics that use scan data for diagnosis and planning.
+There are many other medical fields beside orthopedics that use radiology for diagnosis and planning.
 CT, MRI, PET and ultrasound can all produce image slices and 3D models, and these could be visualized with a very similar application, especially anything using the standard DICOM format.
 Examples are neurosurgery or cardiovascular surgery that typically use MRI scans instead of CT, and also require some planning in advance.
+
+TODO: lage alt dynamisk, automatiske datasett, oppdatere CT bilder automatisk
 
 \section{Education}
 
