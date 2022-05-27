@@ -363,8 +363,8 @@ VR can also be used in medical fields for equipment training, like the radiologi
 Multiple users in a virtual training environment practicing using a CT scanner.
 
 Image from website HealthySimulation~\cite{noauthor_how_2020}
-
 \end{figure}
+
 % TODO: mer om medisin?
 
 \subsection{Advantages and disadvantages}
@@ -765,6 +765,13 @@ User tests were performed during and after the project to evaluate the applicati
 
 \section{Evaluation}
 
+%SUS intro
+System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was used to get quantitative data to be able to compare between user groups or make conclusions on usability.
+The survey consists of 10 standardized questions that are answered on a scale on 1 to 5. The questions are translated into norwegian and are available in the appendix.
+
+The survey was answered by 3 orthopedic surgeons, 3 professors in radiology or radiography and 2 radiography students. The total participant count of 8 is high enough to give a good indication of program usability~\cite{experience}, being measured to 75 \% accuracy in a specific study~\cite{tullis}.
+
+
 \subsection{Participants}
 
 For evaluating the surgery planning use case, the application was tested on two orthopedic surgeons currently working at Haukland University Hospital.
@@ -826,7 +833,6 @@ Other miscellaneous changes were added to improve the user experience.
 
 The approach to this test was similar, except for a more structured evaluation. After the participants finished testing, a semi-structured interview, including System Usability Scale questions, was done.
 
-System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was used to get quantitative data to be able to compare between versions or make conclusions on the usability. The SUS results are, however not reliable with only two participants.
 
 \subsubsection{Results}
 %observasjoner
@@ -860,6 +866,9 @@ Some of the interview results are from the surgeon on the team that was included
 
 TODO: knut interview
 
+%SUS result ortopeder
+The result from the SUS questions was 58.75 points out of 100 (n=2), which places it at OK~\cite{bangor_empirical_2008}. The sample size is too small to conclude anything, but the result can still be a topic of discussion. The questions used and average scores are available in the appendix.
+
 \subsection{Radiograph testing}
 Date: 16 - 20 May 2022
 
@@ -869,6 +878,7 @@ It was also tested on three professors in the radiography course at HVL.
 The testing was performed in a similar way, but with education and CT image interpretation as a goal.
 Both students and professors also answered the SUS form.
 
+\subsubsection{Results}
 %student feedback
 The students had no trouble with using the application or VR in general. They discovered controls and features without any additional guidance. They also gave feedback on the application being very easy to use and intuitive.
 
@@ -898,11 +908,11 @@ All participants mentioned a larger selection of data should be available, and o
 
 On the question \emph{Should this be used in education?} one participant answered it has value but could be difficult to choose what is should replace, and they may not have any time available. Another said it fits in with existing use of VR, and will be even better as VR becomes more common and the students gets accustom to the technology.
 
-\subsubsection{Results}
-TODO: oppdatere SUS med nye resultater
-
 %SUS result
-The result from the SUS questions was 58.75 points out of 100. The sample size is too small to conclude anything, but the result can still be a topic of discussion. The questions used and average scores are available in the appendix.
+The SUS score from educational users was 87.5 (n=5). Maximum score was 97.5 and minimum 72.5. The adjective rating is very good~\cite{bangor_empirical_2008} and is above the average SUS score of 68.
+
+
+
 
 
 \section{Discussion}
@@ -927,13 +937,16 @@ As development and testing was done on a particular headset, hardware choice and
 Testing could potentially have compared headsets with different resolutions and performance to find if this causes a worse user experience.
 Virtual Reality and Augmented Reality is fields with a lot of development, and future hardware will probably make VR or AR an even better alternative.
 
-\subsection{Evaluations}
+\subsection{Evaluations} %discussion
 %Testing orthopedic
 This result on the surgery use case describes what experienced surgeons that are very familiar with current tools think of VR. They have little VR experience and do not use VR regularly. One can assume this increases scepticism compared to students using VR almost daily.
 
-TODO: begrunne SUS
-%SUS synsing
-The SUS score from surgeon testing of 59 indicates a less than average application usability, which is 68~\cite{system_usability_scale_sus_system_2013}. The low usability score is probably skewed by scepticism towards the use-case and not just the user experience of the application itself. The question \emph{I want to use the application often} had a score of 1/5 because of what tools they already use are sufficient, and not the applications usability. This questions does however imply that the application is not very useful for experienced surgeons.
+%SUS begrunne
+The SUS scores gathered total 8 answers, divided between the fields of orthopedics and radiography.
+The SUS participant count for each user group is low, but the total of 8 is high enough to give a good indication of the usability. It should be noted that the total SUS score is an average from several roles that view the application from different perspectives. Testing distinct user groups is both a benefit as it is more thoroughly tested, but makes it harder to conclude on usability for a specific user base.
+
+%SUS om ortopeder
+The SUS score from surgeon testing of 59 indicates a less than average application usability, which is 68~\cite{system_usability_scale_sus_system_2013}. The low usability score is plausibly skewed by scepticism towards the use-case and not just the user experience of the application itself. The question \emph{I want to use the application often} had the lowest possible score of 1/5 because of what tools they already use are sufficient, and not because of the applications usability. This questions does however imply that the application is not very useful for experienced surgeons.
 
 %Compared to existing tools
 Comparing the VR viewer to the existing 2D and 3D tools in Materialise used at Haukland University Hospital, there are definitely advantages.
@@ -961,11 +974,17 @@ Using such a tool in education is very promising, and during this project the ra
 %general benefits
 VR has documented benefits in learning and education. The benefits is likely to apply when using the application for this use case.
 
+TODO: SUS om education
+The SUS score of 87.5 is significantly higher than the surgeons giving a score of 59.
+The participant count of 5 is low, but gives some insight on usability. With a lowest score of 72, it is clear education was a more reasonable target group based on SUS results. The good score also reinforces the positive feedback in interviews.
+
 %konklusjon applikasjon
-The final application is overall working well and mostly accomplishes the first design goal of being easy to use. The ease of use is important in order to evalute the research questions, as a cumbersome application would influence the feedback on how useful VR is.
+The final application is overall working well and mostly accomplishes the first design goal of being easy to use. The ease of use is important in order to evaluate the research questions, as a cumbersome application would influence the feedback on how useful VR is.
 The other goal of giving users a good understanding of the fracture is partly met, VR gives some benefits to visualisation, but it is a small increase compared to existing tools.
-The test participant surgeons does not believe it helps much in surgery planning. It has advantages over 3D printing, but the participants rarely uses printing anyways. It has a lot of potential in complex fractures where printing is limited and the fracture is hard to understand, but these kind of cases are rare. 
+The test participant surgeons does not believe it helps much in surgery planning. It has advantages over 3D printing, but the participants rarely uses printing anyways. It has a lot of potential in complex fractures where printing is limited and the fracture is hard to understand, but these kind of cases are rare.
 The student participants have different opinions and benefit a lot more from VR visualization in educational purposes. The different opinion between experienced surgeons and students could be caused by different medical fields, radiology experience, age or intended use, or a combination.
+
+
 
 
 
