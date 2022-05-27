@@ -225,12 +225,13 @@ A CT scan is used to get better information in complicated fractures. MRI can ad
   \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{images/arbeidsflyt.png}}%
 	\hfill
   \caption{Workflow of how medical imaging is used}
-  \label{flow}
+  \label{arbeidsflyt}
   \small
 \end{figure}
 
 %workflow printing
 When deemed necessary by the surgeon, a 3D printed model of the fracture is created. The 3D print requires a previous three-dimensional scan such as a CT. The model can improve the surgeon's understanding of the fracture, and allow the surgeon to adjust and practice with implants. The medical imaging and 3D printing is done by radiologists at the hospital.
+A simplified typical workflow is shown in figure~\ref{arbeidsflyt}. This also shows a suggestion on how VR could be used in this process.
 
 This project was based on elective surgery planning in a complicated fracture.
 
@@ -241,7 +242,7 @@ Nonoperative methods include straps, slings or casts.
 Nonoperative methods have no infection risk or surgical risk, but can result in bone not healing properly in complex fractures.
 
 %internal fixation
-Operative methods are used for anatomic reduction. Reduction is how bones are set in close proximity after a fracture, and is important for proper healing~\cite{verywell}.
+Operative methods are used for anatomic reduction. Reduction is how bones are set in close proximity after a fracture, and is important for proper healing~\cite{verywell_health_fracture_nodate}.
 When surgery is decided, the fracture is typically fixed internally by implants.
 Internal Fixation means to internally set and stabilize bones~\cite{ebnezar_textbook_2016}.
 Implants include screws, nails, and plates made from steel, titanium, or plastics.
@@ -737,9 +738,9 @@ When overlaying the slice texture onto the intersection plane, the image will co
   Picture showing 4 implants placed on and inside the fracture. Outline makes it easy to understand the exact position.
 \end{figure}
 
-The menu has a sub-menu for choosing what implant to add to the scene (figure \ref{implantsmenu}). It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
+The menu has a sub-menu for choosing what implant to add to the scene (figure~\ref{implantsmenu}). It consists of a list with a description and a preview of the implant. Pressing a button will spawn the selected implant in front of the user, and can then be moved in the same way a model part can be moved.
 
-To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown as in figure \ref{implants}. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes~\cite{technologies_unity_nodate-1}.
+To improve the surgeon's ability to line up screws and find what parts of the fracture is penetrated by the screw/object an outline is shown as in figure~\ref{implants}. This allows the user to see where an object is compared to any other parts, even if it is entirely obscured by the model. This is achieved by a shader using a depth buffer to only draw the outline when obscured by other meshes~\cite{technologies_unity_nodate-1}.
 
 \begin{figure}[h!]
     \centering
@@ -767,9 +768,9 @@ User tests were performed during and after the project to evaluate the applicati
 
 %SUS intro
 System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was used to get quantitative data to be able to compare between user groups or make conclusions on usability.
-The survey consists of 10 standardized questions that are answered on a scale on 1 to 5. The questions are translated into norwegian and are available in the appendix.
+The survey consists of 10 standardized questions that are answered on a scale on 1 to 5. The questions are translated into Norwegian and are available in the appendix.
 
-The survey was answered by 3 orthopedic surgeons, 3 professors in radiology or radiography and 2 radiography students. The total participant count of 8 is high enough to give a good indication of program usability~\cite{experience}, being measured to 75 \% accuracy in a specific study~\cite{tullis}.
+The survey was answered by 3 orthopedic surgeons, 3 professors in radiology or radiography and 2 radiography students. The total participant count of 8 is high enough to give a good indication of program usability~\cite{experience_why_nodate}, being measured to 75 \% accuracy in a specific study~\cite{tullis_comparison_nodate}.
 
 
 \subsection{Participants}
@@ -872,7 +873,7 @@ The result from the SUS questions was 58.75 points out of 100 (n=2), which place
 \subsection{Radiograph testing}
 Date: 16 - 20 May 2022
 
-The application was tested on radiograph students on HVL to explore any education benefits. Only two students participated. The students had completed 2 years of the radiograph bachelor and had some experience with interpreting CT images and had been using VR for anatomy education. The VR program used at HVL is called 3D Organon~\cite{organon}.
+The application was tested on radiograph students on HVL to explore any education benefits. Only two students participated. The students had completed 2 years of the radiograph bachelor and had some experience with interpreting CT images and had been using VR for anatomy education. The VR program used at HVL is called 3D Organon~\cite{organon_3d_nodate}.
 The existing VR program they used was an anatomy model and did not include any CT images or fractures.
 It was also tested on three professors in the radiography course at HVL.
 The testing was performed in a similar way, but with education and CT image interpretation as a goal.
@@ -1036,7 +1037,7 @@ TODO: lage alt dynamisk, automatiske datasett, oppdatere CT bilder automatisk
     \centering
   \makebox[\textwidth][c]{\includegraphics[width=1.3\textwidth]{images/intervju1.png}}%
 	\hfill
-	\caption{Interview notes from evaluation}\label{implants}
+	\caption{Interview notes from evaluation}
   \small
 \end{figure}
 
@@ -1044,7 +1045,7 @@ TODO: lage alt dynamisk, automatiske datasett, oppdatere CT bilder automatisk
     \centering
   \makebox[\textwidth][c]{\includegraphics[width=1.3\textwidth]{images/intervju.png}}%
 	\hfill
-	\caption{Interview notes from evaluation}\label{notes}
+	\caption{Interview notes from evaluation}
   \small
 \end{figure}
 %\bibliographystyle{splncs04}
