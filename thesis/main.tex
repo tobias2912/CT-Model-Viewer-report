@@ -771,18 +771,17 @@ System Usability Scale~\cite{system_usability_scale_sus_system_2013} (SUS) was u
 The survey consists of 10 standardized questions that are answered on a scale on 1 to 5. The questions are translated into Norwegian and are available in the appendix.
 
 The survey was answered by 3 orthopedic surgeons, 3 professors in radiology or radiography and 2 radiography students. The total participant count of 8 is high enough to give a good indication of program usability~\cite{experience_why_nodate}, being measured to 75 \% accuracy in a specific study~\cite{tullis_comparison_nodate}.
+Having only three surgeons means it is difficult to conclude the research questions on surgery preparation fully. However, the semi-structured interview does provide considerable insight into the research question and is discussed later.
 
 
 \subsection{Participants}
 
-For evaluating the surgery planning use case, the application was tested on two orthopedic surgeons currently working at Haukland University Hospital.
+For evaluating the surgery planning use case, the application was tested on three orthopedic surgeons currently working at Haukland University Hospital.
 %experience
-Both surgeons had more than ten years of experience in orthopedics and claimed to be very proficient at reading CT images and recognizing fractures.
-Both participants had limited experience with any virtual reality, rating their own experience at 3 out of 10.
+The surgeons had more than ten years of experience in orthopedics each and claimed to be very proficient at reading CT images and recognizing fractures.
+Both surgeons had limited experience with any virtual reality, rating their own experience at 3 out of 10.
 
-Having only two participants means it is difficult to conclude the research questions fully. However, the semi-structured interview does provide considerable insight into the research question and is discussed later.
-
-For evaluating the educational use case, the participants were both radiology and radiography professors and radiography students.
+For evaluating the educational use case, the participants were both radiology and radiography professors and radiography students. The students and professors have more VR experience and use VR in varying degree in their education.
 
 \subsection{First test}
 Date: 16 Jan. 2022
@@ -814,11 +813,11 @@ The reason stated was that both surgeons are very experienced with reading 2D CT
 
 \begin{figure}[h!]
     \centering
-  \makebox[\textwidth][c]{\includegraphics[width=0.8\textwidth]{images/test1and2.png}}%
+  \makebox[\textwidth][c]{\includegraphics[width=1.1\textwidth]{images/test1and2.png}}%
 	\hfill
 	\caption{First and second test comparison}\label{test}
   \small
-  visualisation changes on second test. The fracture part is split into several pieces and colors are less saturated.
+  visualisation changes on second test. The fracture part is split into several pieces, colors are less saturated along with feature improvements.
 \end{figure}
 
 \subsection{Second Test}
@@ -905,7 +904,8 @@ Similarly to the students, the professors required little to no guidance. Every 
 
 A participant said viewing the model and images side by side supplements each other, and is valuable for teaching students. Similar tools with a side by side view already exists, but VR makes it even better.
 
-All participants mentioned a larger selection of data should be available, and one mentioned other scan types to include muscle or lungs. The larger dataset should preferably include the entire body.
+All participants mentioned a larger selection of data should be available, and one mentioned other scan types to include other parts such as muscle or lungs. The larger dataset should preferably include the entire body.
+
 
 On the question \emph{Should this be used in education?} one participant answered it has value but could be difficult to choose what is should replace, and they may not have any time available. Another said it fits in with existing use of VR, and will be even better as VR becomes more common and the students gets accustom to the technology.
 
@@ -968,6 +968,9 @@ Implants have some advantages when digital, such as 'screwing' in a screw, and t
 %remote
 VR has the advantage of remote usage or remote cooperation, which is very limited with physical prints. This has however not been tested in this project. It is obvious that multiplayer and remote usage is possible as there are many such VR applications.
 
+
+
+
 %Education
 The response from the educational point of view was very good. They already use similar VR tools, so the barrier to picking up such a tool is fairly low.
 As the educational purpose was not the original use case for the project, it is not designed with any teaching tools in mind. There is, however, very few features requested that would be specific for educational purpose. The only example is labeling of body parts. 
@@ -976,7 +979,7 @@ Using such a tool in education is very promising, and during this project the ra
 VR has documented benefits in learning and education. The benefits is likely to apply when using the application for this use case.
 
 TODO: SUS om education
-The SUS score of 87.5 is significantly higher than the surgeons giving a score of 59.
+The SUS score from educational testing of 87.5 is significantly higher than the orthopedic testing with a score of 59.
 The participant count of 5 is low, but gives some insight on usability. With a lowest score of 72, it is clear education was a more reasonable target group based on SUS results. The good score also reinforces the positive feedback in interviews.
 
 %konklusjon applikasjon
@@ -997,17 +1000,23 @@ Given the evaluation results described earlier, we try to answer the proposed re
 With experienced surgeons as the target group, there was no indication of VR itself improving the quality of the planning and improving the outcome of the surgery.
 
 %3D printing
-It is established that VR is a technology that requires fewer resources compared to 3D printing. In the context of surgery planning, it seems VR can give the same advantages as 3D printing, making it a feasible alternative. However, as both have unique advantages, VR can not be considered a complete replacement.
+It is established that VR is a technology that requires fewer resources compared to 3D printing. In the context of surgery planning, it seems VR can give some of the same advantages as 3D printing, making it a feasible alternative. However, as both still have unique advantages, VR can not be considered a complete replacement. VR could still be a supplemental tool for planning, but the usefulness is inconclusive.
 
 \section{VR for CT interpretation education}
 There are studies showing the usefulness of VR in education and how it benefits motivation and learning outcomes. This benefit in addition to the different visualization VR brings makes VR a great addition to medical imaging education.
 
-Even with a small sample size, both students and professors expressed great interest in the application. It is therefore likely that VR is a good tool for education in CT interpretation and fracture anatomy.
+The application developed in the project is not specifically tailored for educational purposes and needs improvements to be fully viable as an educational tool.
+Even with an application originally intended as another tool, both students and professors expressed great interest in the application. The conclusion is therefore that VR is very likely a good tool for education in CT interpretation and fracture anatomy.
 
 
 
 \chapter{Further Work}
 This project would require more testing for it to be reliable. Testing should include a higher sample size and broader demography of specializations, ages, and experience.
+
+\section{Application improvements}
+The application could be improved by redesigning how the imaging data is processed and used. If the application had been designed to read DICOM datasets at runtime and create its own 3D models, it would give other features a lot more flexibility. Automatically loading DICOM sets would also make adding new models a lot easier. Automated 3D model creation exists with algorithm such as marching cubes, but the challenges are models without artifacts and the achieving decent performance on a standalone headset.
+
+If all data is loaded dynamically, features such as CT images and transparency would be easier to implement as it could be generated from a single dataset, and not separate DICOM data, images and 3D models. Another feature made possible would be generating new CT images as the model is changed with fixation, implants etc. With the current application, the CT images are static images.
 
 \section{Educational Tool}
 As this project was tested as a educational tool with good results, it could be developed further. The application does not contain any tools directed towards teaching. This use case probably has some potential not fulfilled by this application.
@@ -1016,10 +1025,6 @@ As this project was tested as a educational tool with good results, it could be 
 There are many other medical fields beside orthopedics that use radiology for diagnosis and planning.
 CT, MRI, PET and ultrasound can all produce image slices and 3D models, and these could be visualized with a very similar application, especially anything using the standard DICOM format.
 Examples are neurosurgery or cardiovascular surgery that typically use MRI scans instead of CT, and also require some planning in advance.
-
-TODO: lage alt dynamisk, automatiske datasett, oppdatere CT bilder automatisk
-
-\section{Education}
 
 
 \appendix
